@@ -1,8 +1,10 @@
+import { MdEvent } from 'react-icons/md'
+
 export default {
   name: 'event',
   type: 'document',
   title: 'Event',
-  __experimental_actions: ['update', /* 'create', 'delete', */ 'publish'],
+  icon: MdEvent,
   fields: [
     {
       name: 'name',

@@ -12,8 +12,8 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/dashboard",
     "@sanity/desk-tool",
+    "@sanity/dashboard",
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
     "dashboard-widget-netlify"
@@ -29,7 +29,7 @@
     },
     {
       "implements": "part:@sanity/dashboard/config",
-      "path": "dashboardConfig.js"
+      "path": "./dashboardConfig.js"
     }
   ]
 }
