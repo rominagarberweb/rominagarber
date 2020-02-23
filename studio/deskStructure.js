@@ -16,7 +16,7 @@ import {
 } from 'react-icons/md'
 
 const hiddenDocTypes = listItem =>
-  !['category', 'author', 'post', 'event', 'siteSettings'].includes(listItem.getId())
+  !['category', 'author', 'post', 'event', 'tip', 'siteSettings'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -50,8 +50,13 @@ export default () =>
       S.listItem()
         .title('Tips')
         .icon(MdLightbulbOutline)
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
+        .schemaType('tip')
+        .child(
+          S.documentList('tip')
+          .filter('_type == $type')
+          .params({ type: 'tip'})
+          .title('Tips')
+        ),
       S.divider(),
       S.listItem()
         .title('Settings')

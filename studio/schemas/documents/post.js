@@ -23,7 +23,7 @@ export default {
     },
     {
       name: 'publishedAt',
-      type: 'datetime',
+      type: 'date',
       title: 'Published at',
       description: 'This can be used to schedule post for publishing'
     },
@@ -40,12 +40,12 @@ export default {
         'This ends up on summary pages, on Google, when people share your post in social media.'
     },
     {
-      name: 'authors',
-      title: 'Authors',
-      type: 'array',
-      of: [
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: [
         {
-          type: 'authorReference'
+          type: 'author'
         }
       ]
     },
