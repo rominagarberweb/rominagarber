@@ -27,19 +27,8 @@ export default {
       ]
     },
     {
-      title: 'Book links',
-      name: 'books',
-      type: 'array',
-      of: [
-        {
-          type: 'link',
-          title: 'Link'
-        }
-      ]
-    },
-    {
-      title: 'Publicist link',
-      name: 'publicist',
+      title: 'Agent link',
+      name: 'agent',
       type: 'link'
     }
   ]
