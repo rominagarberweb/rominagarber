@@ -3,7 +3,7 @@ import { MdLightbulbOutline } from 'react-icons/md'
 export default {
   name: 'tip',
   type: 'document',
-  title: 'Tip',
+  title: 'Writing tip',
   icon: MdLightbulbOutline,
   fields: [
     {

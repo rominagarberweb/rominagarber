@@ -1,4 +1,4 @@
-import {isSameDay} from 'date-fns'
+import { isSameDay } from 'date-fns'
 
 export default {
   name: 'schedule',

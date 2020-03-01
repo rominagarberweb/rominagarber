@@ -9,8 +9,7 @@ export default {
     {
       name: 'name',
       type: 'string',
-      title: 'Event Name',
-      description: 'what is the event called, shot version?'
+      title: 'Name'
     },
     {
       name: 'description',
@@ -35,16 +34,6 @@ export default {
       type: 'url',
       title: 'Event Link',
       description: 'Where will visitors sign up'
-    },
-    {
-        name: 'keywords',
-        type: 'array',
-        title: 'Keywords',
-        description: 'Add keywords that describes your event.',
-        of: [{type: 'string'}],
-        options: {
-          layout: 'tags'
-        }
-      },
+    }
   ]
 }

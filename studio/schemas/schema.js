@@ -5,47 +5,70 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
+import aboutPage from './documents/aboutPage'
 import author from './documents/author'
+import blogPage from './documents/blogPage'
+import book from './documents/book'
+import booksPage from './documents/booksPage'
 import category from './documents/category'
-import post from './documents/post'
-import siteSettings from './documents/siteSettings'
 import event from './documents/event'
+import eventsPage from './documents/eventsPage'
+import homePage from './documents/homePage'
+import post from './documents/post'
+import press from './documents/press'
+import siteSettings from './documents/siteSettings'
 import tip from './documents/tip'
 
 // Object types
-import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
+import blurb from './objects/blurb'
+import blurbPortableText from './objects/blurbPortableText'
+import bodyPortableText from './objects/bodyPortableText'
 import excerptPortableText from './objects/excerptPortableText'
+import introPortableText from './objects/introPortableText'
+import link from './objects/link'
 import mainImage from './objects/mainImage'
+import review from './objects/review'
+import reviewPortableText from './objects/reviewPortableText'
+import schedule from './objects/schedule'
 import tipReference from './objects/tipReference'
 import venue from './objects/venue'
-import schedule from './objects/schedule'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
   name: 'default',
-  // Then proceed to concatenate our our document type
+  // Then proceed to concatenate our document and object types
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
-    // The following are document types which will appear
-    // in the studio.
-    siteSettings,
-    post,
-    category,
+    // Document types
+    aboutPage,
     author,
-    mainImage,
-    tipReference,
-    bodyPortableText,
-    bioPortableText,
-    excerptPortableText,
+    blogPage,
+    book,
+    booksPage,
+    category,
     event,
+    eventsPage,
+    homePage,
+    post,
+    press,
+    siteSettings,
     tip,
-    venue,
+    // Object types - can be used as { type: 'typename' }
+    // in document schemas
+    bioPortableText,
+    blurb,
+    blurbPortableText,
+    bodyPortableText,
+    excerptPortableText,
+    introPortableText,
+    link,
+    mainImage,
+    review,
+    reviewPortableText,
     schedule,
-
-    // When added to this list, object types can be used as
-    // { type: 'typename' } in other document schemas
-
+    tipReference,
+    venue
   ])
 })

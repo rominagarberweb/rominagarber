@@ -16,7 +16,21 @@ import {
 } from 'react-icons/md'
 
 const hiddenDocTypes = listItem =>
-  !['category', 'author', 'post', 'event', 'tip', 'siteSettings'].includes(listItem.getId())
+  ![
+    'aboutPage',
+    'author',
+    'book',
+    'blogPage',
+    'booksPage',
+    'category',
+    'event',
+    'eventsPage',
+    'homePage',
+    'post',
+    'press',
+    'siteSettings',
+    'tip'
+  ].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -26,36 +40,106 @@ export default () =>
         .title('Blog posts')
         .icon(FiFeather)
         .schemaType('post')
-        .child(S.documentTypeList('post').title('Blog posts')),
+        .child(
+          S.documentList('post')
+            .title('Blog posts')
+            .filter('_type == $type')
+            .params({ type: 'post' })
+        ),
       S.listItem()
         .title('Books')
         .icon(FiBook)
-        .schemaType('event')
-        .child(S.documentTypeList('event').title('Events')),
+        .schemaType('book')
+        .child(
+          S.documentList('book')
+            .title('Books')
+            .filter('_type == $type')
+            .params({ type: 'book' })
+        ),
       S.listItem()
         .title('Events')
         .icon(MdEvent)
         .schemaType('event')
-        .child(S.documentTypeList('event').title('Events')),
+        .child(
+          S.documentList('event')
+            .title('Events')
+            .filter('_type == $type')
+            .params({ type: 'event' })
+        ),
       S.listItem()
         .title('Pages')
         .icon(FiFileText)
         .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
+        .child(
+          S.list()
+            .title('Pages')
+            .items([
+              S.listItem()
+                .title('About page')
+                .icon(FiFileText)
+                .child(
+                  S.editor()
+                    .title('About page')
+                    .schemaType('aboutPage')
+                    .documentId('aboutPage')
+                ),
+              S.listItem()
+                .title('Blog page')
+                .icon(FiFileText)
+                .child(
+                  S.editor()
+                    .title('Blog page')
+                    .schemaType('blogPage')
+                    .documentId('blogPage')
+                ),
+              S.listItem()
+                .title('Books page')
+                .icon(FiFileText)
+                .child(
+                  S.editor()
+                    .title('Books page')
+                    .schemaType('booksPage')
+                    .documentId('booksPage')
+                ),
+              S.listItem()
+                .title('Events page')
+                .icon(FiFileText)
+                .child(
+                  S.editor()
+                    .title('Events page')
+                    .schemaType('eventsPage')
+                    .documentId('eventsPage')
+                ),
+              S.listItem()
+                .title('Home page')
+                .icon(FiFileText)
+                .child(
+                  S.editor()
+                    .title('Home page')
+                    .schemaType('homePage')
+                    .documentId('homePage')
+                )
+            ])
+        ),
       S.listItem()
         .title('Press items')
         .icon(FaRegNewspaper)
-        .schemaType('post')
-        .child(S.documentTypeList('post').title('Blog posts')),
+        .schemaType('press')
+        .child(
+          S.documentList('press')
+            .title('Press items')
+            .filter('_type == $type')
+            .params({ type: 'press' })
+          ),
       S.listItem()
-        .title('Tips')
+        .title('Writing tips')
         .icon(MdLightbulbOutline)
         .schemaType('tip')
         .child(
           S.documentList('tip')
+          .title('Writing tips')
           .filter('_type == $type')
-          .params({ type: 'tip'})
-          .title('Tips')
+          .params({ type: 'tip' })
         ),
       S.divider(),
       S.listItem()
@@ -69,12 +153,22 @@ export default () =>
                 .title('Authors')
                 .icon(FiUser)
                 .schemaType('author')
-                .child(S.documentTypeList('author').title('Authors')),
+                .child(
+                  S.documentList('author')
+                    .title('Authors')
+                    .filter('_type == $type')
+                    .params({ type: 'author' })
+                  ),
               S.listItem()
                 .title('Categories')
                 .icon(FiGrid)
                 .schemaType('category')
-                .child(S.documentTypeList('category').title('Categories')),
+                .child(
+                  S.documentList('category')
+                    .title('Categories')
+                    .filter('_type == $type')
+                    .params({ type: 'category' })
+                  )
             ])
         ),
       // This returns an array of all the document types

@@ -1,9 +1,11 @@
-import {format} from 'date-fns'
+import { format } from 'date-fns'
+import { FiFeather } from 'react-icons/fi'
 
 export default {
   name: 'post',
   type: 'document',
-  title: 'Blog Post',
+  title: 'Blog post',
+  icon: FiFeather,
   fields: [
     {
       name: 'title',
@@ -37,7 +39,7 @@ export default {
       type: 'excerptPortableText',
       title: 'Excerpt',
       description:
-        'This ends up on summary pages, on Google, when people share your post in social media.'
+        'This ends up on summary pages, on Google, and when people share your post in social media.'
     },
     {
       name: 'author',
@@ -105,7 +107,7 @@ export default {
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare ({title = 'No title', publishedAt, slug = {}, media}) {
+    prepare ({ title = 'No title', publishedAt, slug = {}, media }) {
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {
