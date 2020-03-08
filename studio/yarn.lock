@@ -737,6 +737,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@ctrl/tinycolor@^2.5.4":
+  version "2.6.1"
+  resolved "https://registry.npmjs.org/@ctrl/tinycolor/-/tinycolor-2.6.1.tgz#0e78cc836a1fd997a9a22fa1c26c555411882160"
+
 "@hot-loader/react-dom@^16.9.0-4.12.11":
   version "16.12.0"
   resolved "https://registry.npmjs.org/@hot-loader/react-dom/-/react-dom-16.12.0.tgz#cd19598150ca9c482dc99f9389e1a60b341017f9"
@@ -7700,6 +7704,12 @@ safe-regex@^1.1.0:
 same-origin@^0.1.1:
   version "0.1.1"
   resolved "https://registry.npmjs.org/same-origin/-/same-origin-0.1.1.tgz#c2287d3192577df517acbbd6d1451a9c3c3914f5"
+
+sanity-plugin-color-list@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/sanity-plugin-color-list/-/sanity-plugin-color-list-1.2.1.tgz#2f2f1c35b11055453f5eb202bb6cb162eecf7985"
+  dependencies:
+    "@ctrl/tinycolor" "^2.5.4"
 
 sanity-plugin-dashboard-widget-document-list@^0.0.8:
   version "0.0.8"

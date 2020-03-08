@@ -27,7 +27,7 @@ export default {
       name: 'venue',
       type: 'venue',
       title: 'Venue',
-      description: 'Where will the even take place?'
+      description: 'Where will the event take place?'
     },
     {
       name: 'link',
