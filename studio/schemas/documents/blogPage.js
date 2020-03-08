@@ -1,3 +1,5 @@
+import CustomQuickLinkComponent from '../components/customQuickLinkComponent'
+
 export default {
   name: 'blogPage',
   type: 'document',
@@ -9,6 +11,15 @@ export default {
       title: 'Featured post',
       type: 'reference',
       to: {type: 'post'}
+    },
+    {
+      name: 'quickLink',
+      title: 'Blog posts',
+      type: 'string',
+      inputComponent: CustomQuickLinkComponent,
+      options: {
+        slug: 'blogPosts'
+      }
     }
   ]
 }

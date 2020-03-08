@@ -5,12 +5,6 @@ export default {
   __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
   fields: [
     {
-      name: 'author',
-      type: 'reference',
-      title: 'Author',
-      to: [{type: 'author'}]
-    },
-    {
       name: 'mainImage',
       type: 'mainImage',
       title: 'Author photo'

@@ -1,3 +1,5 @@
+import CustomQuickLinkComponent from '../components/customQuickLinkComponent'
+
 export default {
   name: 'eventsPage',
   type: 'document',
@@ -8,6 +10,15 @@ export default {
       name: 'intro',
       type: 'introPortableText',
       title: 'Availability and contact instructions'
+    },
+    {
+      name: 'quickLink',
+      title: 'Events',
+      type: 'string',
+      inputComponent: CustomQuickLinkComponent,
+      options: {
+        slug: 'events'
+      }
     }
   ]
 }

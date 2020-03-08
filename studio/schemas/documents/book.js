@@ -22,6 +22,21 @@ export default {
       }
     },
     {
+      name: 'series',
+      title: 'Series',
+      type: 'reference',
+      to: [
+        {
+          type: 'series'
+        }
+      ]
+    },
+    {
+      name: 'releaseDate',
+      type: 'date',
+      title: 'Release date'
+    },
+    {
       name: 'cover',
       type: 'mainImage',
       title: 'Cover'
@@ -30,11 +45,6 @@ export default {
       name: 'synopsis',
       type: 'introPortableText',
       title: 'Synopsis'
-    },
-    {
-      name: 'releaseDate',
-      type: 'date',
-      title: 'Release date'
     },
     {
       name: 'blurbs',
@@ -79,7 +89,14 @@ export default {
           title: 'Link'
         }
       ]
-    }  ],
+    },
+    {
+      name: 'internationalCovers',
+      type: 'array',
+      title: 'International covers',
+      of: [{ type: 'mainImage' }]
+    },
+  ],
   orderings: [
     {
       name: 'releaseDateAsc',

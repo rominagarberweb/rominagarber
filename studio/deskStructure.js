@@ -10,6 +10,7 @@ import {
   FiSettings,
   FiUser,
 } from 'react-icons/fi'
+import { GiBookshelf } from 'react-icons/gi'
 import {
   MdEvent,
   MdLightbulbOutline
@@ -28,6 +29,7 @@ const hiddenDocTypes = listItem =>
     'homePage',
     'post',
     'press',
+    'series',
     'siteSettings',
     'tip'
   ].includes(listItem.getId())
@@ -69,7 +71,6 @@ export default () =>
       S.listItem()
         .title('Pages')
         .icon(FiFileText)
-        .schemaType('category')
         .child(
           S.list()
             .title('Pages')
@@ -168,7 +169,17 @@ export default () =>
                     .title('Categories')
                     .filter('_type == $type')
                     .params({ type: 'category' })
-                  )
+                  ),
+              S.listItem()
+                .title('Series')
+                .icon(GiBookshelf)
+                .schemaType('series')
+                .child(
+                  S.documentList('series')
+                    .title('Series')
+                    .filter('_type == $type')
+                    .params({ type: 'series' })
+                ),
             ])
         ),
       // This returns an array of all the document types

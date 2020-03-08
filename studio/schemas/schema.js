@@ -16,6 +16,7 @@ import eventsPage from './documents/eventsPage'
 import homePage from './documents/homePage'
 import post from './documents/post'
 import press from './documents/press'
+import series from './documents/series'
 import siteSettings from './documents/siteSettings'
 import tip from './documents/tip'
 
@@ -53,6 +54,7 @@ export default createSchema({
     homePage,
     post,
     press,
+    series,
     siteSettings,
     tip,
     // Object types - can be used as { type: 'typename' }

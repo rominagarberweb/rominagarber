@@ -1,3 +1,5 @@
+import CustomQuickLinkComponent from '../components/customQuickLinkComponent'
+
 export default {
   name: 'booksPage',
   type: 'document',
@@ -19,6 +21,15 @@ export default {
           to: {type: 'book'}
         }
       ]
+    },
+    {
+      name: 'quickLink',
+      title: 'Books',
+      type: 'string',
+      inputComponent: CustomQuickLinkComponent,
+      options: {
+        slug: 'books'
+      }
     }
   ]
 }
