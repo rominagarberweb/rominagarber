@@ -16,13 +16,13 @@
  */
 // Inspect the /files JSON response, or the URL of the Figma page:
 // https://www.figma.com/file/<file key>/Some-Name?node-id=<encoded page ID, like '183%3A0 = 183:0'>
-const PAGE_ID = '<page id, like 183:0>';
+const PAGE_ID = '309:313';
 // Go to a team URL and get the ID:
 // https://www.figma.com/files/team/<team id>/Team-Name
-const TEAM_ID = '<team id here>';
+const TEAM_ID = '755621434830415363';
 // Get this from the URL of a single file:
 // https://www.figma.com/file/<file key>/Some-Name?node-id=182%3A0
-const FILE_KEY = '<file key here>';
+const FILE_KEY = 'N8Lhk2clpB5ESC6eERpvcK';
 
 const fetch = require('node-fetch');
 const fs = require('fs');
