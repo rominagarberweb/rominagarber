@@ -1,5 +1,5 @@
 /*
- * This script fetches all color styles from a Figma team/document.
+ * This script fetches all color styles from a Figma team/document. https://johanbrook.com/writings/2019-03-30-using-figmas-api-to-sync-colours/
  *
  * Dependencies:
  *
