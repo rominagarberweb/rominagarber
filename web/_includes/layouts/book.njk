@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-book
+---
+<article>
+  <h1>{{ book.content.title }}</h1>
+  {{ book.synopsis | markdownify | safe }}
+  <p><a href="{{ '/' | url }}">← Home</a></p>
+</article>

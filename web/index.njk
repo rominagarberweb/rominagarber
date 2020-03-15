@@ -5,20 +5,22 @@ tags:
 navtitle: Home
 ---
 
-<div class="main">
-  <section class="hero">
-    [IMAGE FPO]
-  </section>
-</div>
+<section class="hero">
+  <p>[IMAGE FPO]</p>
+</section>
 
-<h1>Latest Posts</h1>
+<section class="blog-posts">
+  <h1>Latest Posts</h1>
 
-{% set postslist = collections.myPosts %}
-{% include "postslist.njk" %}
+  {% set postslist = collections.myPosts %}
+  {% include "postslist.njk" %}
 
-<p>More posts can be found on the <a href="{{ '/blog/' | url }}">blog page</a>.</p>
+  <p>More posts can be found on the <a href="{{ '/blog/' | url }}">blog page</a>.</p>
+</section>
 
+<section class="events">
 {% set eventslist = collections.myEvents %}
 {% include "eventslist.njk" %}
 
 <p>More events can be found on the <a href="{{ '/events/' | url }}">events page</a>.</p>
+</section>

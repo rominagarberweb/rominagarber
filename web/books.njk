@@ -1,0 +1,11 @@
+---
+layout: layouts/books.njk
+tags:
+  - nav
+navtitle: Books
+---
+
+<h1>Books</h1>
+
+{% set bookslist = collections.myBooks %}
+{% include "bookslist.njk" %}

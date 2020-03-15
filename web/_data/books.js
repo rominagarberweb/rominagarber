@@ -5,35 +5,37 @@ const serializers = require('../utils/serializers')
 const overlayDrafts = require('../utils/overlayDrafts')
 const hasToken = !!client.config().token
 
-function generateEvent (event) {
+function generateBook (book) {
   return {
-    ...event,
-    description: BlocksToMarkdown(event.description, { serializers, ...client.config() })
+    ...book,
+    synopsis: BlocksToMarkdown(book.synopsis, { serializers, ...client.config() })
   }
 }
 
-async function getEvents () {
-  const filter = groq`*[_type == "event"]`
+async function getBooks () {
+  const filter = groq`*[_type == "book" && defined(content.slug)]`
   const projection = groq`{
-    _id,
-    description,
-    link,
-    name,
-    description[]{
-      ...,
-      children[]{
-        ...
-      }
-    },
-    schedule,
-    slug
+    content {
+      _id,
+      cover,
+      synopsis[]{
+        ...,
+        children[]{
+          ...
+        }
+      },
+      reviews[],
+      releaseDate,
+      slug,
+      title
+    }
   }`
-  const order = `| order(schedule.from asc)`
+  const order = `| order(releaseDate desc)`
   const query = [filter, projection, order].join(' ')
   const docs = await client.fetch(query).catch(err => console.error(err))
   const reducedDocs = overlayDrafts(hasToken, docs)
-  const prepareEvents = reducedDocs.map(generateEvent)
-  return prepareEvents
+  const prepareBooks = reducedDocs.map(generateBook)
+  return prepareBooks
 }
 
-module.exports = getEvents
+module.exports = getBooks

@@ -1,0 +1,11 @@
+---
+layout: layouts/book
+tags:
+  - myBooks
+pagination:
+  alias: book
+  data: books
+  size: 1
+  addAllPagesToCollections: true
+permalink: books/{{ book.content.slug.current | slug }}/index.html
+---

@@ -1,11 +1,18 @@
 html {
+  --general-night-1: #E5E5E5;
   --general-night-2: #C0C4C8;
   --general-night-3: #707578;
+  --general-night-4: #202122;
 }
 body {
   padding: 0;
   margin: 0;
+  font-family: sans-serif;
+  font-size: 22px;
+  line-height: 1.13;
 }
+.mt0 { margin-top: 0 !important;}
+.mt0 { margin-bottom: 0 !important;}
 
 /* ==========================================================================
    #HEADER
@@ -18,6 +25,7 @@ body {
 }
 .logo {
   grid-column: 2 / 5;
+  line-height: 1;
 }
 nav.primary-nav {
   grid-column: 5 / 12;
@@ -36,16 +44,24 @@ nav ul.primary-nav__list {
 
 
 
-
 /* ==========================================================================
-   #HERO
+   #LAYOUT
    ========================================================================== */
 
 .main {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 3em 1em;
+  margin-bottom: 20em;
 }
+
+
+
+
+
+/* ==========================================================================
+   #HERO
+   ========================================================================== */
 
 section.hero {
   grid-column: 1 / 13;
@@ -55,4 +71,66 @@ section.hero {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+
+
+
+/* ==========================================================================
+   #BLOG POSTS
+   ========================================================================== */
+
+section.blog-posts {
+  grid-column: 2 / 12;
+}
+
+ol.postlist {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+ol.postlist li.postlist-item {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+}
+ol.postlist li.postlist-item a.postlist-link {
+  color: var(--general-night-4);
+}
+ol.postlist li.postlist-item time {
+  color: var(--general-night-3);
+}
+
+
+
+
+/* ==========================================================================
+   #EVENTS
+   ========================================================================== */
+
+section.events {
+    grid-column: 2 / 12;
+}
+
+ol.eventlist {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0;
+  padding: 0;
+}
+li.eventlist-item {
+  margin-bottom: .8em;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+li.eventlist-item a {
+  overflow: wrap;
+}
+ol.eventlist svg {
+  width: 22px;
+  height: auto;
 }
