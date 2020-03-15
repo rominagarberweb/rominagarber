@@ -42,12 +42,12 @@ export default {
         'This ends up on summary pages, on Google, and when people share your post in social media.'
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: [
+      name: 'authors',
+      title: 'Authors',
+      type: 'array',
+      of: [
         {
-          type: 'author'
+          type: 'authorReference'
         }
       ]
     },

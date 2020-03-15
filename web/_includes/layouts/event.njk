@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-event
+---
+<article>
+  <h1>{{ event.content.name }}</h1>
+  {{ event.description | markdownify | safe }}
+  <p><a href="{{ '/' | url }}">← Home</a></p>
+</article>

@@ -12,16 +12,16 @@ export default {
                 'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
               sites: [
                 {
+                  buildHookId: '5e42d092d533bec6b2d81d38',
+                  title: 'Website',
+                  name: 'rominagarber',
+                  apiId: '7f1d2ebe-12b4-4386-a4a0-18fe38778bb2'
+                },
+                {
                   buildHookId: '5e42d092e1fc53d6daed66dc',
                   title: 'Sanity Studio',
                   name: 'rominagarber-studio',
                   apiId: 'ea96b6d7-07e2-4399-b12e-bfbdbac7e184'
-                },
-                {
-                  buildHookId: '5e42d092d533bec6b2d81d38',
-                  title: 'Blog Website',
-                  name: 'rominagarber',
-                  apiId: '7f1d2ebe-12b4-4386-a4a0-18fe38778bb2'
                 }
               ]
             }

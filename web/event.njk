@@ -1,0 +1,11 @@
+---
+layout: layouts/event
+tags:
+  - myEvents
+pagination:
+  alias: event
+  data: events
+  size: 1
+  addAllPagesToCollections: true
+permalink: events/{{ event.content.slug.current | slug }}/index.html
+---

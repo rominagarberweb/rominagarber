@@ -23,5 +23,8 @@
     "luxon": "^1.22.0",
     "markdown-it": "^10.0.0",
     "markdown-it-anchor": "^5.2.5"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
   }
 }

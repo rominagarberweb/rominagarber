@@ -1,5 +1,6 @@
 import { format } from 'date-fns'
 import { FiBook } from 'react-icons/fi'
+import Tabs from '../../plugins/tabs'
 
 export default {
   name: 'book',
@@ -8,94 +9,110 @@ export default {
   icon: FiBook,
   fields: [
     {
-      name: 'title',
-      type: 'string',
-      title: 'Title'
-    },
-    {
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
+      name: 'content',
+      type: 'object',
+      inputComponent: Tabs,
+      fieldsets: [
+        { name: 'general', title: 'General' },
+        { name: 'promotion', title: 'Promotion' },
+        { name: 'international', title: 'International' },
+      ],
       options: {
-        source: 'title',
-        maxLength: 96
-      }
-    },
-    {
-      name: 'series',
-      title: 'Series',
-      type: 'reference',
-      to: [
+        // setting layout to object will group the tab content in an object fieldset border.
+        // ... Useful for when your tab is in between other fields inside a document.
+        layout: 'object'
+      },
+      fields: [
         {
-          type: 'series'
-        }
-      ]
-    },
-    {
-      name: 'releaseDate',
-      type: 'date',
-      title: 'Release date'
-    },
-    {
-      name: 'cover',
-      type: 'mainImage',
-      title: 'Cover'
-    },
-    {
-      name: 'synopsis',
-      type: 'introPortableText',
-      title: 'Synopsis'
-    },
-    {
-      name: 'blurbs',
-      type: 'array',
-      title: 'Blurbs',
-      of: [
+          name: 'title',
+          type: 'string',
+          title: 'Title',
+          fieldset: 'general'
+        },
         {
-          type: 'blurb',
-          title: 'Blurb'
-        }
-      ]
-    },
-    {
-      name: 'reviews',
-      type: 'array',
-      title: 'Reviews',
-      of: [
+          name: 'slug',
+          type: 'slug',
+          title: 'Slug',
+          fieldset: 'general',
+          options: {
+            source: 'title',
+            maxLength: 96
+          }
+        },
         {
-          type: 'review',
-          title: 'Review'
-        }
-      ]
-    },
-    {
-      title: 'Press items',
-      name: 'pressItems',
-      type: 'array',
-      of: [
-        {
+          name: 'series',
+          title: 'Series',
           type: 'reference',
-          to: {type: 'press'}
-        }
-      ]
-    },
-    {
-      title: 'Links',
-      name: 'links',
-      type: 'array',
-      of: [
+          to: [
+            {
+              type: 'series'
+            }
+          ],
+          fieldset: 'general'
+        },
         {
-          type: 'link',
-          title: 'Link'
-        }
+          name: 'releaseDate',
+          type: 'date',
+          title: 'Release date',
+          fieldset: 'general'
+        },
+        {
+          name: 'cover',
+          type: 'mainImage',
+          title: 'Cover',
+          fieldset: 'general'
+        },
+        {
+          name: 'synopsis',
+          type: 'introPortableText',
+          title: 'Synopsis',
+          fieldset: 'general'
+        },
+        {
+          name: 'reviews',
+          type: 'array',
+          title: 'Reviews',
+          fieldset: 'promotion',
+          of: [
+            {
+              type: 'review',
+              title: 'Review'
+            }
+          ]
+        },
+        {
+          title: 'Press items',
+          name: 'pressItems',
+          type: 'array',
+          fieldset: 'promotion',
+          of: [
+            {
+              type: 'reference',
+              to: {type: 'press'}
+            }
+          ]
+        },
+        {
+          title: 'Links',
+          name: 'links',
+          type: 'array',
+          fieldset: 'promotion',
+          of: [
+            {
+              type: 'link',
+              title: 'Link'
+            }
+          ]
+        },
+        {
+          name: 'internationalCovers',
+          type: 'array',
+          title: 'International covers',
+          fieldset: 'international',
+          of: [{ type: 'mainImage' }]
+        },
       ]
-    },
-    {
-      name: 'internationalCovers',
-      type: 'array',
-      title: 'International covers',
-      of: [{ type: 'mainImage' }]
-    },
+    }
   ],
   orderings: [
     {
@@ -129,18 +146,16 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
-      releaseDate: 'releaseDate',
-      slug: 'slug',
-      media: 'cover'
+      title: 'content.title',
+      slug: 'content.slug',
+      media: 'content.cover'
     },
-    prepare ({ title = 'No title', releaseDate, slug = {}, media }) {
-      const dateSegment = format(releaseDate, 'YYYY/MM')
-      const path = `/${dateSegment}/${slug.current}/`
+    prepare ({ title = 'No title', slug = {}, media }) {
+      const path = `/${slug.current}/`
       return {
         title,
         media,
-        subtitle: releaseDate ? path : 'Missing release date'
+        subtitle: path
       }
     }
   }

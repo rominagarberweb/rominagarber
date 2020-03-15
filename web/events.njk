@@ -1,0 +1,11 @@
+---
+layout: layouts/events.njk
+tags:
+  - nav
+navtitle: Events
+---
+
+<h1>Events</h1>
+
+{% set eventslist = collections.myEvents %}
+{% include "eventslist.njk" %}

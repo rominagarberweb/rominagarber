@@ -10,6 +10,11 @@ export default {
       title: 'Author photo'
     },
     {
+      name: 'bio',
+      type: 'bioPortableText',
+      title: 'Biography'
+    },
+    {
       title: 'Publisher links',
       name: 'publishers',
       type: 'array',

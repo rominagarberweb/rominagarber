@@ -1,0 +1,9 @@
+<ol reversed class="eventlist" style="counter-reset: start-from {{ eventslist.length + 1 }}">
+{% for event in eventslist | reverse %}
+  {% set currentEvent = event.data.event %}
+  <li class="eventlist-item{% if event.url == url %} eventlist-item-active{% endif %}">
+    <a href="{{ event.url | url }}" class="eventlist-link">{% if currentEvent.content.name %}{{ currentEvent.content.name }}{% else %}<code>{{ event.url }}</code>{% endif %}</a>
+    <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">{{ currentEvent.content.schedule.from|readableDate }}</time>
+  </li>
+{% endfor %}
+</ol>

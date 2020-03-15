@@ -21,11 +21,13 @@ import siteSettings from './documents/siteSettings'
 import tip from './documents/tip'
 
 // Object types
+import authorReference from './objects/authorReference'
 import bioPortableText from './objects/bioPortableText'
 import blurb from './objects/blurb'
 import blurbPortableText from './objects/blurbPortableText'
 import bodyPortableText from './objects/bodyPortableText'
 import excerptPortableText from './objects/excerptPortableText'
+import eventPortableText from './objects/eventPortableText'
 import introPortableText from './objects/introPortableText'
 import link from './objects/link'
 import mainImage from './objects/mainImage'
@@ -38,7 +40,7 @@ import venue from './objects/venue'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
-  name: 'default',
+  name: 'eventeau',
   // Then proceed to concatenate our document and object types
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
@@ -59,11 +61,13 @@ export default createSchema({
     tip,
     // Object types - can be used as { type: 'typename' }
     // in document schemas
+    authorReference,
     bioPortableText,
     blurb,
     blurbPortableText,
     bodyPortableText,
     excerptPortableText,
+    eventPortableText,
     introPortableText,
     link,
     mainImage,

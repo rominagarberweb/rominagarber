@@ -14,21 +14,23 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
-      <ul class="nav">
-        {%- for nav in collections.nav | reverse -%}
-        <li class="nav-item{% if nav.url == page.url %} nav-item-active{% endif %}"><a href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a></li>
-        {%- endfor -%}
-      </ul>
+    <header class="top-bar">
+      <h1 class="logo"><a href="{{ '/' | url }}">[logo]</a></h1>
+      <nav class="primary-nav">
+        <ul class="primary-nav__list">
+          <li class="primary-nav__item"><a href="/about/">About</a></li>
+          <li class="primary-nav__item"><a href="/books/">Books</a></li>
+          <li class="primary-nav__item"><a href="/events/">Events</a></li>
+          <li class="primary-nav__item"><a href="/blog/">Blog</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+    <main id="main" role="main" {% if templateClass %} class="{{ templateClass }}"{% endif %}>
       {{ content | safe }}
     </main>
 
     <footer>
-        <p><em>This is an <a href="https://www.11ty.io/">Eleventy</a> + <a href="https://www.sanity.io">Sanity.io</a> project inspired by the <a href="https://github.com/11ty/eleventy-base-blog"><code>eleventy-base-blog</code> repo</a>.</em></p>
     </footer>
 
     <!-- Current page: {{ page.url | url }} -->

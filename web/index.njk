@@ -5,9 +5,20 @@ tags:
 navtitle: Home
 ---
 
+<div class="main">
+  <section class="hero">
+    [IMAGE FPO]
+  </section>
+</div>
+
 <h1>Latest Posts</h1>
 
 {% set postslist = collections.myPosts %}
 {% include "postslist.njk" %}
 
-<p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
+<p>More posts can be found on the <a href="{{ '/blog/' | url }}">blog page</a>.</p>
+
+{% set eventslist = collections.myEvents %}
+{% include "eventslist.njk" %}
+
+<p>More events can be found on the <a href="{{ '/events/' | url }}">events page</a>.</p>
