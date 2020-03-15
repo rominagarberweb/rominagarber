@@ -3,6 +3,9 @@
   {% set currentPost = post.data.post %}
   <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
     <a href="{{ post.url | url }}" class="postlist-link">
+      {% if currentPost.image %}
+        <img src="{{ currentPost.image }}" />
+      {% endif %}
       {% if currentPost.title %}
         <h2>{{ currentPost.title }}</h2>
       {% endif %}

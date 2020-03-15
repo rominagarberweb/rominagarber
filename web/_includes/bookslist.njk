@@ -6,12 +6,14 @@
       {% if currentBook.content.title %}
         {{ currentBook.content.title }}
       {% else %}
-      <code>
-        {{ book.url }}
-      </code>
+        <code>
+          {{ book.url }}
+        </code>
       {% endif %}
     </a>
-    <time class="booklist-date" datetime="{{ currentBook.content.releaseDate }}">{{ currentBook.content.releaseDate|readableDate }}</time>
+    <time class="booklist-date" datetime="{{ currentBook.content.releaseDate }}">
+      {{ currentBook.content.releaseDate|readableDate }}
+    </time>
   </li>
 {% endfor %}
 </ol>

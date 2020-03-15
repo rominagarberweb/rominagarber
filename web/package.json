@@ -25,6 +25,7 @@
     "markdown-it-anchor": "^5.2.5"
   },
   "dependencies": {
+    "@sanity/image-url": "^0.140.17",
     "node-fetch": "^2.6.0"
   }
 }

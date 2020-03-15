@@ -3,13 +3,24 @@ const groq = require('groq')
 const client = require('../utils/sanityClient.js')
 const serializers = require('../utils/serializers')
 const overlayDrafts = require('../utils/overlayDrafts')
+const imageUrl = require('../utils/imageUrl')
 const hasToken = !!client.config().token
 
 function generatePost (post) {
   return {
     ...post,
-    body: BlocksToMarkdown(post.body, { serializers, ...client.config() }),
-    excerpt: BlocksToMarkdown(post.excerpt, { serializers, ...client.config() })
+    body: BlocksToMarkdown(
+      post.body,
+      {serializers, ...client.config()}
+    ),
+    excerpt: BlocksToMarkdown(
+      post.excerpt,
+      {serializers, ...client.config()}
+    ),
+    image: imageUrl(post.mainImage)
+      .height(200)
+      .width(200)
+      .url(),
   }
 }
 
@@ -18,9 +29,7 @@ async function getPosts () {
   const filter = groq`*[_type == "post" && defined(slug) && publishedAt < now()]`
   const projection = groq`{
     _id,
-    publishedAt,
-    title,
-    slug,
+    "authors": authors[].author->{name},
     body[]{
       ...,
       children[]{
@@ -39,7 +48,10 @@ async function getPosts () {
         ...,
       }
     },
-    "authors": authors[].author->{name}
+    mainImage,
+    publishedAt,
+    title,
+    slug
   }`
   const order = `| order(publishedAt asc)`
   const query = [filter, projection, order].join(' ')

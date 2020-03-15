@@ -2,8 +2,18 @@
 {% for event in eventslist | reverse %}
   {% set currentEvent = event.data.event %}
   <li class="eventlist-item{% if event.url == url %} eventlist-item-active{% endif %}">
-    <a href="{{ event.url | url }}" class="eventlist-link">{% if currentEvent.content.name %}{{ currentEvent.content.name }}{% else %}<code>{{ event.url }}</code>{% endif %}</a>
-    <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">{{ currentEvent.content.schedule.from|readableDate }}</time>
+    <a href="{{ event.url | url }}" class="eventlist-link">
+      {% if currentEvent.content.name %}
+        {{ currentEvent.content.name }}
+      {% else %}
+        <code>
+          {{ event.url }}
+        </code>
+      {% endif %}
+    </a>
+    <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">
+      {{ currentEvent.content.schedule.from|readableDate }}
+    </time>
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M27 19.5V28.5C27 29.2956 26.6839 30.0587 26.1213 30.6213C25.5587 31.1839 24.7956 31.5 24 31.5H7.5C6.70435 31.5 5.94129 31.1839 5.37868 30.6213C4.81607 30.0587 4.5 29.2956 4.5 28.5V12C4.5 11.2044 4.81607 10.4413 5.37868 9.87868C5.94129 9.31607 6.70435 9 7.5 9H16.5" stroke="#444444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M22.5 4.5H31.5V13.5" stroke="#444444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
