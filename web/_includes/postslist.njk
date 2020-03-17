@@ -6,16 +6,20 @@
       {% if currentPost.image %}
         <img src="{{ currentPost.image }}" />
       {% endif %}
-      {% if currentPost.title %}
-        <h2>{{ currentPost.title }}</h2>
-      {% endif %}
     </a>
-    {% if currentPost.excerpt %}
-      {{ currentPost.excerpt | markdownify | safe }}
-    {% endif %}
-    <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
-      {{ currentPost.publishedAt|readableDate }}
-    </time>
+    <div class="block">
+      <a href="{{ post.url | url }}" class="postlist-link">
+        {% if currentPost.title %}
+          <h2>{{ currentPost.title }}</h2>
+        {% endif %}
+      </a>
+      {% if currentPost.excerpt %}
+        {{ currentPost.excerpt | markdownify | safe }}
+      {% endif %}
+      <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
+        {{ currentPost.publishedAt|readableDate }}
+      </time>
+    </div>
   </li>
 {% endfor %}
 </ol>

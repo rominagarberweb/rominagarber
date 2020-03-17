@@ -55,6 +55,14 @@ nav ul.primary-nav__list {
   margin-bottom: 20em;
 }
 
+section {
+  grid-column: 3/11;
+}
+
+p.more-link {
+  text-align:center;
+}
+
 
 
 
@@ -71,6 +79,11 @@ section.hero {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
+}
+
+section.hero p {
+  color: var(--general-night-1);
 }
 
 
@@ -82,7 +95,9 @@ section.hero {
    ========================================================================== */
 
 section.blog-posts {
-  grid-column: 2 / 12;
+  /* grid-column: 2 / 12; */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 ol.postlist {
@@ -91,12 +106,26 @@ ol.postlist {
   padding-left: 0;
 }
 ol.postlist li.postlist-item {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 ol.postlist li.postlist-item a.postlist-link {
   color: var(--general-night-4);
+  display: flex;
+}
+ol.postlist li.postlist-item a.postlist-link img {
+  object-fit: cover;
+  margin: 0 1rem 0 0;
+}
+ol.postlist li.postlist-item .block {
+
+}
+ol.postlist li.postlist-item .block h2 {
+  margin: 0;
+}
+ol.postlist li.postlist-item .block p {
+  max-width: 60ch;
 }
 ol.postlist li.postlist-item time {
   color: var(--general-night-3);
@@ -110,7 +139,7 @@ ol.postlist li.postlist-item time {
    ========================================================================== */
 
 section.events {
-    grid-column: 2 / 12;
+    /* grid-column: 2 / 12; */
 }
 
 ol.eventlist {
@@ -125,12 +154,17 @@ li.eventlist-item {
   padding: 0;
   display: flex;
   justify-content: space-between;
+  align-content: center;
   width: 100%;
 }
-li.eventlist-item a {
-  overflow: wrap;
+li.eventlist-item a.eventlist-link {
+  max-width:30ch;
+}
+li.eventlits-item time.eventlist-date {
+
 }
 ol.eventlist svg {
   width: 22px;
   height: auto;
+  flex: initial;
 }
