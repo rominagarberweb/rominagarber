@@ -1,9 +1,14 @@
 html {
+  /* general colors */
   --general-night-1: #E5E5E5;
   --general-night-2: #C0C4C8;
   --general-night-3: #707578;
   --general-night-4: #202122;
+
+  /* overall layout  */
+  --global-br: 18px;
 }
+
 body {
   padding: 0;
   margin: 0;
@@ -11,8 +16,21 @@ body {
   font-size: 22px;
   line-height: 1.13;
 }
+
+/* make sure some selected elements ignore margins */
 .mt0 { margin-top: 0 !important;}
 .mt0 { margin-bottom: 0 !important;}
+
+
+
+
+/* ==========================================================================
+   #TYPOGRAPHY
+   ========================================================================== */
+
+p {
+  margin-bottom: 1.3em;
+}
 
 /* ==========================================================================
    #HEADER
@@ -45,7 +63,7 @@ nav ul.primary-nav__list {
 
 
 /* ==========================================================================
-   #LAYOUT
+   #OVERALL LAYOUT
    ========================================================================== */
 
 .main {
@@ -61,6 +79,19 @@ section {
 
 p.more-link {
   text-align:center;
+}
+
+a.btn-primary {
+  padding: .8em 1.2em;
+  background-color: none;
+  border: 2px solid var(--general-night-3);
+  border-radius: var(--global-br);
+  cursor: pointer;
+  line-height: 1.6;
+  font-weight: bold;
+  color: var(--general-night-1);
+  text-decoration: none;
+  margin: 1.8rem 0;
 }
 
 
@@ -82,8 +113,24 @@ section.hero {
   margin: 0;
 }
 
-section.hero p {
+.hero-card {
+  grid-column: 5 / 12;
+  grid-row: 1;
+  background-color: var(--general-night-4);
   color: var(--general-night-1);
+  border-radius: var(--global-br);
+  /* I'm going to try adjusting this card shape with vertical width (vw) properties later on */
+  padding: 4rem;
+  margin: auto;
+}
+
+.hero-card p {
+  max-width: 36ch;
+  line-height: 1.13;
+}
+
+.hero-card a.btn-hero {
+  border-color: var(--general-night-1);
 }
 
 

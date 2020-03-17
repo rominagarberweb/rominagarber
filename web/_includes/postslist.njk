@@ -8,6 +8,9 @@
       {% endif %}
     </a>
     <div class="block">
+      <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
+        {{ currentPost.publishedAt|readableDate }}
+      </time>
       <a href="{{ post.url | url }}" class="postlist-link">
         {% if currentPost.title %}
           <h2>{{ currentPost.title }}</h2>
@@ -16,9 +19,6 @@
       {% if currentPost.excerpt %}
         {{ currentPost.excerpt | markdownify | safe }}
       {% endif %}
-      <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
-        {{ currentPost.publishedAt|readableDate }}
-      </time>
     </div>
   </li>
 {% endfor %}
