@@ -99,6 +99,7 @@ a.btn {
 
 a.btn--primary {
   background-color: none;
+  border-color: var(--general-night-3);
   border: 2px solid var(--general-night-1);
   border-radius: var(--global-br);
   color: var(--general-night-3);
