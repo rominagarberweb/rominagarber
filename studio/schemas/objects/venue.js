@@ -14,6 +14,11 @@ export default {
         title: 'City'
       },
       {
+        name: 'shortcode',
+        type: 'string',
+        title: 'City shortcode'
+      },
+      {
         title: "Color",
         description: "Pick a color for the city block",
         name: "color",

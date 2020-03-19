@@ -1,25 +1,45 @@
-<ol reversed class="postlist" style="counter-reset: start-from {{ postslist.length + 1 }}">
-{% for post in postslist | reverse %}
-  {% set currentPost = post.data.post %}
-  <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
-    <a href="{{ post.url | url }}" class="postlist-link">
-      {% if currentPost.image %}
-        <img src="{{ currentPost.image }}" />
-      {% endif %}
-    </a>
-    <div class="block">
-      <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
-        {{ currentPost.publishedAt|readableDate }}
-      </time>
+<ol reversed class="postlist" style="counter-reset: start-from {{ postsList.length + 1 }}">
+
+{% set postCount = 0 %}
+{% if not postsLimit %}
+  {% set postsLimit = postsList.length %}
+{% endif %}
+{% for post in postsList | reverse %}
+  {% if postCount < postsLimit %}
+    {% set currentPost = post.data.post %}
+
+    <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
+
       <a href="{{ post.url | url }}" class="postlist-link">
-        {% if currentPost.title %}
-          <h2>{{ currentPost.title }}</h2>
-        {% endif %}
+
+      {%- if currentPost.image %}
+        <img src="{{ currentPost.image }}" />
+      {% endif -%}
+
       </a>
-      {% if currentPost.excerpt %}
-        {{ currentPost.excerpt | markdownify | safe }}
-      {% endif %}
-    </div>
-  </li>
+
+      <div class="block">
+        <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
+
+          {{- currentPost.publishedAt | readableDate -}}
+
+        </time>
+        <a href="{{ post.url | url }}" class="postlist-link">
+
+        {%- if currentPost.title %}
+          <h2>{{ currentPost.title }}</h2>
+        {% endif -%}
+
+        </a>
+
+        {%- if currentPost.excerpt %}
+          {{ currentPost.excerpt | markdownify | safe }}
+        {% endif -%}
+
+      </div>
+    </li>
+
+  {% endif %}
+{% set postCount = postCount + 1 %}
 {% endfor %}
 </ol>

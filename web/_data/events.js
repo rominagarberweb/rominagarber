@@ -13,20 +13,21 @@ function generateEvent (event) {
 }
 
 async function getEvents () {
-  const filter = groq`*[_type == "event"]`
+  const filter = groq`*[_type == 'event']`
   const projection = groq`{
     content {
       _id,
-      link,
-      name,
       description[]{
         ...,
         children[]{
           ...
         }
       },
+      link,
+      name,
       schedule,
-      slug
+      slug,
+      venue
     }
   }`
   const order = `| order(content.schedule.from asc)`
