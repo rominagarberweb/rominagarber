@@ -13,7 +13,7 @@ function generateEvent (event) {
 }
 
 async function getEvents () {
-  const filter = groq`*[_type == 'event']`
+  const filter = groq`*[_type == "event"]`
   const projection = groq`{
     content {
       _id,

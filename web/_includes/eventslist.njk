@@ -1,12 +1,12 @@
 <ol reversed class="eventlist" style="counter-reset: start-from {{ eventsList.length + 1 }}">
 
-{%- set eventCount = 0 %}
+{% set eventCount = 0 %}
 {% if not eventsLimit %}
   {% set eventsLimit = eventsList.length %}
 {% endif %}
 {% for event in eventsList | reverse %}
   {% if eventCount < eventsLimit %}
-    {% set currentEvent = event.data.event -%}
+    {% set currentEvent = event.data.event %}
 
     <li class="eventlist-item{% if currentEvent.content.schedule.to == url %} eventlist-item-past{% endif %}">
 
