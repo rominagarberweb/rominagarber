@@ -4,6 +4,8 @@ html {
   --general-night-2: #C0C4C8;
   --general-night-3: #707578;
   --general-night-4: #202122;
+  --alpha-night: rgba(0,0,0,0.6);
+  --beta-night: rgba(0,0,0,0.2);
 
   /* overall layout  */
   --global-br: 18px;
@@ -73,8 +75,9 @@ nav ul.primary-nav__list {
   margin-bottom: 20em;
 }
 
-section {
-  grid-column: 3/11;
+section, 
+article {
+  grid-column: 3 / 11;
 }
 
 p.more-link {
@@ -208,7 +211,7 @@ section.events {
 ol.eventlist {
   list-style: none;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column wrap;
   margin: 0;
   padding: 0;
 }
@@ -217,14 +220,25 @@ li.eventlist-item {
   padding: 0;
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
   width: 100%;
+}
+li.eventlist-item span {
+  flex: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  margin-right: .8em;
+  color: var(--transparent-night);
 }
 li.eventlist-item a.eventlist-link {
   max-width:30ch;
+  flex: 2;
 }
 li.eventlits-item time.eventlist-date {
-
+  flex: 1;
 }
 ol.eventlist svg {
   width: 22px;
