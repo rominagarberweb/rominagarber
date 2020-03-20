@@ -4,7 +4,8 @@ html {
   --general-night-2: #C0C4C8;
   --general-night-3: #707578;
   --general-night-4: #202122;
-  --transparent-night: rgba(0,0,0,0.6);
+  --alpha-night: rgba(0,0,0,0.6);
+  --beta-night: rgba(0,0,0,0.2);
 
   /* overall layout  */
   --global-br: 18px;
@@ -74,8 +75,9 @@ nav ul.primary-nav__list {
   margin-bottom: 20em;
 }
 
-section {
-  grid-column: 3/11;
+section, 
+article {
+  grid-column: 3 / 11;
 }
 
 p.more-link {
