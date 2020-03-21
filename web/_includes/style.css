@@ -82,6 +82,21 @@ nav ul.primary-nav__list {
   padding: 0 1em;
 }
 
+@media all and (max-width: 650px) {
+  .top-bar {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .logo {
+    grid-column: 2 / 3;
+  }
+  nav.primary-nav {
+    grid-column: 3 / 6;
+  }
+  nav ul.primary-nav__list {
+    flex-flow: column nowrap;
+  }
+}
+
 
 
 
@@ -182,6 +197,15 @@ section.hero {
 .hero-card p {
   max-width: 36ch;
   line-height: 1.13;
+}
+
+@media all and (max-width: 650px) {
+  section.hero {
+    grid-column: 1 / 7;
+  }
+  .hero-card {
+    grid-column: 2 / 6;
+  }
 }
 
 
