@@ -18,6 +18,10 @@ module.exports = function(eleventyConfig) {
     return new Date(dateObj).toLocaleDateString('en-US', options)
   })
 
+  eleventyConfig.addFilter('isPastEvent', dateObj => {
+    return new Date(dateObj) < new Date();
+  })
+
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');

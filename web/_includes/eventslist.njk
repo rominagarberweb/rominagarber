@@ -8,7 +8,7 @@
   {% if eventCount < eventsLimit %}
     {% set currentEvent = event.data.event %}
 
-    <li class="eventlist-item{% if currentEvent.content.schedule.to == url %} eventlist-item-past{% endif %}">
+    <li class="eventlist-item{% if currentEvent.content.schedule.to | isPastEvent %} eventlist-item-past{% endif %}">
 
     {% if currentEvent.content.venue.shortcode %}
       {# create the colored city block #}
