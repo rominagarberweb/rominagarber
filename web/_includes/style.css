@@ -67,6 +67,8 @@ p {
 .logo {
   grid-column: 2 / 5;
   line-height: 1;
+  height: calc(36px + 0.25vw);
+  align-self: center;
 }
 nav.primary-nav {
   grid-column: 5 / 12;
