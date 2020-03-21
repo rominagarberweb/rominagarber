@@ -1,19 +1,24 @@
-<ol reversed class="booklist" style="counter-reset: start-from {{ bookslist.length + 1 }}">
-{% for book in bookslist | reverse %}
+<ol reversed class="booklist" style="counter-reset: start-from {{ booksList.length + 1 }}">
+
+{% for book in booksList | reverse %}
   {% set currentBook = book.data.book %}
-  <li class="booklist-item{% if event.url == url %} booklist-item-active{% endif %}">
+
+  <li class="booklist-item{% if book.url == url %} booklist-item-active{% endif %}">
     <a href="{{ book.url | url }}" class="booklist-link">
-      {% if currentBook.content.title %}
-        {{ currentBook.content.title }}
+
+      {%- if currentBook.content.title %}
+        {{- currentBook.content.title -}}
       {% else %}
         <code>
-          {{ book.url }}
+          {{- book.url -}}
         </code>
-      {% endif %}
+      {% endif -%}
+
     </a>
     <time class="booklist-date" datetime="{{ currentBook.content.releaseDate }}">
-      {{ currentBook.content.releaseDate|readableDate }}
+      {{- currentBook.content.releaseDate|readableDate -}}
     </time>
   </li>
+
 {% endfor %}
 </ol>

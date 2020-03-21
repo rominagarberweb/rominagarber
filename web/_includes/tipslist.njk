@@ -1,0 +1,22 @@
+<ol reversed class="tiplist" style="counter-reset: start-from {{ tips.length + 1 }}">
+
+{% for tip in tips | reverse %}
+
+  <li class="tiplist-item">
+
+  {%- if tip.name %}
+    {{- tip.name -}}
+  {% else %}
+    <code>
+      {{- tip.url -}}
+    </code>
+  {% endif -%}
+
+  {%- if tip.content %}
+    {{ tip.content | markdownify | safe }}
+  {% endif -%}
+
+  </li>
+
+{% endfor %}
+</ol>
