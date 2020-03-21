@@ -33,6 +33,14 @@ body {
   display: flow-root; 
 }
 
+img {
+  border-style: none;
+  vertical-align: bottom;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .mt0 { margin-top: 0 !important;}
 .mt0 { margin-bottom: 0 !important;}
 
@@ -91,6 +99,17 @@ nav ul.primary-nav__list {
 section, 
 article {
   grid-column: 3 / 11;
+}
+
+@media all and (max-width: 650px) {
+  .main {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  section,
+  article {
+    grid-column: 2 / 6;
+  }
 }
 
 p.more-link {
