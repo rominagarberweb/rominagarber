@@ -284,9 +284,15 @@ li.eventlist-item {
 li.eventlist-item-past a{
   text-decoration: line-through;
 }
-.eventlist-item-past:first-of-type {
+ol > li.eventlist-item-past {
   border-top: 1px solid var(--general-night-2);
+  padding-top: 2em;
 }
+ol > li.eventlist-item-past ~ li.eventlist-item-past {
+  border: none;
+  padding-top: 0;
+}
+
 li.eventlist-item span {
   flex: none;
   display: flex;
@@ -298,6 +304,10 @@ li.eventlist-item span {
   color: var(--transparent-night);
   background-color: var(--general-night-3);
   border-radius: var(--global-br);
+}
+li.eventlist-item-past span {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 li.eventlist-item a.eventlist-link {
   max-width:30ch;
