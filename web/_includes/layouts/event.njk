@@ -6,11 +6,12 @@ templateClass: tmpl-event
 
   {% if event.content.venue.city %}
     {# create the colored header block #}
-    <span style="background-color: {{ event.content.venue.color }}">
+    <div class="eventbanner" style="background-color: {{ event.content.venue.color }}">
       {{- event.content.venue.city -}}
-    </span>
+    </div>
   {% endif %}
 
+  <div class="eventinfo">
   <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">
     {{- event.content.schedule.from | readableDate -}}
   </time>
@@ -18,7 +19,7 @@ templateClass: tmpl-event
   <h1>{{ event.content.name }}</h1>
   {{ event.description | markdownify | safe }}
 
-  <p>
+  <p class="eventactions">
     <a href="{{ event.content.link | url }}" target="_blank" rel="noopener">
       Event site
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,6 +46,7 @@ templateClass: tmpl-event
       </svg>
     </a>
   </p>
+  </div>
 
 </section>
 

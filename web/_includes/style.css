@@ -19,6 +19,7 @@ body {
   font-family: sans-serif;
   font-size: calc(14px + 0.25vw);
   line-height: 1.13;
+  color: var(--general-night-4);
 }
 
 /* do some general stuff */
@@ -71,7 +72,7 @@ p {
   align-self: center;
 }
 nav.primary-nav {
-  grid-column: 5 / 12;
+  grid-column: 5 / 11;
   overflow: visible;
   position: relative;
 }
@@ -115,7 +116,7 @@ nav ul.primary-nav__list {
 
 section, 
 article {
-  grid-column: 3 / 11;
+  grid-column: 3 / 10;
 }
 
 @media all and (max-width: 650px) {
@@ -242,9 +243,9 @@ ol.postlist li.postlist-item a.postlist-link img {
   object-fit: cover;
   margin: 0 1rem 0 0;
 }
-ol.postlist li.postlist-item .block {
+/* ol.postlist li.postlist-item .block {
 
-}
+} */
 ol.postlist li.postlist-item .block h2 {
   margin: 0;
 }
@@ -262,9 +263,9 @@ ol.postlist li.postlist-item time {
    #EVENTS
    ========================================================================== */
 
-section.events {
-    /* grid-column: 2 / 12; */
-}
+/* section.events {
+
+} */
 
 ol.eventlist {
   list-style: none;
@@ -301,7 +302,8 @@ li.eventlist-item span {
   width: 100px;
   height: 100px;
   margin-right: .8em;
-  color: var(--transparent-night);
+  color: var(--alpha-night);
+  font-weight: bold;
   background-color: var(--general-night-3);
   border-radius: var(--global-br);
 }
@@ -326,13 +328,52 @@ ol.eventlist svg {
 
 
 /* ==========================================================================
+   #EVENT PAGE
+   ========================================================================== */
+
+/* section.event {
+  
+} */
+
+section.event div.eventbanner {  
+  width: 100%;
+  padding: 3em;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-radius: var(--global-br);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1.2;
+  color: var(--alpha-night);
+}
+
+section.event div.eventinfo {
+  margin: auto;
+}
+
+section.event p {
+  max-width: 60ch;
+}
+
+section.event p.eventactions a {
+  margin-right: 1em;
+}
+
+section.event p a svg {
+  /* can we make these icons corespond to a font-size? */
+  width: 22px;
+  height: auto;
+}
+
+
+
+/* ==========================================================================
    #BOOKS
    ========================================================================== */
 
-section.books {
-  /* grid-column: 2 / 12; */
+/* section.books {
   
-}
+} */
 
 ol.booklist {
   display: grid;
@@ -354,6 +395,6 @@ ol.booklist img {
    * shhhhhhh... this is a hiddent view
    ========================================================================== */
 
-   section.tips {
-    /* grid-column: 2 / 12; */
-}
+/* section.tips {
+
+} */
