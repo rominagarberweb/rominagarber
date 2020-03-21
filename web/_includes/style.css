@@ -290,6 +290,8 @@ li.eventlist-item span {
   height: 100px;
   margin-right: .8em;
   color: var(--transparent-night);
+  background-color: var(--general-night-3);
+  border-radius: var(--global-br);
 }
 li.eventlist-item a.eventlist-link {
   max-width:30ch;
