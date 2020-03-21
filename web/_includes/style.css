@@ -281,6 +281,12 @@ li.eventlist-item {
   align-items: center;
   width: 100%;
 }
+li.eventlist-item-past a{
+  text-decoration: line-through;
+}
+.eventlist-item-past:first-of-type {
+  border-top: 1px solid var(--general-night-2);
+}
 li.eventlist-item span {
   flex: none;
   display: flex;
