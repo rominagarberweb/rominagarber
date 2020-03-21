@@ -14,7 +14,8 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addFilter("readableDate", dateObj => {
-    return new Date(dateObj).toDateString()
+    options = { month: 'long', day: 'numeric', year: 'numeric'}
+    return new Date(dateObj).toLocaleDateString('en-US', options)
   })
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string

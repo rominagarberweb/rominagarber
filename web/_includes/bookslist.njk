@@ -6,6 +6,10 @@
   <li class="booklist-item{% if book.url == url %} booklist-item-active{% endif %}">
     <a href="{{ book.url | url }}" class="booklist-link">
 
+      {%- if currentBook.cover %}
+        <img src="{{ currentBook.cover }}" />
+      {% endif -%}
+
       {%- if currentBook.content.title %}
         {{- currentBook.content.title -}}
       {% else %}
