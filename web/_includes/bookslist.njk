@@ -4,25 +4,16 @@
   {% set currentBook = book.data.book %}
 
   <li class="booklist-item{% if book.url == url %} booklist-item-active{% endif %}">
-    <a href="{{ book.url | url }}" class="booklist-link">
+    <a href="{{ book.url | url }}" title="{{ currentBook.content.title }}" class="booklist-link">
 
       {%- if currentBook.cover %}
-        <img src="{{ currentBook.cover }}" />
-      {% endif -%}
-
-      {%- if currentBook.content.title %}
-        {{- currentBook.content.title -}}
-      {% else %}
-        <code>
-          {{- book.url -}}
-        </code>
+        <img src="{{ currentBook.cover }}" alt="{{ currentBook.content.cover.alt }}" />
       {% endif -%}
 
     </a>
-    <time class="booklist-date" datetime="{{ currentBook.content.releaseDate }}">
-      {{- currentBook.content.releaseDate|readableDate -}}
-    </time>
   </li>
 
 {% endfor %}
 </ol>
+
+

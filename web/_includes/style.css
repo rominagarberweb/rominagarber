@@ -325,6 +325,10 @@ ol.booklist {
   grid-gap: 3em 1em;
 }
 
+ol.booklist img {
+  height: 100%;
+}
+
 
 
 
