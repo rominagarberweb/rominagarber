@@ -27,8 +27,14 @@ templateClass: tmpl-event
         <path d="M15 21L31.5 4.5" stroke="#444444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
+
     <a href="https://twitter.com/intent/tweet?url=
-        {{- event.content.link | urlencode -}}
+        {%- if event.content.link %}
+          {{- event.content.link | urlencode -}}
+        {% else %}
+          {{- "https://www.rominagarber.com" | urlencode -}}
+          {{- page.url | urlencode -}}
+        {% endif -%}
         &via={{ "rominarussell" | urlencode -}}
         &text={{ event.content.name | urlencode }}"
         target="_blank" rel="noopener"

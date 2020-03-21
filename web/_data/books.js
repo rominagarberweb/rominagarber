@@ -3,12 +3,19 @@ const groq = require('groq')
 const client = require('../utils/sanityClient.js')
 const serializers = require('../utils/serializers')
 const overlayDrafts = require('../utils/overlayDrafts')
+const imageUrl = require('../utils/imageUrl')
 const hasToken = !!client.config().token
 
 function generateBook (book) {
   return {
     ...book,
-    synopsis: BlocksToMarkdown(book.synopsis, { serializers, ...client.config() })
+    cover: imageUrl(book.content.cover)
+      .height(500)
+      .url(),
+    synopsis: BlocksToMarkdown(
+      book.synopsis,
+      {serializers, ...client.config()}
+    )
   }
 }
 
