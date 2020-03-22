@@ -3,7 +3,55 @@ layout: layouts/base.njk
 templateClass: tmpl-book
 ---
 <article>
+
+  {%- if book.cover %}
+    <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
+  {% endif -%}
+
   <h1>{{ book.content.title }}</h1>
-  {{ book.synopsis | markdownify | safe }}
-  <p><a href="{{ '/' | url }}">← Home</a></p>
+
+  {% if book.synopsis %}
+    {{ book.synopsis | markdownify | safe }}
+  {% endif %}
+
+  {# (pre-)order and GR TBR links go here #}
+
+  {% if book.content.links %}
+    <ul>
+      {% set linkCount = 0 %}
+      {% for link in book.content.links %}
+        {% if linkCount < 6 %} {# limit number of links shown #}
+
+          <li>
+            <a href="{{ link.url | url }}" target="_blank" rel="noopener">{{ link.title }}</a>
+          </li>
+
+          {% set linkCount = linkCount + 1 %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if book.reviews.length > 0 %}
+    <h2>Reviews</h2>
+    {% for review in book.reviews %}
+      {{ review.content | markdownify | safe }}
+    {% endfor %}
+  {% endif %}
+
+  {% if book.content.pressItems.length > 0 %}
+    <h2>Press</h2>
+    {% for pressItem in book.content.pressItems %}
+      {{ pressItem.title }}
+      {{ pressItem.publishedAt | readableDate }}
+    {% endfor %}
+  {% endif %}
+
+  {% if book.internationalCovers.length > 0 %}
+    <h1>International Covers</h1>
+    {% for intCover in book.internationalCovers %}
+      <img src="{{ intCover.cover }}" alt="{{ intCover.alt }}" />
+    {% endfor %}
+  {% endif %}
+
 </article>

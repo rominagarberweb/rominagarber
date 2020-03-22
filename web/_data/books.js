@@ -7,13 +7,35 @@ const imageUrl = require('../utils/imageUrl')
 const hasToken = !!client.config().token
 
 function generateBook (book) {
+  const intCoversContent = book.content.internationalCovers ? book.content.internationalCovers.map(generateIntCovers) : []
+  const reviewsContent = book.content.reviews ? book.content.reviews.map(generateReviews) : []
   return {
     ...book,
     cover: imageUrl(book.content.cover)
       .height(500)
       .url(),
+    internationalCovers: intCoversContent,
+    reviews: reviewsContent,
     synopsis: BlocksToMarkdown(
-      book.synopsis,
+      book.content.synopsis,
+      {serializers, ...client.config()}
+    )
+  }
+}
+
+function generateIntCovers (cover) {
+  return {
+    alt: cover.alt,
+    cover: imageUrl(cover)
+      .height(500)
+      .url()
+  }
+}
+
+function generateReviews (review) {
+  return {
+    content: BlocksToMarkdown(
+      review.content,
       {serializers, ...client.config()}
     )
   }
@@ -25,15 +47,23 @@ async function getBooks () {
     content {
       _id,
       cover,
+      internationalCovers[],
+      links[],
+      "pressItems": pressItems[]->{
+        publishedAt,
+        title
+      },
+      releaseDate,
+      "reviews": reviews[]{
+        content[]
+      },
+      slug,
       synopsis[]{
         ...,
         children[]{
           ...
         }
       },
-      reviews[],
-      releaseDate,
-      slug,
       title
     }
   }`

@@ -21,6 +21,27 @@ navtitle: Home
 
 <section class="featured-book">
 
+  {% for book in booksPage.featured %}
+
+    {%- if book.cover %}
+      <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
+    {% endif -%}
+
+    <h1>{{ book.content.title }}</h1>
+
+    {% if book.synopsis %}
+      {{ book.synopsis | markdownify | safe }}
+    {% endif %}
+
+    {# (pre-)order and GR TBR links go here #}
+    <a href="/books/{{ book.content.slug.current | url }}/">More Info</a>
+
+    {% if book.review %}
+      {{ book.review | markdownify | safe }}
+    {% endif %}
+
+  {% endfor %}
+
 </section>
 
 <section class="instagram-feed">

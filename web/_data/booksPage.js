@@ -3,12 +3,36 @@ const groq = require('groq')
 const client = require('../utils/sanityClient.js')
 const serializers = require('../utils/serializers')
 const overlayDrafts = require('../utils/overlayDrafts')
+const imageUrl = require('../utils/imageUrl')
 const hasToken = !!client.config().token
 
 function generateBooksPage (booksPage) {
   return {
     ...booksPage,
-    genre: BlocksToMarkdown(booksPage.genre, { serializers, ...client.config() })
+    featured: booksPage.featured.map(generateFeaturedBooks),
+    genre: BlocksToMarkdown(
+      booksPage.genre,
+      {serializers, ...client.config()}
+    )
+  }
+}
+
+function generateFeaturedBooks (featuredBooks) {
+  return {
+    ...featuredBooks,
+    // Prepare featured books covers
+    cover: imageUrl(featuredBooks.content.cover)
+      .height(500)
+      .url(),
+    // Load first review from reviews array
+    review: BlocksToMarkdown(
+      featuredBooks.content.reviews[0].content,
+      {serializers, ...client.config()}
+    ),
+    synopsis: BlocksToMarkdown(
+      featuredBooks.content.synopsis,
+      {serializers, ...client.config()}
+    )
   }
 }
 

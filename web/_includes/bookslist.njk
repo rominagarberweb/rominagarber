@@ -1,6 +1,6 @@
-<ol reversed class="booklist" style="counter-reset: start-from {{ booksList.length + 1 }}">
+<ol class="booklist" style="counter-reset: start-from {{ booksList.length + 1 }}">
 
-{% for book in booksList | reverse %}
+{% for book in booksList %}
   {% set currentBook = book.data.book %}
 
   <li class="booklist-item{% if book.url == url %} booklist-item-active{% endif %}">
@@ -15,5 +15,3 @@
 
 {% endfor %}
 </ol>
-
-
