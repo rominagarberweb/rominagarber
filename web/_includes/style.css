@@ -9,6 +9,11 @@ html {
   --alpha-night: rgba(0,0,0,0.6);
   --beta-night: rgba(0,0,0,0.2);
 
+  /* manu theme colors */
+  --manu-moon-1: #F0E8B9;
+  --manu-moon-2: #D1C477;
+  --manu-moon-3: #9C914C;
+
   /* overall layout  */
   --global-br: 18px;
 }
@@ -169,6 +174,12 @@ a.btn--hero {
   border: 2px solid var(--general-night-3);
   border-radius: var(--global-br);
   color: var(--general-night-1);
+}
+
+a.btn--featured-book {
+  color: var(--manu-moon-3);
+  border: 2px solid var(--manu-moon-3);
+  border-radius: var(--global-br);
 }
 
 
@@ -389,12 +400,65 @@ section.event p a svg {
 
 
 /* ==========================================================================
-   #BOOKS
+   #Books
    ========================================================================== */
 
-/* section.books {
+/* Featured book(s)
+   ========================================================================== */
+
+section.featured-book {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1em 3em;
+  background-color: var(--manu-moon-1);
+  min-height: 30em;
+  margin: 0;
+  padding: 1em;
+}
+
+section.featured-book img {
+  grid-column: 3 / 6;
+  grid-row: 2;
+}
+
+div.featured-book-info {
+  grid-column: 6 / 11;
+  grid-row: 2;
+}
+
+div.featured-book-info h1 {
+  color: var(--manu-moon-3);
+}
+
+@media all and (max-width: 800px) {
+  section.featured-book {
+    grid-gap: 1em 2em;
+  }
   
-} */
+  section.featured-book img {
+    grid-column: 1 / 5;
+  }
+
+  div.featured-book-info {
+    grid-column: 5 / 13;
+  }
+}
+
+@media all and (max-width: 500px) {
+  section.featured-book img {
+    grid-column: 1 / 13;
+    grid-row: 2;
+    justify-self: center;
+  }
+
+  div.featured-book-info {
+    grid-column: 1 / 13;
+    grid-row: 3;
+  }
+}
+
+/* Book list(s)
+   ========================================================================== */
 
 ol.booklist {
   display: grid;
