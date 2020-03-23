@@ -34,6 +34,7 @@ function generateIntCovers (cover) {
 
 function generateReviews (review) {
   return {
+    author: review.author,
     content: BlocksToMarkdown(
       review.content,
       {serializers, ...client.config()}
@@ -55,6 +56,7 @@ async function getBooks () {
       },
       releaseDate,
       "reviews": reviews[]{
+        author,
         content[]
       },
       slug,

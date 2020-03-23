@@ -53,6 +53,9 @@ templateClass: tmpl-book
     <h2>Reviews</h2>
     {% for review in book.reviews %}
       {{ review.content | markdownify | safe }}
+      {% if review.author %}
+        <em>&mdash; {{ review.author }}</em>
+      {% endif %}
     {% endfor %}
   {% endif %}
 

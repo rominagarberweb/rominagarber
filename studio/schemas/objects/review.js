@@ -7,11 +7,17 @@ export default {
       title: 'Review',
       name: 'content',
       type: 'reviewPortableText'
+    },
+    {
+      title: 'Author',
+      name: 'author',
+      type: 'string'
     }
   ],
   preview: {
     select: {
-      title: 'content'
+      title: 'content',
+      subtitle: 'author'
     }
   }
 }
