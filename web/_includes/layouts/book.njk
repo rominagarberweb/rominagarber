@@ -2,11 +2,15 @@
 layout: layouts/base.njk
 templateClass: tmpl-book
 ---
-<article>
+<section class="book"> 
+
+<div class="book-hero">
 
   {%- if book.cover %}
     <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
   {% endif -%}
+
+  <div class="book-info">
 
   <h1>{{ book.content.title }}</h1>
 
@@ -14,7 +18,15 @@ templateClass: tmpl-book
     {{ book.synopsis | markdownify | safe }}
   {% endif %}
 
-  {# (pre-)order and GR TBR links go here #}
+  {# (pre-)order and GR TBR links go here
+  How do we change the colors of these buttons #}
+
+  <a class="btn btn--featured-book" href="#">Buy book from
+    <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1L7.97059 7L14.9412 1" stroke="#4781A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  <a class="btn btn--featured-book" href="#">Add to Goodreads TBR</a>
 
   {% if book.content.links %}
     <ul>
@@ -32,6 +44,11 @@ templateClass: tmpl-book
     </ul>
   {% endif %}
 
+  </div>
+  </div>
+
+  <div class="book-reviews">
+
   {% if book.reviews.length > 0 %}
     <h2>Reviews</h2>
     {% for review in book.reviews %}
@@ -45,16 +62,23 @@ templateClass: tmpl-book
   {% if book.content.pressItems.length > 0 %}
     <h2>Press</h2>
     {% for pressItem in book.content.pressItems %}
-      {{ pressItem.title }}
-      {{ pressItem.publishedAt | readableDate }}
+      <a href="#" target="_blank" rel="noopener">{{ pressItem.title }}</a>
+      <time>{{ pressItem.publishedAt | readableDate }}</time>
     {% endfor %}
   {% endif %}
+
+  </div>
 
   {% if book.internationalCovers.length > 0 %}
-    <h1>International Covers</h1>
-    {% for intCover in book.internationalCovers %}
-      <img src="{{ intCover.cover }}" alt="{{ intCover.alt }}" />
-    {% endfor %}
+    
+    <div class="books-international">
+      <h1>International Covers</h1>
+      <ol>
+        {% for intCover in book.internationalCovers %}
+          <li><img src="{{ intCover.cover }}" alt="{{ intCover.alt }}" /></li>
+        {% endfor %}
+      </ol>
+    </div>
   {% endif %}
 
-</article>
+</section>

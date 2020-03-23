@@ -6,8 +6,10 @@ navtitle: Home
 ---
 
 <section class="hero">
+
+<div class="hero-background">
   {# I think we need this section to hold some graphics #}
-</section>
+</div>
 
 <div class="hero-card">
   {# here is some placeholder html that you can work into the singleton #}
@@ -19,6 +21,8 @@ navtitle: Home
   <p>[social icons]</p>
 </div>
 
+</section>
+
 <section class="featured-book">
 
   {% for book in booksPage.featured %}
@@ -27,18 +31,22 @@ navtitle: Home
       <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
     {% endif -%}
 
-    <h1>{{ book.content.title }}</h1>
+    <div class="featured-book-info">
+
+    <h1 class="mt0 mb0">{{ book.content.title }}</h1>
 
     {% if book.synopsis %}
       {{ book.synopsis | markdownify | safe }}
     {% endif %}
 
     {# (pre-)order and GR TBR links go here #}
-    <a href="/books/{{ book.content.slug.current | url }}/">More Info</a>
+    <a class="btn btn--featured-book" href="/books/{{ book.content.slug.current | url }}/">More Info</a>
 
     {% if book.review %}
       {{ book.review | markdownify | safe }}
     {% endif %}
+
+    </div>
 
   {% endfor %}
 
