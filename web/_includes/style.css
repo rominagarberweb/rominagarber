@@ -13,6 +13,29 @@ html {
   --manu-moon-1: #F0E8B9;
   --manu-moon-2: #D1C477;
   --manu-moon-3: #9C914C;
+  --manu-earth-1: #CEDAA4;
+  --manu-earth-2: #92C589;
+  --manu-earth-3: #73A475;
+  --manu-blood-1: #FBC3A7;
+  --manu-blood-2: #E99198;
+  --manu-blood-3: #A35048;
+  
+  /* rho theme colors */
+  --rho-cancer-1: #CEE7F5;
+  --rho-cancer-2: #71ACD3;
+  --rho-cancer-3: #4781A2;
+  --rho-ophiuchus-1: #FAE0C2;
+  --rho-ophiuchus-2: #F3C691;
+  --rho-ophiuchus-3: #EBAB60;
+  --rho-capricorn-1: #F9F0D1;
+  --rho-capricorn-2: #F6E091;
+  --rho-Capricorn-3: #EAB80F;
+  --rho-aquarius-1: #D9C0DE;
+  --rho-aquarius-2: #AA83AC;
+  --rho-aquarius-3: #734A85;
+  --rho-libra-1: #F3DEDB;
+  --rho-libra-2: #E4BAB4;
+  --rho-libra-3: #DA8D85;
 
   /* overall layout  */
   --global-br: 18px;

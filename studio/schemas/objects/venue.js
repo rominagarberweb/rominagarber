@@ -29,13 +29,14 @@ export default {
             inner: "100%"
           },
           list: [
-            { title: "Yellow", value: "rgba(245, 199, 1, 1)" },
-            { title: "Pink", value: {r: 246, g: 206, b: 219} },
-            { title: "Red", value: "#f16d70" },
-            { title: "Teal", value: "#88c6db" },
-            { title: "Purple", value: "#aca0cc" },
-            { title: "Green", value: "#bdcdcb" },
-            { title: "White", value: "white" }
+            { tilte: "manu-moon-2", value: "#D1C477" },
+            { tilte: "manu-earth-2", value: "#92C589" },
+            { tilte: "manu-blood-2", value: "#E99198" },
+            { title: "rho-cancer-2", value: "#71ACD3" },
+            { title: "rho-ophiuchus-2", value: "#F3C691" },
+            { title: "rho-capricorn-2", value: "#F6E091" },
+            { title: "rho-aquarius-2", value: "#AA83AC" },
+            { title: "rho-libra-2", value: "#E4BAB4" }
           ]
         }
       },
