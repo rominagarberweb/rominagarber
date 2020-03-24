@@ -58,14 +58,14 @@ body {
   clear: both; 
 }
 
-.clearfix {
+/* .clearfix {
   display: block;
   display: flow-root; 
-}
+} */
 
 img {
   border-style: none;
-  vertical-align: bottom;
+  /* vertical-align: bottom; */
   display: block;
   max-width: 100%;
   height: auto;

@@ -15,16 +15,24 @@ templateClass: tmpl-books
       <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
     {% endif -%}
 
-    <div class="book-info">
+    <div class="featured-book-info">
 
-    <h1>{{ book.content.title }}</h1>
+    <h1 class="mt0 mb0">{{ book.content.title }}</h1>
 
     {% if book.synopsis %}
       {{ book.synopsis | markdownify | safe }}
     {% endif %}
 
-    {# (pre-)order and GR TBR links go here #}
-    <a href="/books/{{ book.content.slug.current | url }}/">More Info</a>
+    {# (pre-)order and GR TBR links go here
+  How do we change the colors of these buttons #}
+
+  <a class="btn btn--featured-book" href="#">Buy book from
+    <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1L7.97059 7L14.9412 1" stroke="#4781A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  <a class="btn btn--featured-book" href="#">Add to Goodreads TBR</a>
+  <a href="#">More info</a>
 
     {% if book.review %}
       {{ book.review | markdownify | safe }}
