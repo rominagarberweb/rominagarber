@@ -460,6 +460,7 @@ section.featured-book img,
   grid-row: 2;
 }
 
+section.featured-book .book-info,
 div.featured-book-info,
 .book-hero .book-info {
   grid-column: 6 / 11;
