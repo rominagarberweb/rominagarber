@@ -179,6 +179,8 @@ a.btn {
   text-decoration: none;
   margin: 1.8rem .4rem 1.8rem 0;
   padding: .6em 1.2em;
+  font-size: calc(12px + 0.25vw);
+  white-space: nowrap;
 }
 
 a.btn--primary {
