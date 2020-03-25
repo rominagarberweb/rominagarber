@@ -16,6 +16,10 @@
         {{- currentEvent.content.venue.shortcode -}}
       </span>
     {% endif %}
+      
+      <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">
+        {{- currentEvent.content.schedule.from | readableDate -}}
+      </time>
 
       <a href="{{ event.url | url }}" class="eventlist-link">
 
@@ -28,9 +32,6 @@
       {% endif -%}
 
       </a>
-      <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">
-        {{- currentEvent.content.schedule.from | readableDate -}}
-      </time>
 
       {% if currentEvent.content.link %}
 

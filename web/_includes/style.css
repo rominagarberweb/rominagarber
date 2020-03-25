@@ -279,17 +279,25 @@ section.hero {
    #BLOG POSTS
    ========================================================================== */
 
-/* section.blog-posts, section.blog-post {
-  display: grid;
-} */
-
+section.blog-posts, 
+section.blog-post,
 article {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
 
+section.blog-posts .more-link {
+  grid-row: 2;
+  grid-column: 3 / 11;
+}
+
+/* article {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+} */
+
 article * {
-  grid-column: 3 / 10;
+  grid-column: 3 / 11;
 }
 
 @media all and (max-width: 650px) {
@@ -299,32 +307,43 @@ article * {
 }
 
 ol.postlist {
+  grid-column: 3 / 11;
   list-style: none;
   margin-left: 0;
   padding-left: 0;
 }
+
 ol.postlist li.postlist-item {
   margin-bottom: 2em;
   display: flex;
   flex-direction: row;
 }
+
 ol.postlist li.postlist-item a.postlist-link {
   color: var(--general-night-4);
   display: flex;
 }
+
 ol.postlist li.postlist-item a.postlist-link img {
   object-fit: cover;
   margin: 0 1rem 0 0;
+  width: 100px;
+  height: 100px;
+  border-radius: var(--global-br);
 }
+
 /* ol.postlist li.postlist-item .block {
 
 } */
+
 ol.postlist li.postlist-item .block h2 {
   margin: 0;
 }
+
 ol.postlist li.postlist-item .block p {
   max-width: 60ch;
 }
+
 ol.postlist li.postlist-item time {
   color: var(--general-night-3);
 }
@@ -406,9 +425,7 @@ ol.eventlist svg {
 
 
 
-
-/* ==========================================================================
-   #EVENT PAGE
+/* Event page
    ========================================================================== */
 
 /* section.event {
@@ -526,14 +543,6 @@ div.books-international {
   grid-column: 3 / 11;
   grid-row: 3;
 }
-
-/* div.books-international ol {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  list-style: none;
-  grid-gap: 3em 1em;
-  padding: 0;
-} */
 
 div.books-international ol li img {
   height: 100%;
