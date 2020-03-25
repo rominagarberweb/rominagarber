@@ -205,6 +205,7 @@ a.btn--featured-book {
   color: var(--manu-moon-3);
   border: 2px solid var(--manu-moon-3);
   border-radius: var(--global-br);
+  margin: 0 .6em .4em 0;
 }
 
 
@@ -435,11 +436,12 @@ section.genre p {
 /* Featured book(s)
    ========================================================================== */
 
-section.featured-book, section.book {
+section.featured-book,
+section.book-content {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 1em 3em;
-  padding: 1em;
+  /* padding: 1em; */
 }
 
 section.featured-book {
@@ -473,6 +475,11 @@ div.featured-book-info h1 {
   color: var(--manu-moon-3);
 }
 
+.book-actions {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 div.book-reviews {
   grid-column: 3 / 11;
   grid-row: 2;
@@ -503,12 +510,15 @@ div.books-international ol li img {
   
   section.featured-book img,
   .book-hero img {
-    grid-column: 1 / 5;
+    grid-column: 2 / 6;
   }
 
   div.featured-book-info,
   .book-hero .book-info {
-    grid-column: 5 / 13;
+    grid-column: 6 / 12;
+  }
+  div.book-reviews {
+    grid-column: 2 / 12;
   }
 }
 
@@ -530,6 +540,9 @@ div.books-international ol li img {
   }
   .book-hero .book-info {
     grid-row: 2;
+  }
+  div.book-reviews {
+    grid-column: 1 / 13;
   }
 }
 
