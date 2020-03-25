@@ -28,7 +28,7 @@ templateClass: tmpl-books
 
   <a class="btn btn--featured-book" href="#">Buy book from
     <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 1L7.97059 7L14.9412 1" stroke="#4781A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M1 1L7.97059 7L14.9412 1" stroke="#9C914C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </a>
   <a class="btn btn--featured-book" href="#">Add to Goodreads TBR</a>
@@ -59,6 +59,13 @@ templateClass: tmpl-books
   {% endfor %}
 
   {# publisher and representation go here #}
+  <div class="book-data clearfix">
+      {# make this color selected in the cms to match the book theme colors 3 #}
+      <p>
+        <span style="color: #9C914C">Publisher:</span> <a href="#">Wednesday Books</a><br>
+        <span style="color: #9C914C">Representation:</span> <a href="#">Laura Rennert, Andrea Brown Literary Agency</a>
+      </p>
+    </div>
 
 </section>
 

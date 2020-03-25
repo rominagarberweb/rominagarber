@@ -3,7 +3,7 @@ layout: layouts/base.njk
 templateClass: tmpl-book
 ---
 
-<div class="book-hero" style="background-color: #F0E8B9;">
+<div class="book-hero" style="background-color: #CEE7F5">
 
   {%- if book.cover %}
     <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
@@ -11,7 +11,8 @@ templateClass: tmpl-book
 
   <div class="book-info">
 
-  <h1>{{ book.content.title }}</h1>
+  {# generate the heading color and the buttons from the cms #}
+  <h1 class="mt0 mb0" style="color: #4781A2;">{{ book.content.title }}</h1> 
 
   {% if book.synopsis %}
     {{ book.synopsis | markdownify | safe }}
@@ -20,14 +21,14 @@ templateClass: tmpl-book
 
   <div class="book-actions">
     {# (pre-)order and GR TBR links go here
-    How do we change the colors of these buttons #}
+    change the colors of these buttons and icons in the cms #}
 
-    <a class="btn btn--featured-book" href="#">Buy book from
+    <a class="btn btn--featured-book" style="border-color: #4781A2; color: #4781A2;" href="#">Buy book from
       <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 1L7.97059 7L14.9412 1" stroke="#4781A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
-    <a class="btn btn--featured-book" href="#">Add to Goodreads TBR</a>
+    <a class="btn btn--featured-book" style="border-color: #4781A2; color: #4781A2;" href="#">Add to Goodreads TBR</a>
 
   </div>
 
@@ -45,9 +46,17 @@ templateClass: tmpl-book
         {% endif %}
       {% endfor %}
     </ul>
+
   {% endif %}
 
-</div>
+  </div>
+  <div class="book-data clearfix">
+      {# make this color selected in the cms to match the book theme colors 3 #}
+      <p>
+        <span style="color: #4781A2;">Publisher:</span> <a href="#">Penguin Razorbill</a><br>
+        <span style="color: #4781A2;">Representation:</span> <a href="#">Laura Rennert, Andrea Brown Literary Agency</a>
+      </p>
+    </div>
 </div>
 
 <section class="book-content"> 

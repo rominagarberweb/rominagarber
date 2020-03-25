@@ -58,10 +58,10 @@ body {
   clear: both; 
 }
 
-/* .clearfix {
+.clearfix {
   display: block;
   display: flow-root; 
-} */
+} 
 
 img {
   border-style: none;
@@ -471,13 +471,19 @@ div.featured-book-info,
   grid-row: 2;
 }
 
-div.featured-book-info h1 {
+div.featured-book-info h1,
+.book-info h1 {
   color: var(--manu-moon-3);
 }
 
 .book-actions {
   display: flex;
   flex-flow: row wrap;
+}
+
+.book-data {
+  grid-column: 3 / 11;
+  grid-row: 3;
 }
 
 div.book-reviews {
@@ -517,6 +523,8 @@ div.books-international ol li img {
   .book-hero .book-info {
     grid-column: 6 / 12;
   }
+
+  .book-data,
   div.book-reviews {
     grid-column: 2 / 12;
   }
@@ -538,9 +546,12 @@ div.books-international ol li img {
     grid-column: 1 / 13;
     grid-row: 3;
   }
+
   .book-hero .book-info {
     grid-row: 2;
   }
+
+  .book-data,
   div.book-reviews {
     grid-column: 1 / 13;
   }
