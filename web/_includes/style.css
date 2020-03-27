@@ -46,7 +46,7 @@ body {
   margin: 0;
   font-family: sans-serif;
   font-size: calc(14px + 0.25vw);
-  line-height: 1.13;
+  line-height: calc(1.5 - 0.5vw);
   color: var(--general-night-4);
 }
 
@@ -146,7 +146,7 @@ nav ul.primary-nav__list {
   margin-bottom: 20em;
 }
 
-section, 
+section,
 article {
   /* grid-column: 3 / 10; */
   /* display: grid;
@@ -280,10 +280,13 @@ section.hero {
    ========================================================================== */
 
 section.blog-posts, 
-section.blog-post,
-article {
+section.blog-post {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+}
+
+article {
+  grid-column: 3 / 11;
 }
 
 section.blog-posts .more-link {
@@ -301,8 +304,9 @@ article * {
 }
 
 @media all and (max-width: 650px) {
-  article * {
+  article {
     grid-column: 1 / 12;
+    margin: 0 1em;
   }
 }
 
@@ -481,12 +485,14 @@ section.book-content {
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 1em 3em;
   /* padding: 1em; */
+  margin-top: 0;
 }
 
 section.featured-book {
   background-color: var(--manu-moon-1);
   min-height: 30em;
   margin: 0;
+  padding: 3em 0;
 }
 
 .book-hero {
@@ -495,12 +501,18 @@ section.featured-book {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 1em 1em;
+  padding: 3em 0;
+  background-color: var(--rho-cancer-1);
+  background-image: url(/static/images/bkg-zodiac.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 section.featured-book img, 
 .book-hero img {
   grid-column: 3 / 6;
   grid-row: 2;
+  filter:drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
 }
 
 section.featured-book .book-info,
@@ -530,6 +542,10 @@ div.featured-book-info h1,
   grid-row: 2;
 }
 
+.book-reviews h2 {
+  margin-top: 3em;
+}
+
 .book-reviews p {
   margin-top: 1.8em;
   margin-bottom: .8em;
@@ -539,12 +555,13 @@ div.featured-book-info h1,
   margin-left: -.4em;
 }
 
-div.books-international {
+.books-international {
   grid-column: 3 / 11;
   grid-row: 3;
+  margin-top: 3em;
 }
 
-div.books-international ol li img {
+.books-international ol li img {
   height: 100%;
 }
 
@@ -565,7 +582,7 @@ div.books-international ol li img {
   }
 
   .book-data,
-  div.book-reviews {
+  .book-reviews {
     grid-column: 2 / 12;
   }
 }
@@ -581,7 +598,7 @@ div.books-international ol li img {
     grid-row: 1;
   }
 
-  div.featured-book-info,
+  .featured-book-info,
   .book-hero .book-info {
     grid-column: 1 / 13;
     grid-row: 3;
@@ -591,8 +608,8 @@ div.books-international ol li img {
     grid-row: 2;
   }
 
-  .book-data,
-  div.book-reviews {
+ .book-data,
+ .book-reviews {
     grid-column: 1 / 13;
   }
 }
