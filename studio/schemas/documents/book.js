@@ -63,6 +63,12 @@ export default {
           fieldset: 'general'
         },
         {
+          name: 'hook',
+          type: 'introPortableText',
+          title: 'Hook',
+          fieldset: 'general'
+        },
+        {
           name: 'synopsis',
           type: 'introPortableText',
           title: 'Synopsis',

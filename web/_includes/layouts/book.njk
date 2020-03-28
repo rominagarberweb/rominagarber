@@ -12,10 +12,10 @@ templateClass: tmpl-book
   <div class="book-info">
 
   {# generate the heading color and the buttons from the cms #}
-  <h1 class="mt0 mb0" style="color: #4781A2;">{{ book.content.title }}</h1> 
+  <h1 class="mt0 mb0" style="color: #4781A2;">{{ book.content.title }}</h1>
 
-  {% if book.synopsis %}
-    {{ book.synopsis | markdownify | safe }}
+  {% if book.hook %}
+    {{ book.hook | markdownify | safe }}
   {% endif %}
 
 
@@ -59,7 +59,14 @@ templateClass: tmpl-book
     </div>
 </div>
 
-<section class="book-content"> 
+<section class="book-content">
+
+  {% if book.synopsis %}
+    <div class='book-synopsis'>
+      <h2>Synopsis</h2>
+      {{ book.synopsis | markdownify | safe }}
+    </div>
+  {% endif %}
 
   <div class="book-reviews">
 
@@ -84,7 +91,7 @@ templateClass: tmpl-book
   </div>
 
   {% if book.internationalCovers.length > 0 %}
-    
+
     <div class="books-international">
       <h1>International Covers</h1>
       <ol>

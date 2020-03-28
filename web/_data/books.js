@@ -14,6 +14,10 @@ function generateBook (book) {
     cover: imageUrl(book.content.cover)
       .height(500)
       .url(),
+    hook: BlocksToMarkdown(
+      book.content.hook,
+      {serializers, ...client.config()}
+    ),
     internationalCovers: intCoversContent,
     reviews: reviewsContent,
     synopsis: BlocksToMarkdown(
@@ -48,6 +52,12 @@ async function getBooks () {
     content {
       _id,
       cover,
+      hook[]{
+        ...,
+        children[]{
+          ...
+        }
+      },
       internationalCovers[],
       links[],
       "pressItems": pressItems[]->{
