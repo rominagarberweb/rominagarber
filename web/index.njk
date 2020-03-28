@@ -39,8 +39,13 @@ navtitle: Home
       {{ book.synopsis | markdownify | safe }}
     {% endif %}
 
-    {# (pre-)order and GR TBR links go here #}
-    <a class="btn btn--featured-book" href="/books/{{ book.content.slug.current | url }}/">More Info</a>
+    <div class="book-actions">
+
+      {# (pre-)order and GR TBR links go here #}
+      <a class="btn btn--featured-book" href="/books/{{ book.content.slug.current | url }}/">More Info</a>
+      <a class="btn btn--featured-book" style="border-color: #4781A2; color: #4781A2;" href="#">Add to Goodreads TBR</a>
+
+    </div>
 
     {% if book.review %}
       {{ book.review | markdownify | safe }}
