@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-about
+---
+
+<section class="bio">
+  {%- if aboutPage.image %}
+    <img src="{{ aboutPage.image }}" />
+  {% endif -%}
+  {{ aboutPage.bio | markdownify | safe }}
+</section>
+
+{%- if aboutPage.agent %}
+  <section class="agent">
+    <a href="{{ aboutPage.agent.url }}" target="_blank" rel="noopener">
+      {{- aboutPage.agent.title -}}
+    </a>
+  </section>
+{% endif -%}
+
+{%- if aboutPage.publishers.length > 0 %}
+  <section class="publishers">
+    <ul>
+      {%- for publisher in aboutPage.publishers -%}
+        <li>
+          <a href="{{ publisher.url }}" target="_blank" rel="noopener">
+            {{- publisher.title -}}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </section>
+{% endif -%}
