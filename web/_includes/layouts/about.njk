@@ -10,14 +10,6 @@ templateClass: tmpl-about
   {{ aboutPage.bio | markdownify | safe }}
 </section>
 
-{%- if aboutPage.agent %}
-  <section class="agent">
-    <a href="{{ aboutPage.agent.url }}" target="_blank" rel="noopener">
-      {{- aboutPage.agent.title -}}
-    </a>
-  </section>
-{% endif -%}
-
 {%- if aboutPage.publishers.length > 0 %}
   <section class="publishers">
     <ul>
@@ -29,5 +21,13 @@ templateClass: tmpl-about
         </li>
       {%- endfor -%}
     </ul>
+  </section>
+{% endif -%}
+
+{%- if aboutPage.agent %}
+  <section class="agent">
+    <a href="{{ aboutPage.agent.url }}" target="_blank" rel="noopener">
+      {{- aboutPage.agent.title -}}
+    </a>
   </section>
 {% endif -%}

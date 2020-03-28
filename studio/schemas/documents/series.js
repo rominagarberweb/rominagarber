@@ -31,13 +31,13 @@ export default {
       title: 'Description'
     },
     {
-      name: 'blurbs',
+      name: 'reviews',
       type: 'array',
-      title: 'Blurbs',
+      title: 'Reviews',
       of: [
         {
-          type: 'blurb',
-          title: 'Blurb'
+          type: 'review',
+          title: 'Review'
         }
       ]
     },

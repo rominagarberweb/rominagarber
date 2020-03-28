@@ -59,6 +59,9 @@ async function getBooks () {
         author,
         content[]
       },
+      "series": series->{
+        _id
+      },
       slug,
       synopsis[]{
         ...,

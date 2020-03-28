@@ -1,0 +1,100 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-series
+---
+
+<section class="series-hero">
+
+  {%- if series.image %}
+    <img src="{{ series.image }}" alt="{{ series.image.alt }}" />
+  {% endif -%}
+
+</section>
+
+<section class="series-data">
+  <h1>{{ series.title }}</h1>
+
+  {% if series.description %}
+    {{ series.description | markdownify | safe }}
+  {% endif %}
+
+  {% if series.links.length > 0 %}
+    <ul>
+      {% set linkCount = 0 %}
+      {% for link in series.links %}
+        {% if linkCount < 3 %} {# limit number of links shown #}
+
+          <li>
+            <a href="{{ link.url | url }}" target="_blank" rel="noopener">{{ link.title }}</a>
+          </li>
+
+          {% set linkCount = linkCount + 1 %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {%- if series.publishers.length > 0 %}
+    <section class="publishers">
+      <ul>
+        {%- for publisher in series.publishers -%}
+          <li>
+            <a href="{{ publisher.url }}" target="_blank" rel="noopener">
+              {{- publisher.title -}}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </section>
+  {% endif -%}
+
+  {%- if series.agent %}
+    <section class="agent">
+      <a href="{{ series.agent.url }}" target="_blank" rel="noopener">
+        {{- series.agent.title -}}
+      </a>
+    </section>
+  {% endif -%}
+
+</section>
+
+<section class="series-content">
+
+  <div class="series-reviews">
+
+  {% if series.reviews.length > 0 %}
+
+    <h2>Reviews</h2>
+
+    {% for review in series.reviews %}
+      {{ review.content | markdownify | safe }}
+      {% if review.author %}
+        <em>&mdash; {{ review.author }}</em>
+      {% endif %}
+    {% endfor %}
+
+  {% endif %}
+
+  {% if series.pressItems.length > 0 %}
+
+    <h2>Press</h2>
+
+    {% for pressItem in series.pressItems %}
+      <a href="#" target="_blank" rel="noopener">{{ pressItem.title }}</a>
+      <time>{{ pressItem.publishedAt | readableDate }}</time>
+    {% endfor %}
+
+  {% endif %}
+
+  </div>
+
+  <div class="series-books">
+    <h1>Series Books</h1>
+
+    {% set booksList = collections.myBooks %}
+    {% set seriesReference = series._id %} {# filter books by series #}
+    {% include "bookslist.njk" %}
+
+  </div>
+
+</section>
