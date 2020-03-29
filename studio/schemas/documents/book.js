@@ -35,7 +35,7 @@ export default {
           title: 'Slug',
           fieldset: 'general',
           options: {
-            source: 'title',
+            source: 'content.title',
             maxLength: 96
           }
         },
@@ -72,6 +72,24 @@ export default {
           name: 'synopsis',
           type: 'introPortableText',
           title: 'Synopsis',
+          fieldset: 'general'
+        },
+        {
+          title: 'Publisher links',
+          name: 'publishers',
+          type: 'array',
+          fieldset: 'general',
+          of: [
+            {
+              type: 'link',
+              title: 'Link'
+            }
+          ]
+        },
+        {
+          title: 'Agent link',
+          name: 'agent',
+          type: 'link',
           fieldset: 'general'
         },
         {

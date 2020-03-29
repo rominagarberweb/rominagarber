@@ -53,11 +53,17 @@ templateClass: tmpl-book
   <div class="book-data clearfix">
       {# make this color selected in the cms to match the book theme colors 3 #}
       <p>
-        <span style="color: #4781A2;">Publisher:</span> <a href="#">Penguin Razorbill</a><br>
-        <span style="color: #4781A2;">Representation:</span> <a href="#">Laura Rennert, Andrea Brown Literary Agency</a>
+        {%- if book.content.publishers.length > 0 %}
+          <span style="color: #4781A2;">Publisher:</span>
+          <a href="{{ book.content.publishers[0].url }}" target="_blank" rel="noopener">{{ book.content.publishers[0].title }}</a><br>
+        {% endif -%}
+        {%- if book.content.agent %}
+          <span style="color: #4781A2;">Representation:</span>
+          <a href="{{ book.content.agent.url }}">{{ book.content.agent.title }}</a>
+        {% endif -%}
       </p>
     </div>
-</div>
+  </div>
 
 <section class="book-content">
 

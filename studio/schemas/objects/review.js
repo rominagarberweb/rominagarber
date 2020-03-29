@@ -9,6 +9,11 @@ export default {
       type: 'reviewPortableText'
     },
     {
+      title: 'Starred Review',
+      name: 'starred',
+      type: 'boolean'
+    },
+    {
       title: 'Author',
       name: 'author',
       type: 'string'
@@ -17,7 +22,17 @@ export default {
   preview: {
     select: {
       title: 'content',
-      subtitle: 'author'
+      subtitle: 'author',
+      starred: 'starred'
+    },
+    prepare(selection) {
+      const {title, subtitle, starred} = selection
+      const star = starred ? '☆ ' : ''
+      const starredTitle = `${star}${title[0].children[0].text}`
+      return {
+        title: starredTitle,
+        subtitle: subtitle
+      }
     }
   }
 }
