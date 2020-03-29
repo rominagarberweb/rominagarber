@@ -5,9 +5,14 @@ export default {
   __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
   fields: [
     {
-      name: 'heroText',
+      name: 'heroTitle',
       type: 'string',
-      title: 'Hero text',
+      title: 'Hero title',
+    },
+    {
+      name: 'heroDescription',
+      type: 'string',
+      title: 'Hero description',
     },
     {
       name: 'heroImage',
