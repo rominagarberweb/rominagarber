@@ -61,14 +61,15 @@ templateClass: tmpl-book
 
 <section class="book-content">
 
+{# call this something else besides reviews #}
+<div class="book-reviews">
+
   {% if book.synopsis %}
     <div class='book-synopsis'>
       <h2>Synopsis</h2>
       {{ book.synopsis | markdownify | safe }}
     </div>
   {% endif %}
-
-  <div class="book-reviews">
 
   {% if book.reviews.length > 0 %}
     <h2>Reviews</h2>

@@ -19,8 +19,8 @@ templateClass: tmpl-books
 
     <h1 class="mt0 mb0">{{ book.content.title }}</h1>
 
-    {% if book.synopsis %}
-      {{ book.synopsis | markdownify | safe }}
+    {% if book.hook %}
+      {{ book.hook | markdownify | safe }}
     {% endif %}
 
     {# (pre-)order and GR TBR links go here
