@@ -24,6 +24,10 @@ function generateFeaturedBooks (featuredBooks) {
     cover: imageUrl(featuredBooks.content.cover)
       .height(500)
       .url(),
+    hook: BlocksToMarkdown(
+      featuredBooks.content.hook,
+      {serializers, ...client.config()}
+    ),
     // Load first review from reviews array
     review: BlocksToMarkdown(
       featuredBooks.content.reviews[0].content,
