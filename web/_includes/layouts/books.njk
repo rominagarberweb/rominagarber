@@ -19,20 +19,22 @@ templateClass: tmpl-books
 
     <h1 class="mt0 mb0">{{ book.content.title }}</h1>
 
-    {% if book.synopsis %}
-      {{ book.synopsis | markdownify | safe }}
+    {% if book.hook %}
+      {{ book.hook | markdownify | safe }}
     {% endif %}
 
     {# (pre-)order and GR TBR links go here
   How do we change the colors of these buttons #}
 
-  <a class="btn btn--featured-book" href="#">Buy book from
-    <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 1L7.97059 7L14.9412 1" stroke="#9C914C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </a>
-  <a class="btn btn--featured-book" href="#">Add to Goodreads TBR</a>
-  <a href="#">More info</a>
+    <div class="book-actions">
+      <a class="btn btn--featured-book" href="#">Buy book from
+        <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L7.97059 7L14.9412 1" stroke="#9C914C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a class="btn btn--featured-book" href="#">Add to Goodreads TBR</a>
+      <a href="#">More info</a>
+    </div>
 
     {% if book.review %}
       {{ book.review | markdownify | safe }}

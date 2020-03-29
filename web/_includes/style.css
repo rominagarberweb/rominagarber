@@ -48,7 +48,7 @@ body {
   font-size: calc(14px + 0.25vw);
   line-height: 1.5;
   color: var(--general-night-4);
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 
 a,
@@ -515,9 +515,21 @@ section.featured-book img,
   grid-row: 2;
   filter:drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
 }
+
+@keyframes roll {
+  0% {
+    transform: rotate (-4deg);
+  }
+  100% {
+    transform: rotate (1200deg);
+  }
+}
+
 section:hover.featured-book img {
-  filter:drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.4));
-  transition: background-color 0.5s ease;
+  animation: roll 4s infinite;
+  animation-duration: 1.5s; 
+  animation-timing-function: ease-out; 
+  /* transform: rotate(-4deg); */
 }
 
 section.featured-book .book-info,
