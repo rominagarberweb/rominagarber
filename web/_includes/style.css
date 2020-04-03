@@ -37,6 +37,11 @@ html {
   --rho-libra-2: #E4BAB4;
   --rho-libra-3: #DA8D85;
 
+  /* Type  */
+  --body-font: Manuale, serif;
+
+
+
   /* overall layout  */
   --global-br: 18px;
 }
@@ -44,7 +49,7 @@ html {
 body {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: var(--body-font);
   font-size: calc(14px + 0.25vw);
   line-height: 1.5;
   color: var(--general-night-4);
