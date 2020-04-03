@@ -6,20 +6,21 @@ navtitle: Home
 ---
 
 <section class="hero">
+  <div class="hero-background">
+    {# I think we need this section to hold some graphics #}
+  </div>
 
-<div class="hero-background">
-  {# I think we need this section to hold some graphics #}
-</div>
+  <div class="hero-card">
+    {# here is some placeholder html that you can work into the singleton #}
+    <h1>{{ homePage.heroTitle }}</h1>
+    <p>{{ homePage.heroDescription }}</p>
+    <p>
+      <a href="/about/" class="btn btn--hero">Romina&rsquo;s Info</a>
+    </p>
 
-<div class="hero-card">
-  {# here is some placeholder html that you can work into the singleton #}
-  <h1>{{ homePage.heroTitle }}</h1>
-  <p>{{ homePage.heroDescription }}</p>
-  <p>
-    <a href="/about/" class="btn btn--hero">Romina&rsquo;s Info</a>
-  </p>
-  <p>[social icons]</p>
-</div>
+    {% include "_includes/components/social.njk" %}
+
+  </div>
 </section>
 <section class="featured-book">
 
