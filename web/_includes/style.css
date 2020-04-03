@@ -201,7 +201,7 @@ footer section.footer-content div ol.social-icons li {
   align-self: center;
 }
 
-footer section.footer-content div ol.social-icons li svg.social-icon {
+footer section.footer-content div ol.social-icons li a svg.social-icon {
   fill: red;
   height: 32px;
 }
@@ -319,7 +319,7 @@ section.hero {
   align-self: center;
 }
 
-.hero-card ol.social-icons li svg.social-icon {
+.hero-card ol.social-icons li a svg.social-icon {
   fill: red;
   height: 28px;
 }
