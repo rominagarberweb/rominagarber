@@ -21,6 +21,13 @@
     "color-list",
     "media"
   ],
+  "env": {
+    "development": {
+      "plugins": [
+        "content-model-graph"
+      ]
+    }
+  },
   "parts": [
     {
       "name": "part:@sanity/base/schema",
