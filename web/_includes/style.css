@@ -121,6 +121,7 @@ nav ul.primary-nav__list {
   list-style: none;
   display: flex;
   justify-content: flex-end;
+  margin-top: 0;
 }
 .primary-nav__list .primary-nav__item a {
   padding: 0 1em;
@@ -179,7 +180,7 @@ p.more-link {
 footer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  background-color: var(--general-night-2);
+  background-color: var(--rho-cancer-1);
 }
 
 footer section.footer-content {
@@ -202,18 +203,65 @@ footer section.footer-content div ol.social-icons li {
 }
 
 footer section.footer-content div ol.social-icons li a svg.social-icon {
-  fill: var(--general-night-3);
-  height: 32px;
+  fill: var(--rho-cancer-2);
+  height: 24px;
+}
+
+footer section.footer-content div ol.social-icons li a svg.social-icon:hover {
+  fill: var(--rho-cancer-3);
 }
 
 footer section.footer-content nav.primary-nav ul.primary-nav__list {
   flex-direction: column;
   justify-content: flex-start;
+  padding-left: 0;
 }
 
 footer section.footer-content nav.primary-nav ul.primary-nav__list li {
   padding: 0 0 .8em 0;
 }
+
+
+
+
+
+/* ==========================================================================
+   #NEWSLETTER SIGNUP FORM
+   ========================================================================== */
+
+div.mc-field-group label {
+  margin-bottom: 1.4em;
+}
+
+div.mc-field-email {
+  margin-top: .8em;
+}
+
+div.mc-field-email input.email-field,
+div.mc-field-email input.button {
+  padding: .6em;
+  border: 2px solid var(--rho-cancer-3);
+  font-size: inherit;
+  font-family: var(--body-font);
+}
+
+div.mc-field-email input.email-field {
+  border-top-left-radius: var(--global-br);
+  border-bottom-left-radius: var(--global-br);
+}
+
+div.mc-field-email input.button {
+  border-top-right-radius: var(--global-br);
+  border-bottom-right-radius: var(--global-br);
+  background-color: transparent;
+  color: var(--rho-cancer-3);
+  cursor: pointer;
+}
+
+div.mc-field-email input.button:hover {
+  background-color: var(--rho-cancer-2);
+}
+
 
 
 
