@@ -394,6 +394,31 @@ section.hero {
 
 
 
+/* ==========================================================================
+   #ABOUT PAGE
+   ========================================================================== */
+
+section.bio {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+section.bio img {
+  grid-column: 2 / 6;
+}
+
+section.bio .bio-text {
+  grid-column: 7 / 12;
+  max-width: 60ch;
+}
+
+section.agent span.data-label {
+  color: var(--general-night-3);
+}
+
+
+
+
 
 /* ==========================================================================
    #BLOG POSTS

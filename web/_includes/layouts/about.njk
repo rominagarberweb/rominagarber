@@ -7,7 +7,12 @@ templateClass: tmpl-about
   {%- if aboutPage.image %}
     <img src="{{ aboutPage.image }}" />
   {% endif -%}
+
+  <div class="bio-text">
+
   {{ aboutPage.bio | markdownify | safe }}
+
+  </div>
 </section>
 
 {%- if aboutPage.publishers.length > 0 %}
@@ -26,6 +31,7 @@ templateClass: tmpl-about
 
 {%- if aboutPage.agent %}
   <section class="agent">
+    <span class="data-label">Representation:</span>
     <a href="{{ aboutPage.agent.url }}" target="_blank" rel="noopener">
       {{- aboutPage.agent.title -}}
     </a>
