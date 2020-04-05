@@ -743,6 +743,15 @@ div.featured-book-info h1,
 /* Book list(s)
    ========================================================================== */
 
+section.books {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+ol.booklist {
+  grid-column: 3 / 11;
+}
+
 ol.booklist,
 div.books-international ol {
   display: grid;
