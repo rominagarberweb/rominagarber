@@ -85,17 +85,14 @@ img {
 .mt0 { margin-top: 0 !important;}
 .mb0 { margin-bottom: 0 !important;}
 
-
-
-
-/* ==========================================================================
-   #TYPOGRAPHY
-   ========================================================================== */
-
 p {
-  margin-bottom: 1.3em;
+  margin: 1.3em 0;
   line-height: 1.5;
 }
+p:first-of-type {
+  margin-top: 0; 
+}
+
 
 /* ==========================================================================
    #HEADER
@@ -203,12 +200,12 @@ footer section.footer-content div ol.social-icons li {
 }
 
 footer section.footer-content div ol.social-icons li a svg.social-icon {
-  fill: var(--rho-cancer-2);
+  fill: var(--rho-cancer-3);
   height: 24px;
 }
 
 footer section.footer-content div ol.social-icons li a svg.social-icon:hover {
-  fill: var(--rho-cancer-3);
+  opacity: 0.8;
 }
 
 footer section.footer-content nav.primary-nav ul.primary-nav__list {
@@ -275,10 +272,14 @@ a.btn {
   line-height: 1.6;
   font-weight: bold;
   text-decoration: none;
-  margin: 1.8rem .4rem 1.8rem 0;
+  margin: 1.6rem .4rem 1.6rem 0;
   padding: .6em 1.2em;
   font-size: calc(12px + 0.25vw);
   white-space: nowrap;
+}
+
+a.btn:hover {
+  opacity: 0.8;
 }
 
 a.btn--primary {
@@ -303,10 +304,9 @@ a.btn--secondary:hover {
    ========================================================================== */
 
 a.btn--hero {
-  border-color: var(--general-night-1);
-  border: 2px solid var(--general-night-3);
+  border: 2px solid var(--manu-blood-1);  
   border-radius: var(--global-br);
-  color: var(--general-night-1);
+  color: var(--manu-blood-1);
 }
 
 a.btn--featured-book {
@@ -326,7 +326,7 @@ a.btn--featured-book {
 section.hero {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  background-color: var(--general-night-2);
+  background-color: var(--manu-blood-1);
   min-height: 30em;
   /* display: flex;
   align-items: center;
@@ -342,16 +342,23 @@ section.hero {
 .hero-card {
   grid-column: 5 / 12;
   grid-row: 1;
-  background-color: var(--general-night-4);
-  color: var(--general-night-1);
+  color: white;
+  background-color: var(--alpha-night);
   border-radius: var(--global-br);
   /* I'm going to try adjusting this card shape with vertical width (vw) properties later on */
   padding: 4rem;
   margin: auto;
 }
 
+.hero-card h1 {
+  font-size: calc(36px + 0.25vw);
+  font-weight: 400;
+  margin: 0;
+}
+
 .hero-card p {
   max-width: 36ch;
+  margin-bottom: 0;
   /* line-height: 1.13; */
 }
 
@@ -368,8 +375,11 @@ section.hero {
 }
 
 .hero-card ol.social-icons li a svg.social-icon {
-  fill: var(--general-night-2);
-  height: 28px;
+  fill: white;
+  height: 24px;
+}
+.hero-card ol.social-icons li a svg.social-icon:hover {
+  opacity: 0.8;
 }
 
 @media all and (max-width: 650px) {
