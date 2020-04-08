@@ -6,6 +6,7 @@ templateClass: tmpl-about
 <section class="bio">
   {%- if aboutPage.image %}
     <img src="{{ aboutPage.image }}" />
+    {{ aboutPage.mainImage.caption }}
   {% endif -%}
 
   <div class="bio-text">

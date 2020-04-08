@@ -19,7 +19,7 @@ html {
   --manu-blood-1: #FBC3A7;
   --manu-blood-2: #E99198;
   --manu-blood-3: #A35048;
-  
+
   /* rho theme colors */
   --rho-cancer-1: #CEE7F5;
   --rho-cancer-2: #71ACD3;
@@ -73,13 +73,13 @@ a:visited {
 .clearfix:after {
   content: " ";
   display: block;
-  clear: both; 
+  clear: both;
 }
 
 .clearfix {
   display: block;
-  display: flow-root; 
-} 
+  display: flow-root;
+}
 
 img {
   border-style: none;
@@ -97,7 +97,7 @@ p {
   line-height: 1.5;
 }
 p:first-of-type {
-  margin-top: 0; 
+  margin-top: 0;
 }
 
 
@@ -177,7 +177,7 @@ footer {
   }
 } */
 
-/* Add this class to an element to make it fill the width of the screen 
+/* Add this class to an element to make it fill the width of the screen
 and sit horizontally central like this tutorial - https://codepen.io/andybelldesign/pen/vYOJjNw?editors=1100 */
 .full-bleed {
   width: 100vw;
@@ -316,7 +316,7 @@ a.btn--secondary:hover {
    ========================================================================== */
 
 a.btn--hero {
-  border: 2px solid var(--manu-blood-1);  
+  border: 2px solid var(--manu-blood-1);
   border-radius: var(--global-br);
   color: var(--manu-blood-1);
 }
@@ -371,7 +371,7 @@ section.hero {
 
 .hero-card ol.social-icons {
   list-style: none;
-  margin: 0; 
+  margin: 0;
   padding: 0;
   display: flex;
 }
@@ -426,7 +426,7 @@ section.agent span.data-label {
    #BLOG POSTS
    ========================================================================== */
 
-section.blog-posts, 
+section.blog-posts,
 section.blog-post {
   /* display: grid;
   grid-template-columns: repeat(12, 1fr); */
@@ -580,10 +580,10 @@ ol.eventlist svg {
    ========================================================================== */
 
 /* section.event {
-  
+
 } */
 
-section.event div.eventbanner {  
+section.event div.eventbanner {
   width: 100%;
   padding: 3em;
   text-align: center;
@@ -655,7 +655,7 @@ section.featured-book {
   background-size: cover;
 }
 
-section.featured-book img, 
+section.featured-book img,
 .book-hero img {
   grid-column: 3 / 6;
   grid-row: 2;
@@ -673,8 +673,8 @@ section.featured-book img,
 
 section:hover.featured-book img {
   animation: roll 4s infinite;
-  animation-duration: 1.5s; 
-  animation-timing-function: ease-out; 
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
   /* transform: rotate(-4deg); */
 }
 
@@ -733,7 +733,7 @@ div.featured-book-info h1,
   .book-hero {
     grid-gap: 1em 2em;
   }
-  
+
   section.featured-book img,
   .book-hero img {
     grid-column: 2 / 6;

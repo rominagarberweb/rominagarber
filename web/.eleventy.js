@@ -48,6 +48,10 @@ module.exports = function(eleventyConfig) {
     const md = new markdownIt(options)
     return md.render(value)
   })
+
+  // Passthrough copy
+  eleventyConfig.addPassthroughCopy('images');
+
   return {
     templateFormats: [
       "md",
