@@ -336,8 +336,6 @@ a.btn--featured-book {
    ========================================================================== */
 
 section.hero {
-  /* display: grid;
-  grid-template-columns: repeat(12, 1fr); */
   background-color: var(--manu-blood-1);
   min-height: 30em;
   margin: 0;
@@ -406,11 +404,6 @@ section.hero {
 /* ==========================================================================
    #ABOUT PAGE
    ========================================================================== */
-
-section.bio {
-  /* display: grid;
-  grid-template-columns: repeat(12, 1fr); */
-}
 
 section.bio img {
   grid-column: 2 / 6;
@@ -635,8 +628,8 @@ section.genre p {
 
 section.featured-book,
 section.book-content {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  /* display: grid;
+  grid-template-columns: repeat(12, 1fr); */
   grid-gap: 1em 3em;
   /* padding: 1em; */
   margin-top: 0;
