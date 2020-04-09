@@ -6,8 +6,16 @@
   font-weight: 200 700;
   font-display: swap;
   src: local('manuale'),
-    url('../fonts/Manuale-Italic-VariableFont_wght.ttf') format('ttf'),
     url('../fonts/Manuale-VariableFont_wght.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Manuale';
+  font-style: italic;
+  font-weight: 200 700;
+  font-display: swap;
+  src: local('Manuale'),
+    url('../fonts/Manuale-Italic-VariableFont_wght.ttf') format('ttf')
 }
 
 html {
@@ -49,7 +57,7 @@ html {
   --rho-libra-3: #DA8D85;
 
   /* Type  */
-  --body-font: "Manuale", serif; 
+  --body-font: 'Manuale', serif; 
 
   /* overall layout  */
 --global-br: 18px;
@@ -97,6 +105,11 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.caption,
+em {
+  font-style: italic;
 }
 
 .mt0 { margin-top: 0 !important;}
@@ -362,6 +375,8 @@ section.hero {
 .hero-background {
   grid-column: 1 / 13;
   grid-row: 1;
+  background-image: url(../images/bkg-zodiac.jpg); 
+  background-size: cover;
 }
 
 .hero-card {

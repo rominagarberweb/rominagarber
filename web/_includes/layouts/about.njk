@@ -6,18 +6,22 @@ templateClass: tmpl-about
 <section class="bio">
   {%- if aboutPage.image %}
     <img src="{{ aboutPage.image }}" />
+    <p class="caption">
     {{ aboutPage.mainImage.caption }}
+    </p>
   {% endif -%}
 
   <div class="bio-text">
 
+  <div>
+
   {{ aboutPage.bio | markdownify | safe }}
 
   </div>
-</section>
+
 
 {%- if aboutPage.publishers.length > 0 %}
-  <section class="publishers">
+  <div class="publishers">
     <ul>
       {%- for publisher in aboutPage.publishers -%}
         <li>
@@ -27,14 +31,18 @@ templateClass: tmpl-about
         </li>
       {%- endfor -%}
     </ul>
-  </section>
+  </div>
 {% endif -%}
 
 {%- if aboutPage.agent %}
-  <section class="agent">
+  <div class="agent">
     <span class="data-label">Representation:</span>
     <a href="{{ aboutPage.agent.url }}" target="_blank" rel="noopener">
       {{- aboutPage.agent.title -}}
     </a>
-  </section>
+  </div>
 {% endif -%}
+
+</div>
+
+</section>
