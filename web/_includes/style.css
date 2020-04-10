@@ -511,9 +511,17 @@ ol.postlist li.postlist-item a.postlist-link img {
   border-radius: var(--global-br);
 }
 
-/* ol.postlist li.postlist-item .block {
+@media all and (max-width: 800px) {
+  ol.postlist {
+    grid-column: 2 / 12;
+  }
+}
 
-} */
+@media all and (max-width: 650px) {
+  ol.postlist {
+    grid-column: 1 / 13;
+  }
+}
 
 ol.postlist li.postlist-item .block h2 {
   margin: 0;
@@ -566,13 +574,13 @@ li.eventlist-item > * {
 
 li.eventlist-item .eventlist-item__data {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex: 1 1 0%;
 }
 
 li.eventlist-item .eventlist-item__links {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   flex: 1 1 0%;
 }
@@ -633,6 +641,10 @@ ol.eventlist svg {
   flex: initial;
 }
 
+ol.eventlist .eventlist-item a.btn {
+  margin: 0;
+}
+
 @media all and (max-width: 800px) {
   ol.eventlist {
     grid-column: 2 / 12;
@@ -646,6 +658,9 @@ ol.eventlist svg {
 @media all and (max-width: 650px) {
   ol.eventlist {
     grid-column: 1 / 13;
+  }
+  ol.eventlist time {
+    color: var(--general-night-3);
   }
 }
 
