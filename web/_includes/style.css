@@ -259,9 +259,12 @@ footer .footer-content nav.primary-nav ul.primary-nav__list li {
   padding: 0 0 .8em 0;
 }
 
-@media all and (max-width: 650px) {
+@media all and (max-width: 800px) {
   footer .footer-content {
     grid-column: 2 / 12;
+  }
+  footer .footer-content .footer-column .footer-newsletterform {
+    margin-bottom: 1.8em;
   }
 }
 
@@ -272,6 +275,9 @@ footer .footer-content nav.primary-nav ul.primary-nav__list li {
   }
   footer .footer-content nav.primary-nav {
     order: 3;
+  }
+  .primary-nav__list .primary-nav__item a {
+    padding-left: 0;
   }
 }
 
@@ -408,6 +414,7 @@ section.hero {
   font-size: calc(36px + 0.25vw);
   font-weight: 401;
   margin: 0;
+  line-height: 1.1;
 }
 
 .hero-card p {
@@ -884,14 +891,13 @@ div.featured-book-info h1,
     grid-row: 1;
   }
 
+  div.featured-book-info,
+  .book-hero .book-info,
   .featured-book-info,
-  .book-hero .book-info {
+  .book-info {
     grid-column: 1 / 13;
-    grid-row: 3;
-  }
-
-  .book-hero .book-info {
-    grid-row: 2;
+    grid-row: 4;
+    padding: 2em 1em;
   }
 
  .book-data,
