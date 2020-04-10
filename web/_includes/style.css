@@ -194,19 +194,14 @@ footer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 3em 1em;
-  margin: 3em 0 5em;
+  margin: 3em 0 0;
 }
 
-/* @media all and (max-width: 650px) {
-  .main {
-    grid-template-columns: repeat(6, 1fr);
+@media all and (max-width: 650px) {
+  section {
+    margin: 3em 1em 0;
   }
-
-  section,
-  article {
-    grid-column: 2 / 6;
-  }
-} */
+}
 
 /* Add this class to an element to make it fill the width of the screen 
 and sit horizontally central like this tutorial - https://codepen.io/andybelldesign/pen/vYOJjNw?editors=1100 */
@@ -539,9 +534,8 @@ ol.postlist li.postlist-item time {
    #EVENTS
    ========================================================================== */
 
-section.events {
-  /* display: grid;
-  grid-template-columns: repeat(12, 1fr); */
+section.intro p {
+  grid-column: 3 / 11;
 }
 
 section.events .more-link {
@@ -565,6 +559,37 @@ li.eventlist-item {
   align-items: center;
   width: 100%;
 }
+
+li.eventlist-item > * {
+  flex: 1 1 0%;
+}
+
+li.eventlist-item .eventlist-item__data {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0%;
+}
+
+li.eventlist-item .eventlist-item__links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 1 0%;
+}
+
+@media all and (max-width: 650px) {
+  ol.eventlist {
+    grid-column: 2 / 12;
+  }
+  li.eventlist-item {
+    flex-direction: row wrap;
+  }
+  li.eventlist-item .eventlist-item__data {
+    flex-direction: column;
+  }
+}
+
+/* style the past events */
 li.eventlist-item-past a{
   text-decoration: line-through;
 }
@@ -594,6 +619,7 @@ li.eventlist-item-past span {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
 }
+
 li.eventlist-item a.eventlist-link {
   max-width:30ch;
   flex: 2;
@@ -605,6 +631,22 @@ ol.eventlist svg {
   width: 22px;
   height: auto;
   flex: initial;
+}
+
+@media all and (max-width: 800px) {
+  ol.eventlist {
+    grid-column: 2 / 12;
+  }
+  li.event-item__information {
+    display:flex;
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width: 650px) {
+  ol.eventlist {
+    grid-column: 1 / 13;
+  }
 }
 
 
