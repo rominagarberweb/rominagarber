@@ -194,19 +194,14 @@ footer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 3em 1em;
-  margin: 3em 0 5em;
+  margin: 3em 0 0;
 }
 
-/* @media all and (max-width: 650px) {
-  .main {
-    grid-template-columns: repeat(6, 1fr);
+@media all and (max-width: 650px) {
+  section {
+    margin: 3em 1em 0;
   }
-
-  section,
-  article {
-    grid-column: 2 / 6;
-  }
-} */
+}
 
 /* Add this class to an element to make it fill the width of the screen 
 and sit horizontally central like this tutorial - https://codepen.io/andybelldesign/pen/vYOJjNw?editors=1100 */
@@ -223,42 +218,61 @@ footer {
   background-color: var(--rho-cancer-1);
 }
 
-footer section.footer-content {
+footer .footer-content {
   grid-column: 3 / 11;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  padding: 2em 0;
 }
 
-footer section.footer-content div ol.social-icons {
+footer .footer-content div ol.social-icons {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
 
-footer section.footer-content div ol.social-icons li {
+footer .footer-content div ol.social-icons li {
   margin-right: .8em;
   align-self: center;
 }
 
-footer section.footer-content div ol.social-icons li a svg.social-icon {
+footer .footer-content div ol.social-icons li a svg.social-icon {
   fill: var(--rho-cancer-3);
   height: 24px;
 }
 
-footer section.footer-content div ol.social-icons li a svg.social-icon:hover {
+footer .footer-content div ol.social-icons li a svg.social-icon:hover {
   opacity: 0.8;
 }
 
-footer section.footer-content nav.primary-nav ul.primary-nav__list {
+footer .footer-content nav.primary-nav ul.primary-nav__list {
   flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
   padding-left: 0;
+  margin-top: -0.2em;
 }
 
-footer section.footer-content nav.primary-nav ul.primary-nav__list li {
+footer .footer-content nav.primary-nav ul.primary-nav__list li {
   padding: 0 0 .8em 0;
+}
+
+@media all and (max-width: 650px) {
+  footer .footer-content {
+    grid-column: 2 / 12;
+  }
+}
+
+@media all and (max-width: 650px) {
+  footer .footer-content {
+    grid-column: 1 / 13;
+    padding: 2em 1em;
+  }
+  footer .footer-content nav.primary-nav {
+    order: 3;
+  }
 }
 
 
@@ -503,6 +517,10 @@ ol.postlist li.postlist-item {
   flex-direction: row;
 }
 
+ol.postlist li.postlist-item:last-child {
+  margin-bottom: 0;
+}
+
 ol.postlist li.postlist-item a.postlist-link {
   color: var(--general-night-4);
   display: flex;
@@ -516,11 +534,31 @@ ol.postlist li.postlist-item a.postlist-link img {
   border-radius: var(--global-br);
 }
 
-/* ol.postlist li.postlist-item .block {
+@media all and (max-width: 800px) {
+  ol.postlist {
+    grid-column: 2 / 12;
+  }
+}
 
-} */
+@media all and (max-width: 650px) {
+  ol.postlist {
+    grid-column: 1 / 13;
+  }
+  ol.postlist li.postlist-item {
+    flex-direction: column;
+  }
+  ol.postlist li.postlist-item a.postlist-link img {
+    height: 140px;
+    width: 100%;
+    margin-bottom: .8em;
+  }
+}
 
-ol.postlist li.postlist-item .block h2 {
+ol.postlist li.postlist-item .block a.postlist-link {
+  text-decoration: none;
+}
+
+ol.postlist li.postlist-item .block a.postlist-link h2 {
   margin: 0;
 }
 
@@ -539,9 +577,8 @@ ol.postlist li.postlist-item time {
    #EVENTS
    ========================================================================== */
 
-section.events {
-  /* display: grid;
-  grid-template-columns: repeat(12, 1fr); */
+section.intro p {
+  grid-column: 3 / 11;
 }
 
 section.events .more-link {
@@ -565,6 +602,37 @@ li.eventlist-item {
   align-items: center;
   width: 100%;
 }
+
+li.eventlist-item > * {
+  flex: 1 1 0%;
+}
+
+li.eventlist-item .eventlist-item__data {
+  display: flex;
+  align-items: flex-start;
+  flex: 1 1 0%;
+}
+
+li.eventlist-item .eventlist-item__links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1 1 0%;
+}
+
+@media all and (max-width: 650px) {
+  ol.eventlist {
+    grid-column: 2 / 12;
+  }
+  li.eventlist-item {
+    flex-direction: row wrap;
+  }
+  li.eventlist-item .eventlist-item__data {
+    flex-direction: column;
+  }
+}
+
+/* style the past events */
 li.eventlist-item-past a{
   text-decoration: line-through;
 }
@@ -594,6 +662,7 @@ li.eventlist-item-past span {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
 }
+
 li.eventlist-item a.eventlist-link {
   max-width:30ch;
   flex: 2;
@@ -605,6 +674,29 @@ ol.eventlist svg {
   width: 22px;
   height: auto;
   flex: initial;
+}
+
+ol.eventlist .eventlist-item a.btn {
+  margin: 0;
+}
+
+@media all and (max-width: 800px) {
+  ol.eventlist {
+    grid-column: 2 / 12;
+  }
+  li.event-item__information {
+    display:flex;
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width: 650px) {
+  ol.eventlist {
+    grid-column: 1 / 13;
+  }
+  ol.eventlist time {
+    color: var(--general-night-3);
+  }
 }
 
 
