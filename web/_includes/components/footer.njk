@@ -1,12 +1,14 @@
 <footer>
   <div class="footer-content"> 
+  <div class="footer-column">
     <div>
       {% include "../components/social.njk" %}
       <p>Romina Garber &copy; 2020</p>
+      <div class="footer-newsletterform">
+        {% include "../components/newsletter-form.njk" %}
+      </div>
+    </div>
     </div>
     {% include "../components/nav.njk" %}
-    <div>
-      {% include "../components/newsletter-form.njk" %}
-    </div>
   </div>
 </footer>
