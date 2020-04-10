@@ -51,6 +51,7 @@ module.exports = function(eleventyConfig) {
 
   // Passthrough copy
   eleventyConfig.addPassthroughCopy('images');
+  eleventyConfig.addPassthroughCopy('fonts');
 
   return {
     templateFormats: [

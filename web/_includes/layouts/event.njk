@@ -4,6 +4,8 @@ templateClass: tmpl-event
 ---
 <section class="event">
 
+<article class="event">
+
   {% if event.content.venue.city %}
     {# create the colored header block #}
     <div class="eventbanner" style="background-color: {{ event.content.venue.color }}">
@@ -48,14 +50,16 @@ templateClass: tmpl-event
   </p>
   </div>
 
-</section>
-
-<section class="events">
+<div class="events">
 
   <h2>More events</h2>
 
   {% set eventsList = collections.myEvents %}
   {% set eventsLimit = 3 %} {# limit number of events shown #}
   {% include "eventslist.njk" %}
+
+</div>
+
+</article>
 
 </section>
