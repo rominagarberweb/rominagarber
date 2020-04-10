@@ -218,42 +218,61 @@ footer {
   background-color: var(--rho-cancer-1);
 }
 
-footer section.footer-content {
+footer .footer-content {
   grid-column: 3 / 11;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  padding: 2em 0;
 }
 
-footer section.footer-content div ol.social-icons {
+footer .footer-content div ol.social-icons {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
 
-footer section.footer-content div ol.social-icons li {
+footer .footer-content div ol.social-icons li {
   margin-right: .8em;
   align-self: center;
 }
 
-footer section.footer-content div ol.social-icons li a svg.social-icon {
+footer .footer-content div ol.social-icons li a svg.social-icon {
   fill: var(--rho-cancer-3);
   height: 24px;
 }
 
-footer section.footer-content div ol.social-icons li a svg.social-icon:hover {
+footer .footer-content div ol.social-icons li a svg.social-icon:hover {
   opacity: 0.8;
 }
 
-footer section.footer-content nav.primary-nav ul.primary-nav__list {
+footer .footer-content nav.primary-nav ul.primary-nav__list {
   flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
   padding-left: 0;
+  margin-top: -0.2em;
 }
 
-footer section.footer-content nav.primary-nav ul.primary-nav__list li {
+footer .footer-content nav.primary-nav ul.primary-nav__list li {
   padding: 0 0 .8em 0;
+}
+
+@media all and (max-width: 650px) {
+  footer .footer-content {
+    grid-column: 2 / 12;
+  }
+}
+
+@media all and (max-width: 650px) {
+  footer .footer-content {
+    grid-column: 1 / 13;
+    padding: 2em 1em;
+  }
+  footer .footer-content nav.primary-nav {
+    order: 3;
+  }
 }
 
 
@@ -498,6 +517,10 @@ ol.postlist li.postlist-item {
   flex-direction: row;
 }
 
+ol.postlist li.postlist-item:last-child {
+  margin-bottom: 0;
+}
+
 ol.postlist li.postlist-item a.postlist-link {
   color: var(--general-night-4);
   display: flex;
@@ -521,9 +544,21 @@ ol.postlist li.postlist-item a.postlist-link img {
   ol.postlist {
     grid-column: 1 / 13;
   }
+  ol.postlist li.postlist-item {
+    flex-direction: column;
+  }
+  ol.postlist li.postlist-item a.postlist-link img {
+    height: 140px;
+    width: 100%;
+    margin-bottom: .8em;
+  }
 }
 
-ol.postlist li.postlist-item .block h2 {
+ol.postlist li.postlist-item .block a.postlist-link {
+  text-decoration: none;
+}
+
+ol.postlist li.postlist-item .block a.postlist-link h2 {
   margin: 0;
 }
 

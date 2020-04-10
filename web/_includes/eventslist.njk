@@ -15,7 +15,7 @@
     {% if currentEvent.content.venue.shortcode %}
       {# create the colored city block #}
       <span style="background-color: {{ currentEvent.content.venue.color }}">
-        {{- currentEvent.content.venue.shortcode -}}
+        <h2>{{- currentEvent.content.venue.shortcode -}}</h2>
       </span>
     {% endif %}
 
