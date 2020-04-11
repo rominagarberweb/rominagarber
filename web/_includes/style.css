@@ -736,12 +736,12 @@ section.event div.eventbanner {
 }
 
 section.event div.eventinfo {
-  margin: auto;
+  margin: 0 auto 6em;
 }
 
-section.event p {
+/* section.event p {
   max-width: 60ch;
-}
+} */
 
 section.event p.eventactions a {
   margin-right: 1em;
