@@ -40,6 +40,13 @@ export default {
           }
         },
         {
+          title: 'Color theme',
+          name: 'theme',
+          type: 'reference',
+          fieldset: 'general',
+          to: [{ type: 'colorTheme' }]
+        },
+        {
           name: 'series',
           title: 'Series',
           type: 'reference',

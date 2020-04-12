@@ -21,6 +21,12 @@ export default {
       }
     },
     {
+      title: 'Color theme',
+      name: 'theme',
+      type: 'reference',
+      to: [{ type: 'colorTheme' }]
+    },
+    {
       name: 'image',
       type: 'mainImage',
       title: 'Image'
