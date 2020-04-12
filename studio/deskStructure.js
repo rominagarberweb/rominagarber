@@ -11,6 +11,7 @@ import {
   FiUser,
 } from 'react-icons/fi'
 import { GiBookshelf } from 'react-icons/gi'
+import { IoIosColorPalette } from 'react-icons/io'
 import {
   MdEvent,
   MdLightbulbOutline
@@ -24,6 +25,7 @@ const hiddenDocTypes = listItem =>
     'blogPage',
     'booksPage',
     'category',
+    'colorTheme',
     'event',
     'eventsPage',
     'homePage',
@@ -169,6 +171,16 @@ export default () =>
                     .title('Categories')
                     .filter('_type == $type')
                     .params({ type: 'category' })
+                  ),
+              S.listItem()
+                .title('Color themes')
+                .icon(IoIosColorPalette)
+                .schemaType('colorTheme')
+                .child(
+                  S.documentList('colorTheme')
+                    .title('Color themes')
+                    .filter('_type == $type')
+                    .params({ type: 'colorTheme' })
                   ),
               S.listItem()
                 .title('Series')

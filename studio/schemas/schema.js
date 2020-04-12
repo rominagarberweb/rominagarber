@@ -11,6 +11,7 @@ import blogPage from './documents/blogPage'
 import book from './documents/book'
 import booksPage from './documents/booksPage'
 import category from './documents/category'
+import colorTheme from './documents/colorTheme'
 import event from './documents/event'
 import eventsPage from './documents/eventsPage'
 import homePage from './documents/homePage'
@@ -51,6 +52,7 @@ export default createSchema({
     book,
     booksPage,
     category,
+    colorTheme,
     event,
     eventsPage,
     homePage,
