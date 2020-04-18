@@ -13,7 +13,22 @@
   font-style: italic;
   font-weight: 200 700;
   font-display: swap;
-  src: url(../fonts/Manuale-Italic-VariableFont_wght.ttf) format('ttf')
+  src: url(../fonts/Manuale-Italic-VariableFont_wght.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans Var Regular'; 
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/IBMPlexSansVar-Roman.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans Var Italic'; 
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/IBMPlexSansVar-Italic.woff2') format('woff2');
 }
 
 html {
@@ -77,6 +92,13 @@ body {
   line-height: 1.5;
   color: var(--general-night-4);
   /* opacity: 0.8; */
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'IBM Plex Sans Var Regular', sans-serif;
+  font-weight: 899;
 }
 
 a,
@@ -417,7 +439,7 @@ section.hero {
 
 .hero-card h1 {
   font-size: calc(36px + 0.25vw);
-  font-weight: 401;
+  /* font-weight: 401; */
   margin: 0;
   line-height: 1.1;
 }
