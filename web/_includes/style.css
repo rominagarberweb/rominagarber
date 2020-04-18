@@ -1,28 +1,160 @@
 @charset "UTF-8";
 
+/* manuale-300normal - latin */
 @font-face {
   font-family: 'Manuale';
   font-style: normal;
-  font-weight: 200 700;
   font-display: swap;
-  src: url(../fonts/Manuale-VariableFont_wght.ttf) format('ttf');
+  font-weight: 300;
+  src:
+    local('Manuale Light '),
+    local('Manuale-Light'),
+    url('../fonts/Manuale-Light.woff2') format('woff2'), /* Super Modern Browsers */
 }
 
+/* manuale-300italic - latin */
 @font-face {
   font-family: 'Manuale';
   font-style: italic;
-  font-weight: 200 700;
   font-display: swap;
-  src: url(../fonts/Manuale-Italic-VariableFont_wght.ttf) format('ttf');
+  font-weight: 300;
+  src:
+    local('Manuale Light italic'),
+    local('Manuale-Lightitalic'),
+    url('../fonts/Manuale-LightItalic.woff2') format('woff2'), /* Super Modern Browsers */
 }
 
+/* manuale-400normal - latin */
+@font-face {
+  font-family: 'Manuale';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src:
+    local('Manuale Regular'),
+    local('Manuale-Regular'),
+    url('../fonts/Manuale-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+}
+
+/* manuale-400italic - latin */
+@font-face {
+  font-family: 'Manuale';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src:
+    local('Manuale Regular italic'),
+    local('Manuale-Regularitalic'),
+    url('../fonts/Manuale-Italic.woff2') format('woff2'), /* Super Modern Browsers */
+}
+
+/* manuale-500normal - latin */
+@font-face {
+  font-family: 'Manuale';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src:
+    local('Manuale Medium '),
+    local('Manuale-Medium'),
+    url('../fonts/Manuale-Medium.woff2') format('woff2'), /* Super Modern Browsers */
+}
+
+/* manuale-500italic - latin */
+@font-face {
+  font-family: 'Manuale';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 500;
+  src:
+    local('Manuale Medium italic'),
+    local('Manuale-Mediumitalic'),
+    url('../fonts/Manuale-MediumItalic.woff2') format('woff2'), /* Super Modern Browsers */
+}
+
+/* manuale-600normal - latin */
+@font-face {
+  font-family: 'Manuale';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src:
+    local('Manuale Semi Bold '),
+    local('Manuale-Semibold'),
+    url('../fonts/Manuale-Semibold.woff2') format('woff2'), /* Super Modern Browsers */
+}
+
+/* manuale-600italic - latin */
+@font-face {
+  font-family: 'Manuale';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 600;
+  src:
+    local('Manuale Bold italic'),
+    local('Manuale-bolditalic'),
+    url('../fonts/Manuale-SemiBoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+}
+
+/* manuale-700normal - latin */
+@font-face {
+  font-family: 'Manuale';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src:
+    local('Manuale Bold '),
+    local('Manuale-Bold'),
+    url('../fonts/Manuale-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+}
+
+/* manuale-700italic - latin */
+@font-face {
+  font-family: 'Manuale';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 700;
+  src:
+    local('Manuale Bold italic'),
+    local('Manuale-bolditalic'),
+    url('../fonts/Manuale-BoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+}
+
+/* manuale-800normal - latin */
+@font-face {
+  font-family: 'Manuale';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src:
+    local('Manuale Extra Bold '),
+    local('Manuale-Extrabold'),
+    url('../fonts/Manuale-ExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
+}
+
+/* manuale-800italic - latin */
+@font-face {
+  font-family: 'Manuale';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 800;
+  src:
+    local('Manuale Extra Bold italic'),
+    local('Manuale-Extrabolditalic'),
+    url('../fonts/Manuale-ExtraBoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+}
+
+/* ibm plex sans variable regular */
 @font-face {
   font-family: 'IBM Plex Sans Var Regular'; 
+  font-style: normal;
   font-display: swap;
   font-weight: 100 700;
   font-stretch: 85% 100%;
-  src: url('../fonts/IBMPlexSansVar-Roman.woff2') format('woff2');
+  src: url('../fonts/IBMPlexSansVar-Roman.woff2') format('woff2 supports variations');
 }
+
+/* ibm plex sans variable italic */
 
 @font-face {
   font-family: 'IBM Plex Sans Var Italic'; 
@@ -30,7 +162,7 @@
   font-weight: 100 700;
   font-stretch: 85% 100%;
   font-display: swap;
-  src: url('../fonts/IBMPlexSansVar-Italic.woff2') format('woff2');
+  src: url('../fonts/IBMPlexSansVar-Italic.woff2') format('woff2 supports variations');
 }
 
 html {
@@ -72,7 +204,7 @@ html {
   --rho-libra-3: #DA8D85;
 
   /* Type  */
-  --body-font: 'Manuale', serif; 
+  --body-font: 'Manuale', monospace; 
   --headings-font: 'IBM Plex Sans Var Regular', sans-serif;
 
   /* overall layout  */
@@ -89,7 +221,8 @@ html {
 body {
   padding: 0;
   margin: 0;
-  font-family: var(--body-font);
+  /* font-family: var(--body-font); */
+  font-family: 'Manuale', monospace;
   font-weight: 451;
   font-size: calc(14px + 0.25vw);
   line-height: 1.5;
@@ -335,7 +468,7 @@ div.mc-field-email input.button {
   padding: .6em;
   border: 2px solid var(--rho-cancer-3);
   font-size: inherit;
-  font-family: var(--body-font);
+  /* font-family: var(--body-font); */
 }
 
 div.mc-field-email input.email-field {
