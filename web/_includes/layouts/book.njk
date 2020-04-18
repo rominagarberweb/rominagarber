@@ -6,7 +6,11 @@ templateClass: tmpl-book
 <div class="book-hero">
 
   {%- if book.cover %}
-    <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
+    <figure>
+      <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
+      {# make this download image a large image #}
+      <p><a href="{{ book.cover }}" download="image-download" target="_blank" rel="noopener">Download a large book cover image</a></p>
+    </figure>
   {% endif -%}
 
   <div class="book-info">

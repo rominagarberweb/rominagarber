@@ -27,7 +27,11 @@ navtitle: Home
   {% for book in booksPage.featured %}
 
     {%- if book.cover %}
-      <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
+      <figure>
+        <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
+        {# make this download image a large image #}
+        <p><a href="{{ book.cover }}" download="image-download" target="_blank" rel="noopener">Download a large book cover image</a></p>
+      </figure>
     {% endif -%}
 
     <div class="featured-book-info">
@@ -48,6 +52,10 @@ navtitle: Home
 
     {% if book.review %}
       {{ book.review | markdownify | safe }}
+      {# this review author is not current working on index and books pages I will make sure it is added to the right place in the schema #}
+      {% if review.author %}
+        <em>&mdash; {{ review.author }}</em>
+      {% endif %}
     {% endif %}
 
     </div>

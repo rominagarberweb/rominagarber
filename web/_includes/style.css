@@ -251,6 +251,15 @@ a:visited {
   color: var(--general-night-4);
 }
 
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 86%;
+}
+
 /* do some general stuff */
 
 .clearfix:after {
@@ -636,7 +645,7 @@ section.hero {
    #ABOUT PAGE
    ========================================================================== */
 
-section.bio img {
+section.bio figure {
   grid-column: 2 / 6;
 }
 
@@ -933,6 +942,7 @@ section.event p a svg {
    ========================================================================== */
 
 section.genre p {
+  grid-column: 3 / 11;
   text-align: center;
 }
 
@@ -966,8 +976,8 @@ section.featured-book {
   background-size: cover;
 }
 
-section.featured-book img, 
-.book-hero img {
+section.featured-book figure, 
+.book-hero figure {
   grid-column: 3 / 6;
   grid-row: 2;
   filter:drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
@@ -982,7 +992,7 @@ section.featured-book img,
   }
 }
 
-section:hover.featured-book img {
+section:hover.featured-book figure {
   animation: roll 4s infinite;
   animation-duration: 1.5s; 
   animation-timing-function: ease-out; 
@@ -1045,8 +1055,8 @@ div.featured-book-info h1,
     grid-gap: 1em 2em;
   }
   
-  section.featured-book img,
-  .book-hero img {
+  section.featured-book figure,
+  .book-hero figure {
     grid-column: 2 / 6;
   }
 
@@ -1062,13 +1072,13 @@ div.featured-book-info h1,
 }
 
 @media all and (max-width: 500px) {
-  section.featured-book img,
-  .book-hero img {
+  section.featured-book figure,
+  .book-hero figure {
     grid-column: 1 / 13;
     grid-row: 2;
     justify-self: center;
   }
-  .book-hero img {
+  .book-hero figure {
     grid-row: 1;
   }
 

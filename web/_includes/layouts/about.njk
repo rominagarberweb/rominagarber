@@ -5,10 +5,14 @@ templateClass: tmpl-about
 
 <section class="bio">
   {%- if aboutPage.image %}
-    <img src="{{ aboutPage.image }}" />
-    <p class="caption">
-    {{ aboutPage.mainImage.caption }}
-    </p>
+    <figure>
+      <img src="{{ aboutPage.image }}" />
+      {# make this download image a large image #}
+      <p><a href="{{ aboutPage.image }}" download="image-download" target="_blank" rel="noopener">Download a large author photo</a></p>
+      <figcaption>
+      {{ aboutPage.mainImage.caption }}
+      </figcaption>
+    </figure>
   {% endif -%}
 
   <div class="bio-text">
