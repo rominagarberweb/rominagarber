@@ -165,7 +165,7 @@
   src: url('../fonts/IBMPlexSansVar-Italic.woff2') format('woff2 supports variations');
 }
 
-html {
+:root {
   /* general colors */
   --general-night-1: #E5E5E5;
   --general-night-2: #C0C4C8;
@@ -203,9 +203,17 @@ html {
   --rho-libra-2: #E4BAB4;
   --rho-libra-3: #DA8D85;
 
-  /* Type  */
+  /* Font families */
   --body-font: 'Manuale', monospace; 
   --headings-font: 'IBM Plex Sans Var Regular', sans-serif;
+
+  /* font weights */
+  --body-light: 300;
+  --body-regular: 400;
+  --body-medium: 500;
+  --body-semi-bold: 600;
+  --body-bold: 700;
+  --body-extra-bold: 800;
 
   /* overall layout  */
   --global-br: 18px;
@@ -221,9 +229,9 @@ html {
 body {
   padding: 0;
   margin: 0;
-  /* font-family: var(--body-font); */
-  font-family: 'Manuale', monospace;
-  font-weight: 451;
+  font-family: var(--body-font);
+  /* font-family: 'Manuale', monospace; */
+  font-weight: var(--body-light);
   font-size: calc(14px + 0.25vw);
   line-height: 1.5;
   color: var(--general-night-4);
@@ -309,7 +317,7 @@ nav ul.primary-nav__list {
   justify-content: flex-end;
   margin: .4em 0;
   align-items: center;
-  font-weight: 482;
+  /* font-weight: 482; */
   font-size: 120%;
 }
 .primary-nav__list .primary-nav__item a {
@@ -833,7 +841,7 @@ li.eventlist-item span {
   height: 100px;
   margin-right: .8em;
   color: var(--alpha-night);
-  font-weight: bold;
+  font-weight: var(--body-semi-bold);
   background-color: var(--general-night-3);
   border-radius: var(--global-br);
 }
@@ -894,7 +902,8 @@ section.event div.eventbanner {
   margin-bottom: 2rem;
   border-radius: var(--global-br);
   text-transform: uppercase;
-  font-weight: bold;
+  font-family: var(--headings-font);
+  font-weight: 699;
   letter-spacing: 1.2;
   color: var(--alpha-night);
 }
