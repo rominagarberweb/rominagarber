@@ -2,9 +2,11 @@
 layout: layouts/base.njk
 templateClass: tmpl-book
 ---
-{% set highlightColor = book.content.theme.tertiary -%}
+{% set primaryColor = book.content.theme.primary -%}
+{% set secondaryColor = book.content.theme.secondary -%}
+{% set tertiaryColor = book.content.theme.tertiary -%}
 
-<div class="book-hero">
+<div class="book-hero" style="background-color: {{ primaryColor }};">
   {%- if book.cover %}
     <figure>
       <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
@@ -16,7 +18,7 @@ templateClass: tmpl-book
   <div class="book-info">
 
   {# generate the heading color and the buttons from the cms #}
-  <h1 class="mt0 mb0" style="color: {{ highlightColor }};">{{ book.content.title }}</h1>
+  <h1 class="mt0 mb0" style="color: {{ tertiaryColor }};">{{ book.content.title }}</h1>
 
   {% if book.hook %}
     {{ book.hook | markdownify | safe }}
@@ -27,12 +29,12 @@ templateClass: tmpl-book
     {# (pre-)order and GR TBR links go here
     change the colors of these buttons and icons in the cms #}
 
-    <a class="btn btn--featured-book" style="border-color: {{ highlightColor }}; color: {{ highlightColor }};" href="#">Buy book from
+    <a class="btn btn--featured-book" style="border-color: {{ tertiaryColor }}; color: {{ tertiaryColor }};" href="#">Buy book from
       <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 1L7.97059 7L14.9412 1" stroke="{{ highlightColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M1 1L7.97059 7L14.9412 1" stroke="{{ tertiaryColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
-    <a class="btn btn--featured-book" style="border-color: {{ highlightColor }}; color: {{ highlightColor }};" href="#">Add to Goodreads TBR</a>
+    <a class="btn btn--featured-book" style="border-color: {{ tertiaryColor }}; color: {{ tertiaryColor }};" href="#">Add to Goodreads TBR</a>
 
   </div>
 
@@ -58,11 +60,11 @@ templateClass: tmpl-book
       {# make this color selected in the cms to match the book theme colors 3 #}
       <p>
         {%- if book.content.publishers.length > 0 %}
-          <span style="color: {{ highlightColor }};">Publisher:</span>
+          <span style="color: {{ tertiaryColor }};">Publisher:</span>
           <a href="{{ book.content.publishers[0].url }}" target="_blank" rel="noopener">{{ book.content.publishers[0].title }}</a><br>
         {% endif -%}
         {%- if book.content.agent %}
-          <span style="color: {{ highlightColor }};">Representation:</span>
+          <span style="color: {{ tertiaryColor }};">Representation:</span>
           <a href="{{ book.content.agent.url }}">{{ book.content.agent.title }}</a>
         {% endif -%}
       </p>
