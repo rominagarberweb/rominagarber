@@ -6,12 +6,15 @@ templateClass: tmpl-series
 <section class="series-hero">
 
   {%- if series.image %}
-    <img src="{{ series.image }}" alt="{{ series.image.alt }}" />
+    <figure>
+      <img src="{{ series.image }}" alt="{{ series.image.alt }}" />
+    </figure>
   {% endif -%}
 
 </section>
 
 <section class="series-data">
+  <div class="series-data-details">
   <h1>{{ series.title }}</h1>
 
   {% if series.description %}
@@ -35,7 +38,8 @@ templateClass: tmpl-series
   {% endif %}
 
   {%- if series.publishers.length > 0 %}
-    <section class="publishers">
+    <div class="publishers">
+      <p><span class="data-label"> Publisher(s):</span>
       <ul>
         {%- for publisher in series.publishers -%}
           <li>
@@ -45,20 +49,20 @@ templateClass: tmpl-series
           </li>
         {%- endfor -%}
       </ul>
-    </section>
+    </div>
   {% endif -%}
 
   {%- if series.agent %}
-    <section class="agent">
-      <a href="{{ series.agent.url }}" target="_blank" rel="noopener">
+    <div class="agent">
+      <span class="data-label"> Representation:</span><a href="{{ series.agent.url }}" target="_blank" rel="noopener">
         {{- series.agent.title -}}
       </a>
-    </section>
+    </div>
   {% endif -%}
 
-</section>
+</div>
 
-<section class="series-content">
+<div class="series-content">
 
   <div class="series-reviews">
 
@@ -74,6 +78,10 @@ templateClass: tmpl-series
     {% endfor %}
 
   {% endif %}
+
+  </div>
+
+  <div class="series-press">
 
   {% if series.pressItems.length > 0 %}
 
@@ -97,4 +105,4 @@ templateClass: tmpl-series
 
   </div>
 
-</section>
+</div>
