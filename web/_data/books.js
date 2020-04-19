@@ -87,6 +87,11 @@ async function getBooks () {
           ...
         }
       },
+      "theme": theme->{
+        "primary": primary.hex,
+        "secondary": secondary.hex,
+        "tertiary": tertiary.hex,
+      },
       title
     }
   }`
