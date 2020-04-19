@@ -217,6 +217,7 @@
 
   /* overall layout  */
   --global-br: 18px;
+  --g-margin-top: 4em;
 }
 
 /* Reset rule */
@@ -654,7 +655,8 @@ section.bio .bio-text {
   max-width: 60ch;
 }
 
-section.agent span.data-label {
+section.agent span.data-label,
+section.series-data span.data-label {
   color: var(--general-night-3);
 }
 
@@ -1027,7 +1029,7 @@ div.featured-book-info h1,
 }
 
 .book-reviews h2 {
-  margin-top: 3em;
+  margin-top: var(--g-margin-top);
 }
 
 .book-reviews p {
@@ -1042,7 +1044,7 @@ div.featured-book-info h1,
 .books-international {
   grid-column: 3 / 11;
   grid-row: 3;
-  margin-top: 3em;
+  margin-top: var(--g-margin-top);
 }
 
 .books-international ol li img {
@@ -1122,7 +1124,33 @@ ol.booklist img {
   height: 100%;
 }
 
+/* Book list(s)
+   ========================================================================== */
 
+section.series-hero figure,
+section.series-data > * {
+  grid-column: 3 / 11;
+}
+
+.series-reviews,
+.series-books,
+.series-press {
+  margin-top: var(--g-margin-top);
+}
+
+@media all and (max-width: 800px) {
+  section.series-hero figure,
+  section.series-data > * {
+    grid-column: 2 / 12;
+  }
+}
+
+@media all and (max-width: 650px) {
+  section.series-hero figure,
+  section.series-data > * {
+    grid-column: 1 / 13;
+  }
+}
 
 
 
