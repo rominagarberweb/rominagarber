@@ -16,10 +16,10 @@
     "@sanity/dashboard",
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
-    "dashboard-widget-netlify",
     "tabs",
     "color-list",
     "media",
+    "topbar-widget-netlify",
     "@sanity/color-input"
   ],
   "env": {
