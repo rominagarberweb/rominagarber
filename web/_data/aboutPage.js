@@ -35,6 +35,7 @@ async function getAboutPage () {
       }
     },
     mainImage,
+    "original": mainImage.asset->url,
     publishers[]{
       title,
       url
