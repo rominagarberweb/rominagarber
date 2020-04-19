@@ -7,9 +7,9 @@
   font-display: swap;
   font-weight: 300;
   src:
-    local('Manuale Light '),
-    local('Manuale-Light'),
-    url('../fonts/Manuale-Light.woff2') format('woff2'), /* Super Modern Browsers */
+    /* local('Manuale Light '),
+    local('Manuale-Light'), */
+    url('/fonts/Manuale-Light.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
 /* manuale-300italic - latin */
@@ -21,7 +21,7 @@
   src:
     local('Manuale Light italic'),
     local('Manuale-Lightitalic'),
-    url('../fonts/Manuale-LightItalic.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Manuale-LightItalic.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
 /* manuale-400normal - latin */
@@ -33,7 +33,7 @@
   src:
     local('Manuale Regular'),
     local('Manuale-Regular'),
-    url('../fonts/Manuale-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Manuale-Regular.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
 /* manuale-400italic - latin */
@@ -45,7 +45,7 @@
   src:
     local('Manuale Regular italic'),
     local('Manuale-Regularitalic'),
-    url('../fonts/Manuale-Italic.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Manuale-Italic.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
 /* manuale-500normal - latin */
@@ -57,7 +57,7 @@
   src:
     local('Manuale Medium '),
     local('Manuale-Medium'),
-    url('../fonts/Manuale-Medium.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Manuale-Medium.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
 /* manuale-500italic - latin */
@@ -69,7 +69,7 @@
   src:
     local('Manuale Medium italic'),
     local('Manuale-Mediumitalic'),
-    url('../fonts/Manuale-MediumItalic.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Manuale-MediumItalic.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
 /* manuale-600normal - latin */
@@ -79,9 +79,9 @@
   font-display: swap;
   font-weight: 600;
   src:
-    local('Manuale Semi Bold '),
+    local('Manuale Semi Bold'),
     local('Manuale-Semibold'),
-    url('../fonts/Manuale-Semibold.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Manuale-Semibold.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
 /* manuale-600italic - latin */
@@ -93,7 +93,7 @@
   src:
     local('Manuale Bold italic'),
     local('Manuale-bolditalic'),
-    url('../fonts/Manuale-SemiBoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Manuale-SemiBoldItalic.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
 /* manuale-700normal - latin */
@@ -105,7 +105,7 @@
   src:
     local('Manuale Bold '),
     local('Manuale-Bold'),
-    url('../fonts/Manuale-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Manuale-Bold.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
 /* manuale-700italic - latin */
@@ -117,7 +117,7 @@
   src:
     local('Manuale Bold italic'),
     local('Manuale-bolditalic'),
-    url('../fonts/Manuale-BoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Manuale-BoldItalic.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
 /* manuale-800normal - latin */
@@ -129,7 +129,7 @@
   src:
     local('Manuale Extra Bold '),
     local('Manuale-Extrabold'),
-    url('../fonts/Manuale-ExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Manuale-ExtraBold.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
 /* manuale-800italic - latin */
@@ -141,7 +141,7 @@
   src:
     local('Manuale Extra Bold italic'),
     local('Manuale-Extrabolditalic'),
-    url('../fonts/Manuale-ExtraBoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Manuale-ExtraBoldItalic.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
 /* ibm plex sans variable regular */
@@ -151,7 +151,7 @@
   font-display: swap;
   font-weight: 100 700;
   font-stretch: 85% 100%;
-  src: url('../fonts/IBMPlexSansVar-Roman.woff2') format('woff2 supports variations');
+  src: url('/fonts/IBMPlexSansVar-Roman.woff2') format('woff2');
 }
 
 /* ibm plex sans variable italic */
@@ -162,7 +162,7 @@
   font-weight: 100 700;
   font-stretch: 85% 100%;
   font-display: swap;
-  src: url('../fonts/IBMPlexSansVar-Italic.woff2') format('woff2 supports variations');
+  src: url('/fonts/IBMPlexSansVar-Italic.woff2') format('woff2');
 }
 
 :root {
@@ -647,7 +647,7 @@ section.hero {
    ========================================================================== */
 
 section.bio figure {
-  grid-column: 2 / 6;
+  grid-column: 3 / 7;
 }
 
 section.bio .bio-text {
@@ -655,7 +655,7 @@ section.bio .bio-text {
   max-width: 60ch;
 }
 
-section.agent span.data-label,
+div.agent span.data-label,
 section.series-data span.data-label {
   color: var(--general-night-3);
 }
