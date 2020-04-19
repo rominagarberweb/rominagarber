@@ -53,8 +53,8 @@ navtitle: Home
     {% if book.review %}
       {{ book.review | markdownify | safe }}
       {# this review author is not current working on index and books pages I will make sure it is added to the right place in the schema #}
-      {% if review.author %}
-        <em>&mdash; {{ review.author }}</em>
+      {% if book.reviewAuthor %}
+        <em>&mdash; {{ book.reviewAuthor }}</em>
       {% endif %}
     {% endif %}
 

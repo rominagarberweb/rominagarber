@@ -33,6 +33,7 @@ function generateFeaturedBooks (featuredBooks) {
       featuredBooks.content.reviews[0].content,
       {serializers, ...client.config()}
     ),
+    reviewAuthor: featuredBooks.content.reviews[0].author,
     synopsis: BlocksToMarkdown(
       featuredBooks.content.synopsis,
       {serializers, ...client.config()}

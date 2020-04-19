@@ -42,8 +42,8 @@ templateClass: tmpl-books
 
     {% if book.review %}
       {{ book.review | markdownify | safe }}
-      {% if review.author %}
-        <em>&mdash; {{ review.author }}</em>
+      {% if book.reviewAuthor %}
+        <em>&mdash; {{ book.reviewAuthor }}</em>
       {% endif %}
     {% endif %}
 
