@@ -227,6 +227,17 @@
   box-sizing: border-box;
 }
 
+.s-visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -565,6 +576,10 @@ a.btn--featured-book {
   border-radius: var(--global-br);
   margin: 0 .6em .4em 0;
 }
+a.btn--text-only {
+  border: 2px solid transparent;
+  padding: .6em 0;
+}
 
 
 
@@ -651,11 +666,53 @@ section.bio figure {
 }
 
 section.bio .bio-text {
-  grid-column: 7 / 12;
+  grid-column: 7 / 11;
   max-width: 60ch;
 }
 
+span.all-small-caps {
+  font-family: var(--headings-font);
+  font-weight: 1000;
+  font-variant-caps: all-small-caps;
+}
+
+@media all and (max-width: 800px) {
+  section.bio figure {
+    grid-column: 2 / 7;
+  }
+  
+  section.bio .bio-text {
+    grid-column: 7 / 12;
+    max-width: 60ch;
+  }
+}
+
+@media all and (max-width: 650px) {
+  section.bio figure {
+    grid-column: 1 / 13;
+  }
+  
+  section.bio .bio-text {
+    grid-column: 1 / 13;
+    max-width: 60ch;
+  }
+}
+
+p.download-link {
+  margin-top: .8em;
+}
+
+span.data-label {
+  font-family: var(--headings-font);
+  font-variant-caps: all-small-caps;
+  letter-spacing: .08em;
+  font-weight: 550;
+  font-stretch: 85%;
+}
+
+section.bio figure p span.data-label,
 div.agent span.data-label,
+div.publishers span.data-label,
 section.series-data span.data-label {
   color: var(--general-night-3);
 }
