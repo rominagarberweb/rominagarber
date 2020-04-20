@@ -37,7 +37,7 @@ templateClass: tmpl-books
         </svg>
       </a>
       <a class="btn btn--featured-book" href="#">Add to Goodreads TBR</a>
-      <a href="#">More info</a>
+      <a class="btn btn--featured-book btn--text-only" href="/books/{{ book.content.slug.current | url }}/">More Info</a>
     </div>
 
     {% if book.review %}
