@@ -15,6 +15,12 @@ export default {
       title: 'Hero description',
     },
     {
+      title: 'Color theme',
+      name: 'theme',
+      type: 'reference',
+      to: [{ type: 'colorTheme' }]
+    },
+    {
       name: 'heroImage',
       type: 'image',
       title: 'Hero image',

@@ -26,11 +26,16 @@ async function getHomePage () {
     priorityLinks[]{
       title,
       url
-    },
+    }, 
     socialLinks[]{
       title,
       url
-    }
+    },
+    "theme": theme->{
+      "primary": primary.hex,
+      "secondary": secondary.hex,
+      "tertiary": tertiary.hex,
+    },
   }`
   const query = [filter, projection].join(' ')
   const docs = await client.fetch(query).catch(err => console.error(err))
