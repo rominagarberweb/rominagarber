@@ -1,4 +1,4 @@
-import Widget from './Widget'
+import Widget from './widget'
 import { WiCloudUp } from 'react-icons/wi'
 
 export default {
