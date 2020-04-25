@@ -11,7 +11,7 @@ templateClass: tmpl-book
     <figure>
       <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
       {# make this download image a large image #}
-      <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.cover }}?dl=book-cover.jpg" rel="noopener">Large cover image&nbsp;<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.cover }}?dl=book-cover.jpg" rel="noopener">Large cover image&nbsp;<svg class="download-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M7 10L12 15L17 10" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M12 15V3" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -78,10 +78,30 @@ templateClass: tmpl-book
 
 <section class="book-content">
 
-{# call this something else besides reviews #}
+<h1>Test Me!!!!</h1>
+
+{% if book.internationalCovers.length > 0 %}
+
+    <div class="book-sidebar">
+
+        {% for intCover in book.internationalCovers %}
+          <figure>
+            <img src="{{ intCover.cover }}" alt="{{ intCover.alt }}" />
+            <figcaption>This is an image caption</figcaption>
+          </figure>
+        {% endfor %}
+
+    </div>
+
+{% endif %} 
+
+{# call this something else besides reviews #} 
 <div class="book-reviews">
 
   {% if book.synopsis %}
+
+  {% endif %} #}
+
     <div class='book-synopsis'>
       <h2>Synopsis</h2>
       {{ book.synopsis | markdownify | safe }}
@@ -107,17 +127,5 @@ templateClass: tmpl-book
   {% endif %}
 
   </div>
-
-  {% if book.internationalCovers.length > 0 %}
-
-    <div class="books-international">
-      <h1>International Covers</h1>
-      <ol>
-        {% for intCover in book.internationalCovers %}
-          <li><img src="{{ intCover.cover }}" alt="{{ intCover.alt }}" /></li>
-        {% endfor %}
-      </ol>
-    </div>
-  {% endif %}
 
 </section>

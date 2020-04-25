@@ -561,7 +561,8 @@ a.btn--secondary {
   color: var(--general-night-4);
 }
 
-a.btn--secondary svg {
+/* a.btn--secondary svg, */
+a.btn svg {
   margin: 0 0 0 .6em;
   height: 1.4em;
 }
@@ -1094,8 +1095,12 @@ div.featured-book-info h1,
   grid-row: 3;
 }
 
+.book-sidebar {
+  grid-column: 3 / 6;
+}
+
 .book-reviews {
-  grid-column: 3 / 11;
+  grid-column: 6 / 11;
   grid-row: 2;
 }
 
@@ -1119,7 +1124,7 @@ div.featured-book-info h1,
 }
 
 .books-international ol li img {
-  height: 100%;
+  /* height: 100%; */
 }
 
 @media all and (max-width: 800px) {
