@@ -9,14 +9,15 @@ templateClass: tmpl-event
   {% if event.content.venue.city %}
     {# create the colored header block #}
     <div class="eventbanner" style="background-color: {{ event.content.venue.color }}">
-      {{- event.content.venue.city -}}
+      {{- event.bannerText -}} {# change me to venue city and title combo #}
     </div>
   {% endif %}
 
   <div class="eventinfo">
-  <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">
+  <p><span class="data-label">Location:</span> {{- event.content.venue.city -}}<br>
+  <span class="data-label">When:</span> <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">
     {{- event.content.schedule.from | readableDate -}}
-  </time>
+  </time></p>
 
   <h1>{{ event.content.name }}</h1>
   {{ event.description | markdownify | safe }}
@@ -24,7 +25,7 @@ templateClass: tmpl-event
   <p class="eventactions">
     <a href="{{ event.content.link | url }}" target="_blank" rel="noopener">
       Event site
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="download-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M27 19.5V28.5C27 29.2956 26.6839 30.0587 26.1213 30.6213C25.5587 31.1839 24.7956 31.5 24 31.5H7.5C6.70435 31.5 5.94129 31.1839 5.37868 30.6213C4.81607 30.0587 4.5 29.2956 4.5 28.5V12C4.5 11.2044 4.81607 10.4413 5.37868 9.87868C5.94129 9.31607 6.70435 9 7.5 9H16.5" stroke="#444444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M22.5 4.5H31.5V13.5" stroke="#444444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M15 21L31.5 4.5" stroke="#444444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -43,7 +44,7 @@ templateClass: tmpl-event
         target="_blank" rel="noopener"
       >
       Tweet this event
-      <svg width="32" height="26" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="download-icon" width="32" height="26" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M31.0717 5.25768C31.359 5.01783 31.3983 4.59099 31.1598 4.30371C31.0677 4.19259 30.9416 4.114 30.8007 4.07877L29.7302 3.80775C29.367 3.71696 29.1462 3.34838 29.2369 2.98658C29.2478 2.94186 29.264 2.89986 29.283 2.8592L29.8793 1.65319C30.0419 1.31578 29.8996 0.910609 29.5635 0.748C29.4172 0.677536 29.2505 0.66263 29.0933 0.704638L26.3832 1.46348C26.1785 1.5231 25.9577 1.48245 25.7869 1.35507C24.6148 0.47563 23.1879 0 21.7217 0C17.9804 0 14.9464 3.03401 14.9464 6.77536V7.26319C14.9477 7.43528 14.819 7.58163 14.6482 7.60196C10.8405 8.04913 7.19534 6.11138 3.26563 1.58543C3.09218 1.39301 2.82523 1.31442 2.57454 1.38217C2.3496 1.48516 2.19919 1.70333 2.18157 1.9513C1.63819 4.1804 1.85771 6.52738 2.80491 8.61826C2.88892 8.78494 2.82252 8.98955 2.65585 9.07357C2.59216 9.10473 2.5217 9.11693 2.45259 9.10609L0.934905 8.80797C0.564971 8.74835 0.218072 9.00039 0.158449 9.36897C0.146253 9.44892 0.147608 9.52887 0.162514 9.60746C0.399652 11.7146 1.58128 13.5982 3.37404 14.7296C3.54206 14.8109 3.61253 15.0142 3.53122 15.1822C3.49735 15.2513 3.44314 15.3069 3.37404 15.3394L2.65585 15.624C2.30895 15.7636 2.13956 16.1579 2.27914 16.5048C2.28591 16.5238 2.29404 16.5414 2.30353 16.559C3.1098 18.3233 4.73046 19.5794 6.63976 19.9196C6.81592 19.9833 6.90671 20.1784 6.84302 20.3532C6.80914 20.448 6.73461 20.5212 6.63976 20.5565C4.79686 21.318 2.81981 21.7015 0.8265 21.6812C0.4525 21.6066 0.0879851 21.8492 0.0134562 22.2232C-0.0610728 22.5972 0.181485 22.9617 0.555485 23.0362C4.00821 24.6732 7.76582 25.5648 11.5858 25.6515C14.945 25.703 18.246 24.7599 21.0713 22.9414C25.7924 19.7895 28.6204 14.4844 28.6055 8.80797V7.62906C28.6068 7.42986 28.6963 7.24151 28.8494 7.11413L31.0717 5.25768Z" fill="#444444"/>
       </svg>
     </a>

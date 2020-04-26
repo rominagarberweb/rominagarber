@@ -39,6 +39,13 @@ export default {
           }
         },
         {
+          name: 'bannerText',
+          type: 'string',
+          title: 'Banner Text',
+          description: 'Banner headline including short combo of venue/city and title',
+          fieldset: 'overview'
+        },
+        {
           name: 'description',
           type: 'eventPortableText',
           title: 'Description',

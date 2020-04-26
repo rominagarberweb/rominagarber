@@ -27,6 +27,7 @@ async function getEvents () {
       name,
       schedule,
       slug,
+      bannerText,
       venue
     }
   }`
