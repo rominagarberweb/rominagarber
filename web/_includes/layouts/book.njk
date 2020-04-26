@@ -34,8 +34,7 @@ templateClass: tmpl-book
     {# (pre-)order and GR TBR links go here
     change the colors of these buttons and icons in the cms #}
 
-    <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="#">Buy book from
-      <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="#">Buy book from <svg class="download-icon" width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 1L7.97059 7L14.9412 1" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
@@ -78,16 +77,15 @@ templateClass: tmpl-book
 
 <section class="book-content">
 
-<h1>Test Me!!!!</h1>
-
 {% if book.internationalCovers.length > 0 %}
 
     <div class="book-sidebar">
 
         {% for intCover in book.internationalCovers %}
+         {% set intCoverLimit = 1 %} {# not sure this will work if not avail in _data #}
           <figure>
             <img src="{{ intCover.cover }}" alt="{{ intCover.alt }}" />
-            <figcaption>This is an image caption</figcaption>
+            <figcaption>{{ intCover.caption }}</figcaption>
           </figure>
         {% endfor %}
 
@@ -100,7 +98,7 @@ templateClass: tmpl-book
 
   {% if book.synopsis %}
 
-  {% endif %} #}
+  {# {% endif %} #}
 
     <div class='book-synopsis'>
       <h2>Synopsis</h2>
