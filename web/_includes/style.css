@@ -7,8 +7,8 @@
   font-display: swap;
   font-weight: 300;
   src:
-    /* local('Manuale Light '),
-    local('Manuale-Light'), */
+    local('Manuale Light '),
+    local('Manuale-Light'), 
     url('/fonts/Manuale-Light.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
@@ -532,6 +532,7 @@ a.btn,
 a.btn:active {
   cursor: pointer;
   line-height: 1.6;
+  line-height: 1;
   font-weight: bold;
   text-decoration: none;
   margin: 1.6rem .4rem 1.6rem 0;
@@ -541,7 +542,8 @@ a.btn:active {
   font-weight: 542;
   font-stretch: 85;
   white-space: nowrap;
-  display: flex;
+  display: inline-flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -566,8 +568,11 @@ a.btn--secondary {
 
 /* a.btn--secondary svg, */
 a.btn svg {
-  margin: 0 0 0 .6em;
+  margin-inline-start: 0.6em;
+  /* margin: 0 0 0 .6em; */
   height: 1.4em;
+  stroke: currentColor;
+  transform: translateY(-1px); /* Optical adjustment */
 }
 
 a.btn--secondary:hover {
