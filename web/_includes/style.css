@@ -254,8 +254,8 @@ h1,
 h2,
 h3 {
   font-family: var(--headings-font);
-  font-weight: 899;
-  font-stretch: 85;
+  font-weight: 680;
+  font-stretch: 90%;
 }
 
 a,
@@ -330,7 +330,8 @@ nav.primary-nav {
   overflow: visible;
   position: relative;
   font-family: var(--headings-font);
-  font-weight: 322;
+  font-weight: 430;
+  font-stretch: 90%;
 }
 nav ul.primary-nav__list {
   list-style: none;
@@ -385,7 +386,7 @@ footer {
   margin: 3em 0 0;
 }
 
-article {
+article .eventinfo {
   max-width: 80ch;
 }
 
@@ -527,7 +528,8 @@ div.mc-field-email input.button:hover {
    #BUTTONS
    ========================================================================== */
 
-a.btn {
+a.btn,
+a.btn:active {
   cursor: pointer;
   line-height: 1.6;
   font-weight: bold;
@@ -545,6 +547,7 @@ a.btn {
 
 a.btn:hover {
   opacity: 0.8;
+  background-color: var(--beta-night);
 }
 
 a.btn--primary {
