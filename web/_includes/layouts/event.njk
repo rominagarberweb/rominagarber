@@ -9,14 +9,16 @@ templateClass: tmpl-event
   {% if event.content.venue.city %}
     {# create the colored header block #}
     <div class="eventbanner" style="background-color: {{ event.content.venue.color }}">
-      {{- event.bannerText -}} {# change me to venue city and title combo #}
+      {{- event.content.bannerText -}} {# change me to venue city and title combo #}
     </div>
   {% endif %}
 
   <div class="eventinfo">
   <p><span class="data-label">Location:</span> {{- event.content.venue.city -}}<br>
   <span class="data-label">When:</span> <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">
-    {{- event.content.schedule.from | readableDate -}}
+    {{- event.content.schedule.from | readableDate }},
+    {{ event.content.schedule.from | readableTime }} -
+    {{ event.content.schedule.to | readableTime -}}
   </time></p>
 
   <h1>{{ event.content.name }}</h1>
