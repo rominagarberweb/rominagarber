@@ -16,7 +16,9 @@ templateClass: tmpl-event
   <div class="eventinfo">
   <p><span class="data-label">Location:</span> {{- event.content.venue.city -}}<br>
   <span class="data-label">When:</span> <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">
-    {{- event.content.schedule.from | readableDate -}}
+    {{- event.content.schedule.from | readableDate }},
+    {{ event.content.schedule.from | readableTime }} -
+    {{ event.content.schedule.to | readableTime -}}
   </time></p>
 
   <h1>{{ event.content.name }}</h1>

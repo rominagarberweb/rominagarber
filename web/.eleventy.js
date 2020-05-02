@@ -14,8 +14,13 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addFilter("readableDate", dateObj => {
-    options = { month: 'long', day: 'numeric', year: 'numeric'}
-    return new Date(dateObj).toLocaleDateString('en-US', options)
+    options = { month: 'long', day: 'numeric', year: 'numeric' }
+    return new Date(dateObj).toLocaleString('en-US', options)
+  })
+
+  eleventyConfig.addFilter("readableTime", dateObj => {
+    options = { hour12: true, hour: '2-digit', minute: '2-digit' }
+    return new Date(dateObj).toLocaleString('en-US', options)
   })
 
   eleventyConfig.addFilter('isPastEvent', dateObj => {
