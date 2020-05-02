@@ -9,7 +9,7 @@ templateClass: tmpl-event
   {% if event.content.venue.city %}
     {# create the colored header block #}
     <div class="eventbanner" style="background-color: {{ event.content.venue.color }}">
-      {{- event.bannerText -}} {# change me to venue city and title combo #}
+      {{- event.content.bannerText -}} {# change me to venue city and title combo #}
     </div>
   {% endif %}
 
