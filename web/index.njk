@@ -9,13 +9,13 @@ navtitle: Home
 {% set themeColorSecondary = book.content.theme.secondary -%}
 {% set themeColorTertiary = book.content.theme.tertiary -%}
 
-{% set js %}
+{# {% set js %}
   {% include "custom.js" %}
 {% endset %}
 <!-- feed it through our jsmin filter to minify -->
 <script>
   {{ js | jsmin | safe }}
-</script>
+</script> #}
 
 <section class="hero full-bleed">
   <div class="hero-background layer img00">

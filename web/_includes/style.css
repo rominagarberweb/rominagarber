@@ -731,7 +731,15 @@ section.hero {
    ========================================================================== */
 
 section.bio figure {
-  grid-column: 3 / 7;
+  grid-column: 1 / 7;
+  z-index: 10;
+}
+
+section.bio figure::after {
+  content: "  ";
+  background-color: gray;
+  grid-column: 2 / 8;
+  z-index: 100;
 }
 
 section.bio .bio-text {
