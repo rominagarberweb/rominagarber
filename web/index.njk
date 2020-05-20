@@ -9,27 +9,9 @@ navtitle: Home
 {% set themeColorSecondary = book.content.theme.secondary -%}
 {% set themeColorTertiary = book.content.theme.tertiary -%}
 
-{# {% set js %}
-  {% include "custom.js" %}
-{% endset %}
-<!-- feed it through our jsmin filter to minify -->
-<script>
-  {{ js | jsmin | safe }}
-</script> #}
-
 <section class="hero full-bleed">
-  <div class="hero-background layer img00">
+  <div class="hero-background">
     {# I think we need this section to hold some graphics #}
-  </div>
-  <div class="hero-moon layer img0">
-    <svg height="600" width="600">
-      <circle cx="300" cy="300" r="200" />
-    </svg> 
-  </div>
-  <div class="hero-cloud-2 layer img1">
-    <img src="images/lobizona-cloud02-600px.png">
-  </div>
-  <div class="hero-cloud-1 layer img2">
   </div>
   <div class="hero-card">
     {# here is some placeholder html that you can work into the singleton #}
@@ -42,7 +24,6 @@ navtitle: Home
     {% include "_includes/components/social.njk" %}
 
   </div>
-  <div class="overlay"></div>
 </section>
 <section class="featured-book full-bleed" style="background-color: {{ themeColorPrimary }};">
 

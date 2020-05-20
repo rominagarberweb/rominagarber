@@ -619,36 +619,15 @@ section.hero {
   background-size: cover;
 }
 
-.hero-moon {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  grid-row: 1;
-  grid-column: 3 / 11;
-  opacity: .6;
-  z-index: 1;
-}
-.hero-moon svg {
-  fill: var(--manu-blood-1);
-  stroke: none;
-}
-
-.hero-cloud-2 {
-  grid-row: 1;
-  grid-column: 1 / 13;
-  opacity: .6;
-  z-index: 2;
-}
-
 /* animation effects for hero bkg */
-.img00 {
+.hero-background {
   background:
     linear-gradient(
       rgba(251, 195, 167, 0.45), 
       rgba(233, 145, 152, 0.45),
       rgba(163, 80, 72, 0.45)
     ),
-    url(images/lobizona-star-field.jpg);
+    url(images/lobizona-hero.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   -webkit-transform: translate3d(0, 0, 0);
@@ -657,16 +636,6 @@ section.hero {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  width: 100%;
-  height: 100%;
-/*   background: rgba(0,0,0,0.28) */
 }
 
 .hero-card {
