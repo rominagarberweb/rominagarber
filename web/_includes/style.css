@@ -176,9 +176,9 @@
   --gamma-night: rgba(32, 33, 34, 0.1);
 
   /* manu theme colors */
-  --manu-moon-1: #F0E8B9;
-  --manu-moon-2: #D1C477;
-  --manu-moon-3: #9C914C;
+  --manu-moon-1: #FEECAF;
+  --manu-moon-2: #F4D050;
+  --manu-moon-3: #C6B372;
   --manu-earth-1: #CEDAA4;
   --manu-earth-2: #92C589;
   --manu-earth-3: #73A475;
@@ -627,15 +627,20 @@ section.hero {
       rgba(233, 145, 152, 0.45),
       rgba(163, 80, 72, 0.45)
     ),
-    url(images/lobizona-hero.jpg);
+    url(../images/lobizona-hero.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
+}
+
+.hero-background img {
+  object-fit: cover;
 }
 
 .hero-card {
