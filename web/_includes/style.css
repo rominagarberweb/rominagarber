@@ -440,6 +440,25 @@ footer .footer-content div ol.social-icons li a svg.social-icon {
   height: 24px;
 }
 
+footer .footer-content div ol.social-icons li a svg.twitter {
+  fill: #76A9EA;
+}
+
+footer .footer-content div ol.social-icons li a svg.facebook {
+  fill: #475993;
+  fill: #475993;
+  enable-background:new 0 0 408.788 408.788;
+}
+
+footer .footer-content div ol.social-icons li a svg.instagram {
+  enable-background:new 0 0 551.034 551.034;
+  background: #f09433; 
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+}
+
 footer .footer-content div ol.social-icons li a svg.social-icon:hover {
   opacity: 0.8;
 }
@@ -535,7 +554,7 @@ a.btn:active {
   line-height: 1;
   font-weight: bold;
   text-decoration: none;
-  margin: 1.6rem .4rem 1.6rem 0;
+  /* margin: 1.6rem .4rem 1.6rem 0; */
   padding: .6em 1.2em;
   font-size: calc(12px + 0.25vw);
   font-family: var(--headings-font);
@@ -596,7 +615,6 @@ a.btn--featured-book {
 }
 a.btn--text-only {
   border: 2px solid transparent;
-  padding: .6em 0;
 }
 
 
@@ -607,7 +625,7 @@ a.btn--text-only {
    ========================================================================== */
 
 section.hero {
-  background-color: var(--rho-cancer-3);
+  background-color: var(--manu-blood-1);
   min-height: 30em;
   margin: 0;
 }
@@ -664,7 +682,7 @@ section.hero {
 
 .hero-card p {
   max-width: 36ch;
-  margin-bottom: 0;
+  margin-bottom: 1.3em;
   /* line-height: 1.13; */
 }
 
@@ -672,16 +690,17 @@ section.hero {
   list-style: none;
   margin: 0; 
   padding: 0;
+  margin-top: 1.3em;
   display: flex;
 }
 
 .hero-card ol.social-icons li {
-  margin-right: .8em;
+  margin-right: .4em;
   align-self: center;
 }
 
 .hero-card ol.social-icons li a svg.social-icon {
-  fill: white;
+  fill: var(--rho-libra-1);
   height: 24px;
 }
 .hero-card ol.social-icons li a svg.social-icon:hover {
@@ -689,11 +708,11 @@ section.hero {
 }
 
 @media all and (max-width: 650px) {
-  section.hero {
+  /* section.hero {
     grid-column: 1 / 7;
-  }
+  } */
   .hero-card {
-    grid-column: 2 / 6;
+    grid-column: 2 / 12;
   }
 }
 
@@ -783,18 +802,24 @@ section.blog-post {
 }
 
 article {
-  grid-column: 3 / 11;
+  grid-column: 4 / 10;
 }
 
 section.blog-posts .more-link {
   grid-row: 2;
-  grid-column: 3 / 11;
+  grid-column: 4 / 10;
 }
 
 /* article {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 } */
+
+@media all and (max-width: 1024px) {
+  article {
+    grid-column: 3 / 11;
+  }
+} 
 
 @media all and (max-width: 800px) {
   article {
