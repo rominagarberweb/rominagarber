@@ -723,7 +723,7 @@ section.hero {
    ========================================================================== */
 
 section.bio figure {
-  grid-column: 1 / 7;
+  grid-column: 3 / 7;
   z-index: 10;
 }
 
