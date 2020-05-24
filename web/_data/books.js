@@ -66,7 +66,8 @@ async function getBooks () {
       links[],
       "pressItems": pressItems[]->{
         publishedAt,
-        title
+        title,
+        url
       },
       publishers[]{
         title,

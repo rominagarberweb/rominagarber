@@ -118,18 +118,18 @@ templateClass: tmpl-book
 
   {% if book.content.pressItems.length > 0 %}
     <h2>Press</h2>
-    <ol>
+    <ul>
 
     {% for pressItem in book.content.pressItems %}
     
     <li>
-      <a href="{{ pressItem.link }}" target="_blank" rel="noopener">{{ pressItem.title }}</a>
+      <a href="{{ pressItem.url }}" target="_blank" rel="noopener">{{ pressItem.title }}</a>
       <time>{{ pressItem.publishedAt | readableDate }}</time>
     </li>
-    
+
     {% endfor %}
 
-    </ol>
+    </ul>
 
   {% endif %}
 
