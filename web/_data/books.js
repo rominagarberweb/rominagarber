@@ -29,6 +29,7 @@ function generateBook (book) {
 
 function generateIntCovers (cover) {
   return {
+    caption: cover.caption,
     alt: cover.alt,
     cover: imageUrl(cover)
       .height(500)
