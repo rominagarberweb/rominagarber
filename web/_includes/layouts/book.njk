@@ -123,8 +123,10 @@ templateClass: tmpl-book
     {% for pressItem in book.content.pressItems %}
     
     <li>
-      <a href="#" target="_blank" rel="noopener">{{ pressItem.title }}</a>
-      <time>{{ pressItem.publishedAt | readableDate }}</time></li>
+      <a href="{{ pressItem.link }}" target="_blank" rel="noopener">{{ pressItem.title }}</a>
+      <time>{{ pressItem.publishedAt | readableDate }}</time>
+    </li>
+    
     {% endfor %}
 
     </ol>
