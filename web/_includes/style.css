@@ -569,6 +569,7 @@ a.btn:active {
 a.btn:hover {
   opacity: 0.8;
   background-color: var(--beta-night);
+  transition: 0.4s;
 }
 
 a.btn--primary {
