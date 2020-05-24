@@ -662,14 +662,11 @@ section.hero {
 }
 
 .hero-card {
-  grid-column: 5 / 12;
+  grid-column: 8 / 13;
   grid-row: 1;
   color: white;
   background-color: var(--alpha-night);
-  border-radius: var(--global-br);
-  /* I'm going to try adjusting this card shape with vertical width (vw) properties later on */
   padding: 4rem;
-  margin: auto;
   z-index: 3;
 }
 
@@ -713,6 +710,8 @@ section.hero {
   } */
   .hero-card {
     grid-column: 2 / 12;
+    border-radius: var(--global-br);
+    margin: auto;
   }
 }
 
