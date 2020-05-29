@@ -8,8 +8,9 @@ export default {
   fields: [
     {
       name: 'genre',
-      type: 'introPortableText',
-      title: 'Genre description'
+      type: 'string',
+      title: 'Genre description',
+      description: 'Enter title case, will display as a heading'
     },
     {
       name: 'featured',

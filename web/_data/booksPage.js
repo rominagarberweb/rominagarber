@@ -9,11 +9,7 @@ const hasToken = !!client.config().token
 function generateBooksPage (booksPage) {
   return {
     ...booksPage,
-    featured: booksPage.featured.map(generateFeaturedBooks),
-    genre: BlocksToMarkdown(
-      booksPage.genre,
-      {serializers, ...client.config()}
-    )
+    featured: booksPage.featured.map(generateFeaturedBooks)
   }
 }
 
@@ -48,12 +44,7 @@ async function getBooksPage () {
     "featured": featured[]->{
       content
     },
-    genre[]{
-      ...,
-      children[]{
-        ...
-      }
-    }
+    genre
   }`
   const query = [filter, projection].join(' ')
   const docs = await client.fetch(query).catch(err => console.error(err))
