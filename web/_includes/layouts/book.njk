@@ -59,90 +59,97 @@ templateClass: tmpl-book
 
   {% endif %}
 
-  </div>
-  <div class="book-data clearfix">
-      {# make this color selected in the cms to match the book theme colors 3 #}
-      <p>
-        {%- if book.content.publishers.length > 0 %}
-          <span class="data-label"  style="color: {{ themeColorTertiary }}">Publisher:</span>
-          <a href="{{ book.content.publishers[0].url }}" target="_blank" rel="noopener">{{ book.content.publishers[0].title }}</a><br>
-        {% endif -%}
-        {%- if book.content.agent %}
-          <span class="data-label" style="color: {{ themeColorTertiary }}">Representation:</span>
-          <a href="{{ book.content.agent.url }}">{{ book.content.agent.title }}</a>
-        {% endif -%}
-      </p>
+    <div class="book-data">
+        {# make this color selected in the cms to match the book theme colors 3 #}
+        <p>
+          {%- if book.content.publishers.length > 0 %}
+            <span class="data-label"  style="color: {{ themeColorTertiary }}">Publisher:</span>
+            <a href="{{ book.content.publishers[0].url }}" target="_blank" rel="noopener">{{ book.content.publishers[0].title }}</a><br>
+          {% endif -%}
+          {%- if book.content.agent %}
+            <span class="data-label" style="color: {{ themeColorTertiary }}">Representation:</span>
+            <a href="{{ book.content.agent.url }}">{{ book.content.agent.title }}</a>
+          {% endif -%}
+        </p>
+      </div>
     </div>
+
   </div>
+  
 
 <section class="book-content">
 
 {% if book.internationalCovers.length > 0 %}
 
-    <div class="book-sidebar">
-
-        <figure>
+        <figure class="book-synopsis-figure">
           <img src="{{ book.internationalCovers[0].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
           <figcaption>{{ book.internationalCovers[0].caption }}</figcaption>
         </figure>
 
-    </div>
-
 {% endif %}
-
-{# call this something else besides reviews #}
-<div class="book-reviews">
 
   {% if book.synopsis %}
 
   {# {% endif %} #}
 
     <div class='book-synopsis'>
-      <h2>Synopsis</h2>
+      <h2 class="mt0">Synopsis</h2>
       {{ book.synopsis | markdownify | safe }}
     </div>
   {% endif %}
 
+  {% if book.internationalCovers.length > 1 %}
+
+        <figure class="book-reviews-figure">
+          <img src="{{ book.internationalCovers[1].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
+          <figcaption>{{ book.internationalCovers[1].caption }}</figcaption>
+        </figure>
+
+{% endif %} 
+
   {% if book.reviews.length > 0 %}
-    <h2>Reviews</h2>
-    {% for review in book.reviews %}
-      {{ review.content | markdownify | safe }}
-      {% if review.author %}
-        <em>&mdash; {{ review.author }}</em>
-      {% endif %}
-    {% endfor %}
+
+    <div class="book-reviews">
+      <h2 class="mt0">Reviews</h2>
+      {% for review in book.reviews %}
+        {{ review.content | markdownify | safe }}
+        {% if review.author %}
+          <em>&mdash; {{ review.author }}</em>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
   {% endif %}
+
+  {% if book.internationalCovers.length > 2 %}
+
+        <figure class="book-press-items-figure">
+          <img src="{{ book.internationalCovers[2].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
+          <figcaption>{{ book.internationalCovers[2].caption }}</figcaption>
+        </figure>
+
+{% endif %} 
 
   {% if book.content.pressItems.length > 0 %}
-    <h2>Press</h2>
-    <ul>
 
-    {% for pressItem in book.content.pressItems %}
+    <div class="book-press-items">
 
-    <li>
-      <a href="{{ pressItem.url }}" target="_blank" rel="noopener">{{ pressItem.title }}</a>
-      <time>{{ pressItem.publishedAt | readableDate }}</time>
-    </li>
+      <h2 class="mt0">Press</h2>
+      <ul>
 
-    {% endfor %}
+      {% for pressItem in book.content.pressItems %}
+      
+      <li>
+        <a href="{{ pressItem.url }}" target="_blank" rel="noopener">{{ pressItem.title }}</a>
+        <time>{{ pressItem.publishedAt | readableDate }}</time>
+      </li>
 
-    </ul>
+      {% endfor %}
+
+      </ul>
+    </div>
 
   {% endif %}
-
-  </div>
-
-  {# {% if book.internationalCovers.length > 1 %}
-
-      <div class="book-sidebar">
-
-          <figure>
-            <img src="{{ book.internationalCovers[1].cover }}" alt="{{ book.internationalCovers[1].alt }}" />
-            <figcaption>{{ book.internationalCovers[1].caption }}</figcaption>
-          </figure>
-
-      </div>
-
-  {% endif %} #}
 
 </section>
