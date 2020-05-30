@@ -14,8 +14,8 @@ export default {
       inputComponent: Tabs,
       fieldsets: [
         { name: 'general', title: 'General' },
+        { name: 'details', title: 'Details' },
         { name: 'promotion', title: 'Promotion' },
-        { name: 'international', title: 'International' },
       ],
       options: {
         // setting layout to object will group the tab content in an object fieldset border.
@@ -38,13 +38,6 @@ export default {
             source: 'content.title',
             maxLength: 96
           }
-        },
-        {
-          title: 'Color theme',
-          name: 'theme',
-          type: 'reference',
-          fieldset: 'general',
-          to: [{ type: 'colorTheme' }]
         },
         {
           name: 'series',
@@ -70,16 +63,23 @@ export default {
           fieldset: 'general'
         },
         {
+          title: 'Color theme',
+          name: 'theme',
+          type: 'reference',
+          fieldset: 'general',
+          to: [{ type: 'colorTheme' }]
+        },
+        {
           name: 'hook',
           type: 'introPortableText',
           title: 'Hook',
-          fieldset: 'general'
+          fieldset: 'details'
         },
         {
           title: 'Buy book from',
           name: 'buyBookFrom',
           type: 'array',
-          fieldset: 'general',
+          fieldset: 'details',
           of: [
             {
               type: 'link',
@@ -91,19 +91,25 @@ export default {
           title: 'Add to Goodreads',
           name: 'addToGoodreads',
           type: 'link',
-          fieldset: 'general'
+          fieldset: 'details'
         },
         {
-          name: 'synopsis',
-          type: 'introPortableText',
-          title: 'Synopsis',
-          fieldset: 'general'
+          title: 'Links',
+          name: 'links',
+          type: 'array',
+          fieldset: 'details',
+          of: [
+            {
+              type: 'link',
+              title: 'Link'
+            }
+          ]
         },
         {
           title: 'Publisher links',
           name: 'publishers',
           type: 'array',
-          fieldset: 'general',
+          fieldset: 'details',
           of: [
             {
               type: 'link',
@@ -116,8 +122,21 @@ export default {
           name: 'agent',
           type: 'reference',
           to: { type: 'agent' },
-          fieldset: 'general',
+          fieldset: 'details',
           readOnly: true
+        },
+        {
+          name: 'internationalCovers',
+          type: 'array',
+          title: 'International covers',
+          fieldset: 'promotion',
+          of: [{ type: 'mainImage' }]
+        },
+        {
+          name: 'synopsis',
+          type: 'introPortableText',
+          title: 'Synopsis',
+          fieldset: 'promotion'
         },
         {
           name: 'reviews',
@@ -142,25 +161,6 @@ export default {
               to: {type: 'press'}
             }
           ]
-        },
-        {
-          title: 'Links',
-          name: 'links',
-          type: 'array',
-          fieldset: 'promotion',
-          of: [
-            {
-              type: 'link',
-              title: 'Link'
-            }
-          ]
-        },
-        {
-          name: 'internationalCovers',
-          type: 'array',
-          title: 'International covers',
-          fieldset: 'international',
-          of: [{ type: 'mainImage' }]
         },
       ]
     }
