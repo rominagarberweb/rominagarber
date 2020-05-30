@@ -65,6 +65,7 @@ async function getBooks () {
       },
       internationalCovers[],
       links[],
+      "original": cover.asset->url,
       "pressItems": pressItems[]->{
         publishedAt,
         title,
