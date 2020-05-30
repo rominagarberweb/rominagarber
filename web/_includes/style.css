@@ -1095,9 +1095,13 @@ section.genre p {
 
 section.featured-book,
 section.book-content {
-  grid-gap: 1em 3em;
+  grid-gap: 6em 3em;
   /* padding: 1em; */
   margin-top: 0;
+}
+
+section.book-content {
+  margin-top: 3.8rem;
 }
 
 section.featured-book {
@@ -1125,15 +1129,6 @@ section.featured-book figure,
   grid-column: 3 / 6;
   grid-row: 2;
   filter:drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
-}
-
-@keyframes roll {
-  0% {
-    transform: rotate (-4deg);
-  }
-  100% {
-    transform: rotate (1200deg);
-  }
 }
 
 section:hover.featured-book figure {
@@ -1170,9 +1165,19 @@ div.featured-book-info h1,
   grid-row: 3;
 }
 
-.book-sidebar {
-  grid-column: 3 / 6;
+.book-reviews {
+  grid-column: 6 / 11;
   grid-row: 2;
+}
+
+.book-synopsis {
+  grid-column: 3 / 8;
+  grid-row: 1;
+}
+
+figure.book-synopsis-figure {
+  grid-column: 8 / 11;
+  grid-row: 1;
 }
 
 .book-reviews {
@@ -1180,8 +1185,19 @@ div.featured-book-info h1,
   grid-row: 2;
 }
 
-.book-reviews h2 {
-  /* margin-top: var(--g-margin-top); */
+figure.book-reviews-figure {
+  grid-column: 3 / 6;
+  grid-row: 2;
+}
+
+.book-press-items {
+  grid-column: 3 / 8;
+  grid-row: 3;
+}
+
+figure.book-press-items-figure {
+  grid-column: 8 / 11;
+  grid-row: 3;
 }
 
 .book-reviews p {
@@ -1199,9 +1215,7 @@ div.featured-book-info h1,
   margin-top: var(--g-margin-top);
 }
 
-.books-international ol li img {
-  /* height: 100%; */
-}
+
 
 @media all and (max-width: 800px) {
   section.featured-book,
