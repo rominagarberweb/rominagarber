@@ -81,19 +81,16 @@ templateClass: tmpl-book
 
     <div class="book-sidebar">
 
-        {% for intCover in book.internationalCovers %}
-         {% set intCoverLimit = 1 %} {# not sure this will work if not avail in _data #}
-          <figure>
-            <img src="{{ intCover.cover }}" alt="{{ intCover.alt }}" />
-            <figcaption>{{ intCover.caption }}</figcaption>
-          </figure>
-        {% endfor %}
+        <figure>
+          <img src="{{ book.internationalCovers[0].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
+          <figcaption>{{ book.internationalCovers[0].caption }}</figcaption>
+        </figure>
 
     </div>
 
-{% endif %} 
+{% endif %}
 
-{# call this something else besides reviews #} 
+{# call this something else besides reviews #}
 <div class="book-reviews">
 
   {% if book.synopsis %}
@@ -121,7 +118,7 @@ templateClass: tmpl-book
     <ul>
 
     {% for pressItem in book.content.pressItems %}
-    
+
     <li>
       <a href="{{ pressItem.url }}" target="_blank" rel="noopener">{{ pressItem.title }}</a>
       <time>{{ pressItem.publishedAt | readableDate }}</time>
@@ -134,5 +131,18 @@ templateClass: tmpl-book
   {% endif %}
 
   </div>
+
+  {# {% if book.internationalCovers.length > 1 %}
+
+      <div class="book-sidebar">
+
+          <figure>
+            <img src="{{ book.internationalCovers[1].cover }}" alt="{{ book.internationalCovers[1].alt }}" />
+            <figcaption>{{ book.internationalCovers[1].caption }}</figcaption>
+          </figure>
+
+      </div>
+
+  {% endif %} #}
 
 </section>
