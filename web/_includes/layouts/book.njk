@@ -9,9 +9,9 @@ templateClass: tmpl-book
 <div class="book-hero" style="background-color: {{ themeColorPrimary }};">
   {%- if book.cover %}
     <figure>
-      <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
+      <img src="{{ book.cover }}" alt="{{ book.content.cover.alt }}" />
       {# make this download image a large image #}
-      <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.cover }}?dl=book-cover.jpg" rel="noopener">Large cover image&nbsp;<svg class="download-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.content.original }}?dl=book-cover.jpg" rel="noopener nofollow">Large cover image&nbsp;<svg class="download-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M7 10L12 15L17 10" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M12 15V3" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -59,24 +59,21 @@ templateClass: tmpl-book
 
   {% endif %}
 
-    <div class="book-data">
-        {# make this color selected in the cms to match the book theme colors 3 #}
-        <p>
-          {%- if book.content.publishers.length > 0 %}
-            <span class="data-label"  style="color: {{ themeColorTertiary }}">Publisher:</span>
-            <a href="{{ book.content.publishers[0].url }}" target="_blank" rel="noopener">{{ book.content.publishers[0].title }}</a><br>
-          {% endif -%}
-          {%- if book.content.agent %}
-            <span class="data-label" style="color: {{ themeColorTertiary }}">Representation:</span>
-            <a href="{{ book.content.agent.url }}">{{ book.content.agent.title }}</a>
-          {% endif -%}
-        </p>
-      </div>
-    </div>
-
+  </div>
+  <div class="book-data">
+    {# make this color selected in the cms to match the book theme colors 3 #}
+    <p>
+      {%- if book.content.publishers.length > 0 %}
+        <span class="data-label" style="color: {{ themeColorTertiary }}">Publisher:</span>
+        <a href="{{ book.content.publishers[0].url }}" target="_blank" rel="noopener">{{ book.content.publishers[0].title }}</a><br>
+      {% endif -%}
+      {%- if agent %}
+        <span class="data-label" style="color: {{ themeColorTertiary }}">Representation:</span>
+        <a href="{{ agent.url }}">{{ agent.name }}, {{ agent.agency }}</a>
+      {% endif -%}
+    </p>
   </div>
   
-
 <section class="book-content">
 
 {% if book.internationalCovers.length > 0 %}

@@ -43,11 +43,11 @@ templateClass: tmpl-about
   </div>
 {% endif -%}
 
-{%- if aboutPage.agent %}
+{%- if agent %}
   <div class="agent">
     <span class="data-label">Representation:</span>
-    <a href="{{ aboutPage.agent.url }}" target="_blank" rel="noopener">
-      {{- aboutPage.agent.title -}}
+    <a href="{{ agent.url }}" target="_blank" rel="noopener">
+      {{- agent.name }}, {{ agent.agency -}}
     </a>
   </div>
 {% endif -%}

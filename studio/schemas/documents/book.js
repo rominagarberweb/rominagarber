@@ -94,10 +94,12 @@ export default {
           ]
         },
         {
-          title: 'Agent link',
+          title: 'Agent',
           name: 'agent',
-          type: 'link',
-          fieldset: 'general'
+          type: 'reference',
+          to: { type: 'agent' },
+          fieldset: 'general',
+          readOnly: true
         },
         {
           name: 'reviews',
@@ -145,6 +147,12 @@ export default {
       ]
     }
   ],
+  initialValue: {
+    agent: {
+      _type: 'reference',
+      _ref: 'agent'
+    }
+  },
   orderings: [
     {
       name: 'releaseDateAsc',

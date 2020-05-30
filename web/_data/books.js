@@ -52,10 +52,6 @@ async function getBooks () {
   const projection = groq`{
     content {
       _id,
-      agent{
-        title,
-        url
-      },
       cover,
       hook[]{
         ...,
@@ -65,6 +61,7 @@ async function getBooks () {
       },
       internationalCovers[],
       links[],
+      "original": cover.asset->url,
       "pressItems": pressItems[]->{
         publishedAt,
         title,
