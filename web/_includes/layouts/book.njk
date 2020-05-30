@@ -67,9 +67,9 @@ templateClass: tmpl-book
           <span class="data-label"  style="color: {{ themeColorTertiary }}">Publisher:</span>
           <a href="{{ book.content.publishers[0].url }}" target="_blank" rel="noopener">{{ book.content.publishers[0].title }}</a><br>
         {% endif -%}
-        {%- if book.content.agent %}
+        {%- if agent %}
           <span class="data-label" style="color: {{ themeColorTertiary }}">Representation:</span>
-          <a href="{{ book.content.agent.url }}">{{ book.content.agent.title }}</a>
+          <a href="{{ agent.url }}">{{ agent.name }}, {{ agent.agency }}</a>
         {% endif -%}
       </p>
     </div>

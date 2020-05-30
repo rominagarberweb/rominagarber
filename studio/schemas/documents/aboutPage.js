@@ -26,9 +26,11 @@ export default {
       ]
     },
     {
-      title: 'Agent link',
+      title: 'Agent',
       name: 'agent',
-      type: 'link'
-    }
+      type: 'reference',
+      to: { type: 'agent' },
+      readOnly: true
+    },
   ]
 }

@@ -52,10 +52,6 @@ async function getBooks () {
   const projection = groq`{
     content {
       _id,
-      agent{
-        title,
-        url
-      },
       cover,
       hook[]{
         ...,

@@ -24,10 +24,6 @@ async function getAboutPage () {
   const filter = groq`*[_type == "aboutPage"]`
   const projection = groq`{
     _id,
-    agent{
-      title,
-      url
-    },
     bio[]{
       ...,
       children[]{

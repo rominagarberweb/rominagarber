@@ -6,6 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
 import aboutPage from './documents/aboutPage'
+import agent from './documents/agent'
 import author from './documents/author'
 import blogPage from './documents/blogPage'
 import book from './documents/book'
@@ -47,6 +48,7 @@ export default createSchema({
   types: schemaTypes.concat([
     // Document types
     aboutPage,
+    agent,
     author,
     blogPage,
     book,

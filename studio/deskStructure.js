@@ -14,12 +14,14 @@ import { GiBookshelf } from 'react-icons/gi'
 import { IoIosColorPalette } from 'react-icons/io'
 import {
   MdEvent,
+  MdHeadsetMic,
   MdLightbulbOutline
 } from 'react-icons/md'
 
 const hiddenDocTypes = listItem =>
   ![
     'aboutPage',
+    'agent',
     'author',
     'book',
     'blogPage',
@@ -152,6 +154,15 @@ export default () =>
           S.list()
             .title('Settings')
             .items([
+              S.listItem()
+                .title('Agent')
+                .icon(MdHeadsetMic)
+                .child(
+                  S.editor()
+                    .title('Agent')
+                    .schemaType('agent')
+                    .documentId('agent')
+                  ),
               S.listItem()
                 .title('Authors')
                 .icon(FiUser)
