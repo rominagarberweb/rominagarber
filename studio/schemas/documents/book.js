@@ -76,6 +76,24 @@ export default {
           fieldset: 'general'
         },
         {
+          title: 'Buy book from',
+          name: 'buyBookFrom',
+          type: 'array',
+          fieldset: 'general',
+          of: [
+            {
+              type: 'link',
+              title: 'Link'
+            }
+          ]
+        },
+        {
+          title: 'Add to Goodreads',
+          name: 'addToGoodreads',
+          type: 'link',
+          fieldset: 'general'
+        },
+        {
           name: 'synopsis',
           type: 'introPortableText',
           title: 'Synopsis',
