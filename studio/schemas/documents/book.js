@@ -1,6 +1,9 @@
 import { format } from 'date-fns'
 import { FiBook } from 'react-icons/fi'
-import { FiLink } from 'react-icons/fi'
+import { FiZap } from 'react-icons/fi'
+import { FiExternalLink } from 'react-icons/fi'
+import { FaRegNewspaper } from 'react-icons/fa'
+import { FaStore } from 'react-icons/fa'
 import Tabs from '../../plugins/tabs'
 
 export default {
@@ -86,7 +89,7 @@ export default {
             {
               type: 'link',
               title: 'Link',
-              icon: 'FiLink'
+              icon: FaStore
             }
           ]
         },
@@ -104,7 +107,8 @@ export default {
           of: [
             {
               type: 'link',
-              title: 'Link'
+              title: 'Link',
+              icon: FiExternalLink
             }
           ]
         },
@@ -116,7 +120,8 @@ export default {
           of: [
             {
               type: 'link',
-              title: 'Link'
+              title: 'Link',
+              icon: FiExternalLink
             }
           ]
         },
@@ -150,7 +155,8 @@ export default {
           of: [
             {
               type: 'review',
-              title: 'Review'
+              title: 'Review',
+              icon: FiZap
             }
           ]
         },
@@ -162,7 +168,8 @@ export default {
           of: [
             {
               type: 'reference',
-              to: {type: 'press'}
+              to: {type: 'press'},
+              icon: FaRegNewspaper
             }
           ]
         },
