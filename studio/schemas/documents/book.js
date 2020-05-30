@@ -1,5 +1,6 @@
 import { format } from 'date-fns'
 import { FiBook } from 'react-icons/fi'
+import { FiLink } from 'react-icons/fi'
 import Tabs from '../../plugins/tabs'
 
 export default {
@@ -73,6 +74,7 @@ export default {
           name: 'hook',
           type: 'introPortableText',
           title: 'Hook',
+          description: 'Short phrase that typically shows up on the book cover and marketing material',
           fieldset: 'details'
         },
         {
@@ -83,7 +85,8 @@ export default {
           of: [
             {
               type: 'link',
-              title: 'Link'
+              title: 'Link',
+              icon: 'FiLink'
             }
           ]
         },
@@ -128,7 +131,8 @@ export default {
         {
           name: 'internationalCovers',
           type: 'array',
-          title: 'International covers',
+          title: 'Promotional images',
+          description: 'Add images and captions. Up to three will display alongside the Synopsis, Reviews, and Press items.',
           fieldset: 'promotion',
           of: [{ type: 'mainImage' }]
         },
