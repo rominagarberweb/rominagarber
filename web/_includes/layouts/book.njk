@@ -7,6 +7,7 @@ templateClass: tmpl-book
 {% set themeColorTertiary = book.content.theme.tertiary -%}
 
 <div class="book-hero" style="background-color: {{ themeColorPrimary }};">
+
   {%- if book.cover %}
     <figure>
       <img src="{{ book.cover }}" alt="{{ book.content.cover.alt }}" />
@@ -30,17 +31,17 @@ templateClass: tmpl-book
   {% endif %}
 
 
-  <div class="book-actions">
-    {# (pre-)order and GR TBR links go here
-    change the colors of these buttons and icons in the cms #}
+    <div class="book-actions">
+      {# (pre-)order and GR TBR links go here
+      change the colors of these buttons and icons in the cms #}
 
-    <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="#">Buy book from <svg class="download-icon" width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 1L7.97059 7L14.9412 1" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-    <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="#">Add to Goodreads TBR</a>
+      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="#">Buy book from <svg class="download-icon" width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L7.97059 7L14.9412 1" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="#">Add to Goodreads TBR</a>
 
-  </div>
+    </div>
 
   {% if book.content.links %}
     <ul>
@@ -73,7 +74,9 @@ templateClass: tmpl-book
       {% endif -%}
     </p>
   </div>
-  
+
+</div>
+
 <section class="book-content">
 
 {% if book.internationalCovers.length > 0 %}
@@ -102,7 +105,7 @@ templateClass: tmpl-book
           <figcaption>{{ book.internationalCovers[1].caption }}</figcaption>
         </figure>
 
-{% endif %} 
+{% endif %}
 
   {% if book.reviews.length > 0 %}
 
@@ -126,7 +129,7 @@ templateClass: tmpl-book
           <figcaption>{{ book.internationalCovers[2].caption }}</figcaption>
         </figure>
 
-{% endif %} 
+{% endif %}
 
   {% if book.content.pressItems.length > 0 %}
 
@@ -136,7 +139,7 @@ templateClass: tmpl-book
       <ul>
 
       {% for pressItem in book.content.pressItems %}
-      
+
       <li>
         <a href="{{ pressItem.url }}" target="_blank" rel="noopener">{{ pressItem.title }}</a>
         <time>{{ pressItem.publishedAt | readableDate }}</time>

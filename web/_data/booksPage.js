@@ -9,29 +9,29 @@ const hasToken = !!client.config().token
 function generateBooksPage (booksPage) {
   return {
     ...booksPage,
-    featured: booksPage.featured.map(generateFeaturedBooks)
+    books: booksPage.books.map(generateBooksList)
   }
 }
 
-function generateFeaturedBooks (featuredBooks) {
+function generateBooksList (books) {
   return {
-    ...featuredBooks,
+    ...books,
     // Prepare featured books covers
-    cover: imageUrl(featuredBooks.content.cover)
+    cover: imageUrl(books.content.cover)
       .height(500)
       .url(),
     hook: BlocksToMarkdown(
-      featuredBooks.content.hook,
+      books.content.hook,
       {serializers, ...client.config()}
     ),
     // Load first review from reviews array
     review: BlocksToMarkdown(
-      featuredBooks.content.reviews[0].content,
+      books.content.reviews[0].content,
       {serializers, ...client.config()}
     ),
-    reviewAuthor: featuredBooks.content.reviews[0].author,
+    reviewAuthor: books.content.reviews[0].author,
     synopsis: BlocksToMarkdown(
-      featuredBooks.content.synopsis,
+      books.content.synopsis,
       {serializers, ...client.config()}
     )
   }
@@ -41,7 +41,7 @@ async function getBooksPage () {
   const filter = groq`*[_type == "booksPage"]`
   const projection = groq`{
     _id,
-    "featured": featured[]->{
+    "books": books[]->{
       content
     },
     genre
