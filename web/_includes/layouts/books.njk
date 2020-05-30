@@ -3,14 +3,8 @@ layout: layouts/base.njk
 templateClass: tmpl-books
 ---
 
-{# <section class="genre">
-<h1>
-  
-</h1>
-</section> #}
-
 <section class="books">
-<h1>{{ booksPage.genre | markdownify | safe }}</h1>
+  <h1>{{ booksPage.genre }}</h1>
 
   {{ content | safe }}
 </section>

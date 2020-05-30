@@ -237,17 +237,20 @@
   position: absolute;
   width: 1px;
 }
-
+html,
 body {
+  height: 100%;
+}
+body {
+  display:flex;
+  flex-direction: column;
   padding: 0;
   margin: 0;
   font-family: var(--body-font);
-  /* font-family: 'Manuale', monospace; */
   font-weight: var(--body-light);
   font-size: calc(14px + 0.25vw);
   line-height: 1.5;
   color: var(--general-night-4);
-  /* opacity: 0.8; */
 }
 
 h1,
@@ -376,6 +379,7 @@ nav ul.primary-nav__list {
 
 .main {
   margin-bottom: 3em;
+  flex: 1 0 auto;
 }
 
 section,
@@ -384,6 +388,11 @@ footer {
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 3em 1em;
   margin: 3em 0 0;
+}
+
+footer,
+.footer {
+  flex-shrink: 0;
 }
 
 article .eventinfo {
@@ -1250,8 +1259,12 @@ section.books {
   grid-template-columns: repeat(12, 1fr);
 }
 
-ol.booklist {
+ol.booklist,
+section.books h1 {
   grid-column: 3 / 11;
+}
+section.books h1 {
+  justify-self: center;
 }
 
 ol.booklist,
