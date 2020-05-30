@@ -29,6 +29,17 @@ export default {
       }
     },
     {
+      name: 'featured',
+      title: 'Featured book(s)',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: {type: 'book'}
+        }
+      ]
+    },
+    {
       title: 'Priority links',
       name: 'priorityLinks',
       type: 'array',

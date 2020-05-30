@@ -9,10 +9,35 @@ const hasToken = !!client.config().token
 function generateHomePage (homePage) {
   return {
     ...homePage,
+    featured: homePage.featured.map(generateFeaturedBooks),
     image: imageUrl(homePage.heroImage)
       .height(580)
       .width(460)
+      .url()
+  }
+}
+
+function generateFeaturedBooks (featuredBooks) {
+  return {
+    ...featuredBooks,
+    // Prepare featured books covers
+    cover: imageUrl(featuredBooks.content.cover)
+      .height(500)
       .url(),
+    hook: BlocksToMarkdown(
+      featuredBooks.content.hook,
+      {serializers, ...client.config()}
+    ),
+    // Load first review from reviews array
+    review: BlocksToMarkdown(
+      featuredBooks.content.reviews[0].content,
+      {serializers, ...client.config()}
+    ),
+    reviewAuthor: featuredBooks.content.reviews[0].author,
+    synopsis: BlocksToMarkdown(
+      featuredBooks.content.synopsis,
+      {serializers, ...client.config()}
+    )
   }
 }
 
@@ -20,13 +45,16 @@ async function getHomePage () {
   const filter = groq`*[_type == "homePage"]`
   const projection = groq`{
     _id,
+    "featured": featured[]->{
+      content
+    },
     heroDescription,
     heroImage,
     heroTitle,
     priorityLinks[]{
       title,
       url
-    }, 
+    },
     socialLinks[]{
       title,
       url

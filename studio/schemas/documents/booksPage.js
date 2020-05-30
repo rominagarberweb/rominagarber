@@ -13,8 +13,8 @@ export default {
       description: 'Enter title case, will display as a heading'
     },
     {
-      name: 'featured',
-      title: 'Featured book(s)',
+      name: 'books',
+      title: 'Books',
       type: 'array',
       of: [
         {
@@ -25,7 +25,7 @@ export default {
     },
     {
       name: 'quickLink',
-      title: 'Books',
+      title: 'Manage books',
       type: 'string',
       inputComponent: CustomQuickLinkComponent,
       options: {
