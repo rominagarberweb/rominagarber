@@ -60,20 +60,22 @@ templateClass: tmpl-book
 
   {% endif %}
 
+    <div class="book-data">
+      {# make this color selected in the cms to match the book theme colors 3 #}
+      <p>
+        {%- if book.content.publishers.length > 0 %}
+          <span class="data-label" style="color: {{ themeColorTertiary }}">Publisher:</span>
+          <a href="{{ book.content.publishers[0].url }}" target="_blank" rel="noopener">{{ book.content.publishers[0].title }}</a><br>
+        {% endif -%}
+        {%- if agent %}
+          <span class="data-label" style="color: {{ themeColorTertiary }}">Representation:</span>
+          <a href="{{ agent.url }}">{{ agent.name }}, {{ agent.agency }}</a>
+        {% endif -%}
+      </p>
+    </div>
+
   </div>
-  <div class="book-data">
-    {# make this color selected in the cms to match the book theme colors 3 #}
-    <p>
-      {%- if book.content.publishers.length > 0 %}
-        <span class="data-label" style="color: {{ themeColorTertiary }}">Publisher:</span>
-        <a href="{{ book.content.publishers[0].url }}" target="_blank" rel="noopener">{{ book.content.publishers[0].title }}</a><br>
-      {% endif -%}
-      {%- if agent %}
-        <span class="data-label" style="color: {{ themeColorTertiary }}">Representation:</span>
-        <a href="{{ agent.url }}">{{ agent.name }}, {{ agent.agency }}</a>
-      {% endif -%}
-    </p>
-  </div>
+  
 
 </div>
 
