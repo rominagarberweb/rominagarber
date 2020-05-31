@@ -39,25 +39,28 @@ templateClass: tmpl-book
             <path d="M1 1L7.97059 7L14.9412 1" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-      
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
         {% if book.content.buyBookFrom %}
-          {% set buyBookFromCount %}
-          {% for buyBookFrom in book.content.BuyBookFrom %}
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+          {% set buyBookFromCount = 0 %}
+          {% for buyBookFrom in book.content.buyBookFrom %}
             {% if buyBookFromCount < 8 %}
 
-              <a class="dropdown-item" href="{{ buyBookFrom.url | url }}" target="_blank" rel="noopener">{{ buyBookFrom.title }}</a>
+              <a class="dropdown-item" href="{{ buyBookFrom.url | url }}" target="_blank" rel="noopener nofollow">{{ buyBookFrom.title }}</a>
 
-            {% set buyBookFromCount = buyBookFromCount + 1 %}
-          {% endif %}
-        {% endfor %}
+              {% set buyBookFromCount = buyBookFromCount + 1 %}
+            {% endif %}
+          {% endfor %}
+
         </div>
+        {% endif %}
 
       </div>
 
-      {%- if book.content.addToGoodreads.length > 0 %}
-
-        <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="{{ book.content.addToGoodReads[0].url }}" target="_blank" rel="noopener">book.content.addToGoodReads[0].title</a>
+      {%- if book.content.addToGoodreads %}
+``
+        <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="{{ book.content.addToGoodreads.url }}" target="_blank" rel="noopener">{{ book.content.addToGoodreads.title }}</a>
 
       {% endif %}
 
@@ -70,7 +73,7 @@ templateClass: tmpl-book
         {% if linkCount < 6 %} {# limit number of links shown #}
 
           <li>
-            <a href="{{ link.url | url }}" target="_blank" rel="noopener">{{ link.title }}</a>
+            <a href="{{ link.url | url }}" target="_blank" rel="noopener nofollow">{{ link.title }}</a>
           </li>
 
           {% set linkCount = linkCount + 1 %}
@@ -95,49 +98,51 @@ templateClass: tmpl-book
     </div>
 
   </div>
-  
+
 
 </div>
 
 <section class="book-content">
 
-{% if book.internationalCovers.length > 0 %}
+  {% if book.internationalCovers.length > 0 %}
 
-        <figure class="book-synopsis-figure">
-          <img src="{{ book.internationalCovers[0].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
-          <figcaption>{{ book.internationalCovers[0].caption }}</figcaption>
-        </figure>
+    <figure class="book-synopsis-figure">
+      <img src="{{ book.internationalCovers[0].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
+      <figcaption>{{ book.internationalCovers[0].caption }}</figcaption>
+    </figure>
 
-{% endif %}
+  {% endif %}
 
   {% if book.synopsis %}
-
-  {# {% endif %} #}
 
     <div class='book-synopsis'>
       <h2 class="mt0">Synopsis</h2>
       {{ book.synopsis | markdownify | safe }}
     </div>
+
   {% endif %}
 
   {% if book.internationalCovers.length > 1 %}
 
-        <figure class="book-reviews-figure">
-          <img src="{{ book.internationalCovers[1].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
-          <figcaption>{{ book.internationalCovers[1].caption }}</figcaption>
-        </figure>
+    <figure class="book-reviews-figure">
+      <img src="{{ book.internationalCovers[1].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
+      <figcaption>{{ book.internationalCovers[1].caption }}</figcaption>
+    </figure>
 
-{% endif %}
+  {% endif %}
 
   {% if book.reviews.length > 0 %}
 
     <div class="book-reviews">
       <h2 class="mt0">Reviews</h2>
+
       {% for review in book.reviews %}
         {{ review.content | markdownify | safe }}
+
         {% if review.author %}
           <em>&mdash; {{ review.author }}</em>
         {% endif %}
+
       {% endfor %}
 
     </div>
@@ -146,12 +151,12 @@ templateClass: tmpl-book
 
   {% if book.internationalCovers.length > 2 %}
 
-        <figure class="book-press-items-figure">
-          <img src="{{ book.internationalCovers[2].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
-          <figcaption>{{ book.internationalCovers[2].caption }}</figcaption>
-        </figure>
+    <figure class="book-press-items-figure">
+      <img src="{{ book.internationalCovers[2].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
+      <figcaption>{{ book.internationalCovers[2].caption }}</figcaption>
+    </figure>
 
-{% endif %}
+  {% endif %}
 
   {% if book.content.pressItems.length > 0 %}
 
@@ -160,14 +165,14 @@ templateClass: tmpl-book
       <h2 class="mt0">Press</h2>
       <ul>
 
-      {% for pressItem in book.content.pressItems %}
+        {% for pressItem in book.content.pressItems %}
 
-      <li>
-        <a href="{{ pressItem.url }}" target="_blank" rel="noopener">{{ pressItem.title }}</a>
-        <time>{{ pressItem.publishedAt | readableDate }}</time>
-      </li>
+          <li>
+            <a href="{{ pressItem.url }}" target="_blank" rel="noopener">{{ pressItem.title }}</a>
+            <time>{{ pressItem.publishedAt | readableDate }}</time>
+          </li>
 
-      {% endfor %}
+        {% endfor %}
 
       </ul>
     </div>
