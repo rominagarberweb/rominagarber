@@ -91,7 +91,9 @@ async function getBooks () {
         "secondary": secondary.hex,
         "tertiary": tertiary.hex,
       },
-      title
+      title,
+      buyBookFrom[],
+      addToGoodreads
     }
   }`
   const order = `| order(releaseDate desc)`

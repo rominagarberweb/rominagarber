@@ -34,12 +34,32 @@ templateClass: tmpl-book
     <div class="book-actions">
       {# (pre-)order and GR TBR links go here
       change the colors of these buttons and icons in the cms #}
+      <div class="dropdown show">
+        <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="#">Buy book from <svg class="download-icon" width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L7.97059 7L14.9412 1" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        {% if book.content.buyBookFrom %}
+          {% set buyBookFromCount %}
+          {% for buyBookFrom in book.content.BuyBookFrom %}
+            {% if buyBookFromCount < 8 %}
 
-      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="#">Buy book from <svg class="download-icon" width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1L7.97059 7L14.9412 1" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="#">Add to Goodreads TBR</a>
+              <a class="dropdown-item" href="{{ buyBookFrom.url | url }}" target="_blank" rel="noopener">{{ buyBookFrom.title }}</a>
+
+            {% set buyBookFromCount = buyBookFromCount + 1 %}
+          {% endif %}
+        {% endfor %}
+        </div>
+
+      </div>
+
+      {%- if book.content.addToGoodreads.length > 0 %}
+
+        <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="{{ book.content.addToGoodReads[0].url }}" target="_blank" rel="noopener">book.content.addToGoodReads[0].title</a>
+
+      {% endif %}
 
     </div>
 
