@@ -351,8 +351,9 @@ nav ul.primary-nav__list {
 }
 
 .primary-nav__list .primary-nav__item a:hover {
-  background-color: var(--gamma-night);
-  border-radius: var(--global-br); 
+  /* background-color: var(--gamma-night);
+  border-radius: var(--global-br);  */
+  opacity: 0.8;
 }
 
 @media all and (max-width: 650px) {
@@ -555,7 +556,7 @@ div.mc-field-email input.button:hover {
 /* ==========================================================================
    #BUTTONS
    ========================================================================== */
-
+.btn,
 a.btn,
 a.btn:active {
   cursor: pointer;
@@ -575,12 +576,12 @@ a.btn:active {
   justify-content: space-between;
 }
 
+.btn:hover,
 a.btn:hover {
   opacity: 0.8;
-  background-color: var(--beta-night);
   transition: 0.4s;
 }
-
+.btn--primary,
 a.btn--primary {
   background-color: none;
   border-color: var(--general-night-3);
@@ -589,6 +590,7 @@ a.btn--primary {
   color: var(--general-night-3);
 }
 
+.btn--secondary,
 a.btn--secondary {
   background-color: var(--general-night-1);
   border-radius: var(--global-br);
@@ -596,6 +598,7 @@ a.btn--secondary {
 }
 
 /* a.btn--secondary svg, */
+.btn svg,
 a.btn svg {
   margin-inline-start: 0.6em;
   /* margin: 0 0 0 .6em; */
@@ -604,25 +607,95 @@ a.btn svg {
   transform: translateY(-1px); /* Optical adjustment */
 }
 
+.btn--secondary:hover,
 a.btn--secondary:hover {
   background-color: var(--general-night-2);
+}
+
+/* dropdown button */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dd-input {
+  display: none;
+}
+
+.dd-menu {
+  position: absolute;
+  top: 100%;
+  border: 1px solid #ccc;
+  border-radius: var(--global-br);
+  padding: .3em 0;
+  margin: 2px 0 0 0;
+  /* box-shadow: 0 0 6px 0 rgba(0,0,0,0.1); */
+  /* background-color: #ffffff; */
+  list-style-type: none;
+  z-index: 500;
+  column-count: 2;
+  transition: 0.4s;
+}
+
+.dd-input + .dd-menu {
+  display: none;
+  transition: 0.4s;
+} 
+
+.dd-input:checked + .dd-menu {
+  display: block;
+  transition: 0.4s;
+} 
+
+.dd-menu li {
+  /* padding: 10px 20px; */
+  padding: .4em 1.2em;
+  margin: .3em 0;
+  font-size: calc(12px + 0.25vw);
+  font-family: var(--headings-font);
+  font-weight: 542;
+  font-stretch: 85;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-menu li:hover {
+  background-color:transparent;
+  opacity: 0.8;
+}
+
+.dd-menu li a {
+  display: block;
+  margin: -10px -20px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dd-menu li.divider{
+  padding: 0;
+  border-bottom: 1px solid #cccccc;
 }
 
 /* Style variants
    ========================================================================== */
 
+.btn--hero,
 a.btn--hero {
   border: 2px solid var(--manu-blood-1);  
   border-radius: var(--global-br);
   color: var(--manu-blood-1);
 }
 
+.btn--featured-book,
 a.btn--featured-book {
   color: var(--manu-moon-3);
   border: 2px solid var(--manu-moon-3);
   border-radius: var(--global-br);
   margin: 0 .6em .4em 0;
 }
+
+.btn--text-only,
 a.btn--text-only {
   border: 2px solid transparent;
 }
