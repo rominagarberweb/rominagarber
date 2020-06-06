@@ -83,6 +83,7 @@ export default {
         {
           title: 'Buy book from',
           name: 'buyBookFrom',
+          description: 'Enter short titles (e.g. Amazon) and hyperlilnks to vendor pages',
           type: 'array',
           fieldset: 'details',
           of: [
