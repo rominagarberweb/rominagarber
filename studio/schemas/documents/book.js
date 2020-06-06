@@ -95,10 +95,15 @@ export default {
           ]
         },
         {
+          // change this so only hyperlinks is editable
           title: 'Add to Goodreads',
           name: 'addToGoodreads',
-          type: 'link',
-          fieldset: 'details'
+          type: 'url',
+          description: 'Enter url of the GoodReads book page',
+          fieldset: 'details',
+          validation: Rule => Rule.uri({
+            scheme: ['http', 'https', 'mailto', 'tel']
+          })
         },
         {
           title: 'Links',
