@@ -74,7 +74,10 @@ templateClass: tmpl-book
 
       {%- if book.content.addToGoodreads %}
 
-        <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="{{ book.content.addToGoodreads.url }}" target="_blank" rel="noopener">Add to Goodreads</a>
+        <a class="btn btn--featured-book" 
+        style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" 
+        href="{{ book.content.addToGoodreads.url }}" 
+        target="_blank" rel="noopener">Add to Goodreads</a>
 
       {% endif %}
 
@@ -192,5 +195,12 @@ templateClass: tmpl-book
     </div>
 
   {% endif %}
+
+</section>
+
+<section>
+
+{% set booksList = collections.myBooks %}
+{% include "bookslist.njk" %}
 
 </section>

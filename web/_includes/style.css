@@ -248,7 +248,7 @@ body {
   margin: 0;
   font-family: var(--body-font);
   font-weight: var(--body-light);
-  font-size: calc(14px + 0.25vw);
+  font-size: calc(16px + 0.25vw);
   line-height: 1.5;
   color: var(--general-night-4);
 }
@@ -1279,7 +1279,7 @@ figure.book-press-items-figure {
 }
 
 .book-reviews em {
-  margin-left: -.4em;
+  margin-left: -.1em;
 }
 
 .books-international {
@@ -1296,7 +1296,7 @@ figure.book-press-items-figure {
     grid-gap: 1em 2em;
   }
   
-  section.featured-book figure,
+  section.featured-book-figure,
   .book-hero figure {
     grid-column: 2 / 6;
   }
@@ -1306,10 +1306,23 @@ figure.book-press-items-figure {
     grid-column: 6 / 12;
   }
 
-  .book-data,
-  .book-reviews {
-    grid-column: 2 / 12;
+  .book-synopsis,
+  .book-press-items {
+    grid-column: 2 / 8;
   }
+
+  figure.book-synopsis-figure,
+  figure.book-press-items-figure {
+    grid-column: 8 / 12;
+  }
+
+  .book-reviews {
+    grid-column: 6 / 12;
+  }
+  figure.book-reviews-figure {
+    grid-column: 2 / 6;
+  }
+  
 }
 
 @media all and (max-width: 500px) {
@@ -1332,11 +1345,32 @@ figure.book-press-items-figure {
     padding: 2em 1em;
   }
 
- .book-data,
- .book-reviews {
+  .book-data,
+  figure.book-synopsis-figure,
+  .book-synopsis,
+  figure.book-reviews-figure,
+  .book-reviews,
+  figure.book-press-items-figure,
+  .book-press-items {
     grid-column: 1 / 13;
   }
+  .book-synopsis {
+    grid-row: 2;
+  }
+  figure.book-reviews-figure {
+    grid-row: 3;
+  }
+  .book-reviews {
+    grid-row: 4;
+  }
+  figure.book-press-items-figure {
+    grid-row: 5;
+  }
+  .book-press-items {
+    grid-row: 6;
+  }
 }
+
 
 /* Book list(s)
    ========================================================================== */
@@ -1363,9 +1397,6 @@ div.books-international ol {
   padding: 0;
 }
 
-ol.booklist img {
-  /* height: 100%; */
-}
 
 /* Book list(s)
    ========================================================================== */
