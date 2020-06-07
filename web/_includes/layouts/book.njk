@@ -32,14 +32,54 @@ templateClass: tmpl-book
 
 
     <div class="book-actions">
-      {# (pre-)order and GR TBR links go here
-      change the colors of these buttons and icons in the cms #}
+      {# test layout of dropdown button https://codepen.io/raneio/pen/NbbZEM?editors=1100#}
+      {% if book.content.buyBookFrom %}
+       <label class="dropdown">
 
-      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="#">Buy book from <svg class="download-icon" width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1L7.97059 7L14.9412 1" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" href="#">Add to Goodreads TBR</a>
+        <div class="btn btn--featured-book" 
+        style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};">
+          Buy book from <svg class="download-icon" width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L7.97059 7L14.9412 1" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <input type="checkbox" class="dd-input">
+        
+        <ul class="dd-menu" 
+        style="background-color: {{ themeColorPrimary }}; border: 2px solid {{ themeColorTertiary }};">
+
+        {% set buyBookFromCount = 0 %}
+          {% for buyBookFrom in book.content.buyBookFrom %}
+            {% if buyBookFromCount < 8 %}
+
+            <li><a 
+            style="color: {{ themeColorTertiary }};"
+            href="{{ buyBookFrom.url | url }}" 
+            target="_blank" rel="noopener nofollow">{{ buyBookFrom.title }}
+            <svg class="download-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M27 19.5V28.5C27 29.2956 26.6839 30.0587 26.1213 30.6213C25.5587 31.1839 24.7956 31.5 24 31.5H7.5C6.70435 31.5 5.94129 31.1839 5.37868 30.6213C4.81607 30.0587 4.5 29.2956 4.5 28.5V12C4.5 11.2044 4.81607 10.4413 5.37868 9.87868C5.94129 9.31607 6.70435 9 7.5 9H16.5" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M22.5 4.5H31.5V13.5" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M15 21L31.5 4.5" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            </a></li>
+
+            {% set buyBookFromCount = buyBookFromCount + 1 %}
+            {% endif %}
+          {% endfor %}
+
+        </ul>
+        
+      </label>
+      {% endif %}
+
+      {%- if book.content.addToGoodreads %}
+
+        <a class="btn btn--featured-book" 
+        style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};" 
+        href="{{ book.content.addToGoodreads.url }}" 
+        target="_blank" rel="noopener">Add to Goodreads</a>
+
+      {% endif %}
 
     </div>
 
@@ -153,5 +193,12 @@ templateClass: tmpl-book
     </div>
 
   {% endif %}
+
+</section>
+
+<section>
+
+{% set booksList = collections.myBooks %}
+{% include "bookslist.njk" %}
 
 </section>
