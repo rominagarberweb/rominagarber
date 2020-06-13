@@ -388,22 +388,17 @@ footer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 3em 1em;
-  margin: 3em 0 0;
+  margin: 3em 1em 0;
 }
 
 footer,
 .footer {
   flex-shrink: 0;
+  margin: 3em 0 0;
 }
 
 article .eventinfo {
   max-width: 80ch;
-}
-
-@media all and (max-width: 650px) {
-  section {
-    margin: 3em 1em 0;
-  }
 }
 
 /* Add this class to an element to make it fill the width of the screen 
@@ -1220,7 +1215,7 @@ section.featured-book .book-info,
 div.featured-book-info,
 .book-hero .book-info {
   grid-column: 6 / 11;
-  grid-row: 2;
+  grid-row: 1;
 }
 
 div.featured-book-info h1,
@@ -1288,15 +1283,13 @@ figure.book-press-items-figure {
   margin-top: var(--g-margin-top);
 }
 
-
-
 @media all and (max-width: 800px) {
   section.featured-book,
   .book-hero {
     grid-gap: 1em 2em;
   }
   
-  section.featured-book-figure,
+  section.featured-book figure,
   .book-hero figure {
     grid-column: 2 / 6;
   }
@@ -1390,8 +1383,8 @@ figure.book-press-items-figure {
    ========================================================================== */
 
 section.books {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  display: block;
+  /* grid-template-columns: repeat(12, 1fr); */
 }
 
 ol.booklist,
