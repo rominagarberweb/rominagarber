@@ -4,7 +4,7 @@
 {% if not eventsLimit %}
   {% set eventsLimit = eventsList.length %}
 {% endif %}
-{% for event in eventsList | reverse %}
+{% for event in eventsList %}
   {% if eventCount < eventsLimit %}
     {% set currentEvent = event.data.event %}
 

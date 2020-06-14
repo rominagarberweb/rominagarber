@@ -17,10 +17,9 @@ export default class QuickLink extends React.Component {
 
   render() {
     const {type} = this.props
-    const {slug} = type.options
-
+    const {description, slug} = type.options
     return (
-      <FormField label={type.title} description={`You can manage ${type.title.toLowerCase()} from its own section in the content menu.`}>
+      <FormField label={type.title} description={type.description}>
         <Link href={`/desk/${slug}`}>
           Go to {type.title.toLowerCase()} section
         </Link>
