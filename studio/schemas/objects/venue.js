@@ -16,7 +16,8 @@ export default {
       {
         name: 'shortcode',
         type: 'string',
-        title: 'City shortcode'
+        title: 'City shortcode',
+        description: 'Enter a 3 letter city code (i.e. MIA) or a single "V" for virtual event'
       },
       {
         title: "Color",
