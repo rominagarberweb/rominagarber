@@ -748,7 +748,7 @@ section.hero {
   z-index: 3;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; 
 }
 
 .hero-card h1 {
