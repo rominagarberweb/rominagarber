@@ -1,13 +1,29 @@
 <ol class="booklist" style="counter-reset: start-from {{ booksList.length + 1 }}">
 
-{% for book in booksList %}
-  {% set currentBook = book.data.book %}
-
   {% if seriesReference %}
     {% if currentBook.content.series._id == seriesReference %}
 
-      <li class="booklist-item{% if book.url == url %} booklist-item-active{% endif %}">
-        <a href="{{ book.url | url }}" title="{{ currentBook.content.title }}" class="booklist-link">
+      {% for book in booksList %}
+        {% set currentBook = book.data.book %}
+        <li class="booklist-item{% if book.url == url %} booklist-item-active{% endif %}">
+          <a href="{{ book.url | url }}" title="{{ currentBook.content.title }}" class="booklist-link">
+
+          {%- if currentBook.cover %}
+            <img src="{{ currentBook.cover }}" alt="{{ currentBook.content.cover.alt }}" />
+          {% endif -%}
+
+          </a>
+        </li>
+      {% endfor %}
+    {% endif %}
+
+  {% else %}
+
+    {% for book in books | reverse %}
+      {% set currentBook = book %}
+
+      <li class="booklist-item">
+        <a href="/books/{{ currentBook.content.slug.current | slug }}/" title="{{ currentBook.content.title }}" class="booklist-link">
 
         {%- if currentBook.cover %}
           <img src="{{ currentBook.cover }}" alt="{{ currentBook.content.cover.alt }}" />
@@ -16,20 +32,7 @@
         </a>
       </li>
 
-    {% endif %}
-  {% else %}
-
-    <li class="booklist-item{% if book.url == url %} booklist-item-active{% endif %}">
-      <a href="{{ book.url | url }}" title="{{ currentBook.content.title }}" class="booklist-link">
-
-      {%- if currentBook.cover %}
-        <img src="{{ currentBook.cover }}" alt="{{ currentBook.content.cover.alt }}" />
-      {% endif -%}
-
-      </a>
-    </li>
-
+    {% endfor %}
   {% endif %}
 
-{% endfor %}
 </ol>
