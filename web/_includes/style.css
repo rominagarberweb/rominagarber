@@ -561,7 +561,7 @@ a.btn:active {
   text-decoration: none;
   /* margin: 1.6rem .4rem 1.6rem 0; */
   padding: .6em 1.2em;
-  font-size: calc(12px + 0.25vw);
+  font-size: calc(14px + 0.25vw);
   font-family: var(--headings-font);
   font-weight: 542;
   font-stretch: 85;
@@ -643,10 +643,8 @@ a.btn--secondary:hover {
 } 
 
 .dd-menu li {
-  /* padding: 10px 20px; */
-  padding: .4em 1.2em;
-  margin: .3em 0;
-  font-size: calc(12px + 0.25vw);
+  padding: .6em 1.2em;
+  font-size: calc(14px + 0.25vw);
   font-family: var(--headings-font);
   font-weight: 542;
   font-stretch: 85;
