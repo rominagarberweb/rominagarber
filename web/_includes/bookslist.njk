@@ -18,19 +18,27 @@
     {% endif %}
 
   {% else %}
-
+    {% set bookCount = 0 %}
+    {% if not booksLimit %}
+      {% booksLimit = booksList.length %}
+    {% endif %}
     {% for book in books | reverse %}
-      {% set currentBook = book %}
+      {% if bookCount < booksList %}
+        {% set currentBook = book.data.book %}
 
-      <li class="booklist-item">
-        <a href="/books/{{ currentBook.content.slug.current | slug }}/" title="{{ currentBook.content.title }}" class="booklist-link">
+        {% if currentBook.content.slug.current in page.url %}
+          {% set eventsLimit = eventsLimit + 1 %}
+        {% else %}
 
-        {%- if currentBook.cover %}
-          <img src="{{ currentBook.cover }}" alt="{{ currentBook.content.cover.alt }}" />
-        {% endif -%}
+        <li class="booklist-item">
+          <a href="/books/{{ currentBook.content.slug.current | slug }}/" title="{{ currentBook.content.title }}" class="booklist-link">
 
-        </a>
-      </li>
+          {%- if currentBook.cover %}
+            <img src="{{ currentBook.cover }}" alt="{{ currentBook.content.cover.alt }}" />
+          {% endif -%}
+
+          </a>
+        </li>
 
     {% endfor %}
   {% endif %}

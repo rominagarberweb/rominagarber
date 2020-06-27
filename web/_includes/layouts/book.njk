@@ -200,7 +200,8 @@ templateClass: tmpl-book
 
 <section class="books">
 
-{% set booksList = collections.myBooks %}
-{% include "bookslist.njk" %}
+  {% set booksList = collections.myBooks %}
+  {% set booksList = 3 %}
+  {% include "bookslist.njk" %} 
 
 </section>
