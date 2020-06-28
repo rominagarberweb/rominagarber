@@ -237,6 +237,26 @@
   position: absolute;
   width: 1px;
 }
+
+.skip-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 99;
+}
+
+.skip-link:not(:focus), .visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
 html,
 body {
   height: 100%;
@@ -339,6 +359,7 @@ nav.primary-nav {
 nav ul.primary-nav__list {
   list-style: none;
   display: flex;
+  flex-flow: row wrap;
   justify-content: flex-end;
   margin: .4em 0;
   align-items: center;
@@ -1384,7 +1405,7 @@ figure.book-press-items-figure {
    ========================================================================== */
 
 section.books {
-  display: block;
+  display: grid;
   /* grid-template-columns: repeat(12, 1fr); */
 }
 
@@ -1421,6 +1442,9 @@ section.series-data > * {
 }
 
 @media all and (max-width: 800px) {
+  section.books {
+    display: block;
+  }
   section.series-hero figure,
   section.series-data > * {
     grid-column: 2 / 12;
