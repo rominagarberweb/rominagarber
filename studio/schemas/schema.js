@@ -31,6 +31,7 @@ import bodyPortableText from './objects/bodyPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import eventPortableText from './objects/eventPortableText'
 import introPortableText from './objects/introPortableText'
+import introPortableText from './objects/heroPortableText'
 import link from './objects/link'
 import mainImage from './objects/mainImage'
 import review from './objects/review'
@@ -73,6 +74,7 @@ export default createSchema({
     excerptPortableText,
     eventPortableText,
     introPortableText,
+    heroPortableText,
     link,
     mainImage,
     review,

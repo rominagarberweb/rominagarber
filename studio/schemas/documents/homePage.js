@@ -11,7 +11,7 @@ export default {
     },
     {
       name: 'heroDescription',
-      type: 'string',
+      type: 'heroPortableText',
       title: 'Hero description',
     },
     {
