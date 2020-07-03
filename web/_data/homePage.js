@@ -9,6 +9,10 @@ const hasToken = !!client.config().token
 function generateHomePage (homePage) {
   return {
     ...homePage,
+    heroDescription: BlocksToMarkdown(
+      homePage.heroDescription,
+      { serializers, ...client.config() }
+    ),
     featured: homePage.featured.map(generateFeaturedBooks),
     image: imageUrl(homePage.heroImage)
       .height(580)
@@ -48,7 +52,12 @@ async function getHomePage () {
     "featured": featured[]->{
       content
     },
-    heroDescription,
+    heroDescription[]{
+      ...,
+      children[]{
+        ...
+      }
+    },
     heroImage,
     heroTitle,
     priorityLinks[]{
