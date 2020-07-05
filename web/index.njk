@@ -17,7 +17,9 @@ metaDesc: 'The personal website of  New York Times and international bestselling
   </div>
   <div class="hero-card">
     <h1>{{ homePage.heroTitle }}</h1>
-    <p>{{ homePage.heroDescription | markdownify | safe }}</p>
+
+    {{ homePage.heroDescription | markdownify | safe }}
+    
     <div class="book-actions">
       <a href="/about/" class="btn btn--hero">Romina&rsquo;s Info</a>
     </div>
