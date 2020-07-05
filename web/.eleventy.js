@@ -7,20 +7,17 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addNunjucksAsyncShortcode("responsiveImage", async function(src, alt) {
     if(alt === undefined) {
-      // You bet we throw an error on missing alt (alt="" works okay)
       throw new Error(`Missing \`alt\` on responsiveImage from: ${src}`);
     }
 
     let stats = await Image(src, {
       formats: ['webp', 'jpeg'],
       widths: [200, 400],
-      // set desired directory name for <img> src paths
       urlPath: '/images/',
-      // set desired file system directory for dist images
       outputDir: './_site/images/'
     })
     let lowestSrc = stats.jpeg[0]
-    let sizes = "(max-width: 200px) 100vw, 200px" // Make sure you customize this!
+    let sizes = "(max-width: 200px) 100vw, 200px"
 
     // Iterate over formats and widths
     return `<picture>
