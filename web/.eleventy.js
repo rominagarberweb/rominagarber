@@ -1,8 +1,39 @@
 const { DateTime } = require("luxon")
 const util = require('util')
 const CleanCSS = require("clean-css")
+const Image = require("@11ty/eleventy-img")
 
 module.exports = function(eleventyConfig) {
+
+  eleventyConfig.addNunjucksAsyncShortcode("responsiveImage", async function(src, alt) {
+    if(alt === undefined) {
+      // You bet we throw an error on missing alt (alt="" works okay)
+      throw new Error(`Missing \`alt\` on responsiveImage from: ${src}`);
+    }
+
+    let stats = await Image(src, {
+      formats: ['webp', 'jpeg'],
+      widths: [200, 400],
+      // set desired directory name for <img> src paths
+      urlPath: '/images/',
+      // set desired file system directory for dist images
+      outputDir: './_site/images/'
+    })
+    let lowestSrc = stats.jpeg[0]
+    let sizes = "(max-width: 200px) 100vw, 200px" // Make sure you customize this!
+
+    // Iterate over formats and widths
+    return `<picture>
+     ${Object.values(stats).map(imageFormat => {
+       return `  <source type="image/${imageFormat[0].format}" srcset="${imageFormat.map(entry => `${entry.url} ${entry.width}w`).join(", ")}" sizes="${sizes}">`
+     }).join("\n")}
+       <img
+         alt="${alt}"
+         src="${lowestSrc.url}"
+         width="${lowestSrc.width}"
+         height="${lowestSrc.height}">
+     </picture>`
+  })
 
   // https://www.11ty.io/docs/quicktips/inline-css/
   eleventyConfig.addFilter("cssmin", function(code) {

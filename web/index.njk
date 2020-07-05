@@ -19,7 +19,7 @@ metaDesc: 'The personal website of  New York Times and international bestselling
     <h1>{{ homePage.heroTitle }}</h1>
 
     {{ homePage.heroDescription | markdownify | safe }}
-    
+
     <div class="book-actions">
       <a href="/about/" class="btn btn--hero">Romina&rsquo;s Info</a>
     </div>
@@ -51,6 +51,7 @@ metaDesc: 'The personal website of  New York Times and international bestselling
 
   </div>
 </section>
+
 <section class="featured-book full-bleed" style="background-color: {{ themeColorPrimary }};">
 
   {% for book in homePage.featured %}
@@ -100,7 +101,11 @@ metaDesc: 'The personal website of  New York Times and international bestselling
 </section>
 
 <section class="instagram-feed">
-  {# statically built Instagram feed goes here #}
+  <ol>
+  {%- for post in instagram -%}
+    <li>{% responsiveImage post.media_url, '' %}</li>
+  {%- endfor -%}
+  </ol>
 </section>
 
 <section class="events">
