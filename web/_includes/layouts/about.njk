@@ -7,6 +7,9 @@ templateClass: tmpl-about
   {%- if aboutPage.image %}
     <figure>
       <img src="{{ aboutPage.image }}" />
+      <figcaption>
+      {{ aboutPage.mainImage.caption }}
+      </figcaption>
       {# make this download image a large image #}
       <p><span class="data-label">Download:</span> <a href="{{ aboutPage.original }}?dl=romina-author-photo.jpg" rel="noopener nofollow">Large author photo&nbsp;<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -14,9 +17,6 @@ templateClass: tmpl-about
         <path d="M12 15V3" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       </a></p>
-      <figcaption>
-      {{ aboutPage.mainImage.caption }}
-      </figcaption>
     </figure>
   {% endif -%}
 
@@ -30,8 +30,8 @@ templateClass: tmpl-about
 
 {%- if aboutPage.publishers.length > 0 %}
   <div class="publishers">
-  <p><span class="data-label">Links</span></p>
-    <ul>
+  <span class="data-label">Links</span>
+    <ul class="mt0">
       {%- for publisher in aboutPage.publishers -%}
         <li>
           <a href="{{ publisher.url }}" target="_blank" rel="noopener">

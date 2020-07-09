@@ -195,7 +195,7 @@
   --rho-ophiuchus-3: #EBAB60;
   --rho-capricorn-1: #F9F0D1;
   --rho-capricorn-2: #F6E091;
-  --rho-Capricorn-3: #EAB80F;
+  --rho-Capricorn-3: #335A6F;
   --rho-aquarius-1: #D9C0DE;
   --rho-aquarius-2: #AA83AC;
   --rho-aquarius-3: #734A85;
@@ -586,6 +586,7 @@ section.instagram-feed img {
 
 div.mc-field-group label {
   margin-bottom: 1.4em;
+  color: var(--rho-cancer-3);
 }
 
 div.mc-field-email {
@@ -1347,6 +1348,19 @@ figure.book-press-items-figure {
   margin-bottom: .4rem;
 }
 
+.book-press-items ul li time {
+  color: var(--general-night-3);
+  font-variant-caps: all-small-caps;
+}
+
+time {
+  font-variant-numeric: oldstyle-nums;
+}
+
+.book-press-items ul li time:before {
+  content: " - ";
+}
+
 .book-reviews p {
   margin-top: 1.8em;
   margin-bottom: .8em;
@@ -1354,6 +1368,11 @@ figure.book-press-items-figure {
 
 .book-reviews em {
   margin-left: -.1em;
+  color: var(--general-night-3);
+}
+
+.book-reviews p em {
+  color: inherit;
 }
 
 .books-international {
