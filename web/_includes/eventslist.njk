@@ -34,7 +34,9 @@
         <a href="{{ event.url | url }}" class="eventlist-link">
 
         {%- if currentEvent.content.name %}
-          {{- currentEvent.content.name -}}
+
+          <h3 class="mb0 mt0">{{- currentEvent.content.name -}}</h3>
+
         {% else %}
           <code>
             {{- event.url -}}

@@ -204,7 +204,7 @@
   --rho-libra-3: #DA8D85;
 
   /* Font families */
-  --body-font: 'Manuale', monospace;
+  --body-font: 'Manuale', georgia;
   --headings-font: 'IBM Plex Sans Var Regular', sans-serif;
 
   /* font weights */
@@ -276,9 +276,19 @@ body {
 h1,
 h2,
 h3 {
-  font-family: var(--headings-font);
-  font-weight: 680;
-  font-stretch: 90%;
+  /* font-family: var(--headings-font); */
+  font-family: 'Manuale', georgia;
+  /* font-weight: 680; */
+  font-weight: var(--body-extra-bold);
+  /* font-stretch: 90%; */
+}
+
+h2 {
+  font-weight: var(--body-bold);
+}
+
+h3 {
+  font-weight: var(--body-semi-bold);
 }
 
 a,
@@ -343,13 +353,13 @@ p:first-of-type {
   padding: .6em;
 }
 .logo {
-  grid-column: 2 / 5;
+  grid-column: 3 / 4;
   line-height: 1;
   height: calc(36px + 0.25vw);
   align-self: center;
 }
 nav.primary-nav {
-  grid-column: 5 / 11;
+  grid-column: 4 / 11;
   overflow: visible;
   position: relative;
   font-family: var(--headings-font);
@@ -364,7 +374,7 @@ nav ul.primary-nav__list {
   margin: .4em 0;
   align-items: center;
   /* font-weight: 482; */
-  font-size: 120%;
+  font-size: 110%;
 }
 .primary-nav__list .primary-nav__item a {
   padding: .4em 1.2em;
@@ -375,6 +385,15 @@ nav ul.primary-nav__list {
   /* background-color: var(--gamma-night);
   border-radius: var(--global-br);  */
   opacity: 0.8;
+}
+
+@media all and (max-width: 800px) {
+  .logo {
+    grid-column: 2 / 3;
+  }
+  nav.primary-nav {
+    grid-column: 3 / 12;
+  }
 }
 
 @media all and (max-width: 650px) {
@@ -1072,7 +1091,7 @@ li.eventlist-item > * {
 
 li.eventlist-item .eventlist-item__data {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex: 1 1 0%;
 }
 
@@ -1276,6 +1295,7 @@ div.featured-book-info,
 div.featured-book-info h1,
 .book-info h1 {
   color: var(--manu-blood-3);
+  line-height: .4;
 }
 
 .book-actions {
@@ -1323,6 +1343,10 @@ figure.book-press-items-figure {
   grid-row: 3;
 }
 
+.book-press-items ul li {
+  margin-bottom: .4rem;
+}
+
 .book-reviews p {
   margin-top: 1.8em;
   margin-bottom: .8em;
@@ -1336,6 +1360,13 @@ figure.book-press-items-figure {
   grid-column: 3 / 11;
   grid-row: 3;
   margin-top: var(--g-margin-top);
+}
+
+.book-synopsis h2, 
+.book-reviews h2,
+.book-press-items h2 {
+  margin-top: 0;
+  line-height: .4;
 }
 
 @media all and (max-width: 800px) {
@@ -1367,8 +1398,15 @@ figure.book-press-items-figure {
   .book-reviews {
     grid-column: 6 / 12;
   }
+
   figure.book-reviews-figure {
     grid-column: 2 / 6;
+  }
+
+  .book-synopsis h2, 
+  .book-reviews h2,
+  .book-press-items h2 {
+    margin-top: 2.2rem;
   }
 
 }

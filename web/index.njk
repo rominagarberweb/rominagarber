@@ -59,6 +59,7 @@ metaDesc: 'The personal website of  New York Times and international bestselling
     {%- if book.cover %}
       <figure>
         <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
+        <figcaption>{{ book.content.cover.caption }}</figcaption>
         {# make this download image a large image #}
         <p><span class="data-label" style="color: #A35048; color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.cover }}?dl=book-cover.jpg" download="{{ book.content.cover.alt }}" rel="noopener">Large cover image
         <svg class="download-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
