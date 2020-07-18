@@ -1,6 +1,6 @@
 <ol class="booklist" style="counter-reset: start-from {{ booksList.length + 1 }}">
 
-  {% for book in booksPage.books | reverse %}
+  {% for book in booksPage.books %}
     {% set currentBook = book %}
 
     <li class="booklist-item">
