@@ -323,7 +323,7 @@ img {
   /* vertical-align: bottom; */
   display: block;
   max-width: 100%;
-  height: auto;
+  /* height: auto; */
 }
 
 .caption,
@@ -555,26 +555,53 @@ section.instagram-feed {
 }
 
 section.instagram-feed ol {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
   grid-column: 3/11;
   list-style: none;
   grid-gap: 1.5em 1em;
-  padding: 0;
+  padding: 0; */
+  grid-column: 3/11;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow-x: scroll; 
+  padding-left: 0;
+  margin-left: 0;
 }
 
 section.instagram-feed li {
   align-items: center;
   display: flex;
-  height: 200px;
   justify-content: center;
   overflow: hidden;
   width: 200px;
+  height: 200px;
+  margin-right: 1.6rem;
 }
 
 section.instagram-feed img {
   min-height: 200px;
   min-width: 200px;
+  border: 1px solid var(--general-night-3);
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  /* height: inherit; */
+}
+
+@media all and (max-width: 800px) {
+  section.instagram-feed ol {
+    grid-column: 2 / 12;
+  }
+  section.instagram-feed li {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  section.instagram-feed ol {
+    grid-column: 1 / 13;
+  }
 }
 
 
