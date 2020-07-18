@@ -13,7 +13,14 @@ metaDesc: 'The personal website of  New York Times and international bestselling
 
 <section class="hero full-bleed">
   <div class="hero-background">
-    {# <img src="/images/lobizona-hero.jpg" alt="image of a girl with star eyes standing in front of stars the moon and clouds"/> #}
+    <picture>
+      <source type="image/jpeg" srcset="{{ homePage.heroImage800 }} 800w, {{ homePage.heroImage1024 }} 1024w, {{ homePage.heroImage1920 }} 1920w" sizes="(max-width: 1920px) 100vw, 1080px">
+      <img
+        alt=""
+        src="{{ homePage.heroImage800 }}"
+        width="800"
+        height="600">
+    </picture>
   </div>
   <div class="hero-card">
     <h1>{{ homePage.heroTitle }}</h1>

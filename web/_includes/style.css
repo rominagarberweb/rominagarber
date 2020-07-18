@@ -789,7 +789,7 @@ section.hero {
 
 /* animation effects for hero bkg */
 .hero-background {
-  background:
+  /* background:
     linear-gradient(
       rgba(251, 195, 167, 0.45),
       rgba(233, 145, 152, 0.45),
@@ -804,11 +804,12 @@ section.hero {
   transform: translate3d(0, 0, 0);
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+  transform-style: preserve-3d; */
 }
 
 .hero-background img {
   object-fit: cover;
+  width: 100%;
 }
 
 .hero-card {
@@ -1381,7 +1382,7 @@ time {
   margin-top: var(--g-margin-top);
 }
 
-.book-synopsis h2, 
+.book-synopsis h2,
 .book-reviews h2,
 .book-press-items h2 {
   margin-top: 0;
@@ -1422,7 +1423,7 @@ time {
     grid-column: 2 / 6;
   }
 
-  .book-synopsis h2, 
+  .book-synopsis h2,
   .book-reviews h2,
   .book-press-items h2 {
     margin-top: 2.2rem;

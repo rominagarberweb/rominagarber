@@ -14,10 +14,18 @@ function generateHomePage (homePage) {
       { serializers, ...client.config() }
     ),
     featured: homePage.featured.map(generateFeaturedBooks),
-    image: imageUrl(homePage.heroImage)
-      .height(580)
-      .width(460)
-      .url()
+    heroImage1920: imageUrl(homePage.heroImage)
+      .height(1080)
+      .width(1920)
+      .url(),
+    heroImage1024: imageUrl(homePage.heroImage)
+      .height(768)
+      .width(1024)
+      .url(),
+    heroImage800: imageUrl(homePage.heroImage)
+      .height(600)
+      .width(800)
+      .url(),
   }
 }
 
