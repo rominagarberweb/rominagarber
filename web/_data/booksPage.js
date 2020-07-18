@@ -26,10 +26,10 @@ function generateBooksList (books) {
     ),
     // Load first review from reviews array
     review: BlocksToMarkdown(
-      books.content.reviews[0].content,
+      books.content.reviews[0] && books.content.reviews[0].content,
       {serializers, ...client.config()}
     ),
-    reviewAuthor: books.content.reviews[0].author,
+    reviewAuthor: books.content.reviews[0] && books.content.reviews[0].author,
     synopsis: BlocksToMarkdown(
       books.content.synopsis,
       {serializers, ...client.config()}
