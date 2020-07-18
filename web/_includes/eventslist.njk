@@ -1,27 +1,81 @@
-<ol reversed class="eventlist" style="counter-reset: start-from {{ eventsList.length + 1 }}">
-
-{% set eventCount = 0 %}
-{% set pastEventsList = false %}
-
 {% if not eventsLimit %}
+  {% set showPastEvents = true %}
   {% set eventsLimit = eventsList.length %}
 {% endif %}
 
-{% for event in eventsList %}
-  {% if eventCount < eventsLimit %}
+{% set events = eventsList | eventsExcludePast %}
+{% set eventsCount = 0 %}
+
+<ol reversed class="eventlist" style="counter-reset: start-from {{ eventsList.length + 1 }}">
+
+{% for event in events %}
+  {% if eventsCount < eventsLimit %}
     {% set currentEvent = event.data.event %}
 
     {% if currentEvent.content.slug.current in page.url %}
       {% set eventsLimit = eventsLimit + 1 %}
     {% else %}
-      <li class="eventlist-item{% if currentEvent.content.schedule.to | isPastEvent %} eventlist-item-past{% endif %}">
 
-      {% if currentEvent.content.venue.shortcode %}
-        {# create the colored city block #}
-        <span style="background-color: {{ currentEvent.content.venue.color }}">
-          <h2>{{- currentEvent.content.venue.shortcode -}}</h2>
-        </span>
-      {% endif %}
+        <li class="eventlist-item">
+
+        {% if currentEvent.content.venue.shortcode %}
+          {# create the colored city block #}
+          <span style="background-color: {{ currentEvent.content.venue.color }}">
+            <h2>{{- currentEvent.content.venue.shortcode -}}</h2>
+          </span>
+        {% endif %}
+
+          <div class="eventlist-item__data">
+
+            <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">
+              {{- currentEvent.content.schedule.from | readableDate -}}
+            </time>
+
+            <div class="eventlist-item__links">
+
+              <a href="{{ event.url | url }}" class="eventlist-link">
+
+              {%- if currentEvent.content.name %}
+
+                <h3 class="mb0 mt0">{{- currentEvent.content.name -}}</h3>
+
+              {% else %}
+                <code>
+                  {{- event.url -}}
+                </code>
+              {% endif -%}
+
+              </a>
+
+            </div>
+          </div>
+
+        </li>
+
+    {% endif %}
+  {% endif %}
+
+  {% set eventsCount = eventsCount + 1 %}
+{% endfor %}
+
+</ol>
+
+{% if showPastEvents %}
+  {% set events = eventsList | eventsExcludeFuture %}
+
+  <ol reversed class="eventlist" style="counter-reset: start-from {{ eventsList.length + 1 }}">
+
+  {% for event in events | reverse %}
+    {% set currentEvent = event.data.event %}
+
+    <li class="eventlist-item eventlist-item-past">
+
+    {% if currentEvent.content.venue.shortcode %}
+      {# create the colored city block #}
+      <span style="background-color: {{ currentEvent.content.venue.color }}">
+        <h2>{{- currentEvent.content.venue.shortcode -}}</h2>
+      </span>
+    {% endif %}
 
       <div class="eventlist-item__data">
 
@@ -31,27 +85,26 @@
 
         <div class="eventlist-item__links">
 
-        <a href="{{ event.url | url }}" class="eventlist-link">
+          <a href="{{ event.url | url }}" class="eventlist-link">
 
-        {%- if currentEvent.content.name %}
+          {%- if currentEvent.content.name %}
 
-          <h3 class="mb0 mt0">{{- currentEvent.content.name -}}</h3>
+            <h3 class="mb0 mt0">{{- currentEvent.content.name -}}</h3>
 
-        {% else %}
-          <code>
-            {{- event.url -}}
-          </code>
-        {% endif -%}
+          {% else %}
+            <code>
+              {{- event.url -}}
+            </code>
+          {% endif -%}
 
-        </a>
+          </a>
 
         </div>
       </div>
 
-      </li>
+    </li>
 
-    {% endif %}
-  {% endif %}
-{% set eventCount = eventCount + 1 %}
-{% endfor %}
-</ol>
+  {% endfor %}
+
+  </ol>
+{% endif %}

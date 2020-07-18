@@ -1,18 +1,33 @@
-<ol class="booklist" style="counter-reset: start-from {{ booksList.length + 1 }}">
+{% if not booksLimit %}
+  {% set booksLimit = booksPage.books.length %}
+{% endif %}
 
-  {% for book in booksPage.books %}
-    {% set currentBook = book %}
+{% set booksCount = 0 %}
 
-    <li class="booklist-item">
-      <a href="/books/{{ currentBook.content.slug.current | slug }}/" title="{{ currentBook.content.title }}" class="booklist-link">
+<ol class="booklist" style="counter-reset: start-from {{ booksPage.books.length + 1 }}">
 
-      {%- if currentBook.cover %}
-        <img src="{{ currentBook.cover }}" alt="{{ currentBook.content.cover.alt }}" />
-      {% endif -%}
+  {% for book in booksPage.books | reverse if booksReverseList %}
+    {% if booksCount < booksLimit %}
+      {% set currentBook = book %}
 
-      </a>
-    </li>
+      {% if currentBook.content.slug.current in page.url %}
+        {% set booksLimit = booksLimit + 1 %}
+      {% else %}
 
+        <li class="booklist-item">
+          <a href="/books/{{ currentBook.content.slug.current | slug }}/" title="{{ currentBook.content.title }}" class="booklist-link">
+
+          {%- if currentBook.cover %}
+            <img src="{{ currentBook.cover }}" alt="{{ currentBook.content.cover.alt }}" />
+          {% endif -%}
+
+          </a>
+        </li>
+
+      {% endif %}
+    {% endif %}
+
+    {% set booksCount = booksCount + 1 %}
   {% endfor %}
 
 </ol>

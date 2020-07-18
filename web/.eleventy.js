@@ -51,17 +51,23 @@ module.exports = function(eleventyConfig) {
     return new Date(dateObj).toLocaleString('en-US', options)
   })
 
-  eleventyConfig.addFilter('isPastEvent', dateObj => {
-    return new Date(dateObj) < new Date();
+  eleventyConfig.addFilter("eventsExcludePast", obj => {
+    const result = obj.filter(el => new Date(el.data.event.content.schedule.to) >= new Date())
+    return result
+  })
+
+  eleventyConfig.addFilter("eventsExcludeFuture", obj => {
+    const result = obj.filter(el => new Date(el.data.event.content.schedule.to) < new Date())
+    return result
   })
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd')
   })
 
-  let markdownIt = require("markdown-it");
-  let markdownItAnchor = require("markdown-it-anchor");
+  let markdownIt = require("markdown-it")
+  let markdownItAnchor = require("markdown-it-anchor")
   let options = {
     html: true,
     breaks: true,
@@ -83,8 +89,8 @@ module.exports = function(eleventyConfig) {
   })
 
   // Passthrough copy
-  eleventyConfig.addPassthroughCopy('images');
-  eleventyConfig.addPassthroughCopy('fonts');
+  eleventyConfig.addPassthroughCopy('images')
+  eleventyConfig.addPassthroughCopy('fonts')
 
   return {
     templateFormats: [

@@ -141,6 +141,8 @@ metaDesc: 'The personal website of  New York Times and international bestselling
 <section class="books">
 
 {% set booksList = collections.myBooks %}
+{% set booksLimit = 6 %} {# limit number of books shown #}
+{% set booksReverseList = true %}
 {% include "bookslist.njk" %}
 
 </section>
