@@ -46,6 +46,13 @@ export default {
           fieldset: 'overview'
         },
         {
+          name: 'previewImage',
+          type: 'mainImage',
+          title: 'Preview Image',
+          description: 'Image will display on social sharing',
+          fieldset: 'overview'
+        },
+        {
           name: 'description',
           type: 'eventPortableText',
           title: 'Description',
