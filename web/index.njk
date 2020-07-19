@@ -28,7 +28,7 @@ metaDesc: 'The personal website of  New York Times and international bestselling
     {{ homePage.heroDescription | markdownify | safe }}
 
     <div class="book-actions">
-      <a href="/about/" class="btn btn--hero">Romina&rsquo;s Info</a>
+      <a href="/about/" class="btn btn--hero">Romina&rsquo;s Info&nbsp;👩</a>
     </div>
 
     {# {% include "_includes/components/social.njk" %} #}
@@ -121,14 +121,15 @@ metaDesc: 'The personal website of  New York Times and international bestselling
   {% set eventsLimit = 1 %} {# limit number of events shown #}
   {% include "eventslist.njk" %}
 
-  <p class="more-link clearfix"><a class="btn btn--secondary" href="{{ '/events/' | url }}">More events
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <div class="more-link clearfix"><a class="btn btn--secondary" href="{{ '/events/' | url }}">More events 🎟️
+    {# <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21   20V6C21 4.89543 20.1046 4 19 4Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M16 2V6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M8 2V6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M3 10H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg></a>
-  </p>
+    </svg> #}
+    </a>
+  </div>
 </section>
 
 <section class="blog-posts">
@@ -136,12 +137,13 @@ metaDesc: 'The personal website of  New York Times and international bestselling
   {% set postsLimit = 2 %} {# limit number of posts shown #}
   {% include "postslist.njk" %}
 
-  <p class="more-link"><a class="btn btn--secondary" href="{{ '/blog/' | url }}">More blog posts
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <p class="more-link"><a class="btn btn--secondary" href="{{ '/blog/' | url }}">More blog posts 🖋️ 
+    {# <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M20.24 12.24C21.3658 11.1142 21.9983 9.58722 21.9983 7.99504C21.9983 6.40285 21.3658 4.87588 20.24 3.75004C19.1142 2.62419 17.5872 1.9917 15.995 1.9917C14.4028 1.9917 12.8758 2.62419 11.75 3.75004L5 10.5V19H13.5L20.24 12.24Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M16 8L2 22" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M17.5 15H9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg></a>
+    </svg>#}
+    </a> 
   </p>
 </section>
 

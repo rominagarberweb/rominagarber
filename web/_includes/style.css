@@ -342,6 +342,10 @@ p:first-of-type {
   margin-top: .8em;
 }
 
+blockquote p {
+  font-style: italic;
+}
+
 
 /* ==========================================================================
    #HEADER
@@ -427,8 +431,8 @@ section,
 footer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-gap: 3em 1em;
-  margin: 3em 1em 0;
+  grid-gap: 1em 1em;
+  margin: 3em 1em 5em;
 }
 
 footer,
@@ -448,7 +452,7 @@ and sit horizontally central like this tutorial - https://codepen.io/andybelldes
   margin-left: calc(50% - 50vw);
 }
 
-p.more-link {
+.more-link {
   /* text-align:center; */
   grid-row: 2;
   grid-column: 1 / 13;
@@ -707,7 +711,6 @@ a.btn--secondary:hover {
   border: 1px solid #ccc;
   border-radius: var(--global-br);
   padding: .3em 0;
-  margin: 2px 0 0 0;
   /* box-shadow: 0 0 6px 0 rgba(0,0,0,0.1); */
   /* background-color: #ffffff; */
   list-style-type: none;
@@ -752,6 +755,12 @@ a.btn--secondary:hover {
 .dd-menu li.divider{
   padding: 0;
   border-bottom: 1px solid #cccccc;
+}
+
+@media all and (max-width: 650px) {
+  .dd-menu {
+    column-count: 1;
+  }
 }
 
 /* Style variants
@@ -1004,7 +1013,7 @@ section.blog-posts .more-link {
 }
 
 ol.postlist {
-  grid-column: 3 / 11;
+  grid-column: 4 / 10;
   list-style: none;
   margin-left: 0;
   padding-left: 0;
@@ -1088,7 +1097,7 @@ article.events .more-link {
 }
 
 ol.eventlist {
-  grid-column: 3 / 11;
+  grid-column: 4 / 10;
   list-style: none;
   display: flex;
   flex-flow: column wrap;
@@ -1099,7 +1108,7 @@ li.eventlist-item {
   margin-bottom: .8em;
   padding: 0;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   width: 100%;
 }
@@ -1109,20 +1118,22 @@ li.eventlist-item span h2 {
 }
 
 li.eventlist-item > * {
-  flex: 1 1 0%;
+  /* flex: 1 1 0%; */
 }
 
 li.eventlist-item .eventlist-item__data {
   display: flex;
   align-items: center;
-  flex: 1 1 0%;
+  flex-direction: column;
+  align-items: flex-start;
+  /* flex: 1 1 0%; */
 }
 
 li.eventlist-item .eventlist-item__links {
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
-  flex: 1 1 0%;
+  /* flex: 1 1 0%; */
 }
 
 @media all and (max-width: 650px) {
@@ -1169,7 +1180,7 @@ li.eventlist-item-past span {
 }
 
 li.eventlist-item a.eventlist-link {
-  max-width:30ch;
+  max-width:60ch;
   flex: 2;
 }
 li.eventlits-item time.eventlist-date {
