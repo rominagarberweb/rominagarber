@@ -921,6 +921,11 @@ section.bio figure::after {
 section.bio .bio-text {
   grid-column: 7 / 11;
   max-width: 60ch;
+  display: inline;
+}
+
+section.bio .bio-text p {
+  display: inline;
 }
 
 span.all-small-caps {
