@@ -224,7 +224,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 .s-visually-hidden {
@@ -377,7 +377,6 @@ nav ul.primary-nav__list {
   justify-content: flex-end;
   margin: .4em 0;
   align-items: center;
-  /* font-weight: 482; */
   font-size: 110%;
 }
 .primary-nav__list .primary-nav__item a {
@@ -386,8 +385,6 @@ nav ul.primary-nav__list {
 }
 
 .primary-nav__list .primary-nav__item a:hover {
-  /* background-color: var(--gamma-night);
-  border-radius: var(--global-br);  */
   opacity: 0.8;
 }
 
@@ -489,7 +486,8 @@ footer .footer-content div ol.social-icons li a svg.social-icon {
   height: 24px;
 }
 
-footer .footer-content div ol.social-icons li a svg.twitter {
+footer .footer-content div ol.social-icons li a svg.twitter,
+svg.twitter {
   fill: #76A9EA;
 }
 
@@ -693,6 +691,11 @@ a.btn svg {
 .btn--secondary:hover,
 a.btn--secondary:hover {
   background-color: var(--general-night-2);
+}
+
+.emoji-action {
+  font-size: 130%;
+  vertical-align: middle;
 }
 
 /* dropdown button */
@@ -1136,6 +1139,8 @@ li.eventlist-item .eventlist-item__links {
   /* flex: 1 1 0%; */
 }
 
+
+
 @media all and (max-width: 650px) {
   ol.eventlist {
     grid-column: 2 / 12;
@@ -1320,7 +1325,7 @@ section:hover.featured-book figure {
 }
 
 svg.download-icon {
-  height: 1.2em;
+  height: 1em;
   vertical-align: middle;
 }
 
