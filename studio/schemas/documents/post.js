@@ -11,7 +11,7 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      description: 'Titles should be catchy, descriptive, and not too long'
+      description: 'Titles should be catchy, descriptive, and not too long. Written in sentance case.'
     },
     {
       name: 'slug',
@@ -32,7 +32,8 @@ export default {
     {
       name: 'mainImage',
       type: 'mainImage',
-      title: 'Main image'
+      title: 'Main image',
+      description: 'image will be cropped to different sizes by system'
     },
     {
       name: 'excerpt',
@@ -55,6 +56,7 @@ export default {
       name: 'categories',
       type: 'array',
       title: 'Categories',
+      description: 'Currently do not appear on site. Used for editorial purposes',
       of: [
         {
           type: 'reference',

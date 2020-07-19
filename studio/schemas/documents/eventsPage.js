@@ -9,7 +9,8 @@ export default {
     {
       name: 'intro',
       type: 'introPortableText',
-      title: 'Availability and contact instructions'
+      title: 'Availability and contact instructions',
+      description: 'currently unused on website'
     },
     {
       name: 'quickLink',

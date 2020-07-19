@@ -134,6 +134,7 @@ export default {
         {
           title: 'Agent',
           name: 'agent',
+          description: 'Agent is editable under settings content',
           type: 'reference',
           to: { type: 'agent' },
           fieldset: 'details',
@@ -157,6 +158,7 @@ export default {
           name: 'reviews',
           type: 'array',
           title: 'Reviews',
+          description: '7 will display by default. Later we will add a "see more" button',
           fieldset: 'promotion',
           of: [
             {

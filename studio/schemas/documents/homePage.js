@@ -42,6 +42,7 @@ export default {
     {
       title: 'Priority links',
       name: 'priorityLinks',
+      description: 'Currently unused',
       type: 'array',
       of: [
         {
@@ -53,6 +54,7 @@ export default {
     {
       title: 'Social links',
       name: 'socialLinks',
+      description: 'Currently unused field. These icons and links are hard coded right now',
       type: 'array',
       of: [
         {
