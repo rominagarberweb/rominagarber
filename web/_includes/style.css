@@ -832,6 +832,7 @@ section.hero {
 .hero-background img {
   object-fit: cover;
   width: 100%;
+  max-height: 80vh;
 }
 
 .hero-card {
@@ -920,6 +921,11 @@ section.bio figure::after {
 section.bio .bio-text {
   grid-column: 7 / 11;
   max-width: 60ch;
+  display: inline;
+}
+
+section.bio .bio-text p {
+  display: inline;
 }
 
 span.all-small-caps {

@@ -13,13 +13,19 @@ metaDesc: 'The personal website of  New York Times and international bestselling
 
 <section class="hero full-bleed">
   <div class="hero-background">
-    <picture>
+    {# <picture>
       <source type="image/jpeg" srcset="{{ homePage.heroImage800 }} 800w, {{ homePage.heroImage1024 }} 1024w, {{ homePage.heroImage1920 }} 1920w" sizes="(max-width: 1920px) 100vw, 1080px">
       <img
         alt=""
         src="{{ homePage.heroImage800 }}"
         width="800"
         height="600">
+    </picture> #}
+    <picture>
+      <source srcset="images/lobizona-hero-lg.jpg, images/lobizona-hero-xl.jpg 2x" media="(min-width: 1800px)">
+      <source srcset="images/lobizona-hero-md.jpg, images/lobizona-hero-lg.jpg 2x" media="(min-width: 1200px)">
+      <source srcset="images/lobizona-hero-md.jpg">
+      <img srcset="images/lobizona-hero-sm.jpg" alt="A girl with star eyes surounded by natural elements">
     </picture>
   </div>
   <div class="hero-card">
@@ -89,8 +95,8 @@ metaDesc: 'The personal website of  New York Times and international bestselling
     <div class="book-actions">
 
       {# (pre-)order and GR TBR links go here #}
-      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary  }}; color: {{ themeColorTertiary  }}" href="https://www.goodreads.com/book/show/51179882-lobizona" rel="noopener">Add to Goodreads TBR</a>
-      <a class="btn btn--featured-book btn--text-only" style="{{ themeColorTertiary  }}" href="/books/{{ book.content.slug.current | url }}/" rel="noopener">More Info</a>
+      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary  }}; color: {{ themeColorTertiary  }};" href="https://www.goodreads.com/book/show/51179882-lobizona" rel="noopener">Add to Goodreads TBR</a>
+      <a class="btn btn--featured-book btn--text-only" style="color: {{ themeColorTertiary  }};" href="/books/{{ book.content.slug.current | url }}/" rel="noopener">More Info</a>
 
     </div>
 

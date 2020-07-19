@@ -46,10 +46,24 @@ export default {
           fieldset: 'overview'
         },
         {
+          name: 'previewImage',
+          type: 'mainImage',
+          title: 'Preview Image',
+          description: 'Image will display on social sharing',
+          fieldset: 'overview'
+        },
+        {
+          name: 'shortDescription',
+          type: 'string', //make me portable text
+          title: 'Short Description',
+          description: 'Text will display on social media when link is shared',
+          fieldset: 'overview'
+        },
+        {
           name: 'description',
           type: 'eventPortableText',
           title: 'Description',
-          description: 'Describe the event for search and social media',
+          description: 'Describe the event for body of the event page on rominagarber.com',
           fieldset: 'overview'
         },
         {
