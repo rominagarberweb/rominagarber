@@ -2,11 +2,17 @@
   {% set booksLimit = booksPage.books.length %}
 {% endif %}
 
+{% if booksReverseList %}
+  {% set books = booksPage.books | reverse %}
+{% else %}
+  {% set books = booksPage.books %}
+{% endif %}
+
 {% set booksCount = 0 %}
 
 <ol class="booklist" style="counter-reset: start-from {{ booksPage.books.length + 1 }}">
 
-  {% for book in booksPage.books | reverse if booksReverseList %}
+  {% for book in books %}
     {% if booksCount < booksLimit %}
       {% set currentBook = book %}
 

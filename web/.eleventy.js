@@ -34,7 +34,7 @@ module.exports = function(eleventyConfig) {
 
   // https://www.11ty.io/docs/quicktips/inline-css/
   eleventyConfig.addFilter("cssmin", function(code) {
-    return new CleanCSS({}).minify(code).styles;
+    return new CleanCSS({}).minify(code).styles
   })
 
   eleventyConfig.addFilter("debug", function(value) {
