@@ -556,25 +556,35 @@ section.instagram-feed {
 
 section.instagram-feed ol {
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
-  grid-column: 3/11;
+  grid-column: 2/12;
   list-style: none;
   grid-gap: 1.5em 1em;
   padding: 0;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;	
 }
 
 section.instagram-feed li {
+  grid-row: 1;
   align-items: center;
   display: flex;
   height: 200px;
   justify-content: center;
   overflow: hidden;
   width: 200px;
+  border: 1px solid var(--general-night-2);
+  scroll-snap-align: start;
 }
 
 section.instagram-feed img {
   min-height: 200px;
   min-width: 200px;
+}
+
+@media all and (max-width: 650px) {
+  section.instagram-feed ol {
+    grid-column: 1 / 13;
+  }
 }
 
 
@@ -858,6 +868,12 @@ section.hero {
   opacity: 0.8;
 }
 
+@media all and (max-width: 800px) {
+  .hero-card {
+    padding: 3rem;
+  }
+}
+
 @media all and (max-width: 650px) {
   /* section.hero {
     grid-column: 1 / 7;
@@ -866,6 +882,7 @@ section.hero {
     grid-column: 2 / 12;
     border-radius: var(--global-br);
     margin: auto;
+    padding: 2rem 2rem 2.2rem;
   }
 }
 
@@ -1087,6 +1104,10 @@ li.eventlist-item {
   width: 100%;
 }
 
+li.eventlist-item span h2 {
+  font-family: var(--headings-font);
+}
+
 li.eventlist-item > * {
   flex: 1 1 0%;
 }
@@ -1207,6 +1228,11 @@ section.event div.eventbanner {
 
 section.event div.eventinfo {
   margin: 0 auto 6em;
+}
+
+section.events-intro h1 {
+  grid-column: 1 / 13;
+  justify-self: center;
 }
 
 /* section.event p {

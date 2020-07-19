@@ -25,7 +25,7 @@ templateClass: tmpl-book
   <div class="book-info">
 
   {# generate the heading color and the buttons from the cms #}
-  <h1 class="mt0 mb0" style="color: {{ themeColorTertiary  }};">{{ book.content.title }}</h1>
+  <h1 class="mt0" style="color: {{ themeColorTertiary  }};">{{ book.content.title }}</h1>
 
   {% if book.hook %}
     {{ book.hook | markdownify | safe }}
