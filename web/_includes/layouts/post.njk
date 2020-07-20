@@ -7,7 +7,14 @@ templateClass: tmpl-post
 
 <article>
   <h1>{{ post.title }}</h1>
-  <p>Written by {% for author in post.authors %}{{author.name}}{% endfor %}  </p>
+  <p>🖋️ {% for author in post.authors %}{{author.name}}{% endfor %}  </p>
+  {%- if post.mainImage %}
+  <figure>
+    {# need to make this a larger image from data source #}
+    <img src="{{ post.mainImage }}" alt=" {{ post.mainImage.alt }}"/>
+    <figcaption><em>{{ post.mainImage.caption }}</em></figcaption>
+  </figure>
+  {% endif %}
   {{ post.body | markdownify | safe }}
 </article>
 

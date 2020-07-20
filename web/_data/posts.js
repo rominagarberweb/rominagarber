@@ -17,7 +17,7 @@ function generatePost (post) {
       post.excerpt,
       {serializers, ...client.config()}
     ),
-    image: imageUrl(post.mainImage)
+    mainImage: imageUrl(post.mainImage)
       .height(200)
       .width(200)
       .url(),

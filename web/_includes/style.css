@@ -928,6 +928,11 @@ section.bio .bio-text p {
   display: inline;
 }
 
+.bio-text .contact,
+.bio-text .aboutSite {
+  margin: 1em 0;
+}
+
 span.all-small-caps {
   font-family: var(--headings-font);
   font-weight: 1000;
@@ -969,6 +974,7 @@ span.data-label {
 }
 
 section.bio figure p span.data-label,
+section.bio .data-label,
 div.agent span.data-label,
 div.publishers span.data-label,
 section.series-data span.data-label {
@@ -1252,7 +1258,7 @@ section.event div.eventinfo {
   margin: 0 auto 6em;
 }
 
-section.events-intro h1 {
+.events-intro {
   grid-column: 1 / 13;
   justify-self: center;
 }
