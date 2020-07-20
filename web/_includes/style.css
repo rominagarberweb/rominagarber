@@ -810,14 +810,16 @@ section.hero {
 }
 
 /* animation effects for hero bkg */
-.hero-background {
-  /* background:
+.hero-overlay {
+  z-index: 2;
+  grid-column: 1 / 13;
+  grid-row: 1;
+  background:
     linear-gradient(
       rgba(251, 195, 167, 0.45),
       rgba(233, 145, 152, 0.45),
       rgba(163, 80, 72, 0.45)
-    ),
-    url(../images/lobizona-hero.jpg);
+    );
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -826,7 +828,7 @@ section.hero {
   transform: translate3d(0, 0, 0);
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d; */
+  transform-style: preserve-3d;
 }
 
 .hero-background img {
