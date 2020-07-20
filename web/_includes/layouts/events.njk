@@ -3,11 +3,12 @@ layout: layouts/base.njk
 templateClass: tmpl-events
 ---
 
-<section class="events-intro">
-  <h1>Author Events</h1>
-  {{ eventsPage.intro | markdownify | safe }}
-</section>
-
 <section class="events">
+  <div class="events-intro">
+    <h1>Author Events</h1>
+    {{ eventsPage.intro | markdownify | safe }}
+  </div>
+
   {{ content | safe }}
+
 </section>
