@@ -773,6 +773,7 @@ div.mc-field-group label {
 
 div.mc-field-email {
   margin-top: .8em;
+  display: flex;
 }
 
 div.mc-field-email input.email-field,
@@ -780,7 +781,7 @@ div.mc-field-email input.button {
   padding: .6em;
   border: 2px solid var(--rho-cancer-3);
   font-size: inherit;
-  /* font-family: var(--body-font); */
+  font-family: inherit;
 }
 
 div.mc-field-email input.email-field {
@@ -794,10 +795,12 @@ div.mc-field-email input.button {
   background-color: transparent;
   color: var(--rho-cancer-3);
   cursor: pointer;
+  font-family: 'IBM Plex Sans Var Regular', sans-serif;
+  font-weight: 542;
 }
 
 div.mc-field-email input.button:hover {
-  background-color: var(--rho-cancer-2);
+  opacity: 0.8;
 }
 
 
@@ -1434,11 +1437,13 @@ section.event div.eventbanner {
   color: var(--alpha-night);
 }
 
-section.event div.eventinfo {
+section.event div.eventinfo,
+section.newsleter div.newsletter-intro {
   margin: 0 auto 6em;
 }
 
-.events-intro {
+.events-intro,
+.newsletter-intro {
   grid-column: 1 / 13;
   justify-self: center;
 }
