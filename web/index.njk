@@ -116,13 +116,19 @@ metaDesc: 'The personal website of  New York Times and international bestselling
 
 </section>
 
-{# <section class="instagram-feed">
+<section class="instagram-feed">
   <ol>
   {%- for post in instagram -%}
-    <li>{% responsiveImage post.media_url, '' %}</li>
+    <li>
+      {% if post.media_type === "VIDEO" %}
+        {% responsiveImage post.thumbnail_url, '' %}
+      {% else %}
+        {% responsiveImage post.media_url, '' %}
+      {% endif %}
+    </li>
   {%- endfor -%}
   </ol>
-</section> #}
+</section>
 
 <section class="events">
   {% set eventsList = collections.myEvents %}
@@ -145,13 +151,13 @@ metaDesc: 'The personal website of  New York Times and international bestselling
   {% set postsLimit = 2 %} {# limit number of posts shown #}
   {% include "postslist.njk" %}
 
-  <p class="more-link"><a class="btn btn--secondary" href="{{ '/blog/' | url }}">More blog posts 🖋️ 
+  <p class="more-link"><a class="btn btn--secondary" href="{{ '/blog/' | url }}">More blog posts 🖋️
     {# <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M20.24 12.24C21.3658 11.1142 21.9983 9.58722 21.9983 7.99504C21.9983 6.40285 21.3658 4.87588 20.24 3.75004C19.1142 2.62419 17.5872 1.9917 15.995 1.9917C14.4028 1.9917 12.8758 2.62419 11.75 3.75004L5 10.5V19H13.5L20.24 12.24Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M16 8L2 22" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M17.5 15H9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>#}
-    </a> 
+    </a>
   </p>
 </section>
 

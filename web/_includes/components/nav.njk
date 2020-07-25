@@ -1,3 +1,18 @@
+<div class="primary-nav-mobile nav-mobile" aria-hidden="true">
+  <div class="menu-inner">
+    <ul class="primary-nav-mobile__list">
+      <li class="primary-nav-mobile__item"><a href="/">Home</a></li>
+      <li class="primary-nav-mobile__item"><a href="/about/">About</a></li>
+      <li class="primary-nav-mobile__item"><a href="/books/">Books</a></li>
+      <li class="primary-nav-mobile__item"><a href="/events/">Events</a></li>
+      <li class="primary-nav-mobile__item"><a href="/blog/">Blog</a></li>
+      <li class="primary-nav-mobile__item nav-button"><a href="/newsletter/">Subscribe to newsletter</a></li>
+      <li class="primvary-nav-mobile__item nav-social">
+        {% include "../components/social.njk" %}
+      </li>
+    </li>
+  </div>
+</div>
 <nav class="primary-nav">
   <ul class="primary-nav__list">
     <li class="primary-nav__item"><a href="/">Home</a></li>
@@ -6,4 +21,8 @@
     <li class="primary-nav__item"><a href="/events/">Events</a></li>
     <li class="primary-nav__item"><a href="/blog/">Blog</a></li>
   </ul>
+
+  <span class="primary-nav-hamburger">
+    <button class="primary-nav-btn nav-toggle">Toggle menu</button>
+  </span>
 </nav>
