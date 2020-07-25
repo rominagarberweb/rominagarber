@@ -170,7 +170,9 @@
   --general-night-1: #E5E5E5;
   --general-night-2: #C0C4C8;
   --general-night-3: #707578;
+  --general-night-3ish: #2a2b2d;
   --general-night-4: #202122;
+  --general-night-5: black;
   --alpha-night: rgba(32, 33, 34, 0.6);
   --beta-night: rgba(32, 33, 34, 0.2);
   --gamma-night: rgba(32, 33, 34, 0.1);
@@ -421,7 +423,7 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
   display: block;
   width: 25px;
   height: 3px;
-  background-color: var(--general-night-4);
+  background-color: var(---general-night-4ish);
   transition: background-color 0.3s, transform 0.3s ease-in;
 }
 .primary-nav-btn::before,
@@ -445,10 +447,11 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
   background-color: white;
 }
 .primary-nav-mobile {
-  background-color: var(--general-night-4);
+  background-color: var(--general-night-3ish);
   width: 100%;
   height: 100%;
   position: absolute;
+  font-family: inherit;
   left: 0;
   top: -100%;
   text-align: left;
@@ -483,12 +486,20 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
 }
 
 .primary-nav-mobile li.nav-button a {
-  background-color: black;
+  background-color: var(--general-night-4);
+  font-family: var(--headings-font);
+  font-weight: 430;
+  font-stretch: 90%;
   border-radius: 20px;
   font-size: calc(20px + 0.25vw);
+  text-align: center;
   opacity: .8;
   margin-left: -1em;
   padding: .7em 1em .8em;
+}
+
+.primary-nav-mobile li.nav-button a:hover {
+  background-color: black;
 }
 
 .primary-nav-mobile li.nav-social .social-icons {
