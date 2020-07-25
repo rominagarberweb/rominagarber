@@ -360,16 +360,17 @@ blockquote p {
   padding: .6em;
 }
 .logo {
-  grid-column: 3 / 4;
+  grid-column: 2 / 3;
   line-height: 1;
-  height: calc(36px + 0.25vw);
+  height: calc(42px + 0.25vw);
   align-self: center;
 }
 nav.primary-nav, nav.footer-nav {
-  grid-column: 4 / 11;
+  grid-column: 3 / 12;
   overflow: visible;
   position: relative;
-  font-family: var(--headings-font);
+  /* font-family: var(--headings-font); */
+  font-family: var(--body-font);
   font-weight: 430;
   font-stretch: 90%;
 }
@@ -387,6 +388,10 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
 .footer-nav__list .footer-nav__item a {
   padding: .4em 1.2em;
   text-decoration: none;
+}
+
+.primary-nav__list li a.btn {
+  margin: .8em 1em .5em;
 }
 
 .primary-nav__list .primary-nav__item a:hover,
@@ -461,7 +466,7 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
 }
 .primary-nav-mobile ul {
   margin: 0;
-  padding: 125px 3em 30px;
+  padding: 100px 3em 30px;
 }
 .primary-nav-mobile li {
   list-style-type: none;
