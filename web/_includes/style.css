@@ -808,6 +808,8 @@ div.mc-field-email input.button {
   cursor: pointer;
   font-family: 'IBM Plex Sans Var Regular', sans-serif;
   font-weight: 542;
+  position: relative;
+  left: -2px;
 }
 
 div.mc-field-email input.button:hover {
