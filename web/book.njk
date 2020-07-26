@@ -8,4 +8,8 @@ pagination:
   size: 1
   addAllPagesToCollections: true
 permalink: books/{{ book.content.slug.current | slug }}/index.html
+renderData:
+  title: "{{ book.content.title }}"
+  metaDesc: "{{ book.hook }}"
+  socialImage: "{{ book.content.socialImage }}"
 ---

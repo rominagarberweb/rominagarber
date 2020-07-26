@@ -1,24 +1,32 @@
-{# {% set pageTitle = title + ' - ' + site.name  %} #}
-{% set pageTitle = title + ' - Romina Garber' %}
+{% set siteTitle = 'Romina Garber' %}
+
+{# Use renderData for overrides if available #}
+{# TODO: replace with eleventyComputed #}
+{% if renderData %}
+  {% if renderData.title %}
+    {% set title = renderData.title %}
+  {% endif %}
+  {% if renderData.metaDesc %}
+    {% set metaDesc = renderData.metaDesc %}
+  {% endif %}
+  {% if renderData.socialImage %}
+    {% set socialImage = renderData.socialImage %}
+  {% endif %}
+{% endif %}
+
+{% set pageTitle = title + ' - ' + siteTitle  %}
 
 {# We don't want any duplication. This is likely for the homepage #}
-{% if site.name === title %} 
+{% if siteTitle === title %}
   {% set pageTitle = title %}
 {% endif %}
 
 {% set siteTitle = site.name %}
 {% set currentUrl = site.url + page.url %}
 
-{# If the page’s frontmatter has specific metaTitle and/or metaDesc items, switch 
-  them into the mix #}
-{% if metaTitle %}
-  {% set pageTitle = metaTitle %}
-{% endif %}
-
 {% if not metaDesc %}
   {% set metaDesc = summary %}
 {% endif %}
-
 
 <title>{{ pageTitle }}</title>
 <link rel="canonical" href="{{ currentUrl }}" />
@@ -32,8 +40,8 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta property="og:image" content="{{ socialImage }}" />
   <meta name="twitter:image" content="{{ socialImage }}" />
-  <meta property="og:image:alt" content="Page image for {{ site.name }}" />
-  <meta name="twitter:image:alt" content="Page image for {{ site.name }}" />
+  <meta property="og:image:alt" content="Page image for {{ siteTitle }}" />
+  <meta name="twitter:image:alt" content="Page image for {{ siteTitle }}" />
 {% endif %}
 
 {% if metaDesc %}
@@ -41,4 +49,3 @@
   <meta name="twitter:description" content="{{ metaDesc }}" />
   <meta property="og:description" content="{{ metaDesc }}" />
 {% endif %}
-

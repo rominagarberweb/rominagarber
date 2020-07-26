@@ -3,11 +3,11 @@ layout: layouts/post
 tags:
   - myPosts
 pagination:
-  alias: post
   data: posts
   size: 1
+  alias: post
   addAllPagesToCollections: true
 permalink: posts/{{ post.slug.current | slug }}/index.html
+renderData:
+  title: "{{ post.title }}"
 ---
-
-
