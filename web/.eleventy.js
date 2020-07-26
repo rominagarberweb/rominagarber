@@ -52,12 +52,12 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addFilter("eventsExcludePast", obj => {
-    const result = obj.filter(el => new Date(el.data.event.content.schedule.to) >= new Date())
+    const result = obj.filter(el => new Date(el.data.event.content.schedule.from) >= new Date())
     return result
   })
 
   eleventyConfig.addFilter("eventsExcludeFuture", obj => {
-    const result = obj.filter(el => new Date(el.data.event.content.schedule.to) < new Date())
+    const result = obj.filter(el => new Date(el.data.event.content.schedule.from) < new Date())
     return result
   })
 
