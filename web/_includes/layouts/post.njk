@@ -11,7 +11,7 @@ templateClass: tmpl-post
   {%- if post.mainImage %}
   <figure>
     {# need to make this a larger image from data source #}
-    <img src="{{ post.mainImage }}" alt=" {{ post.mainImage.alt }}"/>
+    <img src="{{ post.image }}" alt=" {{ post.mainImage.alt }}"/>
     <figcaption><em>{{ post.mainImage.caption }}</em></figcaption>
   </figure>
   {% endif %}

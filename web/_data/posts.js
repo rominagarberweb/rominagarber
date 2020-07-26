@@ -21,7 +21,7 @@ function generatePost (post) {
       .height(200)
       .width(200)
       .url(),
-    mainImage: imageUrl(post.mainImage)
+    image: imageUrl(post.mainImage)
       .height(800)
       .width(800)
       .url(),
