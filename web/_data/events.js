@@ -9,7 +9,7 @@ const hasToken = !!client.config().token
 function generateEvent (event) {
   return {
     ...event,
-      description: BlocksToMarkdown(event.content.description, 
+    description: BlocksToMarkdown(event.content.description,
       { serializers, ...client.config() }
     ),
     previewImage: imageUrl(event.content.previewImage)
@@ -24,24 +24,19 @@ async function getEvents () {
   const projection = groq`{
     content {
       _id,
+      bannerText,
       description[]{
         ...,
         children[]{
           ...
         }
       },
-      previewImage,
-      "original": previewImage.asset->url,
-      publishers[]{
-        title,
-        url
-      },
-      shortDescription,
       link,
       name,
+      previewImage,
       schedule,
+      shortDescription,
       slug,
-      bannerText,
       venue
     }
   }`
