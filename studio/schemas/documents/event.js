@@ -92,6 +92,28 @@ export default {
       ]
     }
   ],
+  orderings: [
+    {
+      name: 'startDateAsc',
+      title: 'Start date new–>old',
+      by: [
+        {
+          field: 'content.schedule.from',
+          direction: 'asc'
+        }
+      ]
+    },
+    {
+      name: 'startDateDesc',
+      title: 'Start date old->new',
+      by: [
+        {
+          field: 'content.schedule.from',
+          direction: 'desc'
+        }
+      ]
+    }
+  ],
   preview: {
     select: {
       title: 'content.name',

@@ -71,6 +71,7 @@ export default () =>
             .title('Events')
             .filter('_type == $type')
             .params({ type: 'event' })
+            .menuItems(S.documentTypeList('event').getMenuItems())
         ),
       S.listItem()
         .title('Pages')
