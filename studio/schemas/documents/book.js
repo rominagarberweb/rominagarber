@@ -185,9 +185,12 @@ export default {
     }
   ],
   initialValue: {
-    agent: {
-      _type: 'reference',
-      _ref: 'agent'
+    content: {
+      _type: 'object',
+      agent: {
+        _type: 'reference',
+        _ref: 'agent'
+      }
     }
   },
   orderings: [

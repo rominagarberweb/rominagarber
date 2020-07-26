@@ -102,6 +102,15 @@ export default {
       ]
     }
   ],
+  initialValue: {
+    authors: [{
+      _type: 'authorReference',
+      author: {
+        _type: 'reference',
+        _ref: '1b1c7451-c976-48fd-b416-73bf5a356f10'
+      }
+    }]
+  },
   preview: {
     select: {
       title: 'title',

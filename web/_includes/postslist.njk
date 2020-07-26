@@ -8,36 +8,44 @@
   {% if postCount < postsLimit %}
     {% set currentPost = post.data.post %}
 
+    {% if currentPost.slug.current in page.url %}
+      {% if postsList.length == 1 %}
+        There are no other posts to display.
+      {% else %}
+        {% set postsLimit = postsLimit + 1 %}
+      {% endif %}
+    {% else %}
     <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
 
-      <a href="{{ post.url | url }}" class="postlist-link" tabindex="-1">
+        <a href="{{ post.url | url }}" class="postlist-link" tabindex="-1">
 
-      {%- if currentPost.mainImage %}
-        <img src="{{ currentPost.mainImage }}" />
-      {% endif -%}
-
-      </a>
-
-      <div class="block">
-        <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
-
-          {{- currentPost.publishedAt | readableDate -}}
-
-        </time>
-        <a href="{{ post.url | url }}" class="postlist-link">
-
-        {%- if currentPost.title %}
-          <h2>{{ currentPost.title }}</h2>
+        {%- if currentPost.mainImage %}
+          <img src="{{ currentPost.mainImage }}" />
         {% endif -%}
 
         </a>
 
-        {%- if currentPost.excerpt %}
-          {{ currentPost.excerpt | markdownify | safe }}
-        {% endif -%}
+        <div class="block">
+          <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
 
-      </div>
-    </li>
+            {{- currentPost.publishedAt | readableDate -}}
+
+          </time>
+          <a href="{{ post.url | url }}" class="postlist-link">
+
+          {%- if currentPost.title %}
+            <h2>{{ currentPost.title }}</h2>
+          {% endif -%}
+
+          </a>
+
+          {%- if currentPost.excerpt %}
+            {{ currentPost.excerpt | markdownify | safe }}
+          {% endif -%}
+
+        </div>
+      </li>
+    {% endif %}
 
   {% endif %}
 {% set postCount = postCount + 1 %}
