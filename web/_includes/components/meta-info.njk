@@ -1,5 +1,5 @@
 {% set siteTitle = 'Romina Garber' %}
-
+{% set siteUrl = 'https://rominagarber.netlify.app/' %}
 {# Use renderData for overrides if available #}
 {# TODO: replace with eleventyComputed #}
 {% if renderData %}
@@ -21,8 +21,7 @@
   {% set pageTitle = title %}
 {% endif %}
 
-{% set siteTitle = site.name %}
-{% set currentUrl = site.url + page.url %}
+{% set currentUrl = siteUrl + page.url %}
 
 {% if not metaDesc %}
   {% set metaDesc = summary %}
