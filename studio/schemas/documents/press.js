@@ -22,7 +22,6 @@ export default {
     },
     {
       name: 'lead',
-      description: 'Enter a quick piece of content to lure readers into clicking. Clickbait, basically.',
       type: 'introPortableText',
       title: 'Lead'
     },

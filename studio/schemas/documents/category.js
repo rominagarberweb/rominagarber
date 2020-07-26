@@ -9,12 +9,14 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title'
+      title: 'Title',
+      validation: Rule => Rule.required()
     },
     {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
+      validation: Rule => Rule.required(),
       options: {
         source: 'title',
         maxLength: 96

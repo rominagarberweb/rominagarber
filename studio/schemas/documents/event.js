@@ -26,17 +26,19 @@ export default {
           name: 'name',
           type: 'string',
           title: 'Name',
+          validation: Rule => Rule.required(),
           fieldset: 'overview'
         },
         {
           name: 'slug',
           type: 'slug',
           title: 'Slug',
-          fieldset: 'overview',
+          validation: Rule => Rule.required(),
           options: {
             source: 'content.name',
             maxLength: 96
-          }
+          },
+          fieldset: 'overview'
         },
         {
           name: 'bannerText',

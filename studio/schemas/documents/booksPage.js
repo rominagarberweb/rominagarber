@@ -21,7 +21,8 @@ export default {
           type: 'reference',
           to: {type: 'book'}
         }
-      ]
+      ],
+      validation: Rule => Rule.required()
     },
     {
       name: 'quickLink',

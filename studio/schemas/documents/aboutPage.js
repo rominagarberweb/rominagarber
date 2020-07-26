@@ -12,7 +12,8 @@ export default {
     {
       name: 'bio',
       type: 'bioPortableText',
-      title: 'Biography'
+      title: 'Biography',
+      validation: Rule => Rule.required()
     },
     {
       title: 'Publisher links',

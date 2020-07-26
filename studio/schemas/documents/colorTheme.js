@@ -10,22 +10,26 @@ export default {
     {
       name: 'name',
       type: 'string',
-      title: 'Name'
+      title: 'Name',
+      validation: Rule => Rule.required()
     },
     {
       title: 'Primary color',
       name: 'primary',
-      type: 'color'
+      type: 'color',
+      validation: Rule => Rule.required()
     },
     {
       title: 'Secondary color',
       name: 'secondary',
-      type: 'color'
+      type: 'color',
+      validation: Rule => Rule.required()
     },
     {
       title: 'Tertiary color',
       name: 'tertiary',
-      type: 'color'
+      type: 'color',
+      validation: Rule => Rule.required()
     }
   ],
   preview: {

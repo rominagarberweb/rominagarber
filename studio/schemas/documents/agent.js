@@ -10,17 +10,20 @@ export default {
     {
       name: 'name',
       type: 'string',
-      title: 'Name'
+      title: 'Name',
+      validation: Rule => Rule.required()
     },
     {
       name: 'agency',
       type: 'string',
-      title: 'Agency'
+      title: 'Agency',
+      validation: Rule => Rule.required()
     },
     {
       title: 'URL',
       name: 'url',
-      type: 'url'
+      type: 'url',
+      validation: Rule => Rule.required()
     }
   ]
 }

@@ -11,7 +11,8 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      description: 'Titles should be catchy, descriptive, and not too long. Written in sentance case.'
+      description: 'Titles should be catchy, descriptive, and not too long. Written in sentance case.',
+      validation: Rule => Rule.required()
     },
     {
       name: 'slug',
@@ -21,7 +22,8 @@ export default {
       options: {
         source: 'title',
         maxLength: 96
-      }
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: 'publishedAt',

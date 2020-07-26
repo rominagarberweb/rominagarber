@@ -31,17 +31,19 @@ export default {
           name: 'title',
           type: 'string',
           title: 'Title',
+          validation: Rule => Rule.required(),
           fieldset: 'general'
         },
         {
           name: 'slug',
           type: 'slug',
           title: 'Slug',
-          fieldset: 'general',
           options: {
             source: 'content.title',
             maxLength: 96
-          }
+          },
+          validation: Rule => Rule.required(),
+          fieldset: 'general'
         },
         {
           name: 'series',

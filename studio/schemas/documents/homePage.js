@@ -8,11 +8,13 @@ export default {
       name: 'heroTitle',
       type: 'string',
       title: 'Hero title',
+      validation: Rule => Rule.required()
     },
     {
       name: 'heroDescription',
       type: 'heroPortableText',
       title: 'Hero description',
+      validation: Rule => Rule.required()
     },
     {
       title: 'Color theme',
@@ -26,7 +28,8 @@ export default {
       title: 'Hero image',
       options: {
         hotspot: true,
-      }
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: 'featured',
@@ -37,7 +40,8 @@ export default {
           type: 'reference',
           to: {type: 'book'}
         }
-      ]
+      ],
+      validation: Rule => Rule.required()
     },
     {
       title: 'Priority links',
