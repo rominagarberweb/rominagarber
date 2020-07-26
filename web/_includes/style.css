@@ -293,10 +293,10 @@ h3 {
   font-weight: var(--body-semi-bold);
 }
 
-a,
+/* a,
 a:visited {
   color: var(--general-night-4);
-}
+} */
 
 figure {
   margin: 0;
@@ -400,6 +400,7 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
 .footer-nav__list .footer-nav__item a {
   padding: .4em 1.2em;
   text-decoration: none;
+  color: var(--general-night-4);
 }
 
 .primary-nav__list li a.btn {
@@ -1172,6 +1173,11 @@ p.download-link {
   margin-top: .8em;
 }
 
+p.download-link a,
+p.download-link a:visited {
+  color: var(--general-night-4);
+}
+
 span.data-label {
   font-family: var(--headings-font);
   font-variant-caps: all-small-caps;
@@ -1297,9 +1303,9 @@ ol.postlist li.postlist-item a.postlist-link img {
   }
 }
 
-ol.postlist li.postlist-item .block a.postlist-link {
+/* ol.postlist li.postlist-item .block a.postlist-link {
   text-decoration: none;
-}
+} */
 
 ol.postlist li.postlist-item .block a.postlist-link h2 {
   margin: 0;
@@ -1419,6 +1425,7 @@ li.eventlist-item-past span {
 li.eventlist-item a.eventlist-link {
   max-width:60ch;
   flex: 2;
+  color: var(--general-night-4);
 }
 li.eventlits-item time.eventlist-date {
   flex: 1;
@@ -1583,6 +1590,11 @@ div.featured-book-info h1,
 .book-data {
   grid-column: 3 / 11;
   grid-row: 3;
+}
+
+.book-data a,
+.book-data a:visited {
+  color: var(--general-night-4);
 }
 
 .book-reviews {
