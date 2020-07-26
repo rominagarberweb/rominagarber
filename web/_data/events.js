@@ -3,12 +3,19 @@ const groq = require('groq')
 const client = require('../utils/sanityClient.js')
 const serializers = require('../utils/serializers')
 const overlayDrafts = require('../utils/overlayDrafts')
+const imageUrl = require('../utils/imageUrl')
 const hasToken = !!client.config().token
 
 function generateEvent (event) {
   return {
     ...event,
-    description: BlocksToMarkdown(event.content.description, { serializers, ...client.config() })
+      description: BlocksToMarkdown(event.content.description, 
+      { serializers, ...client.config() }
+    ),
+    previewImage: imageUrl(event.content.previewImage)
+      .height(580)
+      .width(460)
+      .url(),
   }
 }
 
@@ -23,6 +30,13 @@ async function getEvents () {
           ...
         }
       },
+      previewImage,
+      "original": previewImage.asset->url,
+      publishers[]{
+        title,
+        url
+      },
+      shortDescription,
       link,
       name,
       schedule,

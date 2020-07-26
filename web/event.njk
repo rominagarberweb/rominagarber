@@ -10,4 +10,6 @@ pagination:
 permalink: events/{{ event.content.slug.current | slug }}/index.html
 renderData:
   title: "{{ event.content.name }}"
+  metaDesc: "{{ event.content.shortDescription }}"
+  socialImage: "{{ event.content.previewImage }}"
 ---

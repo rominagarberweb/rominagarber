@@ -10,4 +10,6 @@ pagination:
 permalink: posts/{{ post.slug.current | slug }}/index.html
 renderData:
   title: "{{ post.title }}"
+  metaDesc: "{{ post.excerpt }}"
+  socialImage: "{{ post.thumbImage }}"
 ---
