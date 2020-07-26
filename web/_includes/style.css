@@ -344,8 +344,20 @@ p:first-of-type {
   margin-top: .8em;
 }
 
+article h1 {
+  font-size: calc(36px + .25vw);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+blockquote {
+  border-left: 6px solid var(--general-night-2);
+}
+
 blockquote p {
   font-style: italic;
+  padding-left: 1em;
+  color: var(--general-night-3);
 }
 
 
@@ -1201,6 +1213,12 @@ article {
   grid-column: 4 / 10;
 }
 
+section.blog-post article figure img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
 section.blog-posts .more-link {
   grid-row: 2;
   grid-column: 4 / 10;
@@ -1254,8 +1272,8 @@ ol.postlist li.postlist-item a.postlist-link {
 ol.postlist li.postlist-item a.postlist-link img {
   object-fit: cover;
   margin: 0 1rem 0 0;
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 160px;
   border-radius: var(--global-br);
 }
 
