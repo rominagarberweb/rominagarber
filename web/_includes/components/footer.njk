@@ -5,9 +5,13 @@
       {% include "../components/social.njk" %}
       {# need to makee this year automatically update #}
       <p>Romina Garber &copy; <time>2020</time></p>
-      <div class="footer-newsletterform">
-        {% include "../components/newsletter-form.njk" %}
-      </div>
+
+      {% if page.url != "/newsletter/" %}
+        <div class="footer-newsletterform">
+          {% include "../components/newsletter-form.njk" %}
+        </div>
+      {% endif %}
+
     </div>
     </div>
     {% include "../components/footer-nav.njk" %}
