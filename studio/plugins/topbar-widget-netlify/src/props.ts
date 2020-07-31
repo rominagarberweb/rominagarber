@@ -20,7 +20,7 @@ export const props$ = () => {
       'Because the site is a static build, it needs to be re-deployed to see the changes when documents are published.',
     sites: [
       {
-        buildHookId: '5e42d092d533bec6b2d81d38',
+        buildHookId: '5f2451f9938d6401dcc7da45',
         title: 'Website',
         name: 'rominagarber',
         apiId: '7f1d2ebe-12b4-4386-a4a0-18fe38778bb2'
