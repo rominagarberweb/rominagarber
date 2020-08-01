@@ -22,6 +22,9 @@ templateClass: tmpl-event
   </time></p>
 
   <h1>{{ event.content.name }}</h1>
+  <figure>
+    <img src="{{ event.previewImage }}" alt="{{ event.previewImage.alt }}">
+  </figure>
   {{ event.description | markdownify | safe }}
 
   <p class="eventactions">

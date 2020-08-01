@@ -13,8 +13,8 @@ function generateEvent (event) {
       { serializers, ...client.config() }
     ),
     previewImage: imageUrl(event.content.previewImage)
-      .height(580)
-      .width(460)
+      .height(450)
+      .width(800)
       .url(),
   }
 }

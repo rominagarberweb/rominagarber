@@ -642,6 +642,10 @@ article .eventinfo {
   max-width: 80ch;
 }
 
+.eventinfo h1 {
+  margin-bottom: 1.6rem;
+}
+
 /* Add this class to an element to make it fill the width of the screen
 and sit horizontally central like this tutorial - https://codepen.io/andybelldesign/pen/vYOJjNw?editors=1100 */
 .full-bleed {
