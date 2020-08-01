@@ -305,6 +305,7 @@ figure {
 figcaption {
   font-style: italic;
   font-size: 86%;
+  margin-top: 0.6rem;
 }
 
 /* do some general stuff */
@@ -348,10 +349,12 @@ article h1 {
   font-size: calc(36px + .25vw);
   margin-top: 0;
   margin-bottom: 0;
+  line-height: 1.2;
 }
 
 blockquote {
   border-left: 6px solid var(--general-night-2);
+  margin-left: 2rem;
 }
 
 blockquote p {
@@ -428,9 +431,7 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
   background: none;
   cursor: pointer;
 }
-.primary-nav-btn:focus {
-  outline: 0;
-}
+
 .primary-nav-btn::before,
 .primary-nav-btn::after {
   content: "";
@@ -796,7 +797,7 @@ section.instagram-feed img {
    ========================================================================== */
 
 div.mc-field-group label {
-  margin-bottom: 1.4em;
+  /* margin-bottom: 1.4em; */
   color: var(--rho-cancer-3);
 }
 
@@ -902,72 +903,92 @@ a.btn--secondary:hover {
   vertical-align: middle;
 }
 
-/* dropdown button */
-.dropdown {
-  display: inline-block;
-  position: relative;
-}
-
-.dd-input {
-  display: none;
-}
-
-.dd-menu {
-  position: absolute;
-  top: 100%;
-  border: 1px solid #ccc;
-  border-radius: var(--global-br);
-  padding: .3em 0;
-  /* box-shadow: 0 0 6px 0 rgba(0,0,0,0.1); */
-  /* background-color: #ffffff; */
-  list-style-type: none;
-  z-index: 500;
-  column-count: 2;
-  transition: 0.4s;
-}
-
-.dd-input + .dd-menu {
-  display: none;
-  transition: 0.4s;
-}
-
-.dd-input:checked + .dd-menu {
-  display: block;
-  transition: 0.4s;
-}
-
-.dd-menu li {
+/* css only partially accessible dropdown button */
+.vh { 
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
   padding: .6em 1.2em;
-  font-size: calc(14px + 0.25vw);
+  overflow: hidden;
+}
+
+[data-menu-component] {
+  position: relative;
+  display: inline-block;
+}
+
+label {
+  display: inline-block;
+}
+
+[role="menu"] ul {
+  list-style: none;
+  margin: 0;
+  padding: .4em 0 .8em;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--global-br);
+  font-size: calc(14px + .25vw);
   font-family: var(--headings-font);
   font-weight: 542;
-  font-stretch: 85;
-  cursor: pointer;
-  white-space: nowrap;
+  min-width: 18ch;
 }
 
-.dd-menu li:hover {
-  background-color:transparent;
+[role="menu"] ul li {
+  padding: .2em 1.2em;
+}
+
+[role="menu"] ul li a:hover {
   opacity: 0.8;
 }
 
-.dd-menu li a {
+[type="checkbox"]:focus + [data-opens-menu], [role="menu"] a:focus {
+  outline: 3px solid #0049ca;
+  /* background: white; */
+}
+
+:checked + label .expanded-text {
+  display: inline;
+}
+
+:checked + label .collapsed-text {
+  display: none;
+}
+
+[type="checkbox"]:not(:checked) + label .expanded-text {
+  display: none;
+}
+
+[type="checkbox"]:not(:checked) + label .collapsed-text {
+  display: inline;
+}
+
+[role="menu"] {
+  position: absolute;
+  left: 0;
+  display: none;
+}
+
+:checked ~ [role="menu"] {
   display: block;
-  margin: -10px -20px;
-  padding: 10px 20px;
+}
+
+[data-menu-origin="right"] {
+  left: auto;
+  right: 0;
+}
+
+[role="menu"] a {
+  display: block;
+  min-width: 100%;
+  margin-top: 0.125rem;
+  white-space: nowrap;
   display: flex;
   justify-content: space-between;
-}
-
-.dd-menu li.divider{
-  padding: 0;
-  border-bottom: 1px solid #cccccc;
-}
-
-@media all and (max-width: 650px) {
-  .dd-menu {
-    column-count: 1;
-  }
+  align-items: center;
 }
 
 /* Style variants
@@ -1763,12 +1784,14 @@ time {
   }
   .book-synopsis {
     grid-row: 2;
+    margin-bottom: 3rem;
   }
   figure.book-reviews-figure {
     grid-row: 3;
   }
   .book-reviews {
     grid-row: 4;
+    margin-bottom: 3rem;
   }
   figure.book-press-items-figure {
     grid-row: 5;
