@@ -17,13 +17,13 @@
     {% else %}
     <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
 
-        <a href="{{ post.url | url }}" class="postlist-link" tabindex="-1">
+        {# <a href="{{ post.url | url }}" class="postlist-link" tabindex="-1">
 
         {%- if currentPost.mainImage %}
           <img src="{{ currentPost.thumbImage }}" />
         {% endif -%}
 
-        </a>
+        </a> #}
 
         <div class="block">
           <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
