@@ -1000,9 +1000,11 @@ label {
 
 .btn--hero,
 a.btn--hero {
-  border: 2px solid var(--manu-blood-1);
+  /* border: 2px solid var(--manu-blood-1); */
+  border: 2px solid white;
   border-radius: var(--global-br);
-  color: var(--manu-blood-1);
+  /* color: var(--manu-blood-1); */
+  color: white;
 }
 
 .btn--featured-book,
@@ -1069,15 +1071,33 @@ section.hero {
 }
 
 .hero-card {
-  grid-column: 8 / 13;
+  grid-column: 7 / 13;
   grid-row: 1;
   color: white;
   background-color: var(--alpha-night);
-  padding: 4rem;
+  background: rgb(32,33,34);
+  background: linear-gradient(to left,
+  rgba(32,33,34,.60) 20%,
+  rgba(32,33,34,.57) 25%,
+  rgba(32,33,34,.55) 35%,
+  rgba(32,33,34,.54) 40%,
+  rgba(32,33,34,.52) 45%,
+  rgba(32,33,34,.5) 50%,
+  rgba(32,33,34,.47) 55%,
+  rgba(32,33,34,.42) 60%,
+  rgba(32,33,34,.35) 65%,
+  rgba(32,33,34,.33) 70%,
+  rgba(32,33,34,.25) 75%,
+  rgba(32,33,34,.17) 80%,
+  rgba(32,33,34,.12) 85%,
+  rgba(32,33,34,.08) 90%,
+  rgba(32,33,34,.03) 95%,
+  rgba(32,33,34,0) 100%);
   z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0 10vw;
 }
 
 .hero-card h1 {
@@ -1125,12 +1145,31 @@ section.hero {
     grid-column: 1 / 7;
   } */
   .hero-card {
-    grid-column: 2 / 12;
+    grid-column: 1 / 13;
     border-radius: var(--global-br);
-    margin: auto;
+    /* margin: auto; */
     padding: 2rem 2rem 2.2rem;
+    justify-content: flex-end;
+    border-radius: 0;
+    background: linear-gradient(to top,
+    rgba(32,33,34,.48) 20%,
+    rgba(32,33,34,.35) 25%,
+    rgba(32,33,34,.33) 35%,
+    rgba(32,33,34,.27) 40%,
+    rgba(32,33,34,.22) 45%,
+    rgba(32,33,34,.18) 50%,
+    rgba(32,33,34,.12) 55%, 
+    rgba(32,33,34,.10) 60%,
+    rgba(32,33,34,.08) 65%,
+    rgba(32,33,34,.06) 70%,
+    rgba(32,33,34,.05) 85%,
+    rgba(32,33,34,.04) 90%,
+    rgba(32,33,34,.03) 93%,
+    rgba(32,33,34,.02) 95%,
+    rgba(32,33,34,.01) 98%,
+    rgba(32,33,34,0) 100%);
+    }
   }
-}
 
 
 
