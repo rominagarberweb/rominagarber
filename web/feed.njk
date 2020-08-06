@@ -1,0 +1,34 @@
+---
+eleventyExcludeFromCollections: true
+title: 'YA Author Romina Garber'
+subtitle: "A feed of posts from Romina's blog."
+url: 'https://rominagarber.com/'
+feedUrl: 'https://rominagarber.com/feed.xml'
+author:
+  name: 'Romina Garber'
+  email": 'romigarber@gmail.com'
+permalink: 'feed.xml'
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ title }}</title>
+  <subtitle>{{ subtitle }}</subtitle>
+  <link href="{{ feedUrl }}" rel="self"/>
+  <link href="{{ url }}"/>
+  <updated>{{ posts | rssLastUpdatedDate }}</updated>
+  <id>{{ url }}</id>
+  <author>
+    <name>{{ author.name }}</name>
+    <email>{{ author.email }}</email>
+  </author>
+  {%- for post in postsList | reverse %}
+  {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(url) }}{% endset %}
+  <entry>
+    <title>{{ currentPost.title }}</title>
+    <link href="{{ absolutePostUrl }}"/>
+    <updated>{{ post.date | rssDate }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

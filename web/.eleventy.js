@@ -2,8 +2,12 @@ const { DateTime } = require("luxon")
 const util = require('util')
 const CleanCSS = require("clean-css")
 const Image = require("@11ty/eleventy-img")
+const pluginRss = require("@11ty/eleventy-plugin-rss")
 
 module.exports = function(eleventyConfig) {
+
+  // Plugins
+  eleventyConfig.addPlugin(pluginRss)
 
   eleventyConfig.addNunjucksAsyncShortcode("responsiveImage", async function(src, alt) {
     if(alt === undefined) {
