@@ -785,6 +785,7 @@ section.instagram-feed li {
 section.instagram-feed img {
   min-height: 200px;
   min-width: 200px;
+  object-fit: cover;
 }
 
 @media all and (max-width: 650px) {
