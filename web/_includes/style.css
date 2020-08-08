@@ -1402,7 +1402,8 @@ article.events .more-link {
   grid-row: 2;
 }
 
-ol.eventlist {
+ol.eventlist,
+section.events p {
   grid-column: 4 / 10;
   list-style: none;
   display: flex;

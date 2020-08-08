@@ -5,6 +5,11 @@
 
 {% set events = eventsList | eventsExcludePast %}
 {% set eventsCount = 0 %}
+<h2 class="vh">Upcoming Events</h2>
+
+{% if eventsCount == 0 %}
+  <p>No upcoming events are scheduled right now 😕. Please check back soon!</p>
+{% endif %}
 
 <ol reversed class="eventlist" style="counter-reset: start-from {{ eventsList.length + 1 }}">
 
@@ -20,7 +25,7 @@
 
         {% if currentEvent.content.venue.shortcode %}
           {# create the colored city block #}
-          <span style="background-color: {{ currentEvent.content.venue.color }}">
+          <span aria-hidden="true" style="background-color: {{ currentEvent.content.venue.color }}">
             <h2>{{- currentEvent.content.venue.shortcode -}}</h2>
           </span>
         {% endif %}
@@ -62,7 +67,7 @@
 
 {% if showPastEvents %}
   {% set events = eventsList | eventsExcludeFuture %}
-
+  <h2 class="vh">Past Events</h2>
   <ol reversed class="eventlist" style="counter-reset: start-from {{ eventsList.length + 1 }}">
 
   {% for event in events | reverse %}
@@ -72,7 +77,7 @@
 
     {% if currentEvent.content.venue.shortcode %}
       {# create the colored city block #}
-      <span style="background-color: {{ currentEvent.content.venue.color }}">
+      <span aria-hidden="true" style="background-color: {{ currentEvent.content.venue.color }}">
         <h2>{{- currentEvent.content.venue.shortcode -}}</h2>
       </span>
     {% endif %}
