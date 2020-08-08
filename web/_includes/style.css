@@ -1446,7 +1446,8 @@ li.eventlist-item .eventlist-item__links {
 
 
 @media all and (max-width: 650px) {
-  ol.eventlist {
+  ol.eventlist,
+  section.events p {
     grid-column: 2 / 12;
   }
   li.eventlist-item {
@@ -1507,7 +1508,8 @@ ol.eventlist .eventlist-item a.btn {
 }
 
 @media all and (max-width: 800px) {
-  ol.eventlist {
+  ol.eventlist,
+  section.events p {
     grid-column: 2 / 12;
   }
   li.event-item__information {
@@ -1517,7 +1519,8 @@ ol.eventlist .eventlist-item a.btn {
 }
 
 @media all and (max-width: 650px) {
-  ol.eventlist {
+  ol.eventlist,
+  section.events p {
     grid-column: 1 / 13;
   }
   ol.eventlist time {
