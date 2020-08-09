@@ -7,9 +7,9 @@
 {% set eventsCount = 0 %}
 <h2 class="vh">Upcoming Events</h2>
 
-{% if eventsCount == 0 %}
+{# {% if eventsCount == 0 %}
   <p>No upcoming events are scheduled right now 😕. Please check back soon!</p>
-{% endif %}
+{% else %} #}
 
 <ol reversed class="eventlist" style="counter-reset: start-from {{ eventsList.length + 1 }}">
 
