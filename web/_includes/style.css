@@ -270,8 +270,10 @@ body {
   margin: 0;
   font-family: var(--body-font);
   font-weight: var(--body-light);
-  font-size: calc(16px + 0.25vw);
+  font-size: 100%;
+  font-size: calc(100% + (20 - 16) * ( (100vw - 300px) / (1400 - 300)));
   line-height: 1.5;
+  line-height: calc((1.3 * 1em) + (1.5 - 1.3) * ( (100vw - 300px) / (1400 - 300)));
   color: var(--general-night-4);
 }
 
@@ -282,14 +284,21 @@ h3 {
   font-family: 'Manuale', georgia;
   /* font-weight: 680; */
   font-weight: var(--body-extra-bold);
+  line-height: 1.1;
   /* font-stretch: 90%; */
 }
 
+h1 {
+  font-size: calc(1.5rem + 1.2vw);
+}
+
 h2 {
+  font-size: calc(1.2rem + 1.2vw);
   font-weight: var(--body-bold);
 }
 
 h3 {
+  /* font-size: calc(1.1rem + 1.2vw); */
   font-weight: var(--body-semi-bold);
 }
 
@@ -304,7 +313,7 @@ figure {
 
 figcaption {
   font-style: italic;
-  font-size: 86%;
+  font-size: calc(0.86rem + 0.25vw);
   margin-top: 0.6rem;
 }
 
@@ -346,7 +355,7 @@ p:first-of-type {
 }
 
 article h1 {
-  font-size: calc(36px + .25vw);
+  /* font-size: calc(36px + .25vw); */
   margin-top: 0;
   margin-bottom: 0;
   line-height: 1.2;
@@ -1039,6 +1048,7 @@ section.hero {
   grid-row: 1;
   /* background-image: url(../images/lobizona-star-field.jpg);  */
   background-size: cover;
+  background-color: #4f3332;
 }
 
 /* animation effects for hero bkg */
@@ -1102,7 +1112,7 @@ section.hero {
 }
 
 .hero-card h1 {
-  font-size: calc(36px + 0.25vw);
+  /* font-size: calc(36px + 0.25vw); */
   /* font-weight: 401; */
   margin: 0;
   line-height: 1.1;
@@ -1246,6 +1256,7 @@ p.download-link a:visited {
 span.data-label {
   font-family: var(--headings-font);
   font-variant-caps: all-small-caps;
+  color: var(--general-night-3);
   letter-spacing: .08em;
   font-weight: 550;
   font-stretch: 85%;
@@ -1335,7 +1346,7 @@ ol.postlist li.postlist-item:last-child {
   margin-bottom: 0;
 }
 
-ol.postlist li.postlist-item a.postlist-link {
+ol.postlist li.postlist-item a.postlist-link h3 {
   color: var(--general-night-4);
   display: flex;
 }
@@ -1372,12 +1383,15 @@ ol.postlist li.postlist-item a.postlist-link img {
   text-decoration: none;
 } */
 
-ol.postlist li.postlist-item .block a.postlist-link h2 {
-  margin: 0;
+ol.postlist li.postlist-item .block a.postlist-link h2,
+ol.postlist li.postlist-item .block a.postlist-link h3,
+.eventlist-item__data a h3 {
+  margin: .6rem 0;
 }
 
 ol.postlist li.postlist-item .block p {
   max-width: 60ch;
+  display: inline;
 }
 
 ol.postlist li.postlist-item time {

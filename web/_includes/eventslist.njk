@@ -33,7 +33,9 @@
           <div class="eventlist-item__data">
 
             <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">
-              {{- currentEvent.content.schedule.from | readableDate -}}
+              {{- currentEvent.content.schedule.from | readableDate -}} &nbsp;<div style="color: #C0C4C8; display: inline">•</div>&nbsp; 
+              {{ currentEvent.content.schedule.from | readableTime }} -
+              {{ currentEvent.content.schedule.to | readableTime -}}
             </time>
 
             {# <div class="eventlist-item__links"> #}
@@ -42,7 +44,7 @@
 
               {%- if currentEvent.content.name %}
 
-                <h3 class="mb0 mt0">{{- currentEvent.content.name -}}</h3>
+                <h3>{{- currentEvent.content.name -}}</h3>
 
               {% else %}
                 <code>

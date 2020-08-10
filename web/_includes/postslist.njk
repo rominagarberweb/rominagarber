@@ -34,13 +34,15 @@
           <a href="{{ post.url | url }}" class="postlist-link">
 
           {%- if currentPost.title %}
-            <h2>{{ currentPost.title }}</h2>
+            <h3>{{ currentPost.title }}</h3>
           {% endif -%}
 
           </a>
-
+          
           {%- if currentPost.excerpt %}
-            {{ currentPost.excerpt | markdownify | safe }}
+            
+            {{ currentPost.excerpt | markdownify | safe }}<a href="{{ post.url | url }}" class="postlist-link">read more &rarr;</a>
+          
           {% endif -%}
 
         </div>
