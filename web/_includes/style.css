@@ -862,6 +862,7 @@ div.mc-field-group label {
 div.mc-field-email {
   margin-top: .8em;
   display: flex;
+  flex-flow: row wrap;
 }
 
 div.mc-field-email input.email-field,
