@@ -415,6 +415,7 @@ figure.large-figure {
   background-color: var(--alpha-light);
   background: -webkit-linear-gradient(to top, var(--alpha-light), var(--beta-light));
   background: linear-gradient(to top, var(--alpha-light), var(--beta-light));
+  backdrop-filter: blur(8px);
 }
 
 
