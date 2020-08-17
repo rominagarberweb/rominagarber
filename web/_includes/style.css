@@ -176,6 +176,8 @@
   --alpha-night: rgba(32, 33, 34, 0.6);
   --beta-night: rgba(32, 33, 34, 0.2);
   --gamma-night: rgba(32, 33, 34, 0.1);
+  --alpha-light: rgba(255, 255, 255, 0.8);
+  --beta-light: rgba(255, 255, 255, 0.6);
 
   /* manu theme colors */
   --manu-moon-1: #FEECAF;
@@ -372,6 +374,48 @@ blockquote p {
   color: var(--general-night-3);
 }
 
+
+
+
+/* ==========================================================================
+   #CUSTOM LAYOUTS
+   * 404 & Link in Bio pages
+   ========================================================================== */
+
+.medium-card {
+  grid-column: 2 / span 6; 
+  grid-row: 2 / 3;
+  Max-width: 60ch;
+}
+
+figure.large-figure {
+  grid-column: 6 / 12;
+  grid-row: 1 / 6;
+}
+
+@media all and (max-width: 800px) {
+  .medium-card {
+    grid-column: 2 / 12;
+  }
+  figure.large-figure {
+    grid-column: 1 / 13;
+  }
+}
+
+
+
+/* ==========================================================================
+   #CARD(s)
+   ========================================================================== */
+
+.card {
+  border: 1px solid var(--general-night-3);
+  padding: 1rem 1.8rem 2.2rem;
+  border-radius: var(--global-br);
+  background-color: var(--alpha-light);
+  background: -webkit-linear-gradient(to top, var(--alpha-light), var(--beta-light));
+  background: linear-gradient(to top, var(--alpha-light), var(--beta-light));
+}
 
 
 /* ==========================================================================
@@ -638,13 +682,13 @@ footer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 1em 1em;
-  margin: 3em 1em 5em;
+  margin: 0 1em 5em;
 }
 
 footer,
 .footer {
   flex-shrink: 0;
-  margin: 3em 0 0;
+  margin: 0 0 0;
 }
 
 article .eventinfo {
@@ -1039,7 +1083,7 @@ a.btn--text-only {
 
 section.hero {
   background-color: var(--manu-blood-1);
-  min-height: 30em;
+  min-height: 30rem;
   margin: 0;
 }
 
