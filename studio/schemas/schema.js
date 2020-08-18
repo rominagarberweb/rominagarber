@@ -21,6 +21,7 @@ import press from './documents/press'
 import series from './documents/series'
 import siteSettings from './documents/siteSettings'
 import tip from './documents/tip'
+import bioLinks from './documents/bioLinks'
 
 // Object types
 import authorReference from './objects/authorReference'
@@ -64,6 +65,7 @@ export default createSchema({
     series,
     siteSettings,
     tip,
+    bioLinks,
     // Object types - can be used as { type: 'typename' }
     // in document schemas
     authorReference,

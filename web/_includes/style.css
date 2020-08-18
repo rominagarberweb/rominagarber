@@ -382,7 +382,7 @@ blockquote p {
    * 404 & Link in Bio pages
    ========================================================================== */
 
-.medium-card {
+.medium-card-wrapper {
   grid-column: 2 / span 6; 
   grid-row: 2 / 3;
   Max-width: 60ch;
@@ -394,7 +394,7 @@ figure.large-figure {
 }
 
 @media all and (max-width: 800px) {
-  .medium-card {
+  .medium-card-wrapper {
     grid-column: 2 / 12;
   }
   figure.large-figure {
