@@ -27,8 +27,8 @@ async function getBioLinks () {
     const query = [filter, projection].join(' ')
     const docs = await client.fetch(query).catch(err => console.error(err))
     const reducedDocs = overlayDrafts(hasToken, docs)
-    const prepareAboutPage = reducedDocs.map(generateAboutPage)
-    return prepareAboutPage[0]
+    const prepareBioLinks = reducedDocs.map(generateBioLinks)
+    return prepareBioLinks[0]
 }
 
 module.exports = getBioLinks
