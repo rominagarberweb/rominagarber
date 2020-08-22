@@ -2,7 +2,9 @@
   <div class="footer-content">
   <div class="footer-column">
     <div>
-      {% include "../components/social.njk" %}
+      {% if page.url != "/biolinks/" %}
+        {% include "../components/social.njk" %}
+      {% endif %}
       {# need to makee this year automatically update #}
       <p>Romina Garber &copy; <time>2020</time></p>
 

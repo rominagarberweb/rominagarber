@@ -178,6 +178,7 @@
   --gamma-night: rgba(32, 33, 34, 0.1);
   --alpha-light: rgba(255, 255, 255, 0.8);
   --beta-light: rgba(255, 255, 255, 0.6);
+  --gamma-light :rgba(255, 255, 255, 0.4);
 
   /* manu theme colors */
   --manu-moon-1: #FEECAF;
@@ -381,6 +382,72 @@ blockquote p {
    #CUSTOM LAYOUTS
    * 404 & Link in Bio pages
    ========================================================================== */
+
+section.biolinks {
+  background-color: var(--rho-aquarius-1);
+  background: -webkit-linear-gradient(to bottom, var(--rho-aquarius-1), var(--rho-aquarius-2));
+  background: linear-gradient(to bottom, var(--rho-aquarius-1), var(--rho-cancer-1));
+  margin: 0;
+  padding: 3rem 0 6rem;
+}
+
+section.biolinks figure {
+  grid-column: 1 / 13;
+  justify-self: center;
+}
+
+section.biolinks figure img,
+section.biolinks figure figcaption {
+  border-radius: 100%;
+  max-width: 150px;
+  text-align: center;
+}
+
+section.biolinks ol.social-icons {
+  grid-column: 1 / 13;
+  justify-self: center;
+}
+
+.large-card-wrapper {
+  grid-column: 3 / 11;
+}
+
+.large-card-wrapper .card:hover {
+  background-color: var(--alpha-light);
+  background: -webkit-linear-gradient(to top, var(--beta-light), var(--gamma-light));
+  background: linear-gradient(to top, var(--beta-light), var(--gamma-light));
+}
+
+@media all and (max-width: 800px) {
+  .large-card-wrapper {
+    grid-column: 2 / 12;
+    padding: 1rem;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .large-card-wrapper {
+    grid-column: 1 / 13;
+  }
+}
+
+.large-card-wrapper .card {
+ padding: 1rem 1.8rem;
+ margin-bottom: .6rem;
+}
+
+.large-card-wrapper ol {
+  padding-left: 0;
+}
+
+.large-card-wrapper ol li {
+  list-style: none;
+}
+
+.large-card-wrapper ol li a,
+.large-card-wrapper ol li a:visited {
+  color: var(--general-night-4);
+}
 
 .medium-card-wrapper {
   grid-column: 2 / span 6; 
@@ -674,7 +741,7 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
    ========================================================================== */
 
 .main {
-  margin-bottom: 3em;
+  /* margin-bottom: 3em; */
   flex: 1 0 auto;
 }
 
@@ -726,35 +793,40 @@ footer .footer-content {
   padding: 2em 0;
 }
 
-footer .footer-content div ol.social-icons {
+footer .footer-content div ol.social-icons,
+section.biolinks ol.social-icons {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
 
-footer .footer-content div ol.social-icons li {
+footer .footer-content div ol.social-icons li,
+section.biolinks ol.social-icons li {
   margin-right: .8em;
   align-self: center;
 }
 
-footer .footer-content div ol.social-icons li a svg.social-icon {
+footer .footer-content div ol.social-icons li a svg.social-icon,
+li a svg.social-icon {
   fill: var(--rho-cancer-3);
   height: 24px;
 }
 
 footer .footer-content div ol.social-icons li a svg.twitter,
-svg.twitter {
+li a svg.twitter {
   fill: #76A9EA;
 }
 
-footer .footer-content div ol.social-icons li a svg.facebook {
+footer .footer-content div ol.social-icons li a svg.facebook,
+li a svg.facebook {
   fill: #475993;
   fill: #475993;
   enable-background:new 0 0 408.788 408.788;
 }
 
-footer .footer-content div ol.social-icons li a svg.instagram {
+footer .footer-content div ol.social-icons li a svg.instagram,
+li a svg.instagram {
   enable-background:new 0 0 551.034 551.034;
   background: #f09433;
   background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
@@ -763,7 +835,8 @@ footer .footer-content div ol.social-icons li a svg.instagram {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
 }
 
-footer .footer-content div ol.social-icons li a svg.social-icon:hover {
+footer .footer-content div ol.social-icons li a svg.social-icon:hover,
+li a svg.social-icon:hover {
   opacity: 0.8;
 }
 

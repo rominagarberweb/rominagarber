@@ -1,0 +1,45 @@
+---
+title: Link in bio
+layout: layouts/base.njk
+---
+
+<section class="biolinks">
+
+<h1 class="visually-hidden">{{ title }}</h1>
+
+{%- if bioLinks.image %}
+<figure>
+    <img src="{{ bioLinks.image }}" alt="{{ aboutPage.mainImage.alt }}">
+    <figcaption>{{ aboutPage.mainImage.caption }}</figcaption>
+</figure>
+{% endif -%}
+
+<div class="large-card-wrapper">
+
+{% if bioLinks.content.links %}
+
+<ol>
+    {% set linkCount = 0 %}
+      {% for link in bioLinks.content.links %}
+        {% if linkCount < 8 %} {# limit number of links shown #}
+    <li>
+        <a href="{{ link.url | url }}">
+            <div class="card">
+                <p class="mt0 mb0">{{ link.title }}</p>
+            </div>
+        </a></li>
+
+        {% set linkCount = linkCount + 1 %}
+        {% endif %}
+      {% endfor %}
+
+</ol>
+
+{% endif %}
+
+</div>
+
+{% include "../components/social.njk" %}
+
+
+</section>
