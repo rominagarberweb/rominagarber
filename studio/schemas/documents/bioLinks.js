@@ -12,9 +12,9 @@ export default {
         description: 'Add a photo that matches social profile image',
       },
       {
-        title: 'Links',
+        title: 'Bio links',
         description: 'These items populate a vertical list of cards that serve as a social media profile link in bio page',
-        name: 'links',
+        name: 'bioLinks',
         type: 'array',
         of: [
           {

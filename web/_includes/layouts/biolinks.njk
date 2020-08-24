@@ -7,10 +7,10 @@ layout: layouts/base.njk
 
 <h1 class="visually-hidden">{{ title }}</h1>
 
-{%- if bioLinks.image %}
+{%- if bioLinks.mainImage %}
 <figure>
-    <img src="{{ bioLinks.image }}" alt="{{ aboutPage.mainImage.alt }}">
-    <figcaption>{{ aboutPage.mainImage.caption }}</figcaption>
+    <img src="{{ bioLinks.mainImage }}" alt="{{ bioLinks.mainImage.alt }}">
+    <figcaption>{{ bioLinks.mainImage.caption }}</figcaption>
 </figure>
 {% endif -%}
 
@@ -23,7 +23,7 @@ layout: layouts/base.njk
       {% for link in bioLinks.content.links %}
         {% if linkCount < 8 %} {# limit number of links shown #}
     <li>
-        <a href="{{ link.url | url }}">
+        <a href="{{ link.url | url }}" target="_blank" rel="noopener nofollow">
             <div class="card">
                 <p class="mt0 mb0">{{ link.title }}</p>
             </div>
