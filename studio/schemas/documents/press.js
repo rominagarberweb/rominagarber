@@ -7,9 +7,16 @@ export default {
   icon: FaRegNewspaper,
   fields: [
     {
+      name: 'source',
+      type: 'string',
+      title: 'Source',
+      description: 'Add name of the outlet or publication'
+    },
+    {
       name: 'title',
       type: 'string',
-      title: 'Title'
+      title: 'Title',
+      description: 'Match the headline of the story. Will also be hyperlinked'
     },
     {
       name: 'slug',
@@ -23,7 +30,8 @@ export default {
     {
       name: 'lead',
       type: 'introPortableText',
-      title: 'Lead'
+      title: 'Lead',
+      description: 'Describe the jist of the press item'
     },
     {
       title: 'URL of publication',
@@ -38,7 +46,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title'
+      title: 'title',
+      subtitle: 'source'
     }
   }
 }

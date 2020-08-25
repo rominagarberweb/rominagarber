@@ -222,7 +222,13 @@ templateClass: tmpl-book
         {% for pressItem in book.content.pressItems %}
 
           <li>
-            <a href="{{ pressItem.url }}" target="_blank" rel="noopener">{{ pressItem.title }}</a>
+            {% if pressItem.source %}
+              <strong>{{ pressItem.source }}</strong> - 
+            {% endif %}
+              <a href="{{ pressItem.url }}" target="_blank" rel="noopener">{{ pressItem.title }}</a> - 
+            {# {% if pressItem.lead %}
+              <span>{{ pressItem.lead.content | markdownify | safe }}</span>
+            {% endif %} #}
             <time>{{ pressItem.publishedAt | readableDate }}</time>
           </li>
 
