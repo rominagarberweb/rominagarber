@@ -4016,10 +4016,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-typeface-manuale@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.npmjs.org/typeface-manuale/-/typeface-manuale-1.1.4.tgz#bb9d364999719b784e7b87122dedcc81538d3b90"
-
 uglify-js@^3.1.4:
   version "3.8.1"
   resolved "https://registry.npmjs.org/uglify-js/-/uglify-js-3.8.1.tgz#43bb15ce6f545eaa0a64c49fd29375ea09fa0f93"
