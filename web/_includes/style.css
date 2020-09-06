@@ -1835,21 +1835,23 @@ figure.book-press-items-figure {
 }
 
 .book-press-items ul li {
-  margin-bottom: .4rem;
+  margin-bottom: .8rem;
 }
 
 .book-press-items ul li time {
   color: var(--general-night-3);
   font-variant-caps: all-small-caps;
+  font-size: 100%;
+  font-size: calc(100% + (20 - 16) * ( (100vw - 300px) / (1400 - 300)));
 }
 
 time {
   font-variant-numeric: oldstyle-nums;
 }
 
-.book-press-items ul li time:before {
+/* .book-press-items ul li time:before {
   content: " - ";
-}
+} */
 
 .book-reviews p {
   margin-top: 1.8em;
