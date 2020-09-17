@@ -1422,6 +1422,7 @@ section.blog-post {
   margin: 0;
 }
 
+/* this is under review, might be cooler things to do here */
 section.bkg-gradient {
   background: rgb(113,172,211);
   background: linear-gradient(380deg, 
