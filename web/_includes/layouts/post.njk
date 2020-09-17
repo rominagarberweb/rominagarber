@@ -22,7 +22,7 @@ templateClass: tmpl-post
 
 <section class="blog-posts">
   <article>
-  <h2>More Posts</h2>
+  <h2 class="visually-hidden">More Posts</h2>
   {% set postsList = collections.myPosts %}
   {% set postsLimit = 3 %} {# limit number of posts shown #}
   {% include "postslist.njk" %}

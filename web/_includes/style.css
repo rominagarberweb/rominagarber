@@ -485,6 +485,13 @@ figure.large-figure {
   backdrop-filter: blur(8px);
 }
 
+a:hover .card,
+a:active .card {
+  background-color: var(--beta-light);
+  background: -webkit-linear-gradient(to top, var(--beta-light), var(--gamma-light));
+  background: linear-gradient(to top, var(--beta-light), var(--gamma-light));
+}
+
 
 /* ==========================================================================
    #HEADER
@@ -885,6 +892,7 @@ footer .footer-content nav.footer-nav ul.footer-nav__list li {
    ========================================================================== */
 
 section.instagram-feed {
+  margin-top: 3rem;
 }
 
 section.instagram-feed ol {
@@ -1404,10 +1412,27 @@ section.series-data span.data-label {
    #BLOG POSTS
    ========================================================================== */
 
-section.blog-posts,
+section.blog-posts {
+  padding: 4rem 0 5rem;
+  margin: 0 0 5rem;
+} 
+
 section.blog-post {
-  /* display: grid;
-  grid-template-columns: repeat(12, 1fr); */
+  padding: 4rem 0 0;
+  margin: 0;
+}
+
+section.bkg-gradient {
+  background: rgb(113,172,211);
+  background: linear-gradient(380deg, 
+  var(--rho-cancer-2) 0%,
+  var(--rho-cancer-2) 15%,
+  var(--rho-aquarius-2) 15%,
+  var(--rho-aquarius-2) 34%,
+  var(--rho-aquarius-2) 60%,
+  var(--manu-blood-2) 60%,
+  var(--rho-ophiuchus-2) 100%
+  );
 }
 
 article {
@@ -1453,6 +1478,9 @@ ol.postlist {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
 }
 
 ol.postlist li.postlist-item {
@@ -1478,7 +1506,31 @@ ol.postlist li.postlist-item a.postlist-link img {
   border-radius: var(--global-br);
 }
 
-@media all and (max-width: 800px) {
+ol.postlist a {
+  text-decoration: none;
+}
+
+ol.postlist a div.card {
+  height: 100%;
+}
+
+ol.postlist a div.card li p,
+ol.postlist a div.card li time {
+  color: var(--general-night-4);
+}
+
+ol.postlist a div.card li div.block span.read-more,
+ol.postlist a div.card li div.block h3 {
+  text-decoration: underline;
+}
+
+@media all and (max-width: 1300px) {
+  ol.postlist {
+    grid-column: 3 / 11;
+  }
+}
+
+@media all and (max-width: 1000px) {
   ol.postlist {
     grid-column: 2 / 12;
   }
@@ -1487,6 +1539,8 @@ ol.postlist li.postlist-item a.postlist-link img {
 @media all and (max-width: 650px) {
   ol.postlist {
     grid-column: 1 / 13;
+    grid-template-columns: 1fr;
+    margin: 0 1rem;
   }
   ol.postlist li.postlist-item {
     flex-direction: column;
