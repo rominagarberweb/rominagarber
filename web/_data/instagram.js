@@ -9,7 +9,7 @@ const params = {
 
 async function getInstagramPosts ({ access_token, business_id, username, max_posts }) {
   return axios
-    .get(`https://graph.facebook.com/v3.1/${business_id}/media?fields=media_url,thumbnail_url,caption,media_type,like_count,shortcode,timestamp,comments_count,username&limit=${max_posts}&access_token=${access_token}`)
+    .get(`https://graph.facebook.com/v8.0/${business_id}/media?fields=media_url,thumbnail_url,caption,media_type,like_count,shortcode,timestamp,comments_count,username&limit=${max_posts}&access_token=${access_token}`)
     .then(async (response) => {
       const posts = []
       posts.push(...response.data.data)

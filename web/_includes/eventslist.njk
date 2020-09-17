@@ -7,64 +7,65 @@
 {% set eventsCount = 0 %}
 <h2 class="vh">Upcoming Events</h2>
 
-{# {% if eventsCount == 0 %}
+{% if events.length == 0 %}
   <p>No upcoming events are scheduled right now 😕. Please check back soon!</p>
-{% else %} #}
+{% else %}
 
-<ol reversed class="eventlist" style="counter-reset: start-from {{ eventsList.length + 1 }}">
+  <ol reversed class="eventlist" style="counter-reset: start-from {{ eventsList.length + 1 }}">
 
-{% for event in events %}
-  {% if eventsCount < eventsLimit %}
-    {% set currentEvent = event.data.event %}
+  {% for event in events %}
+    {% if eventsCount < eventsLimit %}
+      {% set currentEvent = event.data.event %}
 
-    {% if currentEvent.content.slug.current in page.url %}
-      {% set eventsLimit = eventsLimit + 1 %}
-    {% else %}
+      {% if currentEvent.content.slug.current in page.url %}
+        {% set eventsLimit = eventsLimit + 1 %}
+      {% else %}
 
-        <li class="eventlist-item"> 
+          <li class="eventlist-item">
 
-        {% if currentEvent.content.venue.shortcode %}
-          {# create the colored city block #}
-          <span aria-hidden="true" style="background-color: {{ currentEvent.content.venue.color }}">
-            <h2>{{- currentEvent.content.venue.shortcode -}}</h2>
-          </span>
-        {% endif %}
+          {% if currentEvent.content.venue.shortcode %}
+            {# create the colored city block #}
+            <span aria-hidden="true" style="background-color: {{ currentEvent.content.venue.color }}">
+              <h2>{{- currentEvent.content.venue.shortcode -}}</h2>
+            </span>
+          {% endif %}
 
-          <div class="eventlist-item__data">
+            <div class="eventlist-item__data">
 
-            <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">
-              {{- currentEvent.content.schedule.from | readableDate -}} &nbsp;<div style="color: #C0C4C8; display: inline">•</div>&nbsp; 
-              {{ currentEvent.content.schedule.from | readableTime }}
-            </time>
+              <time class="eventlist-date" datetime="{{ currentEvent.content.schedule.from }}">
+                {{- currentEvent.content.schedule.from | readableDate -}} &nbsp;<div style="color: #C0C4C8; display: inline">•</div>&nbsp;
+                {{ currentEvent.content.schedule.from | readableTime }}
+              </time>
 
-            {# <div class="eventlist-item__links"> #}
+              {# <div class="eventlist-item__links"> #}
 
-              <a href="{{ event.url | url }}" class="eventlist-link">
+                <a href="{{ event.url | url }}" class="eventlist-link">
 
-              {%- if currentEvent.content.name %}
+                {%- if currentEvent.content.name %}
 
-                <h3>{{- currentEvent.content.name -}}</h3>
+                  <h3>{{- currentEvent.content.name -}}</h3>
 
-              {% else %}
-                <code>
-                  {{- event.url -}}
-                </code>
-              {% endif -%}
+                {% else %}
+                  <code>
+                    {{- event.url -}}
+                  </code>
+                {% endif -%}
 
-              </a>
+                </a>
 
-            {# </div> #}
-          </div>
+              {# </div> #}
+            </div>
 
-        </li>
+          </li>
 
+      {% endif %}
     {% endif %}
-  {% endif %}
 
-  {% set eventsCount = eventsCount + 1 %}
-{% endfor %}
+    {% set eventsCount = eventsCount + 1 %}
+  {% endfor %}
 
-</ol>
+  </ol>
+{% endif %}
 
 {% if showPastEvents %}
   {% set events = eventsList | eventsExcludeFuture %}
