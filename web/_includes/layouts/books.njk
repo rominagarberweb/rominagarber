@@ -3,7 +3,25 @@ layout: layouts/base.njk
 templateClass: tmpl-books
 ---
 
+<h1 class="s-visually-hidden">Books</h1>
+
 <section class="books">
-  <h1>{{ booksPage.genre }}</h1>
+  <h2>{{ booksPage.genre }}</h2>
   {{ content | safe }}
+</section>
+
+<section class="series">
+  <h2>Series</h2>
+    <div class="series-cards">
+      <a href="#" rel="noopener nofollow" class="series-card">
+        <img src="https://via.placeholder.com/600x450/" >
+        <h3>Zodiac</h3>
+        <p>This is a short description of the series with a fake link to <span class="fake-link">more info →</span></p>
+      </a>
+      <a href="#" rel="noopener nofollow" class="series-card">
+        <img src="https://via.placeholder.com/600x450/" >
+        <h3>Wolves of No World</h3>
+        <p>This is a short description of the series with a fake link to <span class="fake-link">more info →</span></p>
+      </a>
+    </div>
 </section>

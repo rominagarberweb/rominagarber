@@ -2104,26 +2104,78 @@ time {
 /* Book list(s)
    ========================================================================== */
 
-section.books {
+section.books,
+section.series {
   display: grid;
-  /* grid-template-columns: repeat(12, 1fr); */
 }
 
-ol.booklist,
-section.books h1 {
+/* ol.booklist,
+section.books h2,
+section.series h2 {
   grid-column: 3 / 11;
-}
-section.books h1 {
+} */
+
+section.books h2,
+section.series h2 {
   justify-self: center;
+  grid-column: 1 / 13;
 }
 
 ol.booklist,
 div.books-international ol {
   display: grid;
+  grid-column: 3 / 11;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   list-style: none;
   grid-gap: 1.5em 1em;
   padding: 0;
+}
+
+ol.booklist a:hover,
+ol.booklist a:active {
+  opacity: 0.8;
+}
+
+div.series-cards {
+  grid-column: 3 / 11;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+}
+
+div.series-cards a.series-card:hover,
+div.series-cards a.series-card:active {
+  opacity: 0.8;
+}
+
+div.series-cards a.series-card h3,
+div.series-cards a.series-card p {
+  color: var(--general-night-4);
+}
+
+div.series-cards a.series-card {
+  text-decoration: none;
+}
+div.series-cards a.series-card p span.fake-link {
+  text-decoration: underline;
+  color: initial;
+}
+
+@media all and (max-width: 800px) {
+  ol.booklist,
+  div.series-cards {
+    grid-column: 2 / 12;
+  }
+}
+
+@media all and (max-width: 650px) {
+  ol.booklist {
+    grid-column: 1 / 13;
+  }
+  div.series-cards {
+    grid-column: 1 / 13;
+    grid-template-columns: 1fr;
+  }
 }
 
 
@@ -2143,7 +2195,7 @@ section.series-data > * {
 
 @media all and (max-width: 800px) {
   section.books {
-    display: block;
+    /* display: block; */
   }
   section.series-hero figure,
   section.series-data > * {
