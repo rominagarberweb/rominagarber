@@ -16,6 +16,11 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'bioSpanish',
+      type: 'bioPortableText',
+      title: 'Biografía Español'
+    },
+    {
       title: 'Publisher links',
       name: 'publishers',
       type: 'array',
