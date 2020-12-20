@@ -103,7 +103,7 @@ socialImage: images/lobizona-preview.jpg
 
       {# (pre-)order and GR TBR links go here #}
       <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary  }}; color: {{ themeColorTertiary  }};" href="https://www.goodreads.com/book/show/51179882-lobizona" target="_blank" rel="noopener nofollow">Add to Goodreads TBR</a>
-      <a class="btn btn--featured-book btn--text-only" style="color: {{ themeColorTertiary  }};" href="/books/{{ book.content.slug.current | url }}/" rel="noopener">More Info</a>
+      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary  }}; color: {{ themeColorTertiary  }};" href="/books/{{ book.content.slug.current | url }}/" rel="noopener">More Info</a>
 
     </div>
 
@@ -156,16 +156,17 @@ socialImage: images/lobizona-preview.jpg
 {% endif %}
 
 <section class="blog-posts bkg-gradient">
+  
   {% set postsList = collections.myPosts %}
   {% set postsLimit = 2 %} {# limit number of posts shown #}
   {% include "postslist.njk" %}
 
-    <p class="more-link"><a class="btn btn--secondary" href="{{ '/blog/' | url }}">More blog posts 🖋️
-      {# <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <p class="more-link"><a class="btn btn--posts" href="{{ '/blog/' | url }}">More blog posts 
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M20.24 12.24C21.3658 11.1142 21.9983 9.58722 21.9983 7.99504C21.9983 6.40285 21.3658 4.87588 20.24 3.75004C19.1142 2.62419 17.5872 1.9917 15.995 1.9917C14.4028 1.9917 12.8758 2.62419 11.75 3.75004L5 10.5V19H13.5L20.24 12.24Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M16 8L2 22" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M17.5 15H9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>#}
+      <path d="M16 8L2 22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M17.5 15H9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
       </a>
     </p>
 
