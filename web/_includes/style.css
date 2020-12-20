@@ -1038,9 +1038,9 @@ a.btn--primary {
 .btn--secondary,
 a.btn--secondary {
   background-color: none;
-  border: 2px solid var(--general-night-1);
+  border: 2px solid var(--general-night-3);
   border-radius: var(--global-br);
-  color: var(--general-night-4);
+  color: var(--general-night-3);
 }
 
 .btn--posts,
@@ -1507,6 +1507,10 @@ section.blog-posts .more-link {
   grid-column: 4 / 10;
 }
 
+.more-link svg {
+  stroke: var(--general-night-3);
+}
+
 /* article {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -1531,7 +1535,7 @@ section.blog-posts .more-link {
 }
 
 ol.postlist {
-  grid-column: 4 / 10;
+  grid-column: 3 / 11;
   list-style: none;
   margin-left: 0;
   padding-left: 0;
@@ -1587,7 +1591,7 @@ ol.postlist a div.card li div.block h3 {
 
 @media all and (max-width: 1300px) {
   ol.postlist {
-    grid-column: 3 / 11;
+    grid-column: 2 / 12;
   }
 }
 
