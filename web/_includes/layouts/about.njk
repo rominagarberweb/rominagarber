@@ -22,7 +22,14 @@ templateClass: tmpl-about
 
   <div>
 
- <span class="all-small-caps">Romina Garber</span> {{ aboutPage.bio | markdownify | safe }}
+    <span class="all-small-caps">Romina Garber</span> 
+ 
+    {{ aboutPage.bio | markdownify | safe }}
+
+  </div>
+  </div>
+
+    {{ aboutPage.bioSpanish | markdownify | safe }}
 
   </div>
 

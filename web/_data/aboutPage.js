@@ -30,6 +30,12 @@ async function getAboutPage () {
         ...
       }
     },
+    bioSpanish[]{
+      ...,
+      children[]{
+        ...
+      }
+    },
     mainImage,
     "original": mainImage.asset->url,
     publishers[]{
