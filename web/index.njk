@@ -23,10 +23,11 @@ socialImage: images/lobizona-preview.jpg
         height="600">
     </picture> #}
     <picture>
+      <source type="image/avif" srcset="images/lobizona-hero-xl.avif">
       <source srcset="images/lobizona-hero-lg.jpg, images/lobizona-hero-xl.jpg 2x" media="(min-width: 1800px)">
       <source srcset="images/lobizona-hero-md.jpg, images/lobizona-hero-lg.jpg 2x" media="(min-width: 1200px)">
       <source srcset="images/lobizona-hero-md.jpg">
-      <img srcset="images/lobizona-hero-sm.jpg" alt="A girl with star eyes surounded by natural elements">
+      <img src="images/lobizona-hero-sm.jpg" alt="A girl with star eyes surounded by natural elements">
     </picture>
   </div>
   <div class="hero-overlay">
@@ -78,7 +79,7 @@ socialImage: images/lobizona-preview.jpg
 
     {%- if book.cover %}
       <figure>
-        <img src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
+        <img loading="lazy" src="{{ book.cover }}" alt="{{ book.content.content.cover.alt }}" />
         <figcaption>{{ book.content.cover.caption }}</figcaption>
         {# this download link is broken on the homepage right now, works fine on book pages #}
         {# <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }};">Download:</span> <a href="{{ book.content.original }}?dl=book-cover.jpg" download="{{ book.content.cover.alt }}" rel="noopener">Large&nbsp;cover&nbsp;image

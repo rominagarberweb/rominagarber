@@ -24,7 +24,7 @@
           <a href="/books/{{ currentBook.content.slug.current | slug }}/" title="{{ currentBook.content.title }}" class="booklist-link">
 
           {%- if currentBook.cover %}
-            <img src="{{ currentBook.cover }}" alt="{{ currentBook.content.cover.alt }}" />
+            <img loading="lazy" src="{{ currentBook.cover }}" alt="{{ currentBook.content.cover.alt }}" />
           {% endif -%}
 
           </a>
