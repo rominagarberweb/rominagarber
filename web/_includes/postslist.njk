@@ -28,11 +28,14 @@
         </a> #}
 
         <div class="block">
-          <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
+          <div class="flex-row-data">
+            <div class="data-label">Post</div>
+            <time class="postlist-date data-label" datetime="{{ currentPost.publishedAt }}">
 
-            {{- currentPost.publishedAt | readableDate -}}
+              {{- currentPost.publishedAt | readableDate -}}
 
-          </time>
+            </time>
+          </div>
           {# <a href="{{ post.url | url }}" class="postlist-link"> #}
 
           {%- if currentPost.title %}
@@ -44,9 +47,8 @@
           {%- if currentPost.excerpt %}
             
             {{ currentPost.excerpt | markdownify | safe }}
-            {# <a href="{{ post.url | url }}" class="postlist-link"> #}
-              <span class="read-more">read more</span> &rarr;
-              {# </a> #}
+
+            <div class="read-more">Read more &rarr;</div>
           
           {% endif -%}
           

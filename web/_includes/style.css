@@ -210,7 +210,7 @@
 
   /* Font families */
   --body-font: 'Manuale', georgia;
-  --headings-font: 'IBM Plex Sans Var Regular', sans-serif;
+  --utility-font: 'IBM Plex Sans Var Regular', sans-serif;
 
   /* font weights */
   --body-light: 300;
@@ -221,7 +221,8 @@
   --body-extra-bold: 800;
 
   /* overall layout  */
-  --global-br: 18px;
+  --large-br: 18px;
+  --small-br: 8px;
   --g-margin-top: 4em;
 }
 
@@ -283,12 +284,9 @@ body {
 h1,
 h2,
 h3 {
-  /* font-family: var(--headings-font); */
   font-family: 'Manuale', georgia;
-  /* font-weight: 680; */
   font-weight: var(--body-extra-bold);
   line-height: 1.1;
-  /* font-stretch: 90%; */
 }
 
 h1 {
@@ -476,20 +474,33 @@ figure.large-figure {
    ========================================================================== */
 
 .card {
-  border: 1px solid var(--general-night-3);
+  border: 1px solid var(--general-night-2);
   padding: 2rem 2rem 3rem;
-  border-radius: var(--global-br);
+  border-radius: var(--small-br);
   background-color: var(--alpha-light);
   background: -webkit-linear-gradient(to top, var(--alpha-light), var(--beta-light));
   background: linear-gradient(to top, var(--alpha-light), var(--beta-light));
-  backdrop-filter: blur(8px);
+  /* backdrop-filter: blur(8px); */
 }
 
-a:hover .card,
+a:hover .card {
+  border: 1px solid var(--general-night-3);
+}
+
 a:active .card {
-  background-color: var(--beta-light);
-  background: -webkit-linear-gradient(to top, var(--beta-light), var(--gamma-light));
-  background: linear-gradient(to top, var(--beta-light), var(--gamma-light));
+  border: 1px solid var(--general-night-2);
+}
+
+
+.flex-row-data {
+  display:flex;
+  justify-content:space-between;
+  font-family: var(--utility-font);
+  color: var(--general-night-3);
+}
+
+.card-data-label {
+  text-transform: uppercase;
 }
 
 
@@ -512,7 +523,6 @@ nav.primary-nav, nav.footer-nav {
   grid-column: 3 / 12;
   overflow: visible;
   position: relative;
-  /* font-family: var(--headings-font); */
   font-family: var(--body-font);
   font-weight: 430;
   font-stretch: 90%;
@@ -647,7 +657,7 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
 
 @supports (font-variation-settings: normal) {
   .primary-nav-mobile li.nav-button a {
-    font-family: var(--headings-font);
+    font-family: var(--utility-font);
     font-weight: 430;
     font-stretch: 90%;
   }
@@ -964,13 +974,13 @@ div.mc-field-email input.button {
 }
 
 div.mc-field-email input.email-field {
-  border-top-left-radius: var(--global-br);
-  border-bottom-left-radius: var(--global-br);
+  border-top-left-radius: var(--large-br);
+  border-bottom-left-radius: var(--large-br);
 }
 
 div.mc-field-email input.button {
-  border-top-right-radius: var(--global-br);
-  border-bottom-right-radius: var(--global-br);
+  border-top-right-radius: var(--large-br);
+  border-bottom-right-radius: var(--large-br);
   background-color: transparent;
   color: var(--rho-cancer-3);
   cursor: pointer;
@@ -1015,7 +1025,7 @@ a.btn:active {
   .btn,
   a.btn,
   a.btn:active {
-    font-family: var(--headings-font);
+    font-family: var(--utility-font);
     font-weight: 542;
     font-stretch: 85;
   }
@@ -1031,7 +1041,7 @@ a.btn--primary {
   background-color: none;
   border-color: var(--general-night-3);
   border: 2px solid var(--general-night-1);
-  border-radius: var(--global-br);
+  border-radius: var(--large-br);
   color: var(--general-night-3);
 }
 
@@ -1039,15 +1049,15 @@ a.btn--primary {
 a.btn--secondary {
   background-color: none;
   border: 2px solid var(--general-night-3);
-  border-radius: var(--global-br);
+  border-radius: var(--large-br);
   color: var(--general-night-3);
 }
 
 .btn--posts,
 a.btn-posts {
-  border: 2px solid var(--manu-earth-3);
-  color: var(--manu-earth-3);
-  border-radius: var(--global-br);
+  border: 2px solid var(--rho-cancer-3);
+  color: var(--rho-cancer-3);
+  border-radius: var(--large-br);
 }
 
 /* a.btn--secondary svg, */
@@ -1097,7 +1107,7 @@ label {
   padding: .4em 0 .8em;
   display: flex;
   flex-direction: column;
-  border-radius: var(--global-br);
+  border-radius: var(--large-br);
   font-size: calc(14px + .25vw);
   font-family: sans-serif;
   font-weight: 500;
@@ -1106,7 +1116,7 @@ label {
 
 @supports (font-variation-settings: normal) {
   [role="menu"] ul {
-    font-family: var(--headings-font);
+    font-family: var(--utility-font);
     font-weight: 542;
   }
 }
@@ -1172,7 +1182,7 @@ label {
 a.btn--hero {
   /* border: 2px solid var(--manu-blood-1); */
   border: 2px solid white;
-  border-radius: var(--global-br);
+  border-radius: var(--large-br);
   /* color: var(--manu-blood-1); */
   color: white;
 }
@@ -1181,7 +1191,7 @@ a.btn--hero {
 a.btn--featured-book {
   color: var(--manu-moon-3);
   border: 2px solid var(--manu-moon-3);
-  border-radius: var(--global-br);
+  border-radius: var(--large-br);
   margin: 0 .6em .4em 0;
 }
 
@@ -1317,7 +1327,7 @@ section.hero {
   } */
   .hero-card {
     grid-column: 1 / 13;
-    border-radius: var(--global-br);
+    border-radius: var(--large-br);
     /* margin: auto; */
     padding: 2rem 2rem 2.2rem;
     justify-content: flex-end;
@@ -1388,7 +1398,7 @@ span.all-small-caps {
 
 @supports (font-variation-settings: normal) {
   span.all-small-caps {
-    font-family: var(--headings-font);
+    font-family: var(--utility-font);
     font-weight: 1000;
   }
 }
@@ -1424,18 +1434,21 @@ p.download-link a:visited {
   color: var(--general-night-4);
 }
 
-span.data-label {
+span.data-label,
+.data-label {
   font-family: sans-serif;
   font-weight: 500;
-  font-variant-caps: all-small-caps;
+  font-variant-caps: small-caps;
   color: var(--general-night-3);
   letter-spacing: .08em;
-  
+  text-transform: uppercase;
+  font-size: smaller;
 }
 
 @supports (font-variation-settings: normal) {
-  span.data-label {
-    font-family: var(--headings-font);
+  span.data-label,
+  .data-label {
+    font-family: var(--utility-font);
     font-weight: 550;
     font-stretch: 85%;
   }
@@ -1480,8 +1493,8 @@ section.blog-post {
 
 /* this is under review, might be cooler things to do here */
 section.bkg-gradient {
-  background: var(--manu-earth-1);
-  /* background: linear-gradient(380deg, 
+  /* background: var(--manu-earth-1);
+  background: linear-gradient(380deg, 
   var(--rho-cancer-2) 0%,
   var(--rho-cancer-2) 15%,
   var(--rho-aquarius-2) 15%,
@@ -1568,7 +1581,7 @@ ol.postlist li.postlist-item a.postlist-link img {
   margin: 0 1rem 0 0;
   width: 300px;
   height: 160px;
-  border-radius: var(--global-br);
+  border-radius: var(--large-br);
 }
 
 ol.postlist a {
@@ -1579,14 +1592,23 @@ ol.postlist a div.card {
   height: 100%;
 }
 
-ol.postlist a div.card li p,
-ol.postlist a div.card li time {
+ol.postlist a div.card li p {
   color: var(--general-night-4);
 }
 
-ol.postlist a div.card li div.block span.read-more,
+ol.postlist a div.card li time {
+  olor: var(--general-night-3);
+}
+
+ol.postlist a div.card li div.block .read-more,
 ol.postlist a div.card li div.block h3 {
   text-decoration: underline;
+  margin-top: .8rem;
+  color: var(--rho-cancer-3);
+}
+
+.read-more {
+  font-weight: 380;
 }
 
 @media all and (max-width: 1300px) {
@@ -1678,12 +1700,8 @@ li.eventlist-item span h2 {
 
 @supports (font-variation-settings: normal) {
   li.eventlist-item span h2 {
-    font-family: var(--headings-font);
+    font-family: var(--utility-font);
   }
-}
-
-li.eventlist-item > * {
-  /* flex: 1 1 0%; */
 }
 
 li.eventlist-item .eventlist-item__data {
@@ -1691,14 +1709,11 @@ li.eventlist-item .eventlist-item__data {
   align-items: center;
   flex-direction: column;
   align-items: flex-start;
-  /* flex: 1 1 0%; */
 }
 
 li.eventlist-item .eventlist-item__links {
   display: flex;
-  /* justify-content: space-around; */
   align-items: center;
-  /* flex: 1 1 0%; */
 }
 
 
@@ -1740,7 +1755,7 @@ li.eventlist-item span {
   color: var(--alpha-night);
   font-weight: var(--body-semi-bold);
   background-color: var(--general-night-3);
-  border-radius: var(--global-br);
+  border-radius: var(--large-br);
 }
 li.eventlist-item-past span {
   -webkit-filter: grayscale(1);
@@ -1800,7 +1815,7 @@ section.event div.eventbanner {
   padding: 3em;
   text-align: center;
   margin-bottom: 2rem;
-  border-radius: var(--global-br);
+  border-radius: var(--large-br);
   text-transform: uppercase;
   font-family: sans-serif;
   font-weight: 700;
@@ -1810,7 +1825,7 @@ section.event div.eventbanner {
 
 @supports (font-variation-settings: normal) {
   section.event div.eventbanner {
-    font-family: var(--headings-font);
+    font-family: var(--utility-font);
     font-weight: 699;
   }
 }

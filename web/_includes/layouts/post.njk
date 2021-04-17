@@ -13,7 +13,9 @@ templateClass: tmpl-post
       <path d="M16 8L2 22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M17.5 15H9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg> #}
-    by&nbsp;{% for author in post.authors %}{{author.name}}{% endfor %}  </p>
+    by&nbsp;{% for author in post.authors %}{{author.name}}{% endfor %}
+
+  </p>
   {%- if post.mainImage %}
   <figure>
     {# need to make this a larger image from data source #}
