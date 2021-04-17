@@ -15,8 +15,10 @@
         {% set postsLimit = postsLimit + 1 %}
       {% endif %}
     {% else %}
+    <a href="{{ post.url | url }}" rel="noopener nofollow">
+    <div class="card">
     <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
-
+        
         {# <a href="{{ post.url | url }}" class="postlist-link" tabindex="-1">
 
         {%- if currentPost.mainImage %}
@@ -26,27 +28,32 @@
         </a> #}
 
         <div class="block">
-          <time class="postlist-date" datetime="{{ currentPost.publishedAt }}">
+          <div class="flex-row-data">
+            <div class="data-label">Post</div>
+            <time class="postlist-date data-label" datetime="{{ currentPost.publishedAt }}">
 
-            {{- currentPost.publishedAt | readableDate -}}
+              {{- currentPost.publishedAt | readableDate -}}
 
-          </time>
-          <a href="{{ post.url | url }}" class="postlist-link">
+            </time>
+          </div>
+          {# <a href="{{ post.url | url }}" class="postlist-link"> #}
 
           {%- if currentPost.title %}
             <h3>{{ currentPost.title }}</h3>
           {% endif -%}
 
-          </a>
+          {# </a> #}
           
           {%- if currentPost.excerpt %}
             
-            {{ currentPost.excerpt | markdownify | safe }}<a href="{{ post.url | url }}" class="postlist-link">read more &rarr;</a>
+            {{ currentPost.excerpt | markdownify | safe }}
+
+            <div class="read-more">Read more &rarr;</div>
           
           {% endif -%}
-
+          
         </div>
-      </li>
+      </li></div></a>
     {% endif %}
 
   {% endif %}
