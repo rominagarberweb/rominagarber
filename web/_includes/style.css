@@ -832,7 +832,7 @@ section,
 footer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-gap: 1em 1em;
+  grid-gap: 1em 2em;
   margin: 0 1em 5em;
 }
 
@@ -945,6 +945,10 @@ footer .footer-content nav.footer-nav ul.footer-nav__list li {
 }
 
 @media all and (max-width: 650px) {
+  article > * {
+    padding: 0 1rem;
+  }
+  
   footer .footer-content {
     grid-column: 1 / 13;
     padding: 2em 1em;
@@ -1414,6 +1418,17 @@ section.hero {
     }
   }
 
+/* Styles for users who prefer dark mode at the OS level */
+@media (prefers-color-scheme: dark) {
+  .hero-overlay {
+    background:
+    linear-gradient(
+      rgba(251, 195, 167, 0.25),
+      rgba(233, 145, 152, 0.25),
+      rgba(163, 80, 72, 0.25)
+    );
+  }
+}
 
 
 
@@ -1867,6 +1882,14 @@ ol.eventlist .eventlist-item a.btn {
     color: var(--general-night-3);
   }
 }
+
+/* Styles for users who prefer dark mode at the OS level */
+@media (prefers-color-scheme: dark) {
+  li.eventlist-item a.eventlist-link {
+    color: var(--general-night-2);
+  }
+}
+
 
 
 
