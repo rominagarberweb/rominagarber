@@ -1,4 +1,4 @@
-@charset "UTF-8";
+  @charset "UTF-8";
 
 /* manuale-300normal - latin */
 @font-face {
@@ -815,6 +815,11 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
   .footer-nav__list .footer-nav__item a {
     color: var(--general-night-1);
   }
+
+  .primary-nav-btn::before,
+  .primary-nav-btn::after {
+    background-color: var(--general-night-1);
+  }  
 }
 
 
