@@ -1,4 +1,4 @@
-@charset "UTF-8";
+  @charset "UTF-8";
 
 /* manuale-300normal - latin */
 @font-face {
@@ -224,6 +224,8 @@
   --large-br: 18px;
   --small-br: 8px;
   --g-margin-top: 4em;
+
+  color-scheme: light dark; /* both supported */
 }
 
 /* Reset rule */
@@ -303,6 +305,9 @@ h3 {
   font-weight: var(--body-semi-bold);
 }
 
+a {
+  color: var(--rho-cancer-3);
+}
 /* a,
 a:visited {
   color: var(--general-night-4);
@@ -355,6 +360,10 @@ p:first-of-type {
   margin-top: .8em;
 }
 
+li {
+  margin: .4em 0;
+}
+
 article h1 {
   /* font-size: calc(36px + .25vw); */
   margin-top: 0;
@@ -373,7 +382,26 @@ blockquote p {
   color: var(--general-night-3);
 }
 
-
+/* Styles for users who prefer dark mode at the OS level */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--general-night-5);
+    color: var(--general-night-2);
+  }
+  img,
+  svg,
+  picture {
+    filter: brightness(.7) contrast(1.2);
+  }
+  img:hover,
+  svg:hover,
+  picture:hover {
+    filter: brightness(.9) contrast(1.1);
+  }
+  blockquote p {
+    color: var(--general-night-2);
+  }
+}
 
 
 /* ==========================================================================
@@ -467,6 +495,17 @@ figure.large-figure {
   }
 }
 
+/* Styles for users who prefer dark mode at the OS level */
+@media (prefers-color-scheme: dark) {
+  section.biolinks {
+    background-color: var(--rho-aquarius-1);
+  }
+  .large-card-wrapper ol li a,
+  .large-card-wrapper ol li a:visited {
+    color: var(--general-night-2);
+  }
+}
+
 
 
 /* ==========================================================================
@@ -477,9 +516,9 @@ figure.large-figure {
   border: 1px solid var(--general-night-2);
   padding: 2rem 2rem 3rem;
   border-radius: var(--small-br);
-  background-color: var(--alpha-light);
-  background: -webkit-linear-gradient(to top, var(--alpha-light), var(--beta-light));
-  background: linear-gradient(to top, var(--alpha-light), var(--beta-light));
+  /* background-color: var(--alpha-light); */
+  /* background: -webkit-linear-gradient(to top, var(--alpha-light), var(--beta-light));
+  background: linear-gradient(to top, var(--alpha-light), var(--beta-light)); */
   /* backdrop-filter: blur(8px); */
 }
 
@@ -501,6 +540,17 @@ a:active .card {
 
 .card-data-label {
   text-transform: uppercase;
+}
+
+/* Styles for users who prefer dark mode at the OS level */
+@media (prefers-color-scheme: dark) {
+  .card {
+    border:1px solid var(--general-night-3ish);
+  }
+
+  ol.postlist a div.card li.postlist-item div.block p {
+    color: var(--general-night-2);
+  } 
 }
 
 
@@ -759,6 +809,19 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
   }
 }
 
+/* Styles for users who prefer dark mode at the OS level */
+@media (prefers-color-scheme: dark) {
+  .primary-nav__list .primary-nav__item a,
+  .footer-nav__list .footer-nav__item a {
+    color: var(--general-night-1);
+  }
+
+  .primary-nav-btn::before,
+  .primary-nav-btn::after {
+    background-color: var(--general-night-1);
+  }  
+}
+
 
 
 /* ==========================================================================
@@ -774,7 +837,7 @@ section,
 footer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-gap: 1em 1em;
+  grid-gap: 1em 2em;
   margin: 0 1em 5em;
 }
 
@@ -887,6 +950,10 @@ footer .footer-content nav.footer-nav ul.footer-nav__list li {
 }
 
 @media all and (max-width: 650px) {
+  article > * {
+    padding: 0 1rem;
+  }
+  
   footer .footer-content {
     grid-column: 1 / 13;
     padding: 2em 1em;
@@ -901,7 +968,11 @@ footer .footer-content nav.footer-nav ul.footer-nav__list li {
 
 }
 
-
+@media (prefers-color-scheme: dark) {
+  footer {
+    background-color: #060E13;
+  }
+}
 
 
 
@@ -1352,6 +1423,17 @@ section.hero {
     }
   }
 
+/* Styles for users who prefer dark mode at the OS level */
+@media (prefers-color-scheme: dark) {
+  .hero-overlay {
+    background:
+    linear-gradient(
+      rgba(251, 195, 167, 0.25),
+      rgba(233, 145, 152, 0.25),
+      rgba(163, 80, 72, 0.25)
+    );
+  }
+}
 
 
 
@@ -1469,8 +1551,13 @@ section.series-data span.data-label {
   color: var(--general-night-3);
 }
 
-
-
+/* Styles for users who prefer dark mode at the OS level */
+@media (prefers-color-scheme: dark) {
+  p.download-link a,
+  p.download-link a:visited {
+    color: var(--general-night-2);
+  }
+}
 
 
 /* ==========================================================================
@@ -1801,6 +1888,14 @@ ol.eventlist .eventlist-item a.btn {
   }
 }
 
+/* Styles for users who prefer dark mode at the OS level */
+@media (prefers-color-scheme: dark) {
+  li.eventlist-item a.eventlist-link {
+    color: var(--general-night-2);
+  }
+}
+
+
 
 
 /* Event page
@@ -2128,6 +2223,17 @@ time {
   }
   .book-press-items {
     grid-row: 6;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  section.featured-book,
+  .book-hero {
+    background: var(--general-night-5) !important;
+  }
+  .book-data a,
+  .book-data a:visited {
+    color: var(--general-night-2);
   }
 }
 
