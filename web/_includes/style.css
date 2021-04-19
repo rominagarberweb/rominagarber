@@ -393,6 +393,11 @@ blockquote p {
   picture {
     filter: brightness(.7) contrast(1.2);
   }
+
+  svg.social-icon {
+    filter: brightness(1.4);
+  }
+
   img:hover,
   svg:hover,
   picture:hover {
@@ -557,20 +562,31 @@ a:active .card {
 /* ==========================================================================
    #HEADER
    ========================================================================== */
-
-.top-bar {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  padding: .6em;
+.top-bar-wrapper {
+  display:grid;
+  grid-template-columns: repeat(12,1fr);
+  margin-top: .8rem;
+  margin-bottom: .8rem;
 }
+.top-bar {
+  grid-column: 3 / 11;
+  display: flex;
+  justify-content: space-between;
+}
+
 .logo {
-  grid-column: 2 / 3;
-  line-height: 1;
-  height: calc(42px + 0.25vw);
-  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: .8em;
+}
+
+.logo a svg {
+  width: 3rem;
+}
+.logo span.view-mode {
+  vertical-align: middle;
 }
 nav.primary-nav, nav.footer-nav {
-  grid-column: 3 / 12;
   overflow: visible;
   position: relative;
   font-family: var(--body-font);
@@ -675,7 +691,7 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
   font-size: calc(24px + 0.25vw);
   margin-top: 50px;
   opacity: 0;
-  padding: 15px 0;
+  padding: 1.4rem 0;
   -webkit-transition: opacity .3s;
   transition: opacity .3s;
 }
@@ -758,49 +774,54 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
 }
 
 @media all and (max-width: 800px) {
-  .logo {
-    grid-column: 2 / 3;
-  }
-  nav.primary-nav, nav.footer-nav {
-    grid-column: 3 / 12;
+  .top-bar {
+    grid-column: 2 / 12;
+    margin: .8rem 0;
   }
 }
 
 @media all and (max-width: 650px) {
-  .scroll-lock {
-    /* overflow: hidden; */
-  }
   .top-bar, article {
     grid-template-columns: repeat(6, 1fr);
   }
+
   .top-bar {
-    padding: 1em 0;
+    grid-column: 1 / 13;
+    padding: 1rem 0;
   }
+
   .logo {
-    grid-column: 1 / 3;
-    padding-left: 3em;
     z-index: 25;
+    margin-left: 1rem;
   }
+
   .logo svg {
     width: auto;
   }
+
   nav.primary-nav {
     position: absolute;
     width: 100%;
     z-index: 20;
+    margin-right: 1rem;
   }
+
   nav ul.primary-nav__list {
     display: none;
   }
+
   nav.footer-nav {
     grid-column: 3 / 6;
   }
+
   nav ul.footer-nav__list {
     flex-flow: column nowrap;
   }
+
   .primary-nav-hamburger {
     display: inline-block;
   }
+
   .primary-nav-mobile.active {
     top: 0;
     -webkit-transition: top .5s; /* Safari */
@@ -811,6 +832,15 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
 
 /* Styles for users who prefer dark mode at the OS level */
 @media (prefers-color-scheme: dark) {
+  span.view-mode::before {
+    content: '🐺 ';
+  }
+
+  span.view-mode::after {
+    content: 'Lobizonas are real';
+    font-style: italic;
+  }
+  
   .primary-nav__list .primary-nav__item a,
   .footer-nav__list .footer-nav__item a {
     color: var(--general-night-1);
@@ -837,8 +867,8 @@ section,
 footer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-gap: 1em 2em;
-  margin: 0 1em 5em;
+  grid-gap: 1rem 2rem;
+  /* margin: 0 1em 5em; */
 }
 
 footer,
@@ -981,7 +1011,7 @@ footer .footer-content nav.footer-nav ul.footer-nav__list li {
    ========================================================================== */
 
 section.instagram-feed {
-  margin-top: 3rem;
+  padding: 4rem 0 5rem;
 }
 
 section.instagram-feed ol {
@@ -1271,6 +1301,14 @@ a.btn--text-only {
   border: 2px solid transparent;
 }
 
+@media (prefers-color-scheme: dark) {
+  .btn--featured-book,
+  a.btn--featured-book,
+  .btn svg,
+  a.btn svg {
+    filter: brightness(1.4);
+  }
+}
 
 
 
@@ -1536,13 +1574,6 @@ span.data-label,
   }
 }
 
-/* p.download-link::after {
-  content: '👇';
-  font-size: 110%;
-  vertical-align: middle;
-  text-decoration: none;
-} */
-
 section.bio figure p span.data-label,
 section.bio .data-label,
 div.agent span.data-label,
@@ -1557,7 +1588,14 @@ section.series-data span.data-label {
   p.download-link a:visited {
     color: var(--general-night-2);
   }
+  
+  .data-label, 
+  span.data-label {
+    filter: brightness(1.4);
+  }
 }
+
+
 
 
 /* ==========================================================================
@@ -1566,7 +1604,7 @@ section.series-data span.data-label {
 
 section.blog-posts {
   padding: 4rem 0 5rem;
-  margin: 0 0 5rem;
+  /* margin: 0 0 5rem; */
 } 
 
 section.posts {
@@ -1576,20 +1614,6 @@ section.posts {
 section.blog-post {
   padding: 4rem 0 0;
   margin: 0;
-}
-
-/* this is under review, might be cooler things to do here */
-section.bkg-gradient {
-  /* background: var(--manu-earth-1);
-  background: linear-gradient(380deg, 
-  var(--rho-cancer-2) 0%,
-  var(--rho-cancer-2) 15%,
-  var(--rho-aquarius-2) 15%,
-  var(--rho-aquarius-2) 34%,
-  var(--rho-aquarius-2) 60%,
-  var(--manu-blood-2) 60%,
-  var(--rho-ophiuchus-2) 100%
-  ); */
 }
 
 article {
@@ -1966,9 +1990,7 @@ section.genre p {
 
 section.featured-book,
 section.book-content {
-  grid-gap: 6em 3em;
-  /* padding: 1em; */
-  margin-top: 0;
+  grid-gap: 6rem 2rem;
 }
 
 section.book-content {
@@ -1987,7 +2009,7 @@ section.featured-book {
   grid-row: 1;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-gap: 1em 1em;
+  grid-gap: 1rem 2rem;
   padding: 3em 0;
   background-color: var(--rho-cancer-1);
   background-image: url(/static/images/bkg-zodiac.jpg);
@@ -2231,6 +2253,13 @@ time {
   .book-hero {
     background: var(--general-night-5) !important;
   }
+
+  .featured-book-info h1,
+  .featured-book-info h2,
+  .book-info h1 {
+    filter: brightness(1.4);
+  }
+
   .book-data a,
   .book-data a:visited {
     color: var(--general-night-2);
@@ -2243,7 +2272,7 @@ time {
 
 section.books {
   display: grid;
-  /* grid-template-columns: repeat(12, 1fr); */
+  padding: 4rem 0 5rem;
 }
 
 ol.booklist,
@@ -2281,6 +2310,8 @@ section.series-data > * {
 @media all and (max-width: 800px) {
   section.books {
     display: block;
+    margin: 0 1rem 3rem;
+
   }
   section.series-hero figure,
   section.series-data > * {
