@@ -371,6 +371,10 @@ article h1 {
   line-height: 1.2;
 }
 
+article {
+  padding-bottom: 5rem;
+}
+
 blockquote {
   border-left: 6px solid var(--general-night-2);
   margin-left: 2rem;
@@ -776,7 +780,6 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
 @media all and (max-width: 800px) {
   .top-bar {
     grid-column: 2 / 12;
-    margin: .8rem 0;
   }
 }
 
@@ -787,7 +790,6 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
 
   .top-bar {
     grid-column: 1 / 13;
-    padding: 1rem 0;
   }
 
   .logo {
@@ -1045,6 +1047,7 @@ section.instagram-feed img {
 @media all and (max-width: 650px) {
   section.instagram-feed ol {
     grid-column: 1 / 13;
+    padding: 0 1rem;
   }
 }
 
@@ -1161,6 +1164,13 @@ a.btn-posts {
   border-radius: var(--large-br);
 }
 
+.btn--photos,
+a.btn-photos {
+  border: 2px solid var(--manu-earth-3);
+  color: var(--manu-earth-3);
+  border-radius: var(--large-br);
+}.bt
+
 /* a.btn--secondary svg, */
 .btn svg,
 a.btn svg {
@@ -1200,6 +1210,10 @@ a.btn--secondary:hover {
 
 label {
   display: inline-block;
+}
+
+[role="menu"] {
+  z-index: 100;
 }
 
 [role="menu"] ul {
@@ -1308,6 +1322,10 @@ a.btn--text-only {
   a.btn svg {
     filter: brightness(1.4);
   }
+  [role="menu"] ul {
+    background-color: var(--general-night-5) !important;
+    filter: brightness(1.4);
+  }
 }
 
 
@@ -1320,6 +1338,7 @@ section.hero {
   background-color: var(--manu-blood-1);
   min-height: 30rem;
   margin: 0;
+  margin-bottom: 3rem;
 }
 
 .hero-background {
@@ -1391,8 +1410,6 @@ section.hero {
 }
 
 .hero-card h1 {
-  /* font-size: calc(36px + 0.25vw); */
-  /* font-weight: 401; */
   margin: 0;
   line-height: 1.1;
 }
@@ -1400,7 +1417,6 @@ section.hero {
 .hero-card p {
   max-width: 36ch;
   margin-bottom: 1.3em;
-  /* line-height: 1.13; */
 }
 
 .hero-card ol.social-icons {
@@ -1431,13 +1447,9 @@ section.hero {
 }
 
 @media all and (max-width: 650px) {
-  /* section.hero {
-    grid-column: 1 / 7;
-  } */
   .hero-card {
     grid-column: 1 / 13;
     border-radius: var(--large-br);
-    /* margin: auto; */
     padding: 2rem 2rem 2.2rem;
     justify-content: flex-end;
     border-radius: 0;
@@ -1480,7 +1492,7 @@ section.hero {
    ========================================================================== */
 
 section.bio {
-  margin-top: 3rem;
+  padding: 4rem 0 5rem;
 }
 
 section.bio figure {
@@ -1608,11 +1620,11 @@ section.blog-posts {
 } 
 
 section.posts {
-  margin-top: 3rem;
+  padding: 4rem 0 5rem;
 }
 
 section.blog-post {
-  padding: 4rem 0 0;
+  padding: 2rem 0 0;
   margin: 0;
 }
 
@@ -1776,7 +1788,9 @@ ol.postlist li.postlist-item time {
    #EVENTS
    ========================================================================== */
 
-
+section.events {
+  padding: 4rem 0 5rem;
+}
 
 section.intro p {
   grid-column: 3 / 11;
@@ -1846,10 +1860,12 @@ li.eventlist-item .eventlist-item__links {
 li.eventlist-item-past a{
   text-decoration: line-through;
 }
+
 ol > li.eventlist-item-past {
   border-top: 1px solid var(--general-night-2);
   padding-top: 2em;
 }
+
 ol > li.eventlist-item-past ~ li.eventlist-item-past {
   border: none;
   padding-top: 0;
@@ -1868,6 +1884,7 @@ li.eventlist-item span {
   background-color: var(--general-night-3);
   border-radius: var(--large-br);
 }
+
 li.eventlist-item-past span {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
@@ -1878,9 +1895,11 @@ li.eventlist-item a.eventlist-link {
   flex: 2;
   color: var(--general-night-4);
 }
+
 li.eventlits-item time.eventlist-date {
   flex: 1;
 }
+
 ol.eventlist svg {
   width: 22px;
   height: auto;
@@ -1916,6 +1935,9 @@ ol.eventlist .eventlist-item a.btn {
 @media (prefers-color-scheme: dark) {
   li.eventlist-item a.eventlist-link {
     color: var(--general-night-2);
+  }
+  ol > li.eventlist-item-past {
+    border-top: 1px solid var(--general-night-4);
   }
 }
 
@@ -2033,7 +2055,7 @@ section:hover.featured-book figure {
 
 svg.download-icon {
   height: 1em;
-  vertical-align: middle;
+  margin-left: .8rem;
 }
 
 section.featured-book .book-info,
