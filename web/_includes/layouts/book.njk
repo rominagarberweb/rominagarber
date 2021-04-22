@@ -10,7 +10,7 @@ templateClass: tmpl-book
 
   {%- if book.cover %}
     <figure>
-      <img src="{{ book.cover }}" alt="{{ book.content.cover.alt }}" />
+      <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.content.cover.alt }}" />
       <figcaption>{{ book.content.cover.caption }}</figcaption>
       {# make this download image a large image #}
       <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.content.original }}?dl=book-cover.jpg" rel="noopener nofollow">Large&nbsp;cover&nbsp;image&nbsp;
@@ -56,7 +56,7 @@ templateClass: tmpl-book
             <li><a
             style="color: {{ themeColorTertiary }};"
             href="{{ buyBookFrom.url | url }}"
-            target="_blank" rel="noopener nofollow">{{ buyBookFrom.title }}
+             rel="noopener nofollow">{{ buyBookFrom.title }}
             {# <svg class="download-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M27 19.5V28.5C27 29.2956 26.6839 30.0587 26.1213 30.6213C25.5587 31.1839 24.7956 31.5 24 31.5H7.5C6.70435 31.5 5.94129 31.1839 5.37868 30.6213C4.81607 30.0587 4.5 29.2956 4.5 28.5V12C4.5 11.2044 4.81607 10.4413 5.37868 9.87868C5.94129 9.31607 6.70435 9 7.5 9H16.5" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
               <path d="M22.5 4.5H31.5V13.5" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -92,7 +92,7 @@ templateClass: tmpl-book
             <li><a
             style="color: {{ themeColorTertiary }};"
             href="{{ buyBookFrom.url | url }}"
-            target="_blank" rel="noopener nofollow">{{ buyBookFrom.title }}
+             rel="noopener nofollow">{{ buyBookFrom.title }}
             <svg class="download-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M27 19.5V28.5C27 29.2956 26.6839 30.0587 26.1213 30.6213C25.5587 31.1839 24.7956 31.5 24 31.5H7.5C6.70435 31.5 5.94129 31.1839 5.37868 30.6213C4.81607 30.0587 4.5 29.2956 4.5 28.5V12C4.5 11.2044 4.81607 10.4413 5.37868 9.87868C5.94129 9.31607 6.70435 9 7.5 9H16.5" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
               <path d="M22.5 4.5H31.5V13.5" stroke="{{ themeColorTertiary }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -114,7 +114,7 @@ templateClass: tmpl-book
         <a class="btn btn--featured-book"
         style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};"
         href="{{ book.content.addToGoodreads }}"
-        target="_blank" rel="noopener">Add to Goodreads</a>
+         rel="noopener">Add to Goodreads</a>
 
       {% endif %}
 
@@ -127,7 +127,7 @@ templateClass: tmpl-book
         {% if linkCount < 6 %} {# limit number of links shown #}
 
           <li>
-            <a href="{{ link.url | url }}" target="_blank" rel="noopener nofollow">{{ link.title }}</a>
+            <a href="{{ link.url | url }}"  rel="noopener nofollow">{{ link.title }}</a>
           </li>
 
           {% set linkCount = linkCount + 1 %}
@@ -142,7 +142,7 @@ templateClass: tmpl-book
       <p>
         {%- if book.content.publishers.length > 0 %}
           <span class="data-label" style="color: {{ themeColorTertiary }}">Publisher:</span>
-          <a href="{{ book.content.publishers[0].url }}" target="_blank" rel="noopener">{{ book.content.publishers[0].title }}</a><br>
+          <a href="{{ book.content.publishers[0].url }}"  rel="noopener">{{ book.content.publishers[0].title }}</a><br>
         {% endif -%}
         {%- if agent %}
           <span class="data-label" style="color: {{ themeColorTertiary }}">Representation:</span>
@@ -161,7 +161,7 @@ templateClass: tmpl-book
   {% if book.internationalCovers.length > 0 %}
 
     <figure class="book-synopsis-figure">
-      <img src="{{ book.internationalCovers[0].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
+      <img src="{{ book.internationalCovers[0].cover }}" width="250" height="250" alt="{{ book.internationalCovers[0].alt }}" loading="lazy"/>
       <figcaption>{{ book.internationalCovers[0].caption }}</figcaption>
     </figure>
 
@@ -179,7 +179,7 @@ templateClass: tmpl-book
   {% if book.internationalCovers.length > 1 %}
 
     <figure class="book-reviews-figure">
-      <img src="{{ book.internationalCovers[1].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
+      <img src="{{ book.internationalCovers[1].cover }}" width="250" height="250" alt="{{ book.internationalCovers[0].alt }}" loading="lazy"/>
       <figcaption>{{ book.internationalCovers[1].caption }}</figcaption>
     </figure>
 
@@ -206,7 +206,7 @@ templateClass: tmpl-book
   {% if book.internationalCovers.length > 2 %}
 
     <figure class="book-press-items-figure">
-      <img src="{{ book.internationalCovers[2].cover }}" alt="{{ book.internationalCovers[0].alt }}" />
+      <img src="{{ book.internationalCovers[2].cover }}" width="250" height="250" alt="{{ book.internationalCovers[0].alt }}" loading="lazy"/>
       <figcaption>{{ book.internationalCovers[2].caption }}</figcaption>
     </figure>
 
@@ -225,7 +225,7 @@ templateClass: tmpl-book
             {% if pressItem.source %}
               <strong>{{ pressItem.source }}</strong> - 
             {% endif %}
-              <a href="{{ pressItem.url }}" target="_blank" rel="noopener">{{ pressItem.title }}</a> - 
+              <a href="{{ pressItem.url }}"  rel="noopener">{{ pressItem.title }}</a> - 
             {# {% if pressItem.lead %}
               <span>{{ pressItem.lead.content | markdownify | safe }}</span>
             {% endif %} #}
