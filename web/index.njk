@@ -23,10 +23,11 @@ socialImage: images/lobizona-preview.jpg
         height="600">
     </picture> #}
     <picture>
+      <source type="image/avif" srcset="images/lobizona-hero-xl.avif">
       <source srcset="images/lobizona-hero-lg.jpg, images/lobizona-hero-xl.jpg 2x" media="(min-width: 1800px)">
       <source srcset="images/lobizona-hero-md.jpg, images/lobizona-hero-lg.jpg 2x" media="(min-width: 1200px)">
       <source srcset="images/lobizona-hero-md.jpg">
-      <img srcset="images/lobizona-hero-sm.jpg" alt="A girl with star eyes surounded by natural elements">
+      <img src="images/lobizona-hero-sm.jpg" alt="A girl with star eyes surounded by natural elements">
     </picture>
   </div>
   <div class="hero-overlay">
@@ -98,7 +99,7 @@ socialImage: images/lobizona-preview.jpg
 
       {# (pre-)order and GR TBR links go here #}
       <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary  }}; color: {{ themeColorTertiary  }};" href="https://www.goodreads.com/book/show/51179882-lobizona" rel="noopener nofollow">Add to Goodreads TBR</a>
-      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary  }}; color: {{ themeColorTertiary  }};" href="/books/{{ book.content.slug.current | url }}/" rel="noopener">More Info</a>
+      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary  }}; color: {{ themeColorTertiary  }};" href="/books/{{ book.content.slug.current | url }}/"  rel="noopener">More About {{ book.content.title }}</a>
 
     </div>
 
