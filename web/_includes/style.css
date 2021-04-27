@@ -610,8 +610,8 @@ nav ul.primary-nav__list, nav ul.footer-nav__list {
 .primary-nav__list .primary-nav__item a,
 .footer-nav__list .footer-nav__item a {
   padding: .4em 1.2em;
-  text-decoration: none;
-  color: var(--general-night-4);
+  text-decoration: underline;
+  color: var(--rho-cancer-3);
 }
 
 .primary-nav__list li a.btn {
@@ -1058,46 +1058,77 @@ section.instagram-feed img {
    #NEWSLETTER SIGNUP FORM
    ========================================================================== */
 
-div.mc-field-group label {
-  /* margin-bottom: 1.4em; */
+form.newsletter-sign-up label span.data-label {
   color: var(--rho-cancer-3);
 }
 
-div.mc-field-email {
-  margin-top: .8em;
-  display: flex;
-  flex-flow: row wrap;
+.email-form {
+  display:flex;
+  margin: .8rem 0;
 }
 
-div.mc-field-email input.email-field,
-div.mc-field-email input.button {
+.email-field,
+button.email-btn {
   padding: .6em;
   border: 2px solid var(--rho-cancer-3);
   font-size: inherit;
   font-family: inherit;
 }
 
-div.mc-field-email input.email-field {
+.email-field {
   border-top-left-radius: var(--large-br);
   border-bottom-left-radius: var(--large-br);
+  background-color: transparent;
 }
 
-div.mc-field-email input.button {
+.email-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: var(--rho-cancer-3);
+}
+.email-field::-moz-placeholder { /* Firefox 19+ */
+  color: var(--rho-cancer-3);
+}
+.email-field:-ms-input-placeholder { /* IE 10+ */
+  color: var(--rho-cancer-3);
+}
+.email-field:-moz-placeholder { /* Firefox 18- */
+  color: var(--rho-cancer-3);
+}
+
+button.email-btn {
   border-top-right-radius: var(--large-br);
   border-bottom-right-radius: var(--large-br);
-  background-color: transparent;
-  color: var(--rho-cancer-3);
   cursor: pointer;
-  font-family: 'IBM Plex Sans Var Regular', sans-serif;
+  border-left: none;
+  background-color: transparent;
+  font-family: var(--utility-font);
+  color: var(--rho-cancer-3);
   font-weight: 542;
   position: relative;
   left: -2px;
 }
 
-div.mc-field-email input.button:hover {
+button.email-btn:hover {
   opacity: 0.8;
 }
 
+@media (prefers-color-scheme: dark) {
+  .email-field {
+    color: var(--rho-cancer-1);
+  }
+
+  .email-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: var(--rho-cancer-2);
+  }
+  .email-field::-moz-placeholder { /* Firefox 19+ */
+    color: var(--rho-cancer-2);
+  }
+  .email-field:-ms-input-placeholder { /* IE 10+ */
+    color: var(--rho-cancer-2);
+  }
+  .email-field:-moz-placeholder { /* Firefox 18- */
+    color: var(--rho-cancer-2);
+  }
+}
 
 
 
@@ -1338,7 +1369,6 @@ section.hero {
   background-color: var(--manu-blood-1);
   min-height: 30rem;
   margin: 0;
-  margin-bottom: 3rem;
 }
 
 .hero-background {
@@ -1475,6 +1505,9 @@ section.hero {
 
 /* Styles for users who prefer dark mode at the OS level */
 @media (prefers-color-scheme: dark) {
+  section.hero {
+    margin-bottom: 3rem;
+  }
   .hero-overlay {
     background:
     linear-gradient(
@@ -1720,7 +1753,7 @@ ol.postlist a div.card li p {
 }
 
 ol.postlist a div.card li time {
-  olor: var(--general-night-3);
+  color: var(--general-night-3);
 }
 
 ol.postlist a div.card li div.block .read-more,
