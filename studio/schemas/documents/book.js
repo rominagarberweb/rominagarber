@@ -1,8 +1,8 @@
 import { format } from 'date-fns'
 import { FiBook } from 'react-icons/fi'
 import { FiZap } from 'react-icons/fi'
-import { FiExternalLink } from 'react-icons/fi'
 import { FaRegNewspaper } from 'react-icons/fa'
+import { FiExternalLink } from 'react-icons/fi'
 import { FaStore } from 'react-icons/fa'
 import Tabs from '../../plugins/tabs'
 
@@ -171,8 +171,22 @@ export default {
           ]
         },
         {
+          name: 'press',
+          type: 'array',
+          title: 'Press',
+          fieldset: 'promotion',
+          of: [
+            {
+              type: 'pressEntry',
+              title: 'Press Entry',
+              icon: FaRegNewspaper
+            }
+          ]
+        },
+        {
           title: 'Press items',
           name: 'pressItems',
+          description: 'This field is depriciated and will be replaced with the press field',
           type: 'array',
           fieldset: 'promotion',
           of: [
