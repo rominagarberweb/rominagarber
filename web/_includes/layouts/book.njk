@@ -212,24 +212,21 @@ templateClass: tmpl-book
 
   {% endif %}
 
-  {% if book.content.pressItems.length > 0 %}
+  {% if book.content.press.length > 0 %}
 
     <div class="book-press-items">
 
       <h2>Press</h2>
       <ul>
 
-        {% for pressItem in book.content.pressItems %}
+        {% for press in book.content.press %}
 
           <li>
-            {% if pressItem.source %}
-              <strong>{{ pressItem.source }}</strong> - 
+            {% if press.source %}
+              <strong>{{ press.source }}</strong> - 
             {% endif %}
-              <a href="{{ pressItem.url }}"  rel="noopener">{{ pressItem.title }}</a> - 
-            {# {% if pressItem.lead %}
-              <span>{{ pressItem.lead.content | markdownify | safe }}</span>
-            {% endif %} #}
-            <time>{{ pressItem.publishedAt | readableDate }}</time>
+              <a href="{{ press.url }}"  rel="noopener">{{ press.title }}</a> - 
+            <time>{{ press.publishedAt | readableDate }}</time>
           </li>
 
         {% endfor %}
