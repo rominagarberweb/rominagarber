@@ -1877,6 +1877,9 @@ li.eventlist-item .eventlist-item__links {
 
 
 @media all and (max-width: 650px) {
+  section.events {
+    margin: 0 1rem;
+  }
   ol.eventlist,
   section.events p {
     grid-column: 2 / 12;
@@ -2028,6 +2031,14 @@ section.event p a svg {
   width: 22px;
   height: auto;
 }
+
+@media all and (max-width: 650px) {
+  section.event div.eventbanner  {
+    border-radius: 0px;
+  }
+}
+
+
 
 
 
