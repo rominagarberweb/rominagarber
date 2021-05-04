@@ -16,16 +16,22 @@
   </head>
   <body>
     <a class="skip-link btn" href="#main-content">Skip to content</a>
+    <div class="top-bar-wrapper">
     <header class="top-bar" role="banner">
-      <div class="logo"><a href="{{ '/' | url }}" title="← Back to the homepage">
+      <div class="logo">
         
-        {% include "../components/icon-virgo-color.svg" %}
-
-      </a></div>
+        <a href="{{ '/' | url }}" title="← Back to the homepage">
+        
+        {% include "../components/icon-virgo-color.svg" %}</a>
+      
+      <span class="view-mode">&nbsp;</span>
+      
+      </div>
 
       {% include "../components/nav.njk" %}
 
     </header>
+    </div>
 
     <main id="main-content" role="main" class="main">
       {{ content | safe }}

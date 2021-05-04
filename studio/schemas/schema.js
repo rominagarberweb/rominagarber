@@ -37,6 +37,7 @@ import link from './objects/link'
 import mainImage from './objects/mainImage'
 import review from './objects/review'
 import reviewPortableText from './objects/reviewPortableText'
+import pressEntry from './objects/pressEntry'
 import schedule from './objects/schedule'
 import tipReference from './objects/tipReference'
 import venue from './objects/venue'
@@ -81,6 +82,7 @@ export default createSchema({
     mainImage,
     review,
     reviewPortableText,
+    pressEntry,
     schedule,
     tipReference,
     venue

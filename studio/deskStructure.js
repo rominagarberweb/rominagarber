@@ -136,17 +136,17 @@ export default () =>
                     .documentId('bioLinks')
                 )
             ])
-        ),
-      S.listItem()
-        .title('Press items')
-        .icon(FaRegNewspaper)
-        .schemaType('press')
-        .child(
-          S.documentList('press')
-            .title('Press items')
-            .filter('_type == $type')
-            .params({ type: 'press' })
-          ),
+      ),
+      // S.listItem()
+      //   .title('Press items')
+      //   .icon(FaRegNewspaper)
+      //   .schemaType('press')
+      //   .child(
+      //     S.documentList('press')
+      //       .title('Press items')
+      //       .filter('_type == $type')
+      //       .params({ type: 'press' })
+      //     ),
       S.listItem()
         .title('Writing tips')
         .icon(MdLightbulbOutline)

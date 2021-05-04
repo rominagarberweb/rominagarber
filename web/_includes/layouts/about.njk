@@ -8,7 +8,7 @@ templateClass: tmpl-about
   <h1 class="vh">About Young Adult Author</h1>
   {%- if aboutPage.image %}
     <figure>
-      <img src="{{ aboutPage.image }}" alt="{{ aboutPage.mainImage.alt }}"/>
+      <img src="{{ aboutPage.image }}" width="440" height="560" alt="{{ aboutPage.mainImage.alt }}"/>
       <figcaption>
       {{ aboutPage.mainImage.caption }}
       </figcaption>
@@ -47,7 +47,7 @@ templateClass: tmpl-about
     <ul class="mt0">
       {%- for publisher in aboutPage.publishers -%}
         <li>
-          <a href="{{ publisher.url }}" target="_blank" rel="noopener">
+          <a href="{{ publisher.url }}" rel="noopener">
             {{- publisher.title -}}
           </a>
         </li>
@@ -59,7 +59,7 @@ templateClass: tmpl-about
 {%- if agent %}
   <div class="agent book-data">
     <span class="data-label">Representation:</span>
-    <a href="{{ agent.url }}" target="_blank" rel="noopener">
+    <a href="{{ agent.url }}" rel="noopener">
       {{- agent.name }}, {{ agent.agency -}}
     </a>
   </div>
@@ -69,7 +69,7 @@ templateClass: tmpl-about
   <div class="aboutSite book-data">
     <span class="data-label">About this site:</span>
     {# make this editable in the studio #}
-    Designed and developed by <a href="https://twitter.com/DTAndyB" target="_blank" rel="noopener">Andypbrowne</a> in <a href="https://www.figma.com/" target="_blank" rel="nofollow noopener">Figma</a> using <a href="https://www.sanity.io/" target="_blank" rel="nofollow noopener">Sanity CMS</a> and <a href="https://www.11ty.dev/" target="_blank" rel="nofollow noopener">Eleventy</a>.
+    Designed and developed by <a href="https://twitter.com/DTAndyB" rel="noopener">Andypbrowne</a> in <a href="https://www.figma.com/" rel="nofollow noopener">Figma</a> using <a href="https://www.sanity.io/" rel="nofollow noopener">Sanity CMS</a> and <a href="https://www.11ty.dev/" rel="nofollow noopener">Eleventy</a>.
   </div>
 {# {% endif -%} #}
 
