@@ -1550,9 +1550,8 @@ section.bio .bio-text p {
   display: inline;
 }
 
-.bio-text .contact,
-.bio-text .aboutSite {
-  margin: 1em 0;
+.bio-text div article {
+  padding-bottom: 2rem;
 }
 
 span.all-small-caps {
@@ -1569,6 +1568,10 @@ span.all-small-caps {
 }
 
 @media all and (max-width: 800px) {
+  section.bio {
+    padding: 2rem 0 5rem;
+  }
+  
   section.bio figure {
     grid-column: 2 / 7;
   }
@@ -1584,9 +1587,19 @@ span.all-small-caps {
     grid-column: 1 / 13;
   }
 
+  section.bio article > * {
+    padding: 0px;
+  }
+
   section.bio .bio-text {
     grid-column: 1 / 13;
     max-width: 60ch;
+  }
+
+  .bio-text,
+  section.bio figure figcaption,
+  section.bio figure p.download-link {
+    margin: .8rem 1rem;
   }
 }
 
