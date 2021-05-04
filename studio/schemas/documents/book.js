@@ -183,20 +183,20 @@ export default {
             }
           ]
         },
-        {
-          title: 'Press items',
-          name: 'pressItems',
-          description: 'This field is depriciated and will be replaced with the press field',
-          type: 'array',
-          fieldset: 'promotion',
-          of: [
-            {
-              type: 'reference',
-              to: {type: 'press'},
-              icon: FaRegNewspaper
-            }
-          ]
-        },
+        // {
+        //   title: 'Press items',
+        //   name: 'pressItems',
+        //   description: 'This field is depriciated and will be replaced with the press field',
+        //   type: 'array',
+        //   fieldset: 'promotion',
+        //   of: [
+        //     {
+        //       type: 'reference',
+        //       to: {type: 'press'},
+        //       icon: FaRegNewspaper
+        //     }
+        //   ]
+        // },
       ]
     }
   ],
