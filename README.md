@@ -57,10 +57,7 @@ This documentation was written with [Readme.so](https://readme.so/)
   
 ## Roadmap
 
-- Remove mailchimp newsletter subcription and replace with a netlify form
 - RSS Feed
-- Localization (Español) of About Page Bio
-- Organizing Press Items
 - Series Landing Page and list of Series to Book Page
 - Adding pagination to blog posts list and events list
 - Studio embeds for videos in Body Portable Text
