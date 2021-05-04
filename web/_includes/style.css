@@ -340,6 +340,7 @@ img {
   border-style: none;
   /* vertical-align: bottom; */
   display: block;
+  width: 100%;
   max-width: 100%;
   height: auto;
 }
@@ -1747,6 +1748,7 @@ ol.postlist li.postlist-item {
 
 li.postlist-item .block h3 {
   margin: .4em 0 1em;
+  font-size: calc(1.1rem + 1.1vw);;
 }
 
 ol.postlist li.postlist-item:last-child {
@@ -2282,6 +2284,10 @@ time {
   section.featured-book,
   section.book-content {
     grid-gap: 0;
+  }
+
+  section.book-content {
+    margin: 0 1rem;
   }
 
   section.featured-book figure,
