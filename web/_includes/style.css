@@ -1111,6 +1111,19 @@ button.email-btn:hover {
   opacity: 0.8;
 }
 
+@media all and (max-width: 650px) {
+  .email-form {
+    flex-direction: column;
+  }
+
+  .email-field,
+  button.email-btn {
+    border-radius: var(--large-br);
+    margin-bottom: .8rem;
+    border-left: 2px solid var(--rho-cancer-3);
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .email-field {
     color: var(--rho-cancer-1);
