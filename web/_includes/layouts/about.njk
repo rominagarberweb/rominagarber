@@ -5,6 +5,7 @@ templateClass: tmpl-about
 ---
 
 <section class="bio">
+
   <h1 class="vh">About Young Adult Author</h1>
   {%- if aboutPage.image %}
     <figure>
@@ -19,23 +20,31 @@ templateClass: tmpl-about
   {% endif -%}
 
   <div class="bio-text">
+    <div>
+      <article>
 
-  <div>
+        <span class="all-small-caps">Romina Garber</span> 
+ 
+        {{ aboutPage.bio | markdownify | safe }}
 
- <span class="all-small-caps">Romina Garber</span> {{ aboutPage.bio | markdownify | safe }}
+       </article>
+      <article>
 
-  </div>
+        {{ aboutPage.bioSpanish | markdownify | safe }}
+
+      </article>
+    </div>
 
 {# {%- if aboutPage.contact%} #}
-  <div class="contact book-data">
+  <p class="contact book-data">
     <span class="data-label">Contact:</span>
     {# make this editable in the studio #}
     <a href="mailto:romigarber@gmail.com" rel="nopener">romigarber@gmail.com</a>
-  </div>
+  </p>
 {# {% endif -%} #}
 
 {%- if aboutPage.publishers.length > 0 %}
-  <div class="publishers">
+  <div class="publishers book-data">
   <span class="data-label">Links:</span>
     <ul class="mt0">
       {%- for publisher in aboutPage.publishers -%}
@@ -50,21 +59,13 @@ templateClass: tmpl-about
 {% endif -%}
 
 {%- if agent %}
-  <div class="agent book-data">
+  <p class="agent book-data">
     <span class="data-label">Representation:</span>
     <a href="{{ agent.url }}" rel="noopener">
       {{- agent.name }}, {{ agent.agency -}}
     </a>
-  </div>
+  </p>
 {% endif -%}
-
-{# {%- if aboutPage.aboutSite%} #}
-  <div class="aboutSite book-data">
-    <span class="data-label">About this site:</span>
-    {# make this editable in the studio #}
-    Designed and developed by <a href="https://twitter.com/DTAndyB" rel="noopener">Andypbrowne</a> in <a href="https://www.figma.com/" rel="nofollow noopener">Figma</a> using <a href="https://www.sanity.io/" rel="nofollow noopener">Sanity CMS</a> and <a href="https://www.11ty.dev/" rel="nofollow noopener">Eleventy</a>.
-  </div>
-{# {% endif -%} #}
 
 </div>
 

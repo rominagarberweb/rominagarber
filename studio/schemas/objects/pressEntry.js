@@ -29,7 +29,16 @@ export default {
       preview: {
         select: {
           title: 'title',
-          subtitle: 'source'
+          source: 'source',
+          publishedAt: 'publishedAt'
+        },
+        prepare({ title, media, source, publishedAt}) {
+            const sourceAndDate = `${publishedAt} | ${source}`
+            return {
+              title,
+              media,
+              subtitle: sourceAndDate
+            }
         }
-      }
     }
+}

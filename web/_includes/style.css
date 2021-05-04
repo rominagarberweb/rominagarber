@@ -340,6 +340,7 @@ img {
   border-style: none;
   /* vertical-align: bottom; */
   display: block;
+  width: 100%;
   max-width: 100%;
   height: auto;
 }
@@ -1111,6 +1112,19 @@ button.email-btn:hover {
   opacity: 0.8;
 }
 
+@media all and (max-width: 650px) {
+  .email-form {
+    flex-direction: column;
+  }
+
+  .email-field,
+  button.email-btn {
+    border-radius: var(--large-br);
+    margin-bottom: .8rem;
+    border-left: 2px solid var(--rho-cancer-3);
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .email-field {
     color: var(--rho-cancer-1);
@@ -1550,9 +1564,8 @@ section.bio .bio-text p {
   display: inline;
 }
 
-.bio-text .contact,
-.bio-text .aboutSite {
-  margin: 1em 0;
+.bio-text div article {
+  padding-bottom: 2rem;
 }
 
 span.all-small-caps {
@@ -1569,6 +1582,10 @@ span.all-small-caps {
 }
 
 @media all and (max-width: 800px) {
+  section.bio {
+    padding: 2rem 0 5rem;
+  }
+  
   section.bio figure {
     grid-column: 2 / 7;
   }
@@ -1584,9 +1601,19 @@ span.all-small-caps {
     grid-column: 1 / 13;
   }
 
+  section.bio article > * {
+    padding: 0px;
+  }
+
   section.bio .bio-text {
     grid-column: 1 / 13;
     max-width: 60ch;
+  }
+
+  .bio-text,
+  section.bio figure figcaption,
+  section.bio figure p.download-link {
+    margin: .8rem 1rem;
   }
 }
 
@@ -1721,6 +1748,7 @@ ol.postlist li.postlist-item {
 
 li.postlist-item .block h3 {
   margin: .4em 0 1em;
+  font-size: calc(1.1rem + 1.1vw);;
 }
 
 ol.postlist li.postlist-item:last-child {
@@ -1877,6 +1905,9 @@ li.eventlist-item .eventlist-item__links {
 
 
 @media all and (max-width: 650px) {
+  section.events {
+    margin: 0 1rem;
+  }
   ol.eventlist,
   section.events p {
     grid-column: 2 / 12;
@@ -2028,6 +2059,14 @@ section.event p a svg {
   width: 22px;
   height: auto;
 }
+
+@media all and (max-width: 650px) {
+  section.event div.eventbanner  {
+    border-radius: 0px;
+  }
+}
+
+
 
 
 
@@ -2247,6 +2286,10 @@ time {
     grid-gap: 0;
   }
 
+  section.book-content {
+    margin: 0 1rem;
+  }
+
   section.featured-book figure,
   .book-hero figure {
     grid-column: 1 / 13;
@@ -2273,6 +2316,14 @@ time {
     grid-column: 1 / 13;
     grid-row: 2;
     padding: 0 1em 2em;
+  }
+
+  .featured-book-info {
+    margin-top: 2rem;
+  }
+
+  .featured-book-info h2 {
+    font-size: calc(1.5rem + 1.2vw);
   }
 
   .book-data,
