@@ -32,6 +32,18 @@ module.exports = function(eleventyConfig) {
      </picture>`
   })
 
+  // stringify data dump https://github.com/selfawarestudio/sane-eleventy/blob/79a4039174dfd3b4a3875ecb689fdf3c44ede48b/web/.eleventy.js#L24
+  // use <pre>{{ book | debug }}</pre>
+  eleventyConfig.addShortcode(
+    'debug',
+    (value) =>
+      `<pre style="padding: 100px 0; font-size: 14px; font-family: monospace;">${JSON.stringify(
+        value,
+        null,
+        2,
+      )}</pre>`,
+  )
+
   // https://www.11ty.io/docs/quicktips/inline-css/
   eleventyConfig.addFilter("cssmin", function(code) {
     return new CleanCSS({}).minify(code).styles
