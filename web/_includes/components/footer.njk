@@ -7,7 +7,7 @@
       {% endif %}
       {# need to makee this year automatically update #}
       <p>Romina Garber &copy; <time>
-        <script>document.write( new Date().getFullYear() );</script>
+        {{ site.buildTime | date("Y") }}
       </time></p>
 
       {% if page.url != "/newsletter/" %}
