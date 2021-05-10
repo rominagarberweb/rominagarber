@@ -22,7 +22,7 @@ async function getBioLinks () {
         bioLinks[]{
             title, 
             url   
-        },
+        }, 
         mainImage,
     }`
     const query = [filter, projection].join(' ')

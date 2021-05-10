@@ -3,13 +3,15 @@ title: Link in bio
 layout: layouts/base.njk
 ---
 
+<pre>{{ bioLinks | debug }}</pre>
+
 <section class="biolinks">
 
 <h1 class="visually-hidden">{{ title }}</h1>
 
 {%- if bioLinks.mainImage %}
 <figure>
-    <img src="{{ bioLinks.mainImage }}" alt="{{ bioLinks.mainImage.alt }}">
+    <img src="{{ bioLinks.image }}" alt="{{ bioLinks.mainImage.alt }}">
     <figcaption>{{ bioLinks.mainImage.caption }}</figcaption>
 </figure>
 {% endif -%}

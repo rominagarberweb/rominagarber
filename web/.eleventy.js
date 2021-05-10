@@ -33,7 +33,7 @@ module.exports = function(eleventyConfig) {
   })
 
   // stringify data dump https://github.com/selfawarestudio/sane-eleventy/blob/79a4039174dfd3b4a3875ecb689fdf3c44ede48b/web/.eleventy.js#L24
-  // use <pre>{{ book | debug }}</pre>
+  // use `<pre>{{ book | debug }}</pre>`
   eleventyConfig.addShortcode(
     'debug',
     (value) =>
