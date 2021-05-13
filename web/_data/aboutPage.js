@@ -13,6 +13,10 @@ function generateAboutPage (aboutPage) {
       aboutPage.bio,
       {serializers, ...client.config()}
     ),
+    bioSpanish: BlocksToMarkdown(
+      aboutPage.bioSpanish,
+      {serializers, ...client.config()}
+    ),
     image: imageUrl(aboutPage.mainImage)
       .height(580)
       .width(460)
@@ -25,6 +29,12 @@ async function getAboutPage () {
   const projection = groq`{
     _id,
     bio[]{
+      ...,
+      children[]{
+        ...
+      }
+    },
+    bioSpanish[]{
       ...,
       children[]{
         ...
