@@ -424,7 +424,7 @@ section.biolinks {
   background: -webkit-linear-gradient(to bottom, var(--rho-aquarius-1), var(--rho-aquarius-2));
   background: linear-gradient(to bottom, var(--rho-aquarius-1), var(--rho-cancer-1));
   margin: 0;
-  padding: 3rem 0 6rem;
+  padding: 3rem 0 2rem;
 }
 
 section.biolinks figure {
@@ -448,7 +448,7 @@ section.biolinks ol.social-icons {
   grid-column: 3 / 11;
 }
 
-.large-card-wrapper .card:hover {
+.large-card-wrapper .card {
   background-color: var(--alpha-light);
   background: -webkit-linear-gradient(to top, var(--beta-light), var(--gamma-light));
   background: linear-gradient(to top, var(--beta-light), var(--gamma-light));
@@ -457,7 +457,7 @@ section.biolinks ol.social-icons {
 @media all and (max-width: 800px) {
   .large-card-wrapper {
     grid-column: 2 / 12;
-    padding: 1rem;
+    padding: 0 1rem;
   }
 }
 
@@ -508,7 +508,18 @@ figure.large-figure {
 /* Styles for users who prefer dark mode at the OS level */
 @media (prefers-color-scheme: dark) {
   section.biolinks {
-    background-color: var(--rho-aquarius-1);
+    /* background: none; */
+    /* background: -webkit-linear-gradient(to bottom, var(--rho-aquarius-2), var(--rho-cancer-2));
+    background: linear-gradient(to bottom, var(--rho-aquarius-2), var(--rho-libra-3)); */
+  }
+
+  section.biolinks figure {
+    color: var(--general-night-4);
+  }
+
+  section.biolinks .large-card-wrapper ol li a,
+  section.biolinks .large-card-wrapper ol li a:visited {
+    color: var(--general-night-3ish);
   }
   .large-card-wrapper ol li a,
   .large-card-wrapper ol li a:visited {
@@ -526,10 +537,6 @@ figure.large-figure {
   border: 1px solid var(--general-night-2);
   padding: 2rem 2rem 3rem;
   border-radius: var(--small-br);
-  /* background-color: var(--alpha-light); */
-  /* background: -webkit-linear-gradient(to top, var(--alpha-light), var(--beta-light));
-  background: linear-gradient(to top, var(--alpha-light), var(--beta-light)); */
-  /* backdrop-filter: blur(8px); */
 }
 
 a:hover .card {
