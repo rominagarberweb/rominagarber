@@ -17,15 +17,6 @@ function generateBioLinks (bioLinks) {
     
 async function getBioLinks () {
     const filter = groq`*[_type == "bioLinks"]`
-    // const projection = groq`{
-    //     _id,
-    //     bioLinks[]{
-    //         title, 
-    //         url   
-    //     }, 
-    //     mainImage,
-    // }`
-    // const query = [filter, projection].join(' ')
     const docs = await client.fetch(filter).catch(err => console.error(err))
     const reducedDocs = overlayDrafts(hasToken, docs)
     const prepareBioLinks = reducedDocs.map(generateBioLinks)
