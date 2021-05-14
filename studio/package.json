@@ -28,7 +28,7 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-icons": "^3.8.0",
-    "react-props-stream": "^1.0.0",
+    "react-props-stream": "^1.0.1",
     "sanity-plugin-color-list": "^1.2.1",
     "sanity-plugin-content-model-graph": "^1.1.0",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.8",
