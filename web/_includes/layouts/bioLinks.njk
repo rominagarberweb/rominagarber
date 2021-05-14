@@ -25,7 +25,7 @@ layout: layouts/base.njk
       {% for l in bioLinks.bioLinks %}
         {% if linkCount < 8 %} {# limit number of links shown #}
     <li>
-        <a href="{{ l.url | url }}" target="_blank" rel="noopener nofollow">
+        <a href="{{ l.url | url }}" rel="noopener nofollow">
             <div class="card">
                 <p class="mt0 mb0">{{ l.title }}</p>
             </div>
