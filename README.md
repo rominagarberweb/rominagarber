@@ -11,7 +11,7 @@ The personal website of  New York Times and international bestselling author Rom
 [@andybrowne](https://www.github.com/andypbrowne) for development and design.
 
   
-## Instal and Run
+## Install and Run
 
 ### What you have
 
@@ -35,10 +35,15 @@ The personal website of  New York Times and international bestselling author Rom
 ### Run just the front-end
 
 1. 'npx eleventy --serve` in the project web folder on local
+2. You frontend should be unning on [http://localhost:8080](http://localhost:8080)
 
 ## Deploy changes
 
 Netlify automatically deploys new changes commited to master on GitHub. If you want to change deployment branch, do so in [build & deploy settings on Netlify](https://www.netlify.com/docs/continuous-deployment/#branches-deploys).
+
+## Upgrade the Studio
+
+npm install --global @sanity/cli
 
 ## Stuck? Get help
 
