@@ -437,6 +437,8 @@ section.biolinks figure figcaption {
   border-radius: 100%;
   max-width: 150px;
   text-align: center;
+  color: var(--general-night-3ish);
+  font-size: 120%;
 }
 
 section.biolinks ol.social-icons {
@@ -452,6 +454,12 @@ section.biolinks ol.social-icons {
   background-color: var(--alpha-light);
   background: -webkit-linear-gradient(to top, var(--beta-light), var(--gamma-light));
   background: linear-gradient(to top, var(--beta-light), var(--gamma-light));
+}
+
+.large-card-wrapper ol li a .card p {
+  font-size: 120%;
+  font-weight: var(--body-bold);
+  color: var(--general-night-3);
 }
 
 @media all and (max-width: 800px) {
@@ -508,21 +516,21 @@ figure.large-figure {
 /* Styles for users who prefer dark mode at the OS level */
 @media (prefers-color-scheme: dark) {
   section.biolinks {
-    /* background: none; */
-    /* background: -webkit-linear-gradient(to bottom, var(--rho-aquarius-2), var(--rho-cancer-2));
-    background: linear-gradient(to bottom, var(--rho-aquarius-2), var(--rho-libra-3)); */
+    background: none;
+    }
+
+  section.biolinks figure figcaption, 
+  section.biolinks figure img {
+    color: var(--general-night-2);
   }
 
-  section.biolinks figure {
-    color: var(--general-night-4);
+  .large-card-wrapper .card {
+    background: none;
   }
 
-  section.biolinks .large-card-wrapper ol li a,
-  section.biolinks .large-card-wrapper ol li a:visited {
-    color: var(--general-night-3ish);
-  }
-  .large-card-wrapper ol li a,
-  .large-card-wrapper ol li a:visited {
+  .large-card-wrapper ol li a .card p {
+    font-size: 120%;
+    font-weight: var(--body-bold);
     color: var(--general-night-2);
   }
 }
