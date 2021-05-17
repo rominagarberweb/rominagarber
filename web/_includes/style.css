@@ -437,7 +437,6 @@ section.biolinks figure figcaption {
   border-radius: 100%;
   max-width: 150px;
   text-align: center;
-  color: var(--general-night-3ish);
   font-size: 120%;
 }
 
@@ -454,6 +453,13 @@ section.biolinks ol.social-icons {
   background-color: var(--alpha-light);
   background: -webkit-linear-gradient(to top, var(--beta-light), var(--gamma-light));
   background: linear-gradient(to top, var(--beta-light), var(--gamma-light));
+
+}
+
+.large-card-wrapper .card p{
+  font-size: 120%;
+  font-weight: var(--body-bold);
+  color: var(--general-night-3);
 }
 
 .large-card-wrapper ol li a .card p {
@@ -516,11 +522,10 @@ figure.large-figure {
 /* Styles for users who prefer dark mode at the OS level */
 @media (prefers-color-scheme: dark) {
   section.biolinks {
-    background: none;
-    }
+    background: none; 
+  }
 
-  section.biolinks figure figcaption, 
-  section.biolinks figure img {
+  section.biolinks figure figcaption {
     color: var(--general-night-2);
   }
 
@@ -528,9 +533,7 @@ figure.large-figure {
     background: none;
   }
 
-  .large-card-wrapper ol li a .card p {
-    font-size: 120%;
-    font-weight: var(--body-bold);
+  .large-card-wrapper .card p{
     color: var(--general-night-2);
   }
 }
