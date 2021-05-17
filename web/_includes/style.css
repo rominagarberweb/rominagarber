@@ -456,7 +456,7 @@ section.biolinks ol.social-icons {
 
 }
 
-.large-card-wrapper .card p{
+.large-card-wrapper .card p {
   font-size: 120%;
   font-weight: var(--body-bold);
   color: var(--general-night-3);
@@ -533,7 +533,11 @@ figure.large-figure {
     background: none;
   }
 
-  .large-card-wrapper .card p{
+  .large-card-wrapper .card:hover {
+    background: none;
+  }
+
+  .large-card-wrapper .card p {
     color: var(--general-night-2);
   }
 }
