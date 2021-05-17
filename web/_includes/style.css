@@ -462,6 +462,12 @@ section.biolinks ol.social-icons {
   color: var(--general-night-3);
 }
 
+.large-card-wrapper ol li a .card p {
+  font-size: 120%;
+  font-weight: var(--body-bold);
+  color: var(--general-night-3);
+}
+
 @media all and (max-width: 800px) {
   .large-card-wrapper {
     grid-column: 2 / 12;
