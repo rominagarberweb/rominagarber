@@ -424,7 +424,7 @@ section.biolinks {
   background: -webkit-linear-gradient(to bottom, var(--rho-aquarius-1), var(--rho-aquarius-2));
   background: linear-gradient(to bottom, var(--rho-aquarius-1), var(--rho-cancer-1));
   margin: 0;
-  padding: 3rem 0 2rem;
+  padding: 3rem 0 6rem;
 }
 
 section.biolinks figure {
@@ -449,7 +449,7 @@ section.biolinks ol.social-icons {
   grid-column: 3 / 11;
 }
 
-.large-card-wrapper .card {
+.large-card-wrapper .card:hover {
   background-color: var(--alpha-light);
   background: -webkit-linear-gradient(to top, var(--beta-light), var(--gamma-light));
   background: linear-gradient(to top, var(--beta-light), var(--gamma-light));
@@ -465,7 +465,7 @@ section.biolinks ol.social-icons {
 @media all and (max-width: 800px) {
   .large-card-wrapper {
     grid-column: 2 / 12;
-    padding: 0 1rem;
+    padding: 1rem;
   }
 }
 
@@ -542,6 +542,10 @@ figure.large-figure {
   border: 1px solid var(--general-night-2);
   padding: 2rem 2rem 3rem;
   border-radius: var(--small-br);
+  /* background-color: var(--alpha-light); */
+  /* background: -webkit-linear-gradient(to top, var(--alpha-light), var(--beta-light));
+  background: linear-gradient(to top, var(--alpha-light), var(--beta-light)); */
+  /* backdrop-filter: blur(8px); */
 }
 
 a:hover .card {

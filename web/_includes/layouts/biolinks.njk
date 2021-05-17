@@ -3,31 +3,29 @@ title: Link in bio
 layout: layouts/base.njk
 ---
 
-{# <pre>{{ bioLinks | debug }}</pre> #}
-
 <section class="biolinks">
 
 <h1 class="visually-hidden">{{ title }}</h1>
 
 {%- if bioLinks.mainImage %}
 <figure>
-    <img src="{{ bioLinks.image }}" alt="{{ bioLinks.mainImage.alt }}">
+    <img src="{{ bioLinks.mainImage }}" alt="{{ bioLinks.mainImage.alt }}">
     <figcaption>{{ bioLinks.mainImage.caption }}</figcaption>
 </figure>
 {% endif -%}
 
 <div class="large-card-wrapper">
 
-{% if bioLinks %}
+{% if bioLinks.content.links %}
 
 <ol>
     {% set linkCount = 0 %}
-      {% for l in bioLinks.bioLinks %}
+      {% for link in bioLinks.content.links %}
         {% if linkCount < 8 %} {# limit number of links shown #}
     <li>
-        <a href="{{ l.url | url }}" rel="noopener nofollow">
+        <a href="{{ link.url | url }}" target="_blank" rel="noopener nofollow">
             <div class="card">
-                <p class="mt0 mb0">{{ l.title }}</p>
+                <p class="mt0 mb0">{{ link.title }}</p>
             </div>
         </a></li>
 
@@ -42,7 +40,6 @@ layout: layouts/base.njk
 </div>
 
 {% include "../components/social.njk" %}
-
 
 
 </section>
