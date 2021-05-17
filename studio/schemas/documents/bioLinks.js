@@ -13,7 +13,7 @@ export default {
       },
       {
         title: 'Bio links',
-        description: 'These items populate a vertical list of cards that serve as a social media profile link in bio page',
+        description: 'Enter a maximum of 12 promotional links',
         name: 'bioLinks',
         type: 'array',
         of: [
