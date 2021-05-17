@@ -6,8 +6,6 @@ templateClass: tmpl-book
 {% set themeColorSecondary = book.content.theme.secondary -%}
 {% set themeColorTertiary = book.content.theme.tertiary -%}
 
-<pre> {{ book | debug }} </pre>
-
 <div class="book-hero" style="background-color: {{ themeColorPrimary }};">
 
   {%- if book.cover %}
