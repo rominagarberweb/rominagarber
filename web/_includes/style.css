@@ -424,7 +424,7 @@ section.biolinks {
   background: -webkit-linear-gradient(to bottom, var(--rho-aquarius-1), var(--rho-aquarius-2));
   background: linear-gradient(to bottom, var(--rho-aquarius-1), var(--rho-cancer-1));
   margin: 0;
-  padding: 3rem 0 6rem;
+  padding: 3rem 0 4rem;
 }
 
 section.biolinks figure {
@@ -449,11 +449,16 @@ section.biolinks ol.social-icons {
   grid-column: 3 / 11;
 }
 
+.large-card-wrapper .card {
+  background-color: var(--alpha-light);
+  background: -webkit-linear-gradient(to top, var(--beta-light), var(--gamma-light));
+  background: linear-gradient(to top, var(--beta-light), var(--gamma-light));
+}
+
 .large-card-wrapper .card:hover {
   background-color: var(--alpha-light);
   background: -webkit-linear-gradient(to top, var(--beta-light), var(--gamma-light));
   background: linear-gradient(to top, var(--beta-light), var(--gamma-light));
-
 }
 
 .large-card-wrapper .card p {
