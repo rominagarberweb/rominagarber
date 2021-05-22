@@ -387,6 +387,20 @@ blockquote p {
   color: var(--general-night-3);
 }
 
+span.env-pill-test {
+  color: var(--rho-aquarius-3);
+  background-color: var(--rho-aquarius-3);
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+span.env-pill-dev {
+  color: var(--rho-cancer-3);
+  background-color: var(--rho-cancer-1);
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
 /* Styles for users who prefer dark mode at the OS level */
 @media (prefers-color-scheme: dark) {
   body {
@@ -447,12 +461,6 @@ section.biolinks ol.social-icons {
 
 .large-card-wrapper {
   grid-column: 3 / 11;
-}
-
-.large-card-wrapper .card {
-  background-color: var(--alpha-light);
-  background: -webkit-linear-gradient(to top, var(--beta-light), var(--gamma-light));
-  background: linear-gradient(to top, var(--beta-light), var(--gamma-light));
 }
 
 .large-card-wrapper .card:hover {
