@@ -1787,7 +1787,7 @@ ol.postlist li.postlist-item {
 
 li.postlist-item .block h3 {
   margin: .4em 0 1em;
-  font-size: calc(1.1rem + 1.1vw);;
+  font-size: calc(1.1rem + .4vw);;
 }
 
 ol.postlist li.postlist-item:last-child {
