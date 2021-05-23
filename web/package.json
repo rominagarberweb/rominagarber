@@ -13,7 +13,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-plugin-rss": "^1.1.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.3",
     "@sanity/block-content-to-markdown": "0.0.5",
     "@sanity/client": "^0.144.0",
@@ -27,8 +28,8 @@
   "dependencies": {
     "@11ty/eleventy-img": "^0.2.5",
     "@sanity/image-url": "^0.140.19",
-    "axios": "^0.19.2",
-    "node-fetch": "^2.6.0",
+    "axios": "^0.21.1",
+    "node-fetch": "^2.6.1",
     "typeface-manuale": "^1.1.4"
   }
 }
