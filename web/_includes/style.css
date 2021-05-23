@@ -463,7 +463,8 @@ section.biolinks ol.social-icons {
   grid-column: 3 / 11;
 }
 
-.large-card-wrapper .card:hover {
+.large-card-wrapper .card:hover,
+.large-card-wrapper .card {
   background-color: var(--alpha-light);
   background: -webkit-linear-gradient(to top, var(--beta-light), var(--gamma-light));
   background: linear-gradient(to top, var(--beta-light), var(--gamma-light));
