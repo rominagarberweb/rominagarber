@@ -29,11 +29,11 @@
   {%- for post in collections.myPosts %}
   {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
   <entry>
-    <title>{{ post.title }}</title>
+    <!-- <title>{{ post.title }}</title> -->
     <link href="{{ absolutePostUrl }}"/>
     <updated>{{ post.date | dateToRfc3339 }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content type="html">{{ post.body | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+    <!-- <content type="html">{{ post.body | htmlToAbsoluteUrls(absolutePostUrl) }}</content> -->
   </entry>
   {%- endfor %}
 </feed>
