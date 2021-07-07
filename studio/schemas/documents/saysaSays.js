@@ -2,7 +2,6 @@ export default {
     name: 'saysaSays',
     type: 'document',
     title: 'Saysa Says',
-    __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
     fields: [
       {
         name: 'title',
@@ -16,7 +15,7 @@ export default {
         type: 'bodyPortableText',
         title: 'Body Content',
         validation: Rule => Rule.required()
-      }
+      },
     ]
   }
   
