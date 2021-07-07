@@ -16,6 +16,12 @@ export default {
         title: 'Body Content',
         validation: Rule => Rule.required()
       },
+      {
+        name: 'cta',
+        type: 'bioPortableText',
+        title: 'Call to Action',
+        description: 'write a short CTA and hyperlink to a relevant resource',
+      }
     ]
   }
   
