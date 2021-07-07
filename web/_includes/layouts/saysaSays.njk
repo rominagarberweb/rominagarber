@@ -1,0 +1,23 @@
+---
+title: Saysa Says
+layout: layouts/base.njk
+---
+
+<section>
+
+  <h1>{{ saysaSays.title }}</h1>
+
+  <div class="bio-text">
+      <article>
+ 
+        {{ saysaSays.bodyContent | markdownify | safe }}
+
+       </article>
+       <article>
+
+         {{ saysaSays.cta | markdownify | safe }}
+
+       </article>
+  </div>
+
+</section>
