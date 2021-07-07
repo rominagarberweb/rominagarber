@@ -36,7 +36,8 @@ const hiddenDocTypes = listItem =>
     'series',
     'siteSettings',
     'tip',
-    'bioLinks'
+    'bioLinks',
+    'saysaSays'
   ].includes(listItem.getId())
 
 export default () =>
@@ -134,6 +135,15 @@ export default () =>
                     .title('Bio links page')
                     .schemaType('bioLinks')
                     .documentId('bioLinks')
+                ),
+              S.listItem()
+                .title('Saysa Says')
+                .icon(FiFileText)
+                .child(
+                  S.editor()
+                    .title('Saysa Says')
+                    .schemaType('saysaSays')
+                    .documentId('saysaSays')
                 )
             ])
       ),
