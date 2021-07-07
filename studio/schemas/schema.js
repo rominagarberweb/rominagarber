@@ -22,6 +22,7 @@ import series from './documents/series'
 import siteSettings from './documents/siteSettings'
 import tip from './documents/tip'
 import bioLinks from './documents/bioLinks'
+import saysaSays from './documents/saysaSays'
 
 // Object types
 import authorReference from './objects/authorReference'
@@ -67,6 +68,7 @@ export default createSchema({
     siteSettings,
     tip,
     bioLinks,
+    saysaSays,
     // Object types - can be used as { type: 'typename' }
     // in document schemas
     authorReference,
