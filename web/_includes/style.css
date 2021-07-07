@@ -2416,7 +2416,8 @@ time {
 /* Book list(s)
    ========================================================================== */
 
-section.books {
+section.books,
+section.newsletter {
   display: grid;
   padding: 4rem 0 5rem;
 }
