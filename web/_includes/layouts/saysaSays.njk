@@ -3,21 +3,24 @@ title: Saysa Says
 layout: layouts/base.njk
 ---
 
-<section>
+<section class="books">
 
   <h1>{{ saysaSays.title }}</h1>
 
-  <div class="bio-text">
       <article>
  
         {{ saysaSays.bodyContent | markdownify | safe }}
 
-       </article>
-       <article>
+       <div class="card" style="
+        display: flex;
+        align-items: center;
+        gap: 2rem;">
+        <span>ⓘ</span>
 
          {{ saysaSays.cta | markdownify | safe }}
 
+       </div>
+
        </article>
-  </div>
 
 </section>
