@@ -3,12 +3,12 @@ export default {
     type: 'document',
     title: 'Saysa Says',
     fields: [
-      {
-        name: 'mainImage',
-        type: 'mainImage',
-        title: 'Image',
-        description: 'Image used for social sharing'
-      },
+      // {
+      //   name: 'mainImage',
+      //   type: 'mainImage',
+      //   title: 'Image',
+      //   description: 'Image used for social sharing'
+      // },
       {
         name: 'title',
         type: 'string',
