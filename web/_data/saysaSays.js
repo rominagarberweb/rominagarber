@@ -16,7 +16,11 @@ function generateSaysaSays (saysaSays) {
     cta: BlocksToMarkdown(
         saysaSays.cta,
         {serializers, ...client.config()}
-      ),
+    ),
+    image: imageUrl(saysaSays.mainImage)
+      .height(580)
+      .width(460)
+      .url(),
   }
 }
 
@@ -24,6 +28,7 @@ async function getSaysaSays () {
   const filter = groq`*[_type == "saysaSays"]`
   const projection = groq`{
     _id,
+    mainImage,
     title,
     bodyContent[]{
       ...,

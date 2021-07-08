@@ -1,6 +1,10 @@
 ---
 title: Saysa Says
 layout: layouts/base.njk
+renderData:
+  title: "{{ saysaSays.title }}"
+  metaDesc: "{{ saysaSays.description }}"
+  socialImage: "{{ saysaSays.mainImage }}"
 ---
 
 <section class="books">
@@ -11,7 +15,9 @@ layout: layouts/base.njk
  
         {{ saysaSays.bodyContent | markdownify | safe }}
 
-        <div class="end-mark"></div>
+        <div class="end-mark" style="text-align:center; margin-bottom: 2rem;">
+            §
+        </div>
 
        <div class="card" style="
         display: flex;
