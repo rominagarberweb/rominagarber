@@ -72,7 +72,7 @@ export default {
           name: 'schedule',
           type: 'schedule',
           title: 'Schedule',
-          description: 'From when to when will the event last?',
+          description: 'From when to when will the event last? Due to a bug please also subtract 4 hours from the time until further notice',
           fieldset: 'overview'
         },
         {
