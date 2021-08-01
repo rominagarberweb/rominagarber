@@ -118,7 +118,7 @@ export default {
     select: {
       title: 'content.name',
       fromDate: 'content.schedule.from',
-      media: 'content.cover'
+      media: 'content.previewImage'
     },
     prepare ({ title = 'No name', fromDate, media }) {
       const date = format(fromDate, 'YYYY/MM/DD')
