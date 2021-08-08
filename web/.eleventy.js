@@ -95,13 +95,15 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('images')
   eleventyConfig.addPassthroughCopy('fonts')
   eleventyConfig.addPassthroughCopy('scripts')
+  eleventyConfig.addPassthroughCopy('pdfs')
 
   return {
     templateFormats: [
       "md",
       "njk",
       "html",
-      "liquid"
+      "liquid",
+      "pdf"
     ],
 
     // If your site lives in a different subdirectory, change this.
