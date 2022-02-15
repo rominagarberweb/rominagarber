@@ -62,19 +62,19 @@ This documentation was written with [Readme.so](https://readme.so/)
   
 ## Roadmap
 
-- Remove mailchimp newsletter subcription and replace with a netlify form
+- ~Remove mailchimp newsletter subcription and replace with a netlify form~
 - RSS Feed
-- Localization (Español) of About Page Bio
+- ~Localization (Español) of About Page Bio~
 - Organizing Press Items
 - Series Landing Page and list of Series to Book Page
 - Adding pagination to blog posts list and events list
 - Studio embeds for videos in Body Portable Text
 - Add a featured Post section for the Blog Page
-- Social Media Share Previews
+- Social Media/SEO Share Previews
 - Studio live preview with Eleventy Cloud
 - Add to Calendar feature on event page
 - Pre-order Reward form
-- Linktree inspired page
+- ~Linktree inspired page~
 
 For more see our [Trello Dashboard](https://trello.com/invite/b/Hy4dmkEd/0b1994fab48d384cf9350c7fd2d0cf73/romina-garber-website)
 
