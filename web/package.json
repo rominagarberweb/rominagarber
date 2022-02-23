@@ -29,7 +29,7 @@
     "@11ty/eleventy-img": "^0.2.5",
     "@sanity/image-url": "^0.140.22",
     "axios": "^0.21.1",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "typeface-manuale": "^1.1.4"
   }
 }
