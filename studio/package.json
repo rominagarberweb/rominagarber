@@ -32,7 +32,7 @@
     "sanity-plugin-color-list": "^1.2.1",
     "sanity-plugin-content-model-graph": "^1.1.0",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.8",
-    "sanity-plugin-media": "^0.2.10",
+    "sanity-plugin-media": "^2.0.5",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
