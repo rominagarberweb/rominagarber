@@ -4,35 +4,50 @@ import { FiZap } from 'react-icons/fi'
 import { FaRegNewspaper } from 'react-icons/fa'
 import { FiExternalLink } from 'react-icons/fi'
 import { FaStore } from 'react-icons/fa'
-import Tabs from '../../plugins/tabs'
+// import Tabs from '../../plugins/tabs'
 
 export default {
   name: 'book',
   type: 'document',
   title: 'Book',
+  groups: [
+    { 
+      name: 'general', 
+      title: 'General',
+    },
+    { 
+      name: 'promotion', 
+      title: 'Promotion',
+    },
+    { 
+      name: 'details', 
+      title: 'Details',
+    },
+  ],
   icon: FiBook,
   fields: [
-    {
-      name: 'content',
-      type: 'object',
-      inputComponent: Tabs,
-      fieldsets: [
-        { name: 'general', title: 'General' },
-        { name: 'details', title: 'Details' },
-        { name: 'promotion', title: 'Promotion' },
-      ],
-      options: {
-        // setting layout to object will group the tab content in an object fieldset border.
-        // ... Useful for when your tab is in between other fields inside a document.
-        layout: 'object'
-      },
-      fields: [
+  //   {
+  //     name: 'content',
+  //     type: 'object',
+  //     inputComponent: Tabs,
+  //     fieldsets: [
+  //       { name: 'general', title: 'General' },
+  //       { name: 'details', title: 'Details' },
+  //       { name: 'promotion', title: 'Promotion' },
+  //     ],
+  //     options: {
+  //       // setting layout to object will group the tab content in an object fieldset border.
+  //       // ... Useful for when your tab is in between other fields inside a document.
+  //       layout: 'object'
+  //     },
+      // fields: [
         {
           name: 'title',
           type: 'string',
           title: 'Title',
           validation: Rule => Rule.required(),
-          fieldset: 'general'
+          fieldset: 'general',
+          group: 'general'
         },
         {
           name: 'slug',
@@ -43,7 +58,8 @@ export default {
             maxLength: 96
           },
           validation: Rule => Rule.required(),
-          fieldset: 'general'
+          fieldset: 'general',
+          group: 'general'
         },
         {
           name: 'series',
@@ -54,25 +70,29 @@ export default {
               type: 'series'
             }
           ],
-          fieldset: 'general'
+          fieldset: 'general',
+          group: 'general'
         },
         {
           name: 'releaseDate',
           type: 'date',
           title: 'Release date',
-          fieldset: 'general'
+          fieldset: 'general',
+          group: 'general'
         },
         {
           name: 'cover',
           type: 'mainImage',
           title: 'Cover',
-          fieldset: 'general'
+          fieldset: 'general',
+          group: 'general'
         },
         {
           title: 'Color theme',
           name: 'theme',
           type: 'reference',
           fieldset: 'general',
+          group: 'general',
           to: [{ type: 'colorTheme' }]
         },
         {
@@ -80,7 +100,8 @@ export default {
           type: 'introPortableText',
           title: 'Hook',
           description: 'Short phrase that typically shows up on the book cover and marketing material',
-          fieldset: 'details'
+          fieldset: 'details',
+          group: 'details'
         },
         {
           title: 'Buy book from',
@@ -88,6 +109,7 @@ export default {
           description: 'Enter short titles (e.g. Amazon) and hyperlilnks to vendor pages',
           type: 'array',
           fieldset: 'details',
+          group: 'details',
           of: [
             {
               type: 'link',
@@ -103,6 +125,7 @@ export default {
           type: 'url',
           description: 'Enter url of the GoodReads book page',
           fieldset: 'details',
+          group: 'details',
           validation: Rule => Rule.uri({
             scheme: ['http', 'https', 'mailto', 'tel']
           })
@@ -112,6 +135,7 @@ export default {
           name: 'links',
           type: 'array',
           fieldset: 'details',
+          group: 'details',
           of: [
             {
               type: 'link',
@@ -125,6 +149,7 @@ export default {
           name: 'publishers',
           type: 'array',
           fieldset: 'details',
+          group: 'details',
           of: [
             {
               type: 'link',
@@ -140,6 +165,7 @@ export default {
           type: 'reference',
           to: { type: 'agent' },
           fieldset: 'details',
+          group: 'details',
           readOnly: true
         },
         {
@@ -148,13 +174,15 @@ export default {
           title: 'Promotional images',
           description: 'Add images and captions. Up to three will display alongside the Synopsis, Reviews, and Press items.',
           fieldset: 'promotion',
+          group: 'promotion',
           of: [{ type: 'mainImage' }]
         },
         {
           name: 'synopsis',
           type: 'introPortableText',
           title: 'Synopsis',
-          fieldset: 'promotion'
+          fieldset: 'promotion',
+          group: 'promotion'
         },
         {
           name: 'reviews',
@@ -162,6 +190,7 @@ export default {
           title: 'Reviews',
           description: '7 will display by default. Later we will add a "see more" button',
           fieldset: 'promotion',
+          group: 'promotion',
           of: [
             {
               type: 'review',
@@ -175,6 +204,7 @@ export default {
           type: 'array',
           title: 'Press',
           fieldset: 'promotion',
+          group: 'promotion',
           of: [
             {
               type: 'pressEntry',
@@ -197,8 +227,8 @@ export default {
         //     }
         //   ]
         // },
-      ]
-    }
+    //   ]
+    // }
   ],
   initialValue: {
     content: {

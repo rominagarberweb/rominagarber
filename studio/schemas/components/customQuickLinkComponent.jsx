@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import {Link} from 'part:@sanity/base/router'
-import FormField from 'part:@sanity/components/formfields/default'
+import { Link } from 'sanity/router'
+import {FormField} from 'sanity'
 
 export default class QuickLink extends React.Component {
   static propTypes = {

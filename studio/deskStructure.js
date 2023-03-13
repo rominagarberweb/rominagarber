@@ -1,4 +1,3 @@
-import S from '@sanity/desk-tool/structure-builder'
 import {
   FaRegNewspaper
 } from 'react-icons/fa'
@@ -40,7 +39,7 @@ const hiddenDocTypes = listItem =>
     'saysaSays'
   ].includes(listItem.getId())
 
-export default () =>
+export default (S) =>
   S.list()
     .title('Content')
     .items([
