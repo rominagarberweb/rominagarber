@@ -11,224 +11,190 @@ export default {
   type: 'document',
   title: 'Book',
   groups: [
-    { 
-      name: 'general', 
+    {
+      name: 'general',
       title: 'General',
     },
-    { 
-      name: 'promotion', 
+    {
+      name: 'promotion',
       title: 'Promotion',
     },
-    { 
-      name: 'details', 
+    {
+      name: 'details',
       title: 'Details',
     },
   ],
   icon: FiBook,
   fields: [
-  //   {
-  //     name: 'content',
-  //     type: 'object',
-  //     inputComponent: Tabs,
-  //     fieldsets: [
-  //       { name: 'general', title: 'General' },
-  //       { name: 'details', title: 'Details' },
-  //       { name: 'promotion', title: 'Promotion' },
-  //     ],
-  //     options: {
-  //       // setting layout to object will group the tab content in an object fieldset border.
-  //       // ... Useful for when your tab is in between other fields inside a document.
-  //       layout: 'object'
-  //     },
-      // fields: [
+    {
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      validation: Rule => Rule.required(),
+      group: 'general'
+    },
+    {
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      options: {
+        source: 'content.title',
+        maxLength: 96
+      },
+      validation: Rule => Rule.required(),
+      group: 'general'
+    },
+    {
+      name: 'series',
+      title: 'Series',
+      type: 'reference',
+      to: [
         {
-          name: 'title',
-          type: 'string',
-          title: 'Title',
-          validation: Rule => Rule.required(),
-          fieldset: 'general',
-          group: 'general'
-        },
+          type: 'series'
+        }
+      ],
+      group: 'general'
+    },
+    {
+      name: 'releaseDate',
+      type: 'date',
+      title: 'Release date',
+      group: 'general'
+    },
+    {
+      name: 'cover',
+      type: 'mainImage',
+      title: 'Cover',
+      group: 'general'
+    },
+    {
+      title: 'Color theme',
+      name: 'theme',
+      type: 'reference',
+      group: 'general',
+      to: [{ type: 'colorTheme' }]
+    },
+    {
+      name: 'hook',
+      type: 'introPortableText',
+      title: 'Hook',
+      description: 'Short phrase that typically shows up on the book cover and marketing material',
+      group: 'details'
+    },
+    {
+      title: 'Buy book from',
+      name: 'buyBookFrom',
+      description: 'Enter short titles (e.g. Amazon) and hyperlilnks to vendor pages',
+      type: 'array',
+      group: 'details',
+      of: [
         {
-          name: 'slug',
-          type: 'slug',
-          title: 'Slug',
-          options: {
-            source: 'content.title',
-            maxLength: 96
-          },
-          validation: Rule => Rule.required(),
-          fieldset: 'general',
-          group: 'general'
-        },
+          type: 'link',
+          title: 'Link',
+          icon: FaStore
+        }
+      ]
+    },
+    {
+      // change this so only hyperlinks is editable
+      title: 'Add to Goodreads',
+      name: 'addToGoodreads',
+      type: 'url',
+      description: 'Enter url of the GoodReads book page',
+      group: 'details',
+      validation: Rule => Rule.uri({
+        scheme: ['http', 'https', 'mailto', 'tel']
+      })
+    },
+    {
+      title: 'Links',
+      name: 'links',
+      type: 'array',
+      group: 'details',
+      of: [
         {
-          name: 'series',
-          title: 'Series',
-          type: 'reference',
-          to: [
-            {
-              type: 'series'
-            }
-          ],
-          fieldset: 'general',
-          group: 'general'
-        },
+          type: 'link',
+          title: 'Link',
+          icon: FiExternalLink
+        }
+      ]
+    },
+    {
+      title: 'Publisher links',
+      name: 'publishers',
+      type: 'array',
+      group: 'details',
+      of: [
         {
-          name: 'releaseDate',
-          type: 'date',
-          title: 'Release date',
-          fieldset: 'general',
-          group: 'general'
-        },
+          type: 'link',
+          title: 'Link',
+          icon: FiExternalLink
+        }
+      ]
+    },
+    {
+      title: 'Agent',
+      name: 'agent',
+      description: 'Agent is editable under settings content',
+      type: 'reference',
+      to: { type: 'agent' },
+      group: 'details',
+      readOnly: true
+    },
+    {
+      name: 'internationalCovers',
+      type: 'array',
+      title: 'Promotional images',
+      description: 'Add images and captions. Up to three will display alongside the Synopsis, Reviews, and Press items.',
+      group: 'promotion',
+      of: [{ type: 'mainImage' }]
+    },
+    {
+      name: 'synopsis',
+      type: 'introPortableText',
+      title: 'Synopsis',
+      group: 'promotion'
+    },
+    {
+      name: 'reviews',
+      type: 'array',
+      title: 'Reviews',
+      description: '7 will display by default. Later we will add a "see more" button',
+      group: 'promotion',
+      of: [
         {
-          name: 'cover',
-          type: 'mainImage',
-          title: 'Cover',
-          fieldset: 'general',
-          group: 'general'
-        },
+          type: 'review',
+          title: 'Review',
+          icon: FiZap
+        }
+      ]
+    },
+    {
+      name: 'press',
+      type: 'array',
+      title: 'Press',
+      group: 'promotion',
+      of: [
         {
-          title: 'Color theme',
-          name: 'theme',
-          type: 'reference',
-          fieldset: 'general',
-          group: 'general',
-          to: [{ type: 'colorTheme' }]
-        },
-        {
-          name: 'hook',
-          type: 'introPortableText',
-          title: 'Hook',
-          description: 'Short phrase that typically shows up on the book cover and marketing material',
-          fieldset: 'details',
-          group: 'details'
-        },
-        {
-          title: 'Buy book from',
-          name: 'buyBookFrom',
-          description: 'Enter short titles (e.g. Amazon) and hyperlilnks to vendor pages',
-          type: 'array',
-          fieldset: 'details',
-          group: 'details',
-          of: [
-            {
-              type: 'link',
-              title: 'Link',
-              icon: FaStore
-            }
-          ]
-        },
-        {
-          // change this so only hyperlinks is editable
-          title: 'Add to Goodreads',
-          name: 'addToGoodreads',
-          type: 'url',
-          description: 'Enter url of the GoodReads book page',
-          fieldset: 'details',
-          group: 'details',
-          validation: Rule => Rule.uri({
-            scheme: ['http', 'https', 'mailto', 'tel']
-          })
-        },
-        {
-          title: 'Links',
-          name: 'links',
-          type: 'array',
-          fieldset: 'details',
-          group: 'details',
-          of: [
-            {
-              type: 'link',
-              title: 'Link',
-              icon: FiExternalLink
-            }
-          ]
-        },
-        {
-          title: 'Publisher links',
-          name: 'publishers',
-          type: 'array',
-          fieldset: 'details',
-          group: 'details',
-          of: [
-            {
-              type: 'link',
-              title: 'Link',
-              icon: FiExternalLink
-            }
-          ]
-        },
-        {
-          title: 'Agent',
-          name: 'agent',
-          description: 'Agent is editable under settings content',
-          type: 'reference',
-          to: { type: 'agent' },
-          fieldset: 'details',
-          group: 'details',
-          readOnly: true
-        },
-        {
-          name: 'internationalCovers',
-          type: 'array',
-          title: 'Promotional images',
-          description: 'Add images and captions. Up to three will display alongside the Synopsis, Reviews, and Press items.',
-          fieldset: 'promotion',
-          group: 'promotion',
-          of: [{ type: 'mainImage' }]
-        },
-        {
-          name: 'synopsis',
-          type: 'introPortableText',
-          title: 'Synopsis',
-          fieldset: 'promotion',
-          group: 'promotion'
-        },
-        {
-          name: 'reviews',
-          type: 'array',
-          title: 'Reviews',
-          description: '7 will display by default. Later we will add a "see more" button',
-          fieldset: 'promotion',
-          group: 'promotion',
-          of: [
-            {
-              type: 'review',
-              title: 'Review',
-              icon: FiZap
-            }
-          ]
-        },
-        {
-          name: 'press',
-          type: 'array',
-          title: 'Press',
-          fieldset: 'promotion',
-          group: 'promotion',
-          of: [
-            {
-              type: 'pressEntry',
-              title: 'Press Entry',
-              icon: FaRegNewspaper
-            }
-          ]
-        },
-        // {
-        //   title: 'Press items',
-        //   name: 'pressItems',
-        //   description: 'This field is depriciated and will be replaced with the press field',
-        //   type: 'array',
-        //   fieldset: 'promotion',
-        //   of: [
-        //     {
-        //       type: 'reference',
-        //       to: {type: 'press'},
-        //       icon: FaRegNewspaper
-        //     }
-        //   ]
-        // },
+          type: 'pressEntry',
+          title: 'Press Entry',
+          icon: FaRegNewspaper
+        }
+      ]
+    },
+    // {
+    //   title: 'Press items',
+    //   name: 'pressItems',
+    //   description: 'This field is depriciated and will be replaced with the press field',
+    //   type: 'array',
+    //   of: [
+    //     {
+    //       type: 'reference',
+    //       to: {type: 'press'},
+    //       icon: FaRegNewspaper
+    //     }
     //   ]
-    // }
+    // },
   ],
   initialValue: {
     content: {
@@ -275,7 +241,7 @@ export default {
       slug: 'content.slug',
       media: 'content.cover'
     },
-    prepare ({ title = 'No title', slug = {}, media }) {
+    prepare({ title = 'No title', slug = {}, media }) {
       const path = `/${slug.current}/`
       return {
         title,
