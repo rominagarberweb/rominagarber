@@ -1,8 +1,3 @@
-// First, we must import the schema creator
-import createSchema from 'part:@sanity/base/schema-creator'
-
-// Then import schema types from any plugins that might expose them
-import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
 import aboutPage from './documents/aboutPage'
@@ -44,49 +39,43 @@ import tipReference from './objects/tipReference'
 import venue from './objects/venue'
 
 // Then we give our schema to the builder and provide the result to Sanity
-export default createSchema({
-  // We name our schema
-  name: 'default',
-  // Then proceed to concatenate our document and object types
-  // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([
-    // Document types
-    aboutPage,
-    agent,
-    author,
-    blogPage,
-    book,
-    booksPage,
-    category,
-    colorTheme,
-    event,
-    eventsPage,
-    homePage,
-    post,
-    press,
-    series,
-    siteSettings,
-    tip,
-    bioLinks,
-    saysaSays,
-    // Object types - can be used as { type: 'typename' }
-    // in document schemas
-    authorReference,
-    bioPortableText,
-    blurb,
-    blurbPortableText,
-    bodyPortableText,
-    excerptPortableText,
-    eventPortableText,
-    introPortableText,
-    heroPortableText,
-    link,
-    mainImage,
-    review,
-    reviewPortableText,
-    pressEntry,
-    schedule,
-    tipReference,
-    venue
-  ])
-})
+export default [
+  // Document types
+  aboutPage,
+  agent,
+  author,
+  blogPage,
+  book,
+  booksPage,
+  category,
+  colorTheme,
+  event,
+  eventsPage,
+  homePage,
+  post,
+  press,
+  series,
+  siteSettings,
+  tip,
+  bioLinks,
+  saysaSays,
+  // Object types - can be used as { type: 'typename' }
+  // in document schemas
+  authorReference,
+  bioPortableText,
+  blurb,
+  blurbPortableText,
+  bodyPortableText,
+  excerptPortableText,
+  eventPortableText,
+  introPortableText,
+  heroPortableText,
+  link,
+  mainImage,
+  review,
+  reviewPortableText,
+  pressEntry,
+  schedule,
+  tipReference,
+  venue
+]
