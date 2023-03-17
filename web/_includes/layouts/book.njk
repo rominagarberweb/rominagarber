@@ -190,14 +190,37 @@ templateClass: tmpl-book
     <div class="book-reviews">
       <h2>Reviews</h2>
 
-      {% for review in book.reviews %}
-        {{ review.content | markdownify | safe }}
+      <input type="hidden" id="review-show" value="false" />
 
-        {% if review.author %}
-          <em>&mdash; {{ review.author }}</em>
+      {% for review in book.reviews %}
+        {% if loop.index < 4 %}
+          <div class="">
+            {{ review.content | markdownify | safe }}
+
+            {% if review.author %}
+              <em>&mdash; {{ review.author }}</em>
+            {% endif %}
+          </div>
+        {% else %}
+          <div class="more-review">
+            {{ review.content | markdownify | safe }}
+
+            {% if review.author %}
+              <em>&mdash; {{ review.author }}</em>
+            {% endif %}
+          </div>
         {% endif %}
 
       {% endfor %}
+
+      <div class="showmore-actions">
+        <button onClick="window.document.getElementById('review-show').value = true">
+          See more reviews &darr;
+        </button>
+        <button onClick="window.document.getElementById('review-show').value = false">
+          See less reviews &uarr;
+        </button>
+      </div>
 
     </div>
 
@@ -217,21 +240,42 @@ templateClass: tmpl-book
     <div class="book-press-items">
 
       <h2>Press</h2>
+      <input type="hidden" id="press-show" value="false" />
       <ul>
 
         {% for press in book.content.press %}
 
-          <li>
-            {% if press.source %}
-              <strong>{{ press.source }}</strong> - 
-            {% endif %}
-              <a href="{{ press.url }}"  rel="noopener">{{ press.title }}</a> - 
-            <time>{{ press.publishedAt | readableDate }}</time>
-          </li>
+          {% if loop.index < 5 %}
+            <li>
+              {% if press.source %}
+                <strong>{{ press.source }}</strong> - 
+              {% endif %}
+                <a href="{{ press.url }}"  rel="noopener">{{ press.title }}</a> - 
+              <time>{{ press.publishedAt | readableDate }}</time>
+            </li>
+          {% else %}
+            <li class="more-press">
+              {% if press.source %}
+                <strong>{{ press.source }}</strong> - 
+              {% endif %}
+                <a href="{{ press.url }}"  rel="noopener">{{ press.title }}</a> - 
+              <time>{{ press.publishedAt | readableDate }}</time>
+            </li>
+          {% endif %}
 
         {% endfor %}
 
       </ul>
+
+      <div class="showmore-actions">
+        <button onClick="window.document.getElementById('press-show').value = true">
+          Show more &darr;
+        </button>
+        <button onClick="window.document.getElementById('press-show').value = false">
+          Show less &uarr;
+        </button>
+      </div>
+
     </div>
 
   {% endif %}
