@@ -2483,3 +2483,59 @@ section.series-data > * {
 /* section.tips {
 
 } */
+
+.showmore-actions {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  justify-content: center;
+}
+.showmore-actions > button {
+  background-color: transparent;
+  border-radius: 22px;
+  font-size: 24px;
+  cursor: pointer;
+  border: 2px solid #202122;
+  padding: 0.5rem 1.5rem;
+}
+
+#review-show[value="false"] ~ .more-review {
+  display: none;
+}
+#review-show[value="false"] ~ .showmore-actions > :first-child {
+  display: block;
+}
+#review-show[value="false"] ~ .showmore-actions > :last-child {
+  display: none;
+}
+
+#review-show[value="true"] ~ .more-review {
+  display: block;
+}
+#review-show[value="true"] ~ .showmore-actions > :last-child {
+  display: block;
+}
+#review-show[value="true"] ~ .showmore-actions > :first-child {
+  display: none;
+}
+
+
+#press-show[value="false"] + ul > .more-press {
+  display: none;
+}
+#press-show[value="false"] ~ .showmore-actions > :first-child {
+  display: block;
+}
+#press-show[value="false"] ~ .showmore-actions > :last-child {
+  display: none;
+}
+
+#press-show[value="true"] + ul > .more-press {
+  display: block;
+}
+#press-show[value="true"] ~ .showmore-actions > :last-child {
+  display: block;
+}
+#press-show[value="true"] ~ .showmore-actions > :first-child {
+  display: none;
+}

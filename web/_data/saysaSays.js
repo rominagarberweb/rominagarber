@@ -17,10 +17,10 @@ function generateSaysaSays (saysaSays) {
         saysaSays.cta,
         {serializers, ...client.config()}
     ),
-    image: imageUrl(saysaSays.mainImage)
+    image: saysaSays.mainImage !== null ? imageUrl(saysaSays.mainImage)
       .height(580)
       .width(460)
-      .url(),
+      .url() : null,
   }
 }
 
