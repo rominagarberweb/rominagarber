@@ -241,7 +241,7 @@ export default {
       slug: 'content.slug',
       media: 'content.cover'
     },
-    prepare ({ title = 'No title', slug = {}, media }) {
+    prepare({ title = 'No title', slug = {}, media }) {
       const path = `/${slug.current}/`
       return {
         title,

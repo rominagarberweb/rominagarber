@@ -109,17 +109,17 @@ export default {
   ],
   preview: {
     select: {
-      title: 'content.name',
-      fromDate: 'content.schedule.from',
-      media: 'content.previewImage'
+      title: 'name',
+      fromDate: 'schedule',
+      media: 'previewImage'
     },
-    prepare ({ title = 'No name', fromDate, media }) {
-      const date = format(fromDate, 'YYYY/MM/DD')
-      return {
-        title,
-        media,
-        subtitle: date ? date : 'Missing date'
-      }
-    }
+    // prepare ({ title = 'No name', fromDate, media }) {
+    //   const date = format(fromDate, 'YYYY/MM/DD')
+    //   return {
+    //     title,
+    //     media,
+    //     subtitle: date ? date : 'Missing date'
+    //   }
+    // }
   }
 }

@@ -12,18 +12,18 @@ function generateEvent (event) {
     description: BlocksToMarkdown(event.content.description,
       { serializers, ...client.config() }
     ),
-    previewImage: imageUrl(event.content.previewImage)
+    previewImage: event.content.previewImage !== null ? imageUrl(event.content.previewImage)
       .height(450)
       .width(800)
-      .url(),
+      .url() : null
   }
 }
 
 async function getEvents () {
   const filter = groq`*[_type == "event"]`
   const projection = groq`{
+    _id,
     content {
-      _id,
       bannerText,
       description[]{
         ...,
