@@ -15,12 +15,12 @@ export default {
       title: 'General',
     },
     { 
-      name: 'promotion', 
-      title: 'Promotion',
-    },
-    { 
       name: 'details', 
       title: 'Details',
+    },
+    { 
+      name: 'promotion', 
+      title: 'Promotion',
     },
   ],
   icon: FiBook,
