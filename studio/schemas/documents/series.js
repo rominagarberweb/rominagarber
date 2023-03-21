@@ -1,4 +1,4 @@
-import { GiBookshelf } from 'react-icons/gi'
+import {GiBookshelf} from 'react-icons/gi'
 
 export default {
   name: 'series',
@@ -24,7 +24,7 @@ export default {
       title: 'Color theme',
       name: 'theme',
       type: 'reference',
-      to: [{ type: 'colorTheme' }]
+      to: [{type: 'colorTheme'}]
     },
     {
       name: 'image',

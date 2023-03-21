@@ -1,5 +1,5 @@
-import { format } from 'date-fns'
-import { MdEvent } from 'react-icons/md'
+// import {format} from 'date-fns'
+import {MdEvent} from 'react-icons/md'
 
 export default {
   name: 'event',
@@ -8,12 +8,12 @@ export default {
   groups: [
     {
       name: 'overview',
-      title: 'Overview',
+      title: 'Overview'
     },
     {
       name: 'venue',
-      title: 'Venue',
-    },
+      title: 'Venue'
+    }
   ],
   icon: MdEvent,
   fields: [
@@ -51,7 +51,7 @@ export default {
     },
     {
       name: 'shortDescription',
-      type: 'string', //make me portable text
+      type: 'string', // make me portable text
       title: 'Short Description',
       description: 'Text will display on social media when link is shared',
       group: 'overview'
@@ -67,7 +67,8 @@ export default {
       name: 'schedule',
       type: 'schedule',
       title: 'Schedule',
-      description: 'From when to when will the event last? Due to a bug please also subtract 4 hours from the time until further notice',
+      description:
+        'From when to when will the event last? Due to a bug please also subtract 4 hours from the time until further notice',
       group: 'overview'
     },
     {
@@ -112,7 +113,7 @@ export default {
       title: 'name',
       fromDate: 'schedule',
       media: 'previewImage'
-    },
+    }
     // prepare ({ title = 'No name', fromDate, media }) {
     //   const date = format(fromDate, 'YYYY/MM/DD')
     //   return {

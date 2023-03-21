@@ -1,4 +1,4 @@
-import { MdLightbulbOutline } from 'react-icons/md'
+import {MdLightbulbOutline} from 'react-icons/md'
 
 export default {
   name: 'tipReference',

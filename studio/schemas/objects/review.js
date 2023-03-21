@@ -25,7 +25,7 @@ export default {
       subtitle: 'author',
       starred: 'starred'
     },
-    prepare(selection) {
+    prepare (selection) {
       const {title, subtitle, starred} = selection
       const star = starred ? '☆ ' : ''
       const starredTitle = `${star}${title[0].children[0].text}`

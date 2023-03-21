@@ -1,9 +1,6 @@
-import { format } from 'date-fns'
-import { FiBook } from 'react-icons/fi'
-import { FiZap } from 'react-icons/fi'
-import { FaRegNewspaper } from 'react-icons/fa'
-import { FiExternalLink } from 'react-icons/fi'
-import { FaStore } from 'react-icons/fa'
+// import {format} from 'date-fns'
+import {FiBook, FiZap, FiExternalLink} from 'react-icons/fi'
+import {FaRegNewspaper, FaStore} from 'react-icons/fa'
 // import Tabs from '../../plugins/tabs'
 
 export default {
@@ -13,16 +10,16 @@ export default {
   groups: [
     {
       name: 'general',
-      title: 'General',
+      title: 'General'
     },
     {
       name: 'promotion',
-      title: 'Promotion',
+      title: 'Promotion'
     },
     {
       name: 'details',
-      title: 'Details',
-    },
+      title: 'Details'
+    }
   ],
   icon: FiBook,
   fields: [
@@ -72,7 +69,7 @@ export default {
       name: 'theme',
       type: 'reference',
       group: 'general',
-      to: [{ type: 'colorTheme' }]
+      to: [{type: 'colorTheme'}]
     },
     {
       name: 'hook',
@@ -102,9 +99,10 @@ export default {
       type: 'url',
       description: 'Enter url of the GoodReads book page',
       group: 'details',
-      validation: Rule => Rule.uri({
-        scheme: ['http', 'https', 'mailto', 'tel']
-      })
+      validation: Rule =>
+        Rule.uri({
+          scheme: ['http', 'https', 'mailto', 'tel']
+        })
     },
     {
       title: 'Links',
@@ -137,7 +135,7 @@ export default {
       name: 'agent',
       description: 'Agent is editable under settings content',
       type: 'reference',
-      to: { type: 'agent' },
+      to: {type: 'agent'},
       group: 'details',
       readOnly: true
     },
@@ -145,9 +143,10 @@ export default {
       name: 'internationalCovers',
       type: 'array',
       title: 'Promotional images',
-      description: 'Add images and captions. Up to three will display alongside the Synopsis, Reviews, and Press items.',
+      description:
+        'Add images and captions. Up to three will display alongside the Synopsis, Reviews, and Press items.',
       group: 'promotion',
-      of: [{ type: 'mainImage' }]
+      of: [{type: 'mainImage'}]
     },
     {
       name: 'synopsis',
@@ -181,7 +180,7 @@ export default {
           icon: FaRegNewspaper
         }
       ]
-    },
+    }
     // {
     //   title: 'Press items',
     //   name: 'pressItems',
@@ -241,7 +240,7 @@ export default {
       slug: 'content.slug',
       media: 'content.cover'
     },
-    prepare({ title = 'No title', slug = {}, media }) {
+    prepare ({title = 'No title', slug = {}, media}) {
       const path = `/${slug.current}/`
       return {
         title,
