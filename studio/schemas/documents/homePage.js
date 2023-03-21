@@ -2,7 +2,12 @@ export default {
   name: 'homePage',
   type: 'document',
   title: 'Home page',
-  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
+  __experimental_actions: [
+    /* 'create', */
+    'update',
+    /* 'delete', */
+    'publish'
+  ],
   fields: [
     {
       name: 'heroTitle',
@@ -20,14 +25,14 @@ export default {
       title: 'Color theme',
       name: 'theme',
       type: 'reference',
-      to: [{ type: 'colorTheme' }]
+      to: [{type: 'colorTheme'}]
     },
     {
       name: 'heroImage',
       type: 'image',
       title: 'Hero image',
       options: {
-        hotspot: true,
+        hotspot: true
       },
       validation: Rule => Rule.required()
     },

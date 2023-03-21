@@ -11,7 +11,7 @@ export default {
       marks: {
         decorators: [
           {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'},
+          {title: 'Emphasis', value: 'em'}
           // {title: 'Code', value: 'code'}
         ]
       }

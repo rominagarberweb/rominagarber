@@ -1,4 +1,3 @@
-
 // document schemas
 import aboutPage from './documents/aboutPage'
 import agent from './documents/agent'

@@ -1,11 +1,16 @@
-import { MdHeadsetMic } from 'react-icons/md'
+import {MdHeadsetMic} from 'react-icons/md'
 
 export default {
   name: 'agent',
   type: 'document',
   title: 'Agent',
   icon: MdHeadsetMic,
-  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
+  __experimental_actions: [
+    /* 'create', */
+    'update',
+    /* 'delete', */
+    'publish'
+  ],
   fields: [
     {
       name: 'name',

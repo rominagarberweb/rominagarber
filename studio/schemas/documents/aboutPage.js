@@ -2,7 +2,12 @@ export default {
   name: 'aboutPage',
   type: 'document',
   title: 'About page',
-  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
+  __experimental_actions: [
+    /* 'create', */
+    'update',
+    /* 'delete', */
+    'publish'
+  ],
   fields: [
     {
       name: 'mainImage',
@@ -35,8 +40,8 @@ export default {
       title: 'Agent',
       name: 'agent',
       type: 'reference',
-      to: { type: 'agent' },
+      to: {type: 'agent'},
       readOnly: true
-    },
+    }
   ]
 }

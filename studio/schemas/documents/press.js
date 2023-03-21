@@ -1,4 +1,4 @@
-import { FaRegNewspaper } from 'react-icons/fa'
+import {FaRegNewspaper} from 'react-icons/fa'
 
 export default {
   name: 'press',
