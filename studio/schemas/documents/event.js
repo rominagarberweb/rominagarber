@@ -1,4 +1,3 @@
-// import {format} from 'date-fns'
 import {MdEvent} from 'react-icons/md'
 
 export default {
