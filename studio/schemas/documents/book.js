@@ -35,7 +35,7 @@ export default {
       type: 'slug',
       title: 'Slug',
       options: {
-        source: 'content.title',
+        source: 'title',
         maxLength: 96
       },
       validation: Rule => Rule.required(),
@@ -236,9 +236,9 @@ export default {
   ],
   preview: {
     select: {
-      title: 'content.title',
-      slug: 'content.slug',
-      media: 'content.cover'
+      title: 'title',
+      slug: 'slug',
+      media: 'cover'
     },
     prepare ({title = 'No title', slug = {}, media}) {
       const path = `/${slug.current}/`
