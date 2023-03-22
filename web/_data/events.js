@@ -7,15 +7,17 @@ const imageUrl = require('../utils/imageUrl')
 const hasToken = !!client.config().token
 
 function generateEvent (event) {
-  return {
-    ...event,
-    description: BlocksToMarkdown(event.content.description,
-      { serializers, ...client.config() }
-    ),
-    previewImage: event.content.previewImage !== null ? imageUrl(event.content.previewImage)
-      .height(450)
-      .width(800)
-      .url() : null
+  if (event.content) {
+    return {
+      ...event,
+      description: BlocksToMarkdown(event.content.description,
+        { serializers, ...client.config() }
+      ),
+      previewImage: event.content.previewImage !== null ? imageUrl(event.content.previewImage)
+        .height(450)
+        .width(800)
+        .url() : null
+    }
   }
 }
 

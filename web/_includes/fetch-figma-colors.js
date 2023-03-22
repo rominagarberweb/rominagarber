@@ -144,9 +144,9 @@ const writeColorsFromFigma = async () => {
     const colors = styles
         .sort((a, b) => (a.sort_position < b.sort_position ? -1 : 1))
         .map(
-            (s) =>
-                (s.description ? `    /** ${s.description} */\n` : '') +
-                `    '${slugify(s.name)}': '${s.color}',`
+            (s) => {
+                return (s.description ? `/** ${s.description} */\n` : '') + `'${slugify(s.name)}': '${s.color}',`
+            }
         )
         .join('\n');
 
