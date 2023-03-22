@@ -20,7 +20,30 @@ export default {
     }
   ],
   icon: FiBook,
-      fields: [
+  fields: [
+    {
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      validation: Rule => Rule.required(),
+      group: 'general'
+    },
+    {
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      options: {
+        source: 'title',
+        maxLength: 96
+      },
+      validation: Rule => Rule.required(),
+      group: 'general'
+    },
+    {
+      name: 'series',
+      title: 'Series',
+      type: 'reference',
+      to: [
         {
           name: 'title',
           type: 'string',

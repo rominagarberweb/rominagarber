@@ -7,9 +7,9 @@ pagination:
   data: events
   size: 1
   addAllPagesToCollections: true
-permalink: events/{{ event.content.slug.current | slug }}/index.html
+permalink: events/{{ event.slug.current | slug }}/index.html
 renderData:
-  title: "{{ event.content.name }}"
-  metaDesc: "{{ event.content.shortDescription }}"
+  title: "{{ event.name }}"
+  metaDesc: "{{ event.shortDescription }}"
   socialImage: "{{ event.previewImage }}"
 ---
