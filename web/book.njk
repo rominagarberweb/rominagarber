@@ -7,9 +7,9 @@ pagination:
   data: books
   size: 1
   addAllPagesToCollections: true
-permalink: books/{{ book.content.slug.current | slug }}/index.html
+permalink: books/{{ book.slug.current | slug }}/index.html
 renderData:
-  title: "{{ book.content.title }}"
+  title: "{{ book.title }}"
   metaDesc: "{{ book.hook }}"
   socialImage: "{{ book.cover }}"
 ---

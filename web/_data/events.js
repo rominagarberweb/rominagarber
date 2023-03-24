@@ -46,7 +46,7 @@ async function getEvents () {
   const query = [filter, projection, order].join(' ')
   const docs = await client.fetch(query).catch(err => console.error(err))
   const reducedDocs = overlayDrafts(hasToken, docs)
-  const prepareEvents = reducedDocs.map(generateEvent)
+  const prepareEvents = reducedDocs.map(generateEvent).filter((one) => one !== undefined)
   return prepareEvents
 }
 
