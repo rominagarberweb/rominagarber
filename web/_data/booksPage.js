@@ -17,21 +17,21 @@ function generateBooksList (books) {
   return {
     ...books,
     // Prepare featured books covers
-    cover: imageUrl(books.content.cover)
+    cover: imageUrl(books.cover)
       .height(500)
       .url(),
     hook: BlocksToMarkdown(
-      books.content.hook,
+      books.hook,
       {serializers, ...client.config()}
     ),
     // Load first review from reviews array
     review: BlocksToMarkdown(
-      books.content.reviews && books.content.reviews[0] && books.content.reviews[0].content,
+      books.reviews && books.reviews[0] && books.reviews[0].content,
       {serializers, ...client.config()}
     ),
-    reviewAuthor: books.content.reviews && books.content.reviews[0] && books.content.reviews[0].author,
+    reviewAuthor: books.reviews && books.reviews[0] && books.reviews[0].author,
     synopsis: BlocksToMarkdown(
-      books.content.synopsis,
+      books.synopsis,
       {serializers, ...client.config()}
     )
   }
@@ -41,9 +41,7 @@ async function getBooksPage () {
   const filter = groq`*[_type == "booksPage"]`
   const projection = groq`{
     _id,
-    "books": books[]->{
-      content
-    },
+    "books": books[]->{cover},
     genre
   }`
   const query = [filter, projection].join(' ')
