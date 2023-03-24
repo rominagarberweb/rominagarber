@@ -7,23 +7,25 @@ const imageUrl = require('../utils/imageUrl')
 const hasToken = !!client.config().token
 
 function generateEvent (event) {
-  return {
-    ...event,
-    description: BlocksToMarkdown(event.content.description,
-      { serializers, ...client.config() }
-    ),
-    previewImage: imageUrl(event.content.previewImage)
-      .height(450)
-      .width(800)
-      .url(),
+  if (event.content) {
+    return {
+      ...event,
+      description: BlocksToMarkdown(event.content.description,
+        { serializers, ...client.config() }
+      ),
+      previewImage: event.content.previewImage !== null ? imageUrl(event.content.previewImage)
+        .height(450)
+        .width(800)
+        .url() : null
+    }
   }
 }
 
 async function getEvents () {
   const filter = groq`*[_type == "event"]`
   const projection = groq`{
+    _id,
     content {
-      _id,
       bannerText,
       description[]{
         ...,
@@ -44,7 +46,7 @@ async function getEvents () {
   const query = [filter, projection, order].join(' ')
   const docs = await client.fetch(query).catch(err => console.error(err))
   const reducedDocs = overlayDrafts(hasToken, docs)
-  const prepareEvents = reducedDocs.map(generateEvent)
+  const prepareEvents = reducedDocs.map(generateEvent).filter((one) => one !== undefined)
   return prepareEvents
 }
 

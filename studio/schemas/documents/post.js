@@ -1,5 +1,5 @@
-import { format } from 'date-fns'
-import { FiFeather } from 'react-icons/fi'
+// import {format} from 'date-fns'
+import {FiFeather} from 'react-icons/fi'
 
 export default {
   name: 'post',
@@ -11,7 +11,8 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      description: 'Titles should be catchy, descriptive, and not too long. Written in sentance case.',
+      description:
+        'Titles should be catchy, descriptive, and not too long. Written in sentance case.',
       validation: Rule => Rule.required()
     },
     {
@@ -105,13 +106,15 @@ export default {
     }
   ],
   initialValue: {
-    authors: [{
-      _type: 'authorReference',
-      author: {
-        _type: 'reference',
-        _ref: '1b1c7451-c976-48fd-b416-73bf5a356f10'
+    authors: [
+      {
+        _type: 'authorReference',
+        author: {
+          _type: 'reference',
+          _ref: '1b1c7451-c976-48fd-b416-73bf5a356f10'
+        }
       }
-    }]
+    ]
   },
   preview: {
     select: {
@@ -119,15 +122,15 @@ export default {
       publishedAt: 'publishedAt',
       slug: 'slug',
       media: 'mainImage'
-    },
-    prepare ({ title = 'No title', publishedAt, slug = {}, media }) {
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/${dateSegment}/${slug.current}/`
-      return {
-        title,
-        media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
-      }
     }
+    // prepare ({ title = 'No title', publishedAt, slug = {}, media }) {
+    //   const dateSegment = format(publishedAt, 'YYYY/MM')
+    //   const path = `/${dateSegment}/${slug.current}/`
+    //   return {
+    //     title,
+    //     media,
+    //     subtitle: publishedAt ? path : 'Missing publishing date'
+    //   }
+    // }
   }
 }

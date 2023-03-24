@@ -7,21 +7,21 @@ const imageUrl = require('../utils/imageUrl')
 const hasToken = !!client.config().token
 
 function generateBook (book) {
-  const intCoversContent = book.content.internationalCovers ? book.content.internationalCovers.map(generateIntCovers) : []
-  const reviewsContent = book.content.reviews ? book.content.reviews.map(generateReviews) : []
+  const intCoversContent = book.internationalCovers ? book.internationalCovers.map(generateIntCovers) : []
+  const reviewsContent = book.reviews ? book.reviews.map(generateReviews) : []
   return {
     ...book,
-    cover: imageUrl(book.content.cover)
+    cover: imageUrl(book.cover)
       .height(500)
       .url(),
     hook: BlocksToMarkdown(
-      book.content.hook,
+      book.hook,
       {serializers, ...client.config()}
     ),
     internationalCovers: intCoversContent,
     reviews: reviewsContent,
     synopsis: BlocksToMarkdown(
-      book.content.synopsis,
+      book.synopsis,
       {serializers, ...client.config()}
     )
   }
@@ -48,67 +48,67 @@ function generateReviews (review) {
 }
 
 async function getBooks () {
-  const filter = groq`*[_type == "book" && defined(content.slug)]`
+  const testQuery = groq`*[_type == "book" && defined(slug)]`
+  const filter = groq`*[_type == "book" && defined(slug)]`
   const projection = groq`{
-    content {
-      _id,
-      cover,
-      hook[]{
-        ...,
-        children[]{
-          ...
-        }
-      },
-      internationalCovers[],
-      links[],
-      "original": cover.asset->url,
-      "press": press[]{
-        publishedAt,
-        source,
-        title,
-        url
-      },
-      "pressItems": pressItems[]->{
-        publishedAt,
-        source,
-        title,
-        lead[]{
-          ...,
-        },
-        url
-      },
-      publishers[]{
-        title,
-        url
-      },
-      releaseDate,
-      "reviews": reviews[]{
-        author,
-        content[]
-      },
-      "series": series->{
-        _id
-      },
-      slug,
-      synopsis[]{
-        ...,
-        children[]{
-          ...
-        }
-      },
-      "theme": theme->{
-        "primary": primary.hex,
-        "secondary": secondary.hex,
-        "tertiary": tertiary.hex,
-      },
+    _id,
+    cover,
+    hook[]{
+      ...,
+      children[]{
+        ...
+      }
+    },
+    internationalCovers[],
+    links[],
+    "original": cover.asset->url,
+    "press": press[]{
+      publishedAt,
+      source,
       title,
-      buyBookFrom[],
-      addToGoodreads
-    }
+      url
+    },
+    "pressItems": pressItems[]->{
+      publishedAt,
+      source,
+      title,
+      lead[]{
+        ...,
+      },
+      url
+    },
+    publishers[]{
+      title,
+      url
+    },
+    releaseDate,
+    "reviews": reviews[]{
+      author,
+      content[]
+    },
+    "series": series->{
+      _id
+    },
+    slug,
+    synopsis[]{
+      ...,
+      children[]{
+        ...
+      }
+    },
+    "theme": theme->{
+      "primary": primary.hex,
+      "secondary": secondary.hex,
+      "tertiary": tertiary.hex,
+    },
+    title,
+    buyBookFrom[],
+    addToGoodreads
   }`
   const order = `| order(releaseDate desc)`
   const query = [filter, projection, order].join(' ')
   const docs = await client.fetch(query).catch(err => console.error(err))
+  const test = await client.fetch(testQuery)
   const reducedDocs = overlayDrafts(hasToken, docs)
   const prepareBooks = reducedDocs.map(generateBook)
   return prepareBooks

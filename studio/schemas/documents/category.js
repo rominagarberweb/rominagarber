@@ -1,4 +1,4 @@
-import { FiGrid } from 'react-icons/fi'
+import {FiGrid} from 'react-icons/fi'
 
 export default {
   name: 'category',

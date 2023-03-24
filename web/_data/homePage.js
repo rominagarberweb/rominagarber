@@ -33,21 +33,21 @@ function generateFeaturedBooks (featuredBooks) {
   return {
     ...featuredBooks,
     // Prepare featured books covers
-    cover: imageUrl(featuredBooks.content.cover)
+    cover: imageUrl(featuredBooks.cover)
       .height(500)
       .url(),
     hook: BlocksToMarkdown(
-      featuredBooks.content.hook,
+      featuredBooks.hook,
       {serializers, ...client.config()}
     ),
     // Load first review from reviews array
     review: BlocksToMarkdown(
-      featuredBooks.content.reviews[0].content,
+      featuredBooks.reviews[0].content,
       {serializers, ...client.config()}
     ),
-    reviewAuthor: featuredBooks.content.reviews[0].author,
+    reviewAuthor: featuredBooks.reviews[0].author,
     synopsis: BlocksToMarkdown(
-      featuredBooks.content.synopsis,
+      featuredBooks.synopsis,
       {serializers, ...client.config()}
     )
   }
@@ -57,9 +57,7 @@ async function getHomePage () {
   const filter = groq`*[_type == "homePage"]`
   const projection = groq`{
     _id,
-    "featured": featured[]->{
-      content
-    },
+    "featured": featured[]->{cover,hook,reviews,synopsis},
     heroDescription[]{
       ...,
       children[]{

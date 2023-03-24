@@ -1,22 +1,7 @@
-import S from '@sanity/desk-tool/structure-builder'
-import {
-  FaRegNewspaper
-} from 'react-icons/fa'
-import {
-  FiBook,
-  FiFeather,
-  FiFileText,
-  FiGrid,
-  FiSettings,
-  FiUser,
-} from 'react-icons/fi'
-import { GiBookshelf } from 'react-icons/gi'
-import { IoIosColorPalette } from 'react-icons/io'
-import {
-  MdEvent,
-  MdHeadsetMic,
-  MdLightbulbOutline
-} from 'react-icons/md'
+import {FiBook, FiFeather, FiFileText, FiGrid, FiSettings, FiUser} from 'react-icons/fi'
+import {GiBookshelf} from 'react-icons/gi'
+import {IoIosColorPalette} from 'react-icons/io'
+import {MdEvent, MdHeadsetMic, MdLightbulbOutline} from 'react-icons/md'
 
 const hiddenDocTypes = listItem =>
   ![
@@ -40,7 +25,7 @@ const hiddenDocTypes = listItem =>
     'saysaSays'
   ].includes(listItem.getId())
 
-export default () =>
+export default S =>
   S.list()
     .title('Content')
     .items([
@@ -52,7 +37,7 @@ export default () =>
           S.documentList('post')
             .title('Blog posts')
             .filter('_type == $type')
-            .params({ type: 'post' })
+            .params({type: 'post'})
         ),
       S.listItem()
         .title('Books')
@@ -62,7 +47,7 @@ export default () =>
           S.documentList('book')
             .title('Books')
             .filter('_type == $type')
-            .params({ type: 'book' })
+            .params({type: 'book'})
         ),
       S.listItem()
         .title('Events')
@@ -72,7 +57,7 @@ export default () =>
           S.documentList('event')
             .title('Events')
             .filter('_type == $type')
-            .params({ type: 'event' })
+            .params({type: 'event'})
             .menuItems(S.documentTypeList('event').getMenuItems())
         ),
       S.listItem()
@@ -146,7 +131,7 @@ export default () =>
                     .documentId('saysaSays')
                 )
             ])
-      ),
+        ),
       // S.listItem()
       //   .title('Press items')
       //   .icon(FaRegNewspaper)
@@ -163,9 +148,9 @@ export default () =>
         .schemaType('tip')
         .child(
           S.documentList('tip')
-          .title('Writing tips')
-          .filter('_type == $type')
-          .params({ type: 'tip' })
+            .title('Writing tips')
+            .filter('_type == $type')
+            .params({type: 'tip'})
         ),
       S.divider(),
       S.listItem()
@@ -183,7 +168,7 @@ export default () =>
                     .title('Agent')
                     .schemaType('agent')
                     .documentId('agent')
-                  ),
+                ),
               S.listItem()
                 .title('Authors')
                 .icon(FiUser)
@@ -192,8 +177,8 @@ export default () =>
                   S.documentList('author')
                     .title('Authors')
                     .filter('_type == $type')
-                    .params({ type: 'author' })
-                  ),
+                    .params({type: 'author'})
+                ),
               S.listItem()
                 .title('Categories')
                 .icon(FiGrid)
@@ -202,8 +187,8 @@ export default () =>
                   S.documentList('category')
                     .title('Categories')
                     .filter('_type == $type')
-                    .params({ type: 'category' })
-                  ),
+                    .params({type: 'category'})
+                ),
               S.listItem()
                 .title('Color themes')
                 .icon(IoIosColorPalette)
@@ -212,8 +197,8 @@ export default () =>
                   S.documentList('colorTheme')
                     .title('Color themes')
                     .filter('_type == $type')
-                    .params({ type: 'colorTheme' })
-                  ),
+                    .params({type: 'colorTheme'})
+                ),
               S.listItem()
                 .title('Series')
                 .icon(GiBookshelf)
@@ -222,8 +207,8 @@ export default () =>
                   S.documentList('series')
                     .title('Series')
                     .filter('_type == $type')
-                    .params({ type: 'series' })
-                ),
+                    .params({type: 'series'})
+                )
             ])
         ),
       // This returns an array of all the document types

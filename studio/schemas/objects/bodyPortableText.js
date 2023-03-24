@@ -18,12 +18,18 @@ export default {
         {title: 'H4', value: 'h4'},
         {title: 'Quote', value: 'blockquote'}
       ],
-      lists: [{title: 'Bullet', value: 'bullet'}, {title: 'Number', value: 'number'}],
+      lists: [
+        {title: 'Bullet', value: 'bullet'},
+        {title: 'Number', value: 'number'}
+      ],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
-        decorators: [{title: 'Strong', value: 'strong'}, {title: 'Emphasis', value: 'em'}],
+        decorators: [
+          {title: 'Strong', value: 'strong'},
+          {title: 'Emphasis', value: 'em'}
+        ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
