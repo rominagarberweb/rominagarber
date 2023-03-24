@@ -27,10 +27,6 @@
     "react-icons": "^3.8.0",
     "react-props-stream": "^1.0.1",
     "sanity": "^3.6.0",
-    "sanity-plugin-color-list": "^2.0.3",
-    "sanity-plugin-content-model-graph": "^1.1.1",
-    "sanity-plugin-dashboard-widget-document-list": "^1.0.1",
-    "sanity-plugin-media": "^2.0.5",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
