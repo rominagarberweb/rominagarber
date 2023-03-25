@@ -109,21 +109,21 @@ templateClass: tmpl-book
       </label> #}
       {% endif %}
 
-      {%- if book.content.addToGoodreads %}
+      {%- if book.addToGoodreads %}
 
         <a class="btn btn--featured-book"
         style="border-color: {{ themeColorTertiary }}; color: {{ themeColorTertiary }};"
-        href="{{ book.content.addToGoodreads }}"
+        href="{{ book.addToGoodreads }}"
          rel="noopener">Add to Goodreads</a>
 
       {% endif %}
 
     </div>
 
-  {% if book.content.links %}
+  {% if book.links %}
     <ul>
       {% set linkCount = 0 %}
-      {% for link in book.content.links %}
+      {% for link in book.links %}
         {% if linkCount < 6 %} {# limit number of links shown #}
 
           <li>
@@ -140,9 +140,9 @@ templateClass: tmpl-book
     <div class="book-data">
       {# make this color selected in the cms to match the book theme colors 3 #}
       <p>
-        {%- if book.content.publishers.length > 0 %}
+        {%- if book.publishers.length > 0 %}
           <span class="data-label" style="color: {{ themeColorTertiary }}">Publisher:</span>
-          <a href="{{ book.content.publishers[0].url }}"  rel="noopener">{{ book.content.publishers[0].title }}</a><br>
+          <a href="{{ book.publishers[0].url }}"  rel="noopener">{{ book.publishers[0].title }}</a><br>
         {% endif -%}
         {%- if agent %}
           <span class="data-label" style="color: {{ themeColorTertiary }}">Representation:</span>
@@ -235,7 +235,7 @@ templateClass: tmpl-book
 
   {% endif %}
 
-  {% if book.content.press.length > 0 %}
+  {% if book.press.length > 0 %}
 
     <div class="book-press-items">
 
@@ -243,7 +243,7 @@ templateClass: tmpl-book
       <input type="hidden" id="press-show" value="false" />
       <ul>
 
-        {% for press in book.content.press %}
+        {% for press in book.press %}
 
           {% if loop.index < 5 %}
             <li>
