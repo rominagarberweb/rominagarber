@@ -2,18 +2,18 @@
 layout: layouts/base.njk
 templateClass: tmpl-book
 ---
-{% set themeColorPrimary = book.content.theme.primary -%}
-{% set themeColorSecondary = book.content.theme.secondary -%}
-{% set themeColorTertiary = book.content.theme.tertiary -%}
+{% set themeColorPrimary = book.theme.primary -%}
+{% set themeColorSecondary = book.theme.secondary -%}
+{% set themeColorTertiary = book.theme.tertiary -%}
 
 <div class="book-hero" style="background-color: {{ themeColorPrimary }};">
 
   {%- if book.cover %}
     <figure>
-      <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.content.cover.alt }}" />
-      <figcaption>{{ book.content.cover.caption }}</figcaption>
+      <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.cover.alt }}" />
+      <figcaption>{{ book.cover.caption }}</figcaption>
       {# make this download image a large image #}
-      <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.content.original }}?dl=book-cover.jpg" rel="noopener nofollow">Large&nbsp;cover&nbsp;image&nbsp;
+      <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.original }}?dl=book-cover.jpg" rel="noopener nofollow">Large&nbsp;cover&nbsp;image&nbsp;
         {# <svg class="download-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M7 10L12 15L17 10" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -26,7 +26,7 @@ templateClass: tmpl-book
   <div class="book-info">
 
   {# generate the heading color and the buttons from the cms #}
-  <h1 class="mt0" style="color: {{ themeColorTertiary  }};">{{ book.content.title }}</h1>
+  <h1 class="mt0" style="color: {{ themeColorTertiary  }};">{{ book.title }}</h1>
 
   {% if book.hook %}
     {{ book.hook | markdownify | safe }}
@@ -35,7 +35,7 @@ templateClass: tmpl-book
 
     <div class="book-actions">
       {# test layout of dropdown button https://codepen.io/raneio/pen/NbbZEM?editors=1100#}
-      {% if book.content.buyBookFrom %}
+      {% if book.buyBookFrom %}
 
       {# lets try another kind of dropdown #}
       <div data-menu-component>
@@ -50,7 +50,7 @@ templateClass: tmpl-book
         <div role="menu" data-menu-origin="left">
           <ul style="background-color: {{ themeColorPrimary }}; border: 2px solid {{ themeColorTertiary }};">
             {% set buyBookFromCount = 0 %}
-            {% for buyBookFrom in book.content.buyBookFrom %}
+            {% for buyBookFrom in book.buyBookFrom %}
             {% if buyBookFromCount < 8 %}
 
             <li><a
@@ -86,7 +86,7 @@ templateClass: tmpl-book
         style="background-color: {{ themeColorPrimary }}; border: 2px solid {{ themeColorTertiary }};">
 
         {% set buyBookFromCount = 0 %}
-          {% for buyBookFrom in book.content.buyBookFrom %}
+          {% for buyBookFrom in book.buyBookFrom %}
             {% if buyBookFromCount < 8 %}
 
             <li><a
