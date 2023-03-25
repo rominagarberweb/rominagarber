@@ -1192,7 +1192,8 @@ button.email-btn:hover {
    ========================================================================== */
 .btn,
 a.btn,
-a.btn:active {
+a.btn:active,
+button.btn{
   cursor: pointer;
   /* line-height: 1.6; */
   line-height: 1;
@@ -1213,7 +1214,8 @@ a.btn:active {
 @supports (font-variation-settings: normal) {
   .btn,
   a.btn,
-  a.btn:active {
+  a.btn:active,
+  button.btn {
     font-family: var(--utility-font);
     font-weight: 542;
     font-stretch: 85;
@@ -1221,12 +1223,14 @@ a.btn:active {
 }
 
 .btn:hover,
-a.btn:hover {
+a.btn:hover,
+button.btn:hover {
   opacity: 0.8;
   transition: 0.4s;
 }
 .btn--primary,
-a.btn--primary {
+a.btn--primary,
+button.btn--primary {
   background-color: none;
   border-color: var(--general-night-3);
   border: 2px solid var(--general-night-1);
@@ -1235,7 +1239,8 @@ a.btn--primary {
 }
 
 .btn--secondary,
-a.btn--secondary {
+a.btn--secondary,
+button.btn-secondary {
   background-color: none;
   border: 2px solid var(--general-night-3);
   border-radius: var(--large-br);
@@ -1267,7 +1272,8 @@ a.btn svg {
 }
 
 .btn--secondary:hover,
-a.btn--secondary:hover {
+a.btn--secondary:hover,
+button.btn--secondary:hover {
   background-color: iherit;
 }
 
