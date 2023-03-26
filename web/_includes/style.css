@@ -2496,6 +2496,7 @@ section.series-data > * {
   padding: 1rem;
   justify-content: center;
 }
+/*
 .showmore-actions > button {
   background-color: transparent;
   border-radius: 22px;
@@ -2503,7 +2504,7 @@ section.series-data > * {
   cursor: pointer;
   border: 2px solid #202122;
   padding: 0.5rem 1.5rem;
-}
+} */
 
 #review-show[value="false"] ~ .more-review {
   display: none;
