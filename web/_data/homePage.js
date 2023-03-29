@@ -57,7 +57,7 @@ async function getHomePage () {
   const filter = groq`*[_type == "homePage"]`
   const projection = groq`{
     _id,
-    "featured": featured[]->{cover,hook,reviews,synopsis},
+    "featured": featured[]->{title,cover,slug,hook,reviews,synopsis},
     heroDescription[]{
       ...,
       children[]{
