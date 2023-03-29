@@ -32,7 +32,7 @@
   <entry>
     <title>{{ currentPost.title }}</title>
     <link href="{{ absolutePostUrl }}"/>
-    <updated>{{ currentPost.publishedAt | readableDate }}</updated>
+    <updated>{{ currentPost.publishedAt | dateToRfc3339 }}</updated>
     <id>{{ absolutePostUrl }}</id>
     <content type="html">{{ currentPost.body | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
   </entry>

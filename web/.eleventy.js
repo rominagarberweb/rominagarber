@@ -35,7 +35,16 @@ module.exports = function(eleventyConfig) {
      </picture>`
   })
 
-  eleventyConfig.addLiquidFilter("dateToRfc3339", pluginRss.dateToRfc3339);
+  eleventyConfig.addFilter("dateToRfc3339", function (date) {
+    let newDate = new Date(date);
+    let s = newDate.toISOString();
+  
+    // remove milliseconds
+    let split = s.split(".");
+    split.pop();
+  
+    return split.join("") + "Z";
+  });
 
   // https://www.11ty.io/docs/quicktips/inline-css/
   eleventyConfig.addFilter("cssmin", function(code) {
