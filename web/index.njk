@@ -79,8 +79,8 @@ socialImage: images/lobizona-preview.jpg
 
     {%- if book.cover %}
       <figure>
-        <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.content.content.cover.alt }}" />
-        <figcaption>{{ book.content.cover.caption }}</figcaption>
+        <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.cover.alt }}" />
+        <figcaption>{{ book.cover.caption }}</figcaption>
         {# this download link is currently broken #}
         {# <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }};">Download:</span> <a href="{{ book.content.original }}?dl=book-cover.jpg" download="{{ book.content.cover.alt }}" rel="noopener">Large&nbsp;cover&nbsp;image
         </a></p> #}
@@ -89,7 +89,7 @@ socialImage: images/lobizona-preview.jpg
 
     <div class="featured-book-info">
 
-    <h2 class="mt0 mb0" style="color: {{ themeColorTertiary  }};">{{ book.content.title }}</h2>
+    <h2 class="mt0 mb0" style="color: {{ themeColorTertiary  }};">{{ book.title }}</h2>
 
     {% if book.hook %}
       {{ book.hook | markdownify | safe }}
