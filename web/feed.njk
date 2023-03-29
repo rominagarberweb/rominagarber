@@ -28,12 +28,13 @@
   </author>
   {%- for post in collections.myPosts %}
   {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
+  {% set currentPost = post.data.post %}
   <entry>
-    <!-- <title>{{ post.title }}</title> -->
+    <title>{{ currentPost.title }}</title>
     <link href="{{ absolutePostUrl }}"/>
-    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <updated>{{ currentPost.publishedAt | readableDate }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <!-- <content type="html">{{ post.body | htmlToAbsoluteUrls(absolutePostUrl) }}</content> -->
+    <content type="html">{{ currentPost.body | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
   </entry>
   {%- endfor %}
 </feed>

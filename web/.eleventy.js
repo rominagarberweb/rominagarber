@@ -7,7 +7,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPlugin(pluginRss);
-  
+
   eleventyConfig.addNunjucksAsyncShortcode("responsiveImage", async function(src, alt) {
     if(alt === undefined) {
       throw new Error(`Missing \`alt\` on responsiveImage from: ${src}`);
@@ -34,6 +34,8 @@ module.exports = function(eleventyConfig) {
          height="${lowestSrc.height}">
      </picture>`
   })
+
+  eleventyConfig.addLiquidFilter("dateToRfc3339", pluginRss.dateToRfc3339);
 
   // https://www.11ty.io/docs/quicktips/inline-css/
   eleventyConfig.addFilter("cssmin", function(code) {
