@@ -29,7 +29,7 @@ export default {
       title: 'Slug',
       validation: Rule => Rule.required(),
       options: {
-        source: 'content.name',
+        source: 'name',
         maxLength: 96
       },
       group: 'overview'
@@ -91,7 +91,7 @@ export default {
       title: 'Start date new–>old',
       by: [
         {
-          field: 'content.schedule.from',
+          field: 'schedule.from',
           direction: 'asc'
         }
       ]
@@ -101,7 +101,7 @@ export default {
       title: 'Start date old->new',
       by: [
         {
-          field: 'content.schedule.from',
+          field: 'schedule.from',
           direction: 'desc'
         }
       ]
