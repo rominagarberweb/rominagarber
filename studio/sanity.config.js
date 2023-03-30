@@ -5,6 +5,8 @@ import deskStructure from './deskStructure'
 import {colorInput} from '@sanity/color-input'
 import {
   dashboardTool,
+  projectUsersWidget,
+  projectInfoWidget,
 } from '@sanity/dashboard'
 import { netlifyWidget } from "sanity-plugin-dashboard-widget-netlify";
 
@@ -20,15 +22,16 @@ export default defineConfig({
     dashboardTool({
       widgets: [
         netlifyWidget({
-          title: 'Rominagarber deploys',
+          layout: 'medium',
+          title: 'Website Deploy',
           sites: [
-            {
-              title: 'Rominagarber Studio',
-              apiId: 'ea96b6d7-07e2-4399-b12e-bfbdbac7e184',
-              buildHookId: '5e42d092e1fc53d6daed66dc',
-              name: 'rominagarber-studio',
-              url: 'https://rominagarber-studio.netlify.app'
-            },
+            // {
+            //   title: 'Rominagarber Studio',
+            //   apiId: 'ea96b6d7-07e2-4399-b12e-bfbdbac7e184',
+            //   buildHookId: '5e42d092e1fc53d6daed66dc',
+            //   name: 'rominagarber-studio',
+            //   url: 'https://rominagarber-studio.netlify.app'
+            // },
             {
               title: 'Website',
               apiId: '888eddbc-bff0-4896-a29b-409fbf35dea8',
@@ -37,7 +40,9 @@ export default defineConfig({
               url: 'https://rominagarber.netlify.app',
             },
           ]
-        })
+        }),
+        // projectInfoWidget(),
+        projectUsersWidget({layout: 'medium'}),
       ]
     })
   ],
