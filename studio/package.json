@@ -27,7 +27,6 @@
     "react-icons": "^3.8.0",
     "react-props-stream": "^1.0.1",
     "sanity": "^3.7.1",
-    "sanity-plugin-dashboard-widget-netlify": "^2.0.1",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
