@@ -79,8 +79,8 @@ socialImage: images/lobizona-preview.jpg
 
     {%- if book.cover %}
       <figure>
-        <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.content.content.cover.alt }}" />
-        <figcaption>{{ book.content.cover.caption }}</figcaption>
+        <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.cover.alt }}" />
+        <figcaption>{{ book.cover.caption }}</figcaption>
         {# this download link is currently broken #}
         {# <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }};">Download:</span> <a href="{{ book.content.original }}?dl=book-cover.jpg" download="{{ book.content.cover.alt }}" rel="noopener">Large&nbsp;cover&nbsp;image
         </a></p> #}
@@ -89,7 +89,7 @@ socialImage: images/lobizona-preview.jpg
 
     <div class="featured-book-info">
 
-    <h2 class="mt0 mb0" style="color: {{ themeColorTertiary  }};">{{ book.content.title }}</h2>
+    <h2 class="mt0 mb0" style="color: {{ themeColorTertiary  }};">{{ book.title }}</h2>
 
     {% if book.hook %}
       {{ book.hook | markdownify | safe }}
@@ -99,7 +99,7 @@ socialImage: images/lobizona-preview.jpg
 
       {# (pre-)order and GR TBR links go here #}
       <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary  }}; color: {{ themeColorTertiary  }};" href="https://www.goodreads.com/book/show/51179882-lobizona" rel="noopener nofollow">Add to Goodreads TBR</a>
-      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary  }}; color: {{ themeColorTertiary  }};" href="/books/{{ book.content.slug.current | url }}/"  rel="noopener">More About {{ book.content.title }}</a>
+      <a class="btn btn--featured-book" style="border-color: {{ themeColorTertiary  }}; color: {{ themeColorTertiary  }};" href="/books/{{ book.slug.current | url }}/"  rel="noopener">More About {{ book.title }}</a>
 
     </div>
 
@@ -117,6 +117,7 @@ socialImage: images/lobizona-preview.jpg
 
 </section>
 
+{# This instagram integration is probably not working right now because the API Keys probably need to be refreshed #}
 <section class="instagram-feed">
   <ol>
   {%- for post in instagram -%}
@@ -129,10 +130,10 @@ socialImage: images/lobizona-preview.jpg
     </li>
   {%- endfor -%}
   </ol>
-  <div class="more-link clearfix">
+  {# <div class="more-link clearfix">
     <a class="btn btn--photos" href="http://instagram.com/rominagarber" rel="noopener nofollow">More photos</a>
-  </div>
-</section>
+  </div>#}
+</section> 
 
 {% set eventsList = collections.myEvents %}
 {% set eventsLimit = 1 %} {# limit number of events shown #}

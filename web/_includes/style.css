@@ -1192,7 +1192,8 @@ button.email-btn:hover {
    ========================================================================== */
 .btn,
 a.btn,
-a.btn:active {
+a.btn:active,
+button.btn{
   cursor: pointer;
   /* line-height: 1.6; */
   line-height: 1;
@@ -1213,7 +1214,8 @@ a.btn:active {
 @supports (font-variation-settings: normal) {
   .btn,
   a.btn,
-  a.btn:active {
+  a.btn:active,
+  button.btn {
     font-family: var(--utility-font);
     font-weight: 542;
     font-stretch: 85;
@@ -1221,21 +1223,25 @@ a.btn:active {
 }
 
 .btn:hover,
-a.btn:hover {
+a.btn:hover,
+button.btn:hover {
   opacity: 0.8;
   transition: 0.4s;
 }
 .btn--primary,
-a.btn--primary {
+a.btn--primary,
+button.btn--primary {
   background-color: none;
+  background: none;
   border-color: var(--general-night-3);
-  border: 2px solid var(--general-night-1);
+  border: 2px solid var(--general-night-3);
   border-radius: var(--large-br);
   color: var(--general-night-3);
 }
 
 .btn--secondary,
-a.btn--secondary {
+a.btn--secondary,
+button.btn-secondary {
   background-color: none;
   border: 2px solid var(--general-night-3);
   border-radius: var(--large-br);
@@ -1267,7 +1273,8 @@ a.btn svg {
 }
 
 .btn--secondary:hover,
-a.btn--secondary:hover {
+a.btn--secondary:hover,
+button.btn--secondary:hover {
   background-color: iherit;
 }
 
@@ -1410,6 +1417,13 @@ a.btn--text-only {
   [role="menu"] ul {
     background-color: var(--general-night-5) !important;
     filter: brightness(1.4);
+  }
+  .btn--primary,
+  a.btn--primary,
+  button.btn--primary {
+    border-color: var(--general-night-2);
+    border: 2px solid var(--general-night-2);
+    color: var(--general-night-2);
   }
 }
 
@@ -2490,6 +2504,7 @@ section.series-data > * {
   padding: 1rem;
   justify-content: center;
 }
+/*
 .showmore-actions > button {
   background-color: transparent;
   border-radius: 22px;
@@ -2497,7 +2512,7 @@ section.series-data > * {
   cursor: pointer;
   border: 2px solid #202122;
   padding: 0.5rem 1.5rem;
-}
+} */
 
 #review-show[value="false"] ~ .more-review {
   display: none;
