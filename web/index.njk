@@ -117,6 +117,7 @@ socialImage: images/lobizona-preview.jpg
 
 </section>
 
+{# This instagram integration is probably not working right now because the API Keys probably need to be refreshed #}
 <section class="instagram-feed">
   <ol>
   {%- for post in instagram -%}
@@ -129,10 +130,10 @@ socialImage: images/lobizona-preview.jpg
     </li>
   {%- endfor -%}
   </ol>
-  <div class="more-link clearfix">
+  {# <div class="more-link clearfix">
     <a class="btn btn--photos" href="http://instagram.com/rominagarber" rel="noopener nofollow">More photos</a>
   </div>
-</section>
+</section> #}
 
 {% set eventsList = collections.myEvents %}
 {% set eventsLimit = 1 %} {# limit number of events shown #}
