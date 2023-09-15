@@ -41,6 +41,8 @@ The personal website of  New York Times and international bestselling author Rom
 
 Netlify automatically deploys new changes commited to master on GitHub. If you want to change deployment branch, do so in [build & deploy settings on Netlify](https://www.netlify.com/docs/continuous-deployment/#branches-deploys).
 
+sometimes just make a small change to trigger a deploy
+
 ## Upgrade the Studio
 
 npm install --global @sanity/cli
