@@ -2,6 +2,9 @@
 layout: layouts/base.njk
 templateClass: tmpl-book
 ---
+
+{{ collections.book | dump }}
+
 {% set themeColorPrimary = book.theme.primary -%}
 {% set themeColorSecondary = book.theme.secondary -%}
 {% set themeColorTertiary = book.theme.tertiary -%}
@@ -11,8 +14,8 @@ templateClass: tmpl-book
   {%- if book.cover %}
     <figure>
       <!-- how to get this caption and alt text working? -->
-      <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.alt }}" />
-      <figcaption>{{ book.caption }}</figcaption>
+      <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.cover.alt }}" />
+      <figcaption>{{ book.cover.caption }}</figcaption>
       {# make this download image a large image #}
       <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.original }}?dl=book-cover.jpg" rel="noopener nofollow">Large&nbsp;cover&nbsp;image&nbsp;
         {# <svg class="download-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
