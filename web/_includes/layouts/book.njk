@@ -10,6 +10,7 @@ templateClass: tmpl-book
 
   {%- if book.cover %}
     <figure>
+      <!-- how to get this caption and alt text working? -->
       <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.cover.alt }}" />
       <figcaption>{{ book.cover.caption }}</figcaption>
       {# make this download image a large image #}

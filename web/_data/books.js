@@ -52,7 +52,7 @@ async function getBooks () {
   const filter = groq`*[_type == "book" && defined(slug)]`
   const projection = groq`{
     _id,
-    cover,
+    cover[],
     hook[]{
       ...,
       children[]{
