@@ -14,6 +14,8 @@ function generateBook (book) {
     cover: imageUrl(book.cover)
       .height(500)
       .url(),
+    caption: book.caption,
+    alt: book.alt,
     hook: BlocksToMarkdown(
       book.hook,
       {serializers, ...client.config()}
