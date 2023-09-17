@@ -10,7 +10,7 @@ templateClass: tmpl-book
 
   {%- if book.cover %}
     <figure>
-      <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.cover.alt }}" />
+      <img src="{{ book.cover }}" width="260" height="390" alt="{{ cover.alt }}" />
       <figcaption>{{ cover.caption }}</figcaption>
       {# make this download image a large image #}
       <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.original }}?dl=book-cover.jpg" rel="noopener nofollow">Large&nbsp;cover&nbsp;image&nbsp;
