@@ -3,7 +3,7 @@ layout: layouts/base.njk
 templateClass: tmpl-book
 ---
 
-{{ collections.book | dump }}
+{{ book | dump }}
 
 {% set themeColorPrimary = book.theme.primary -%}
 {% set themeColorSecondary = book.theme.secondary -%}
