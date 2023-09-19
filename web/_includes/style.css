@@ -2341,7 +2341,7 @@ time {
   }
 
   section.book-content {
-    margin: 0 1rem;
+    margin: 2rem 1rem;
   }
 
   section.featured-book figure,
@@ -2412,6 +2412,9 @@ time {
   section.featured-book,
   .book-hero {
     background: var(--general-night-5) !important;
+  }
+  section.book-content {
+    margin: 0 1rem;
   }
 
   .featured-book-info h1,
