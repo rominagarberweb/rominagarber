@@ -14,7 +14,7 @@ function generateBook (book) {
     cover: {
       alt: book.cover.alt,
       caption: book.cover.caption,
-      url: imageUrl(book.cover.asset)
+      imageUrl: book.cover.asset
         .height(500)
         .url(),
     },
