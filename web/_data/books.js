@@ -11,11 +11,13 @@ function generateBook (book) {
   const reviewsContent = book.reviews ? book.reviews.map(generateReviews) : []
   return {
     ...book,
-    cover: imageUrl(book.cover)
+    cover: {
+    alt: book.cover.alt,
+    caption: book.cover.caption,
+    url: imageUrl(book.cover)
       .height(500)
       .url(),
-    caption: book.caption,
-    alt: book.alt,
+    },
     hook: BlocksToMarkdown(
       book.hook,
       {serializers, ...client.config()}
