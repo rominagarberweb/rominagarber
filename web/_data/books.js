@@ -12,11 +12,11 @@ function generateBook (book) {
   return {
     ...book,
     cover: {
-      alt: book.cover.alt,
-      caption: book.cover.caption,
-      imageUrl: book.cover.asset
+      url: imageUrl(book.cover.asset)
         .height(500)
         .url(),
+      alt: book.cover.alt,
+      caption: book.cover.caption,
     },
     hook: BlocksToMarkdown(
       book.hook,

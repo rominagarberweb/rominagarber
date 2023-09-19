@@ -14,7 +14,7 @@ templateClass: tmpl-book
   {%- if book.cover %}
     <figure>
       <!-- how to get this caption and alt text working? -->
-      <img src="{{ book.cover.asset }}" width="260" height="390" alt="{{ book.cover.alt }}" />
+      <img src="{{ book.cover.url }}" width="260" height="390" alt="{{ book.cover.alt }}" />
       <figcaption>{{ book.cover.caption }}</figcaption>
       {# make this download image a large image #}
       <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.original }}?dl=book-cover.jpg" rel="noopener nofollow">Large&nbsp;cover&nbsp;image&nbsp;
