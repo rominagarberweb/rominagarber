@@ -11,5 +11,5 @@ permalink: books/{{ book.slug.current | slug }}/index.html
 renderData:
   title: "{{ book.title }}"
   metaDesc: "{{ book.hook }}"
-  socialImage: "{{ book.cover }}"
+  socialImage: "{{ book.cover.url }}"
 ---
