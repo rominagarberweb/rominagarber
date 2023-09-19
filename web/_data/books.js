@@ -11,9 +11,13 @@ function generateBook (book) {
   const reviewsContent = book.reviews ? book.reviews.map(generateReviews) : []
   return {
     ...book,
-    cover: imageUrl(book.cover)
-      .height(500)
-      .url(),
+    cover: {
+      url: imageUrl(book.cover.asset)
+        .height(500)
+        .url(),
+      alt: book.cover.alt,
+      caption: book.cover.caption,
+    },
     hook: BlocksToMarkdown(
       book.hook,
       {serializers, ...client.config()}
