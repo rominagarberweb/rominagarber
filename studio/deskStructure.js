@@ -94,6 +94,16 @@ export default S =>
                     .schemaType('booksPage')
                     .documentId('booksPage')
                 ),
+                S.listItem()
+                .title('Series')
+                .icon(GiBookshelf)
+                .schemaType('series')
+                .child(
+                  S.documentList('series')
+                    .title('Series')
+                    .filter('_type == $type')
+                    .params({type: 'series'})
+                ),
               S.listItem()
                 .title('Events page')
                 .icon(FiFileText)
@@ -198,16 +208,6 @@ export default S =>
                     .title('Color themes')
                     .filter('_type == $type')
                     .params({type: 'colorTheme'})
-                ),
-              S.listItem()
-                .title('Series')
-                .icon(GiBookshelf)
-                .schemaType('series')
-                .child(
-                  S.documentList('series')
-                    .title('Series')
-                    .filter('_type == $type')
-                    .params({type: 'series'})
                 )
             ])
         ),

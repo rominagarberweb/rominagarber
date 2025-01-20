@@ -31,7 +31,7 @@ function generateHomePage (homePage) {
 
 function generateFeaturedBooks (featuredBooks) {
   return {
-    ...featuredBooks,
+    ...featuredBooks, 
     // Prepare featured books covers
     cover: imageUrl(featuredBooks.cover)
       .height(500)
