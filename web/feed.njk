@@ -1,10 +1,11 @@
----json
+---
 {
   "permalink": "feed.xml",
   "eleventyExcludeFromCollections": true,
   "metadata": {
     "title": "Romina Garber's Blog Posts",
-    "subtitle": "about Young Adult books and writing tips",
+    "description": "About Young Adult books and writing tips",
+    "language": "en",
     "url": "https://rominagarber.com/",
     "feedUrl": "https://rominagarber.com/feed.xml",
     "author": {
@@ -15,26 +16,25 @@
 }
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ metadata.language }}">
   <title>{{ metadata.title }}</title>
-  <subtitle>{{ metadata.subtitle }}</subtitle>
+  <subtitle>{{ metadata.description }}</subtitle>
   <link href="{{ metadata.feedUrl }}" rel="self"/>
   <link href="{{ metadata.url }}"/>
-  <updated>{{ collections.myPosts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
   <id>{{ metadata.url }}</id>
   <author>
     <name>{{ metadata.author.name }}</name>
     <email>{{ metadata.author.email }}</email>
   </author>
-  {%- for post in collections.myPosts %}
-  {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
-  {% set currentPost = post.data.post %}
+  {%- for post in collections.posts | reverse %}
+  {% set absolutePostUrl = post.url | url | addPathPrefixToFullUrl(metadata.url) %}
   <entry>
-    <title>{{ currentPost.title }}</title>
+    <title>{{ post.data.title }}</title>
     <link href="{{ absolutePostUrl }}"/>
-    <updated>{{ currentPost.publishedAt | dateToRfc3339 }}</updated>
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content type="html">{{ currentPost.body | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+    <content type="html">{{ post.templateContent | htmlBaseUrl(metadata.url) | safe }}</content>
   </entry>
   {%- endfor %}
 </feed>
