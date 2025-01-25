@@ -2,7 +2,7 @@
 {% set siteUrl = 'https://rominagarber.com/' %}
 {# Use renderData for overrides if available #}
 {# TODO: replace with eleventyComputed #}
-{% if renderData %}
+{# {% if renderData %}
   {% if renderData.title %}
     {% set title = renderData.title %}
   {% endif %}
@@ -12,6 +12,17 @@
   {% if renderData.socialImage %}
     {% set socialImage = renderData.socialImage %}
   {% endif %}
+{% endif %} #}
+
+{# Use eleventyComputed data directly #}
+{% if pageTitle %}
+  {% set title = pageTitle %}
+{% endif %}
+{% if metaDesc %}
+  {% set metaDesc = metaDesc %}
+{% endif %}
+{% if socialImage %}
+  {% set socialImage = socialImage %}
 {% endif %}
 
 {% set pageTitle = title + ' - ' + siteTitle  %}

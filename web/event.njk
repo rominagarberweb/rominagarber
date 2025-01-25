@@ -8,6 +8,8 @@ pagination:
   size: 1
   addAllPagesToCollections: true
 permalink: events/{{ event.content.slug.current | slug }}/index.html
+eleventyComputed:
+  pageTitle: "{{ event.content.name }}"
 renderData:
   title: "{{ event.content.name }}"
   metaDesc: "{{ event.content.shortDescription }}"

@@ -8,6 +8,8 @@ pagination:
   alias: post
   addAllPagesToCollections: true
 permalink: posts/{{ post.slug.current | slug }}/index.html
+eleventyComputed:
+  pageTitle: "{{ post.title }}"
 renderData:
   title: "{{ post.title }}"
   metaDesc: "{{ post.excerpt }}"
