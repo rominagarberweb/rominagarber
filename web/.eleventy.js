@@ -5,7 +5,6 @@ const Image = require("@11ty/eleventy-img")
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function(eleventyConfig) {
-
   eleventyConfig.addPlugin(pluginRss);
 
   eleventyConfig.addNunjucksAsyncShortcode("responsiveImage", async function(src, alt) {
@@ -44,6 +43,32 @@ module.exports = function(eleventyConfig) {
     split.pop();
   
     return split.join("") + "Z";
+  });
+
+  eleventyConfig.addFilter("htmlBaseUrl", function(content, base) {
+    return content.replace(/(href|src)="([^"]*)"/g, (match, p1, p2) => {
+      if (p2.startsWith('http') || p2.startsWith('//')) {
+        return match;
+      }
+      return `${p1}="${base}${p2}"`;
+    });
+  });
+
+  eleventyConfig.addFilter("addPathPrefixToFullUrl", function(url, prefix) {
+    if (url.startsWith('http') || url.startsWith('//')) {
+      return url;
+    }
+    return `${prefix}${url}`;
+  });
+
+  eleventyConfig.addFilter("getNewestCollectionItemDate", function(collection) {
+    if (!collection || !collection.length) {
+      return null;
+    }
+    return collection.reduce((latest, item) => {
+      const itemDate = new Date(item.date);
+      return itemDate > latest ? itemDate : latest;
+    }, new Date(0));
   });
 
   // https://www.11ty.io/docs/quicktips/inline-css/
