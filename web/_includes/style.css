@@ -1120,6 +1120,7 @@ button.email-btn {
   border-top-left-radius: var(--large-br);
   border-bottom-left-radius: var(--large-br);
   background-color: transparent;
+  flex-basis: 100%;
 }
 
 .email-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -2096,8 +2097,7 @@ section.newsleter div.newsletter-intro {
 
 .events-intro,
 .newsletter-intro {
-  grid-column: 1 / 13;
-  justify-self: center;
+  grid-column: 3 / 11;
 }
 
 /* section.event p {
@@ -2114,9 +2114,19 @@ section.event p a svg {
   height: auto;
 }
 
+@media (max-width: 800px) {
+  .newsletter-intro {
+    grid-column: 2 / 12;
+  }
+}
+
 @media all and (max-width: 650px) {
   section.event div.eventbanner  {
     border-radius: 0px;
+  }
+  .newsletter-intro {
+    grid-column: 1 / 13;
+    margin-inline: 1rem;
   }
 }
 
