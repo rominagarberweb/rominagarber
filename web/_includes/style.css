@@ -914,10 +914,6 @@ footer {
   /* margin: 0 1em 5em; */
 }
 
-header {
-  grid-column: 3/11;
-}
-
 footer,
 .footer {
   flex-shrink: 0;
@@ -1018,7 +1014,8 @@ footer .footer-content nav.footer-nav ul.footer-nav__list li {
 }
 
 @media all and (max-width: 800px) {
-  footer .footer-content {
+  footer .footer-content,
+  .editing{
     grid-column: 2 / 12;
   }
   footer .footer-content .footer-column .footer-newsletterform {
@@ -1030,10 +1027,13 @@ footer .footer-content nav.footer-nav ul.footer-nav__list li {
   article > * {
     padding: 0 1rem;
   }
-  
+  .editing {
+    grid-column: 1 / 13;
+    padding-inline: 1rem;
+  } 
   footer .footer-content {
     grid-column: 1 / 13;
-    padding: 2em 1em;
+    padding: 2rem 1rem;
     flex-flow: column-reverse nowrap;
   }
   footer .footer-content nav.footer-nav {
@@ -2135,6 +2135,26 @@ section.event p a svg {
 }
 
 
+
+/* ==========================================================================
+   #Editing
+   ========================================================================== */
+
+section.editing  h1 {
+  grid-column: 3 / 11;
+}
+
+@media (max-width: 800px) {
+  section.editing  h1 {
+    grid-column: 2 / 12;
+  }
+}
+
+@media all and (max-width: 650px) {
+  section.editing  h1 {
+    grid-column: 1 / 13;
+  }
+}
 
 
 
