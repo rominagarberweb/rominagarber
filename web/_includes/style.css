@@ -914,6 +914,10 @@ footer {
   /* margin: 0 1em 5em; */
 }
 
+header {
+  grid-column: 3/11;
+}
+
 footer,
 .footer {
   flex-shrink: 0;
