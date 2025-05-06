@@ -1182,6 +1182,13 @@ button.inquiry-btn:hover {
   opacity: 0.8;
 }
 
+textarea.message-field {
+  resize: vertical; /* Allow resizing only vertically */
+  overflow: hidden; /* Prevent scrollbars */
+  min-height: 4rem; /* Set a minimum height */
+  margin-top: .4rem;
+}
+
 @media all and (max-width: 650px) {
   .email-form {
     flex-direction: column;
@@ -1198,20 +1205,29 @@ button.inquiry-btn:hover {
 
 @media (prefers-color-scheme: dark) {
   .email-field,
-  .name-field {
+  .name-field,
+  .message-field {
     color: var(--rho-cancer-1);
   }
 
-  .email-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  .email-field::-webkit-input-placeholder,
+  .name-field::-webkit-input-placeholder,
+  .message-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: var(--rho-cancer-2);
   }
-  .email-field::-moz-placeholder { /* Firefox 19+ */
+  .email-field::-moz-placeholder,
+  .name-field::-webkit-input-placeholder,
+  .message-field::-webkit-input-placeholder { /* Firefox 19+ */
     color: var(--rho-cancer-2);
   }
-  .email-field:-ms-input-placeholder { /* IE 10+ */
+  .email-field:-ms-input-placeholder,
+  .name-field::-webkit-input-placeholder,
+  .message-field::-webkit-input-placeholder { /* IE 10+ */
     color: var(--rho-cancer-2);
   }
-  .email-field:-moz-placeholder { /* Firefox 18- */
+  .email-field:-moz-placeholder,
+  .name-field::-webkit-input-placeholder,
+  .message-field::-webkit-input-placeholder { /* Firefox 18- */
     color: var(--rho-cancer-2);
   }
 }
@@ -2172,6 +2188,11 @@ section.editing .section-grid {
   margin-bottom: 6rem;
 }
 
+section.editing .section-grid p {
+  text-wrap: pretty;
+  max-width: 60ch;
+}
+
 @media (max-width: 800px) {
   section.editing .section-grid {
     grid-column: 2 / 12;
@@ -2190,9 +2211,12 @@ form.editing-services-interest {
   margin: 0 auto;
 }
 
-form.editing-services-interest label,
-form.editing-services-interest button{
+form.editing-services-interest label {
   margin-top: 2rem;
+}
+
+form.editing-services-interest button {
+  margin-top: 3rem;
 }
 
 
