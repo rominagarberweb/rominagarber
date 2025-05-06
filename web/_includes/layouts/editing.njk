@@ -8,7 +8,14 @@ templateClass: tmpl-about
   <div class="section-grid">
     <h1>Editing & Consulting Services</h1>
     <p>Fill out the form to inquire about my editorial services. I’ll howl back within one moon’s turn—usually under a week!</p>
-    <form name="editing-services" netlify-honeypot="bot-field" class="editing-services-interest" method="POST" action="/success-editing-services" data-netlify="true">
+    <form 
+    name="editing-services" 
+    netlify-honeypot="bot-field" 
+    class="editing-services-interest" 
+    method="POST" 
+    action="/success-editing-services" 
+    data-netlify-recaptcha="true"
+    data-netlify="true">
         <label for="name"><span class="data-label">Name</span></label>
         <input type="name" name="name" id="name" class="name-field" autocomplete="email" placeholder="First and last name" title="Name" required>
         <label for="email"><span class="data-label">Email</span></label>
@@ -16,6 +23,7 @@ templateClass: tmpl-about
         <label for="message"><span class="data-label">Message</span></label>
         <small>Let me know a little about your project and what services you’re interested in.</small>
         <textarea name="message" id="message" class="message-field" rows="5" placeholder="Your message or inquiry" title="Please enter your message" required></textarea>
+        <div data-netlify-recaptcha="true"></div>
         <button class="inquiry-btn" type="submit" name="submit">Send inquiry</button>
       </form>
   </div>
