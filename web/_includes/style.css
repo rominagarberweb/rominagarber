@@ -1114,6 +1114,7 @@ form.newsletter-sign-up label span.data-label {
 
 .email-field,
 .name-field,
+.message-field,
 button.email-btn,
 button.inquiry-btn {
   padding: .6em;
@@ -1123,11 +1124,19 @@ button.inquiry-btn {
 }
 
 .email-field,
+.message-field,
 .name-field {
   border-top-left-radius: var(--large-br);
   border-bottom-left-radius: var(--large-br);
   background-color: transparent;
   flex-basis: 100%;
+}
+
+.name-field,
+.message-field,
+form.editing-services-interest .email-field {
+  border-top-right-radius: var(--large-br);
+  border-bottom-right-radius: var(--large-br);
 }
 
 .email-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -1148,12 +1157,20 @@ button.inquiry-btn {
   border-top-right-radius: var(--large-br);
   border-bottom-right-radius: var(--large-br);
   cursor: pointer;
-  border-left: none;
   background-color: transparent;
   font-family: var(--utility-font);
   color: var(--rho-cancer-3);
   font-weight: 542;
   position: relative;
+}
+
+button.email-btn {
+  border-left: none;
+}
+
+button.inquiry-btn {
+  border-top-left-radius: var(--large-br);
+  border-bottom-left-radius: var(--large-br);
 }
 
 button.email-btn {
@@ -2152,6 +2169,7 @@ section.event p a svg {
 
 section.editing .section-grid {
   grid-column: 3 / 11;
+  margin-bottom: 6rem;
 }
 
 @media (max-width: 800px) {
@@ -2170,6 +2188,11 @@ form.editing-services-interest {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+}
+
+form.editing-services-interest label,
+form.editing-services-interest button{
+  margin-top: 2rem;
 }
 
 
