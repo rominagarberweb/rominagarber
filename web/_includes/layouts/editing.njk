@@ -6,8 +6,22 @@ templateClass: tmpl-about
 
 <section class="editing">
   <div class="section-grid">
-    <h1>Editing & Consulting Services</h1>
-    <p>Fill out the form to inquire about my editorial services. I’ll howl back within one moon’s turn—usually under a week!</p>
+    <div class="editing-intro">
+      <h1>Editing & Consulting Services</h1>
+      <p>Fill out the form to inquire about my editorial services. I’ll howl back within one moon’s turn—usually under a week!</p>
+    <h2 class="vh">Services</h2>
+    <div class="medium-card-wrapper">
+        <div class="card">
+          <div class="card-header">
+            <h3>One-time consultation</h3>
+            <span class="price">$175</span>
+          </div>
+            <p>A virtual or in-person meeting (geography permitting) to review your story idea & its general structure. I will provide you with feedback, & together we will create a game plan tailored to your schedule—with weekly word count goals & a list of steps for when the book is ready to go.</p>
+          </div>
+    </div>
+    </div>
+    <div class="editing-form">
+    <h2 class="vh">Interest form</h2>
     <form 
     name="editing-services" 
     netlify-honeypot="bot-field" 
@@ -25,6 +39,5 @@ templateClass: tmpl-about
         <textarea name="message" id="message" class="message-field" rows="5" placeholder="Your message or inquiry" title="Please enter your message" required></textarea>
         <div data-netlify-recaptcha="true"></div>
         <button class="inquiry-btn" type="submit" name="submit">Send inquiry</button>
-      </form>
-  </div>
+    </form></div></div> 
 </section>

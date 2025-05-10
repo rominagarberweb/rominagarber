@@ -1119,7 +1119,7 @@ button.email-btn,
 button.inquiry-btn {
   padding: .6em;
   border: 2px solid var(--rho-cancer-3);
-  font-size: inherit;
+  font-size: smaller;
   font-family: inherit;
 }
 
@@ -1139,15 +1139,23 @@ form.editing-services-interest .email-field {
   border-bottom-right-radius: var(--large-br);
 }
 
+.name-field::-webkit-input-placeholder,
+.message-field::-webkit-input-placeholder,
 .email-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: var(--rho-cancer-3);
 }
+.name-field::-moz-placeholder,
+.message-field::-moz-placeholder,
 .email-field::-moz-placeholder { /* Firefox 19+ */
   color: var(--rho-cancer-3);
 }
+.name-field:-ms-input-placeholder,
+.message-field:-ms-input-placeholder,
 .email-field:-ms-input-placeholder { /* IE 10+ */
   color: var(--rho-cancer-3);
 }
+.name-field:-moz-placeholder,
+.message-field:-moz-placeholder,
 .email-field:-moz-placeholder { /* Firefox 18- */
   color: var(--rho-cancer-3);
 }
@@ -2186,6 +2194,8 @@ section.event p a svg {
 section.editing .section-grid {
   grid-column: 3 / 11;
   margin-bottom: 6rem;
+  display: flex;
+  gap: 4rem;
 }
 
 section.editing .section-grid p {
@@ -2196,6 +2206,7 @@ section.editing .section-grid p {
 @media (max-width: 800px) {
   section.editing .section-grid {
     grid-column: 2 / 12;
+    flex-direction: column;
   }
 }
 
@@ -2217,6 +2228,27 @@ form.editing-services-interest label {
 
 form.editing-services-interest button {
   margin-top: 3rem;
+}
+
+.editing .medium-card-wrapper {
+  font-size: smaller;
+}
+.editing .medium-card-wrapper .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.editing .medium-card-wrapper .card-header h3,
+.editing .medium-card-wrapper .card-header .price {
+  margin: 0px;
+  font-size: calc(1.1rem + .4vw);
+  font-family: var(--utility-font);
+  color: var(--general-night-4);
+  font-variant-caps: all-small-caps;
+  font-weight: var(--body-semi-bold);
+  leading-trim: both;
+  text-edge: cap alphabetic;
 }
 
 
