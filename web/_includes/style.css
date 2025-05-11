@@ -516,7 +516,7 @@ section.biolinks ol.social-icons {
 .medium-card-wrapper {
   grid-column: 2 / span 6; 
   grid-row: 2 / 3;
-  Max-width: 60ch;
+  /* Max-width: 60ch; */
 }
 
 .medium-card-wrapper .card {
@@ -600,7 +600,7 @@ a:active .card {
 /* Styles for users who prefer dark mode at the OS level */
 @media (prefers-color-scheme: dark) {
   .card {
-    border:1px solid var(--general-night-3ish);
+    border:1px solid var(--general-night-3);
   }
 
   ol.postlist a div.card li.postlist-item div.block p {
@@ -1188,7 +1188,10 @@ button.email-btn {
 button.inquiry-btn {
   border-top-left-radius: var(--large-br);
   border-bottom-left-radius: var(--large-br);
+  background-color: var(--rho-cancer-3);
+  color: whitesmoke;
 }
+
 
 button.email-btn {
   left: -2px;
@@ -1760,6 +1763,7 @@ span.data-label,
   span.data-label,
   .data-label {
     font-family: var(--utility-font);
+    color: var(--general-night-2);
     font-weight: 550;
     font-stretch: 85%;
   }
@@ -1782,7 +1786,7 @@ section.series-data span.data-label {
   
   .data-label, 
   span.data-label {
-    filter: brightness(1.4);
+    /* filter: brightness(1.4); */
   }
 }
 
@@ -2225,10 +2229,14 @@ section.editing .section-grid p {
     grid-column: 2 / 12;
     flex-direction: column;
   }
+  section.editing h1 {
+    grid-column: 1 / 13;
+  }
 }
 
 @media all and (max-width: 650px) {
-  section.editing .section-grid{
+  section.editing .section-grid,
+  sectionl.editing h1 {
     grid-column: 1 / 13;
   }
   form.editing-services-interest label {
@@ -2269,6 +2277,13 @@ form.editing-services-interest button {
   font-weight: var(--body-semi-bold);
   leading-trim: both;
   text-edge: cap alphabetic;
+}
+
+@media (prefers-color-scheme: dark) {
+  .editing .medium-card-wrapper .card-header h3,
+  .editing .medium-card-wrapper .card-header .price {
+    color: var(--general-night-2);
+  }
 }
 
 
