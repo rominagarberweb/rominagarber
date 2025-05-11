@@ -519,6 +519,11 @@ section.biolinks ol.social-icons {
   Max-width: 60ch;
 }
 
+.medium-card-wrapper .card {
+  padding: 1rem 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
 figure.large-figure {
   grid-column: 6 / 12;
   grid-row: 1 / 6;
@@ -1132,6 +1137,10 @@ button.inquiry-btn {
   flex-basis: 100%;
 }
 
+text-area.message-field {
+  margin-bottom: 1rem;
+}
+
 .name-field,
 .message-field,
 form.editing-services-interest .email-field {
@@ -1741,7 +1750,7 @@ span.data-label,
   font-family: sans-serif;
   font-weight: 500;
   font-variant-caps: small-caps;
-  color: var(--general-night-3);
+  color: var(--general-night-4);
   letter-spacing: .08em;
   text-transform: uppercase;
   font-size: smaller;
@@ -2191,6 +2200,10 @@ section.event p a svg {
    #Editing
    ========================================================================== */
 
+section.editing h1 {
+  grid-column: 3 / 11;
+}
+
 section.editing .section-grid {
   grid-column: 3 / 11;
   margin-bottom: 6rem;
@@ -2201,6 +2214,10 @@ section.editing .section-grid {
 section.editing .section-grid p {
   text-wrap: pretty;
   max-width: 60ch;
+}
+
+.editing-intro p:first-child {
+  margin-top: 0;
 }
 
 @media (max-width: 800px) {
@@ -2214,16 +2231,19 @@ section.editing .section-grid p {
   section.editing .section-grid{
     grid-column: 1 / 13;
   }
+  form.editing-services-interest label {
+    margin-top: 2rem;
+  }
+}
+
+form.editing-services-interest label:not(:first-child) {
+  margin-top: 2rem;
 }
 
 form.editing-services-interest {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-}
-
-form.editing-services-interest label {
-  margin-top: 2rem;
 }
 
 form.editing-services-interest button {
