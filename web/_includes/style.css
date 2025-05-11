@@ -2230,13 +2230,17 @@ section.editing .section-grid p {
     flex-direction: column;
   }
   section.editing h1 {
-    grid-column: 1 / 13;
+    grid-column: 2 / 12;
   }
 }
 
 @media all and (max-width: 650px) {
   section.editing .section-grid,
   sectionl.editing h1 {
+    grid-column: 1 / 13;
+    gap: 2rem;
+  }
+  section.editing h1 {
     grid-column: 1 / 13;
   }
   form.editing-services-interest label {
