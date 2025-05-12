@@ -1136,8 +1136,7 @@ button.inquiry-btn {
   background-color: transparent;
   flex-basis: 100%;
 }
-
-text-area.message-field {
+.message-field {
   margin-bottom: 1rem;
 }
 
@@ -1763,7 +1762,7 @@ span.data-label,
   span.data-label,
   .data-label {
     font-family: var(--utility-font);
-    color: var(--general-night-2);
+    /* color: var(--general-night-2); */
     font-weight: 550;
     font-stretch: 85%;
   }
@@ -1787,6 +1786,7 @@ section.series-data span.data-label {
   .data-label, 
   span.data-label {
     /* filter: brightness(1.4); */
+    color: var(--general-night-2);
   }
 }
 
