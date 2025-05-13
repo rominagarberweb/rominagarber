@@ -22,16 +22,8 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'string',
-          title: 'Service title',
-        },
-        {
-          type: 'text',
-          title: 'Service description',
-        },
-        {
-          type: 'number',
-          title: 'Service price',
+          type: 'serviceCard',
+          title: 'Service card',
         }
       ]
     }

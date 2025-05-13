@@ -37,6 +37,7 @@ import pressEntry from './objects/pressEntry'
 import schedule from './objects/schedule'
 import tipReference from './objects/tipReference'
 import venue from './objects/venue'
+import serviceCard from './objects/serviceCard'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
@@ -78,5 +79,6 @@ export default [
   pressEntry,
   schedule,
   tipReference,
-  venue
+  venue,
+  serviceCard,
 ]
