@@ -17,6 +17,7 @@ import siteSettings from './documents/siteSettings'
 import tip from './documents/tip'
 import bioLinks from './documents/bioLinks'
 import saysaSays from './documents/saysaSays'
+import editingServices from './documents/editingServices'
 
 // Object types
 import authorReference from './objects/authorReference'
@@ -58,6 +59,7 @@ export default [
   tip,
   bioLinks,
   saysaSays,
+  editingServices,
   // Object types - can be used as { type: 'typename' }
   // in document schemas
   authorReference,

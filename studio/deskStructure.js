@@ -22,7 +22,8 @@ const hiddenDocTypes = listItem =>
     'siteSettings',
     'tip',
     'bioLinks',
-    'saysaSays'
+    'saysaSays',
+    'editingServices',
   ].includes(listItem.getId())
 
 export default S =>
@@ -139,6 +140,15 @@ export default S =>
                     .title('Saysa Says')
                     .schemaType('saysaSays')
                     .documentId('saysaSays')
+                ),
+                S.listItem()
+                .title('Editing services')
+                .icon(FiFileText)
+                .child(
+                  S.editor()
+                    .title('Editing services')
+                    .schemaType('editingServices')
+                    .documentId('editingServices')
                 )
             ])
         ),
