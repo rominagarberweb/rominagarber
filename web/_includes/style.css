@@ -516,7 +516,12 @@ section.biolinks ol.social-icons {
 .medium-card-wrapper {
   grid-column: 2 / span 6; 
   grid-row: 2 / 3;
-  Max-width: 60ch;
+  /* Max-width: 60ch; */
+}
+
+.medium-card-wrapper .card {
+  padding: 1rem 1.4rem;
+  margin-bottom: 1.2rem;
 }
 
 figure.large-figure {
@@ -595,7 +600,7 @@ a:active .card {
 /* Styles for users who prefer dark mode at the OS level */
 @media (prefers-color-scheme: dark) {
   .card {
-    border:1px solid var(--general-night-3ish);
+    border:1px solid var(--general-night-3);
   }
 
   ol.postlist a div.card li.postlist-item div.block p {
@@ -1014,7 +1019,8 @@ footer .footer-content nav.footer-nav ul.footer-nav__list li {
 }
 
 @media all and (max-width: 800px) {
-  footer .footer-content {
+  footer .footer-content,
+  .editing{
     grid-column: 2 / 12;
   }
   footer .footer-content .footer-column .footer-newsletterform {
@@ -1026,10 +1032,13 @@ footer .footer-content nav.footer-nav ul.footer-nav__list li {
   article > * {
     padding: 0 1rem;
   }
-  
+  .editing {
+    grid-column: 1 / 13;
+    padding-inline: 1rem;
+  } 
   footer .footer-content {
     grid-column: 1 / 13;
-    padding: 2em 1em;
+    padding: 2rem 1rem;
     flex-flow: column-reverse nowrap;
   }
   footer .footer-content nav.footer-nav {
@@ -1109,48 +1118,94 @@ form.newsletter-sign-up label span.data-label {
 }
 
 .email-field,
-button.email-btn {
+.name-field,
+.message-field,
+button.email-btn,
+button.inquiry-btn {
   padding: .6em;
   border: 2px solid var(--rho-cancer-3);
-  font-size: inherit;
+  font-size: smaller;
   font-family: inherit;
 }
 
-.email-field {
+.email-field,
+.message-field,
+.name-field {
   border-top-left-radius: var(--large-br);
   border-bottom-left-radius: var(--large-br);
   background-color: transparent;
   flex-basis: 100%;
 }
+.message-field {
+  margin-bottom: 1rem;
+}
 
+.name-field,
+.message-field,
+form.editing-services-interest .email-field {
+  border-top-right-radius: var(--large-br);
+  border-bottom-right-radius: var(--large-br);
+}
+
+.name-field::-webkit-input-placeholder,
+.message-field::-webkit-input-placeholder,
 .email-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: var(--rho-cancer-3);
 }
+.name-field::-moz-placeholder,
+.message-field::-moz-placeholder,
 .email-field::-moz-placeholder { /* Firefox 19+ */
   color: var(--rho-cancer-3);
 }
+.name-field:-ms-input-placeholder,
+.message-field:-ms-input-placeholder,
 .email-field:-ms-input-placeholder { /* IE 10+ */
   color: var(--rho-cancer-3);
 }
+.name-field:-moz-placeholder,
+.message-field:-moz-placeholder,
 .email-field:-moz-placeholder { /* Firefox 18- */
   color: var(--rho-cancer-3);
 }
 
-button.email-btn {
+button.email-btn,
+button.inquiry-btn {
   border-top-right-radius: var(--large-br);
   border-bottom-right-radius: var(--large-br);
   cursor: pointer;
-  border-left: none;
   background-color: transparent;
   font-family: var(--utility-font);
   color: var(--rho-cancer-3);
   font-weight: 542;
   position: relative;
+}
+
+button.email-btn {
+  border-left: none;
+}
+
+button.inquiry-btn {
+  border-top-left-radius: var(--large-br);
+  border-bottom-left-radius: var(--large-br);
+  background-color: var(--rho-cancer-3);
+  color: whitesmoke;
+}
+
+
+button.email-btn {
   left: -2px;
 }
 
-button.email-btn:hover {
+button.email-btn:hover,
+button.inquiry-btn:hover {
   opacity: 0.8;
+}
+
+textarea.message-field {
+  resize: vertical; /* Allow resizing only vertically */
+  overflow: hidden; /* Prevent scrollbars */
+  min-height: 4rem; /* Set a minimum height */
+  margin-top: .4rem;
 }
 
 @media all and (max-width: 650px) {
@@ -1159,6 +1214,7 @@ button.email-btn:hover {
   }
 
   .email-field,
+  .name-field,
   button.email-btn {
     border-radius: var(--large-br);
     margin-bottom: .8rem;
@@ -1167,20 +1223,30 @@ button.email-btn:hover {
 }
 
 @media (prefers-color-scheme: dark) {
-  .email-field {
+  .email-field,
+  .name-field,
+  .message-field {
     color: var(--rho-cancer-1);
   }
 
-  .email-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  .email-field::-webkit-input-placeholder,
+  .name-field::-webkit-input-placeholder,
+  .message-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: var(--rho-cancer-2);
   }
-  .email-field::-moz-placeholder { /* Firefox 19+ */
+  .email-field::-moz-placeholder,
+  .name-field::-webkit-input-placeholder,
+  .message-field::-webkit-input-placeholder { /* Firefox 19+ */
     color: var(--rho-cancer-2);
   }
-  .email-field:-ms-input-placeholder { /* IE 10+ */
+  .email-field:-ms-input-placeholder,
+  .name-field::-webkit-input-placeholder,
+  .message-field::-webkit-input-placeholder { /* IE 10+ */
     color: var(--rho-cancer-2);
   }
-  .email-field:-moz-placeholder { /* Firefox 18- */
+  .email-field:-moz-placeholder,
+  .name-field::-webkit-input-placeholder,
+  .message-field::-webkit-input-placeholder { /* Firefox 18- */
     color: var(--rho-cancer-2);
   }
 }
@@ -1686,7 +1752,7 @@ span.data-label,
   font-family: sans-serif;
   font-weight: 500;
   font-variant-caps: small-caps;
-  color: var(--general-night-3);
+  color: var(--general-night-4);
   letter-spacing: .08em;
   text-transform: uppercase;
   font-size: smaller;
@@ -1696,6 +1762,7 @@ span.data-label,
   span.data-label,
   .data-label {
     font-family: var(--utility-font);
+    /* color: var(--general-night-2); */
     font-weight: 550;
     font-stretch: 85%;
   }
@@ -1718,7 +1785,8 @@ section.series-data span.data-label {
   
   .data-label, 
   span.data-label {
-    filter: brightness(1.4);
+    /* filter: brightness(1.4); */
+    color: var(--general-night-2);
   }
 }
 
@@ -2131,6 +2199,96 @@ section.event p a svg {
 }
 
 
+
+/* ==========================================================================
+   #Editing
+   ========================================================================== */
+
+section.editing h1 {
+  grid-column: 3 / 11;
+}
+
+section.editing .section-grid {
+  grid-column: 3 / 11;
+  margin-bottom: 6rem;
+  display: flex;
+  gap: 4rem;
+}
+
+section.editing .section-grid p {
+  text-wrap: pretty;
+  max-width: 60ch;
+}
+
+.editing-intro p:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 800px) {
+  section.editing .section-grid {
+    grid-column: 2 / 12;
+    flex-direction: column;
+  }
+  section.editing h1 {
+    grid-column: 2 / 12;
+  }
+}
+
+@media all and (max-width: 650px) {
+  section.editing .section-grid,
+  sectionl.editing h1 {
+    grid-column: 1 / 13;
+    gap: 2rem;
+  }
+  section.editing h1 {
+    grid-column: 1 / 13;
+  }
+  form.editing-services-interest label {
+    margin-top: 2rem;
+  }
+}
+
+form.editing-services-interest label:not(:first-child) {
+  margin-top: 2rem;
+}
+
+form.editing-services-interest {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+form.editing-services-interest button {
+  margin-top: 3rem;
+}
+
+.editing .medium-card-wrapper {
+  font-size: smaller;
+}
+.editing .medium-card-wrapper .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.editing .medium-card-wrapper .card-header h3,
+.editing .medium-card-wrapper .card-header .price {
+  margin: 0px;
+  font-size: calc(1.1rem + .4vw);
+  font-family: var(--utility-font);
+  color: var(--general-night-4);
+  font-variant-caps: all-small-caps;
+  font-weight: var(--body-semi-bold);
+  leading-trim: both;
+  text-edge: cap alphabetic;
+}
+
+@media (prefers-color-scheme: dark) {
+  .editing .medium-card-wrapper .card-header h3,
+  .editing .medium-card-wrapper .card-header .price {
+    color: var(--general-night-2);
+  }
+}
 
 
 

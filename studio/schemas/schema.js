@@ -17,6 +17,7 @@ import siteSettings from './documents/siteSettings'
 import tip from './documents/tip'
 import bioLinks from './documents/bioLinks'
 import saysaSays from './documents/saysaSays'
+import editingServices from './documents/editingServices'
 
 // Object types
 import authorReference from './objects/authorReference'
@@ -36,6 +37,7 @@ import pressEntry from './objects/pressEntry'
 import schedule from './objects/schedule'
 import tipReference from './objects/tipReference'
 import venue from './objects/venue'
+import serviceCard from './objects/serviceCard'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
@@ -58,6 +60,7 @@ export default [
   tip,
   bioLinks,
   saysaSays,
+  editingServices,
   // Object types - can be used as { type: 'typename' }
   // in document schemas
   authorReference,
@@ -76,5 +79,6 @@ export default [
   pressEntry,
   schedule,
   tipReference,
-  venue
+  venue,
+  serviceCard,
 ]
