@@ -4,6 +4,19 @@ export default {
   title: 'Editing Services',
   fields: [
     {
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      description: 'This is the title of the editing services page',
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'description',
+      type: 'string',
+      title: 'Description',
+      description: 'This is text that will show up in the social share'
+    },
+    {
       name: 'mainImage',
       type: 'mainImage',
       title: 'Editing Services Photo',

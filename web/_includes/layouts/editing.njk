@@ -4,11 +4,13 @@ layout: layouts/base.njk
 templateClass: tmpl-about
 ---
 
+<pre>{{ editing | dump }}</pre>
+
 <section class="editing">
   <h1>Editing & Consulting Services</h1>
   <div class="section-grid">
     <div class="editing-intro">
-      <p>Fill out the form to inquire about my editorial services. I’ll get back to you within 3 days!</p>
+      <p>{{ editingServices.introduction }}</p>
     <h2 class="vh">Services</h2>
     <div class="medium-card-wrapper">
         <div class="card">
