@@ -1119,8 +1119,10 @@ form.newsletter-sign-up label span.data-label {
 }
 
 .email-form {
-  display:flex;
+  display: flex;
   margin: .8rem 0;
+  flex-direction: column;
+  gap: .6rem;
 }
 
 .email-field,
@@ -1137,8 +1139,8 @@ button.inquiry-btn {
 .email-field,
 .message-field,
 .name-field {
-  border-top-left-radius: var(--large-br);
-  border-bottom-left-radius: var(--large-br);
+  border-radius: var(--large-br);
+  /* border-bottom-left-radius: var(--large-br); */
   background-color: transparent;
   flex-basis: 100%;
 }
@@ -1149,8 +1151,8 @@ button.inquiry-btn {
 .name-field,
 .message-field,
 form.editing-services-interest .email-field {
-  border-top-right-radius: var(--large-br);
-  border-bottom-right-radius: var(--large-br);
+  border-radius: var(--large-br);
+  /* border-bottom-right-radius: var(--large-br); */
 }
 
 .name-field::-webkit-input-placeholder,
@@ -1176,8 +1178,8 @@ form.editing-services-interest .email-field {
 
 button.email-btn,
 button.inquiry-btn {
-  border-top-right-radius: var(--large-br);
-  border-bottom-right-radius: var(--large-br);
+  border-radius: var(--large-br);
+  /* border-bottom-right-radius: var(--large-br); */
   cursor: pointer;
   background-color: transparent;
   font-family: var(--utility-font);
