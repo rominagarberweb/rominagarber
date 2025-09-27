@@ -172,6 +172,7 @@ templateClass: tmpl-book
 
       {% endfor %}
 
+      {% if book.reviews.length > 4 %}
       <div class="showmore-actions">
         <button class="btn btn--primary" onClick="window.document.getElementById('review-show').value = true">
           Show more reviews &darr;
@@ -180,6 +181,7 @@ templateClass: tmpl-book
           Show less reviews &uarr;
         </button>
       </div>
+      {% endif %}
 
     </div>
 
@@ -226,6 +228,8 @@ templateClass: tmpl-book
 
       </ul>
 
+      {% if book.press.length > 4 %}
+
       <div class="showmore-actions">
         <button class="btn btn--primary" onClick="window.document.getElementById('press-show').value = true">
           Show more press &darr;
@@ -234,6 +238,8 @@ templateClass: tmpl-book
           Show less press &uarr;
         </button>
       </div>
+
+      {% endif %}
 
     </div>
 
@@ -247,5 +253,7 @@ templateClass: tmpl-book
 {% set booksLimit = 6 %}
 {% set booksReverseList = true %}
 {% include "bookslist.njk" %}
+
+<p class="more-link"><a class="btn btn--posts" href="{{ '/books/' | url }}">More books</a></p>
 
 </section>
