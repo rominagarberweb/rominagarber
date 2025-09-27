@@ -144,7 +144,7 @@ templateClass: tmpl-book
 
   {% endif %}
 
-  {% if book.reviews.length > 0 %}
+  {% if book.reviews and book.reviews.length > 0 %}
 
     <div class="book-reviews">
       <h2>Reviews</h2>
@@ -228,7 +228,7 @@ templateClass: tmpl-book
 
       </ul>
 
-      {% if book.press.length > 4 %}
+      {% if book.press and book.press.length > 4 %}
 
       <div class="showmore-actions">
         <button class="btn btn--primary" onClick="window.document.getElementById('press-show').value = true">
