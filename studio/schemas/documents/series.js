@@ -21,12 +21,6 @@ export default {
       }
     },
     {
-      title: 'Color theme',
-      name: 'theme',
-      type: 'reference',
-      to: [{type: 'colorTheme'}]
-    },
-    {
       name: 'image',
       type: 'mainImage',
       title: 'Image'
@@ -70,9 +64,12 @@ export default {
       ]
     },
     {
-      title: 'Agent link',
+      title: 'Agent',
       name: 'agent',
-      type: 'link'
+      description: 'Agent is editable under settings content',
+      type: 'reference',
+      to: {type: 'agent'},
+      readOnly: true
     },
     {
       title: 'Links',
@@ -84,7 +81,19 @@ export default {
           title: 'Link'
         }
       ]
-    }
+    },
+    {
+      name: 'seriesBooks',
+      title: 'Series books',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: {type: 'book'}
+        }
+      ],
+      validation: Rule => Rule.required()
+    },
   ],
   preview: {
     select: {
