@@ -2615,27 +2615,37 @@ time {
 }
 
 
-/* Book list(s)
+/* Book and series list(s)
    ========================================================================== */
 
 section.books,
-section.newsletter {
+section.newsletter,
+section.series {
   display: grid;
-  padding: 4rem 0 5rem;
+  padding: 0 0 5rem;
+
 }
 
 ol.booklist,
-section.books h1 {
+ol.serieslist,
+section.books h1,
+section.books h2,
+section.series h2 {
   grid-column: 3 / 11;
-}
-section.books h1 {
-  justify-self: center;
 }
 
 ol.booklist,
 div.books-international ol {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  list-style: none;
+  grid-gap: 1.5em 1em;
+  padding: 0;
+}
+
+ol.serieslist {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   list-style: none;
   grid-gap: 1.5em 1em;
   padding: 0;
@@ -2657,7 +2667,8 @@ section.series-data > * {
 }
 
 @media all and (max-width: 800px) {
-  section.books {
+  section.books,
+  section.series {
     display: block;
     margin: 0 1rem 3rem;
 

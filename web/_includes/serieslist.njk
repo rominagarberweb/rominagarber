@@ -1,0 +1,48 @@
+{% if not seriesLimit %}
+  {% set seriesLimit = series.length %}
+{% endif %}
+
+{% if seriesReverseList %}
+  {% set series = series | reverse %}
+{% else %}
+  {% set series = series %}
+{% endif %}
+
+{% set seriesCount = 0 %}
+
+<ol class="serieslist" style="counter-reset: start-from {{ series.length + 1 }}">
+
+  {% for item in series %}
+    {% if seriesCount < seriesLimit %}
+      {% set currentSeries = item %}
+
+      {% if currentSeries.slug.current in page.url %}
+        {% set seriesLimit = seriesLimit + 1 %}
+      {% else %}
+
+        <li class="serieslist-item">
+
+            {%- if currentSeries.image %}
+              <a href="/series/{{ currentSeries.slug.current | slug }}/"><img src="{{ currentSeries.image }}" alt="{{ currentSeries.title }}" loading="lazy" /></a>
+            {% endif -%}
+
+            <div class="serieslist-content">
+              <h3>{{ currentSeries.title }}</h3>
+
+              {% if currentSeries.description %}
+                <div class="serieslist-description">
+                  {{ currentSeries.description | markdownify | safe }}
+                </div>
+              {% endif %} 
+
+            </div>
+
+        </li>
+
+      {% endif %}
+    {% endif %}
+
+    {% set seriesCount = seriesCount + 1 %}
+  {% endfor %}
+
+</ol>
