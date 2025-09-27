@@ -31,24 +31,13 @@ export default {
       title: 'Description'
     },
     {
-      name: 'reviews',
-      type: 'array',
-      title: 'Reviews',
-      of: [
-        {
-          type: 'review',
-          title: 'Review'
-        }
-      ]
-    },
-    {
-      title: 'Press items',
-      name: 'pressItems',
+      title: 'Links',
+      name: 'links',
       type: 'array',
       of: [
         {
-          type: 'reference',
-          to: {type: 'press'}
+          type: 'link',
+          title: 'Link'
         }
       ]
     },
@@ -72,13 +61,24 @@ export default {
       readOnly: true
     },
     {
-      title: 'Links',
-      name: 'links',
+      name: 'reviews',
+      type: 'array',
+      title: 'Reviews',
+      of: [
+        {
+          type: 'review',
+          title: 'Review'
+        }
+      ]
+    },
+    {
+      title: 'Press items',
+      name: 'pressItems',
       type: 'array',
       of: [
         {
-          type: 'link',
-          title: 'Link'
+          type: 'reference',
+          to: {type: 'press'}
         }
       ]
     },
