@@ -224,6 +224,7 @@
   --large-br: 18px;
   --small-br: 8px;
   --g-margin-top: 4em;
+  --sm-margin-top: 2rem;
 
   color-scheme: light dark; /* both supported */
 }
@@ -2347,12 +2348,17 @@ section.genre p {
    ========================================================================== */
 
 section.featured-book,
-section.book-content {
+section.book-content,
+section.series-content {
   grid-gap: 6rem 2rem;
 }
 
 section.book-content {
   margin-top: 3.8rem;
+}
+
+section.series-content {
+  margin-top: 2rem;
 }
 
 section.featured-book {
@@ -2547,11 +2553,13 @@ time {
 
 @media all and (max-width: 500px) {
   section.featured-book,
-  section.book-content {
+  section.book-content,
+  section.series-content {
     grid-gap: 0;
   }
 
-  section.book-content {
+  section.book-content,
+  section.series-content {
     margin: 2rem 1rem;
   }
 
@@ -2627,7 +2635,8 @@ time {
   section.featured-book {
     padding: 3rem 0;
   }
-  section.book-content {
+  section.book-content,
+  section.series-content {
     margin: 0 1rem;
   }
 
@@ -2666,8 +2675,13 @@ section.series h2 {
   grid-column: 3 / 7;
 }
 
-.series-content {
+/* .series-content {
   grid-column: 7 / 11;
+  margin-top: 2rem;
+} */
+
+.series-content h1 {
+  margin-top: 0px;
 }
 
 .series-content .series-reviews {
@@ -2763,6 +2777,10 @@ section.series-data > * {
 .series-hero,
 .series-press {
   margin-top: var(--g-margin-top);
+}
+
+.series-hero {
+  margin-top: var(--sm-margin-top);
 }
 
 @media all and (max-width: 800px) {
