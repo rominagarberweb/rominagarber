@@ -51,6 +51,16 @@ export default S =>
             .params({type: 'book'})
         ),
       S.listItem()
+      .title('Series')
+      .icon(GiBookshelf)
+      .schemaType('series')
+      .child(
+        S.documentList('series')
+          .title('Series')
+          .filter('_type == $type')
+          .params({type: 'series'})
+      ),
+      S.listItem()
         .title('Events')
         .icon(MdEvent)
         .schemaType('event')
@@ -94,16 +104,6 @@ export default S =>
                     .title('Books page')
                     .schemaType('booksPage')
                     .documentId('booksPage')
-                ),
-                S.listItem()
-                .title('Series')
-                .icon(GiBookshelf)
-                .schemaType('series')
-                .child(
-                  S.documentList('series')
-                    .title('Series')
-                    .filter('_type == $type')
-                    .params({type: 'series'})
                 ),
               S.listItem()
                 .title('Events page')
