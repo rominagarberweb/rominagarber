@@ -21,12 +21,6 @@ export default {
       }
     },
     {
-      title: 'Color theme',
-      name: 'theme',
-      type: 'reference',
-      to: [{type: 'colorTheme'}]
-    },
-    {
       name: 'image',
       type: 'mainImage',
       title: 'Image'
@@ -36,6 +30,36 @@ export default {
       type: 'introPortableText',
       title: 'Description'
     },
+    {
+      title: 'Links',
+      name: 'links',
+      type: 'array',
+      of: [
+        {
+          type: 'link',
+          title: 'Link'
+        }
+      ]
+    },
+    {
+      title: 'Publisher links',
+      name: 'publishers',
+      type: 'array',
+      of: [
+        {
+          type: 'link',
+          title: 'Link'
+        }
+      ]
+    },
+    // {
+    //   title: 'Agent',
+    //   name: 'agent',
+    //   description: 'Agent is editable under settings content',
+    //   type: 'reference',
+    //   to: [{type: 'agent'}],
+    //   readOnly: true
+    // },
     {
       name: 'reviews',
       type: 'array',
@@ -59,32 +83,17 @@ export default {
       ]
     },
     {
-      title: 'Publisher links',
-      name: 'publishers',
+      name: 'seriesBooks',
+      title: 'Series books',
       type: 'array',
       of: [
         {
-          type: 'link',
-          title: 'Link'
+          type: 'reference',
+          to: {type: 'book'}
         }
-      ]
+      ],
+      validation: Rule => Rule.required()
     },
-    {
-      title: 'Agent link',
-      name: 'agent',
-      type: 'link'
-    },
-    {
-      title: 'Links',
-      name: 'links',
-      type: 'array',
-      of: [
-        {
-          type: 'link',
-          title: 'Link'
-        }
-      ]
-    }
   ],
   preview: {
     select: {

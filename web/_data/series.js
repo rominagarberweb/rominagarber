@@ -6,70 +6,59 @@ const overlayDrafts = require('../utils/overlayDrafts')
 const imageUrl = require('../utils/imageUrl')
 const hasToken = !!client.config().token
 
-function generateSeries (series) {
-  const reviewsContent = series.reviews ? series.reviews.map(generateReviews) : []
+function generateSeriesItem (series) {
+  const reviewsContent = series.reviews ? series.reviews.map(r => ({
+    ...r,
+    content: r.content ? BlocksToMarkdown(r.content, { serializers, ...client.config() }) : ''
+  })) : []
+
+  const seriesBooks = series.seriesBooks ? series.seriesBooks.map(b => ({
+    _id: b._id,
+    title: b.title,
+    slug: b.slug || (b.slug && b.slug.current) || null,
+    cover: b.cover ? imageUrl(b.cover).height(260).width(160).url() : null,
+    theme: b.theme || null,
+    releaseDate: b.releaseDate || null
+  })) : []
+
   return {
     ...series,
-    description: BlocksToMarkdown(
-      series.description,
-      {serializers, ...client.config()}
-    ),
-    image: imageUrl(series.image)
-      .height(500)
-      .url(),
-    reviews: reviewsContent
-  }
-}
-
-function generateReviews (review) {
-  return {
-    author: review.author,
-    content: BlocksToMarkdown(
-      review.content,
-      {serializers, ...client.config()}
-    )
+    description: series.description ? BlocksToMarkdown(series.description, { serializers, ...client.config() }) : '',
+    image: series.image ? imageUrl(series.image).height(500).url() : null,
+    reviews: reviewsContent,
+    seriesBooks: seriesBooks
   }
 }
 
 async function getSeries () {
-  const filter = groq`*[_type == "series" && defined(slug)]`
+  const filter = groq`*[_type == "series"]`
   const projection = groq`{
     _id,
-    agent{
-      title,
-      url
-    },
-    description[]{
-      ...,
-      children[]{
-        ...
-      }
-    },
-    image,
-    links[]{
-      title,
-      url
-    },
-    "pressItems": pressItems[]->{
-      publishedAt,
-      title
-    },
-    publishers[]{
-      title,
-      url
-    },
-    "reviews": reviews[]{
-      author,
-      content[]
-    },
+    title,
     slug,
-    title
+    image,
+    links[]{ title, url },
+    publishers[]{ title, url },
+    "pressItems": pressItems[]->{publishedAt, title},
+    reviews[]{
+      author,
+      content[]{ ..., children[]{ ... } }
+    },
+    "seriesBooks": seriesBooks[]->{
+      _id,
+      title,
+      "slug": slug,
+      cover,
+      theme,
+      releaseDate
+    },
+    description[]{ ..., children[]{ ... } }
   }`
   const query = [filter, projection].join(' ')
-  const docs = await client.fetch(query).catch(err => console.error(err))
+  const docs = await client.fetch(query).catch(err => { console.error(err); return [] })
   const reducedDocs = overlayDrafts(hasToken, docs)
-  const prepareSeries = reducedDocs.map(generateSeries)
-  return prepareSeries
+  const prepared = reducedDocs.map(generateSeriesItem)
+  return prepared
 }
 
 module.exports = getSeries

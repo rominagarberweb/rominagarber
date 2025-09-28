@@ -14,7 +14,7 @@ templateClass: tmpl-series
 
 </section>
 
-<section class="series-data">
+<section class="series-content">
   <div class="series-data-details">
   <h1>{{ series.title }}</h1>
 
@@ -38,28 +38,18 @@ templateClass: tmpl-series
     </ul>
   {% endif %}
 
-  {%- if series.publishers.length > 0 %}
-    <div class="publishers">
-      <p><span class="data-label"> Publisher(s):</span>
-      <ul>
-        {%- for publisher in series.publishers -%}
-          <li>
-            <a href="{{ publisher.url }}" target="_blank" rel="noopener">
-              {{- publisher.title -}}
-            </a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    </div>
-  {% endif -%}
-
-  {%- if series.agent %}
-    <div class="agent">
-      <span class="data-label"> Representation:</span><a href="{{ series.agent.url }}" target="_blank" rel="noopener">
-        {{- series.agent.title -}}
-      </a>
-    </div>
-  {% endif -%}
+  <div class="book-data">      
+    <p>
+        {%- if series.publishers.length > 0 %}
+          <span class="data-label" style="color: {{ themeColorTertiary }}">Publisher:</span>
+          <a href="{{ series.publishers[0].url }}"  rel="noopener">{{ series.publishers[0].title }}</a><br>
+        {% endif -%}
+        {%- if agent %}
+          <span class="data-label" style="color: {{ themeColorTertiary }}">Representation:</span>
+          <a href="{{ agent.url }}">{{ agent.name }}, {{ agent.agency }}</a>
+        {% endif -%}
+      </p>
+  </div>
 
 </div>
 
@@ -97,13 +87,32 @@ templateClass: tmpl-series
 
   </div>
 
-  <div class="series-books">
-    <h1>Series Books</h1>
+  </section>
 
-    {% set booksList = collections.myBooks %}
-    {% set seriesReference = series._id %} {# filter books by series #}
-    {% include "bookslist.njk" %}
+  <section class="books series-books">
+    <h2 class="vh">Series Books</h2>
 
-  </div>
+    {% set seriesBooks = series.seriesBooks or [] %}
+    {% set bookSlug = (book.slug and (book.slug.current or book.slug)) | slug %}
 
-</div>
+    <ol class="booklist" style="counter-reset: start-from {{ books.length + 1 }}">
+    {% for book in seriesBooks %}
+      <li class="booklist-item">
+      <a href="/books/{{ (book.slug.current or book.slug) | slug }}/" class="series-book-link">
+        {% if book.cover %}
+          {# cover might be a URL string or an object with a .url property #}
+          {% if book.cover.url %}
+            <img src="{{ book.cover.url }}" alt="{{ book.title }}" width="130" height="200" loading="lazy" view-transition-name="book-cover-{{ bookSlug }}"/>
+          {% else %}
+            <img src="{{ book.cover }}" alt="{{ book.title }}" width="130" height="200" loading="lazy" view-transition-name="book-cover-{{ bookSlug }}"/>
+          {% endif %}
+        {% else %}
+          <img src="/assets/images/placeholder-book.png" alt="{{ book.title }}" width="130" height="200" loading="lazy" view-transition-name="book-cover-{{ bookSlug }}"/>
+        {% endif %}
+      </a></li>
+    {% endfor %}
+    </ol>
+
+    <p class="more-link"><a class="btn btn--posts" href="{{ '/books/' | url }}">More books</a></p>
+
+  </section>

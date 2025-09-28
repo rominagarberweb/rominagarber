@@ -4,6 +4,12 @@ templateClass: tmpl-books
 ---
 
 <section class="books">
-  <h1>{{ booksPage.genre }}</h1>
-  {{ content | safe }}
+  <h1 class="vh">{{ booksPage.genre }}</h1>
+  <h2>Books</h2>
+  {% include "bookslist.njk" %}
 </section>
+
+{# <section class="series"> 
+  <h2>Series</h2>
+  {% include "serieslist.njk" %}
+</section> #}

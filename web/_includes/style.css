@@ -1,4 +1,4 @@
-  @charset "UTF-8";
+@charset "UTF-8";
 
 /* manuale-300normal - latin */
 @font-face {
@@ -224,6 +224,7 @@
   --large-br: 18px;
   --small-br: 8px;
   --g-margin-top: 4em;
+  --sm-margin-top: 2rem;
 
   color-scheme: light dark; /* both supported */
 }
@@ -263,6 +264,31 @@
   position: absolute;
   width: 1px;
   white-space: nowrap;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+@supports selector(::view-transition-new(root)) {
+  img[view-transition-name] {
+    will-change: transform, opacity;
+    transform-origin: center center;
+    /* border-radius: 8px; */
+  }
+
+  ::view-transition-old(root) img[view-transition-name],
+  ::view-transition-new(root) img[view-transition-name] {
+    transition: transform 420ms cubic-bezier(.2,.8,.2,1), opacity 260ms ease;
+  }
+
+  /* reduce abrupt corner changes during morph */
+  /* ::view-transition-old(root) img[view-transition-name] {
+    border-radius: 8px;
+  }
+  ::view-transition-new(root) img[view-transition-name] {
+    border-radius: 8px;
+  } */
 }
 
 html,
@@ -1361,7 +1387,7 @@ button.btn--secondary:hover {
 /* css only partially accessible dropdown button */
 .vh { 
   position: absolute !important;
-  clip: rect(1px, 1px, 1px, 1px);
+  clip: rect(1px, 1px, 1px);
   padding:0 !important;
   border:0 !important;
   height: 1px !important;
@@ -2322,7 +2348,8 @@ section.genre p {
    ========================================================================== */
 
 section.featured-book,
-section.book-content {
+section.book-content,
+section.series-content {
   grid-gap: 6rem 2rem;
 }
 
@@ -2330,11 +2357,16 @@ section.book-content {
   margin-top: 3.8rem;
 }
 
+section.series-content {
+  margin-top: 2rem;
+}
+
 section.featured-book {
   background-color: var(--manu-moon-1);
   min-height: 30em;
   margin: 0;
-  padding: 3em 0;
+  padding: 6rem 0;
+  margin-bottom: 6rem;
 }
 
 .book-hero {
@@ -2521,11 +2553,13 @@ time {
 
 @media all and (max-width: 500px) {
   section.featured-book,
-  section.book-content {
+  section.book-content,
+  section.series-content {
     grid-gap: 0;
   }
 
-  section.book-content {
+  section.book-content,
+  section.series-content {
     margin: 2rem 1rem;
   }
 
@@ -2598,7 +2632,11 @@ time {
   .book-hero {
     background: var(--general-night-5) !important;
   }
-  section.book-content {
+  section.featured-book {
+    padding: 3rem 0;
+  }
+  section.book-content,
+  section.series-content {
     margin: 0 1rem;
   }
 
@@ -2615,27 +2653,111 @@ time {
 }
 
 
-/* Book list(s)
+/* Book and series list(s)
    ========================================================================== */
 
 section.books,
-section.newsletter {
+section.newsletter,
+section.series {
   display: grid;
-  padding: 4rem 0 5rem;
+  padding: 0 0 5rem;
 }
 
 ol.booklist,
-section.books h1 {
+ol.serieslist,
+section.books h1,
+section.books h2,
+section.series h2 {
   grid-column: 3 / 11;
 }
-section.books h1 {
-  justify-self: center;
+
+.series-data-details {
+  grid-column: 3 / 7;
+}
+
+/* .series-content {
+  grid-column: 7 / 11;
+  margin-top: 2rem;
+} */
+
+.series-content h1 {
+  margin-top: 0px;
+}
+
+.series-content .series-reviews {
+  margin-top: 0px;
+}
+
+/* .series-books {
+  grid-column: 3 / 11;
+} */
+
+@media all and (max-width: 800px) {
+  .series-data-details,
+  .series-content {
+    grid-column: 3 / 11;
+  }
+
+
+  .series-content .series-reviews {
+  margin-top: initial;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .series-data-details,
+  .series-content {
+    grid-column: 1 / 13;
+  }
+}
+
+ol.booklist {
+  grid-column: 2 / 12;
+}
+
+section.books ol.booklist,
+.series-books {
+  /* padding-block: 6rem; */
+  grid-column: 3 / 11;
+  /* grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); */
+}
+
+/* Wider layout specifically for the home page list */
+section.books.books--wide ol.booklist {
+  grid-column: 2 / 12; /* expand one column on each side */
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.5rem 1rem;
+}
+
+/* keep full-width behavior on small screens */
+@media all and (max-width: 800px) {
+  section.books ol.booklist,
+  section.books.books--wide ol.booklist {
+    grid-column: 2 / 12;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media all and (max-width: 650px) {
+  section.books ol.booklist,
+  section.books.books--wide ol.booklist {
+    grid-column: 1 / 13;
+    /* grid-template-columns: 1fr; */
+  }
 }
 
 ol.booklist,
 div.books-international ol {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  list-style: none;
+  grid-gap: 1.5em 1em;
+  padding: 0;
+}
+
+ol.serieslist {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   list-style: none;
   grid-gap: 1.5em 1em;
   padding: 0;
@@ -2652,12 +2774,18 @@ section.series-data > * {
 
 .series-reviews,
 .series-books,
+.series-hero,
 .series-press {
   margin-top: var(--g-margin-top);
 }
 
+.series-hero {
+  margin-top: var(--sm-margin-top);
+}
+
 @media all and (max-width: 800px) {
-  section.books {
+  section.books,
+  section.series {
     display: block;
     margin: 0 1rem 3rem;
 
@@ -2695,7 +2823,7 @@ section.series-data > * {
 /*
 .showmore-actions > button {
   background-color: transparent;
-  border-radius: 22px;
+  border-radius:  22px;
   font-size: 24px;
   cursor: pointer;
   border: 2px solid #202122;
@@ -2741,4 +2869,50 @@ section.series-data > * {
 }
 #press-show[value="true"] ~ .showmore-actions > :first-child {
   display: none;
+}
+
+/* uniform book cover aspect box (matches 130×200 -> 13/20) */
+.booklist-item { display: block; }
+
+.booklist-link {
+  display: block;
+  width: 100%;
+  /* max-width: 140px; */
+  aspect-ratio: 13 / 20;       /* desired width:height ratio */
+  overflow: hidden;
+  /* border-radius: 6px; */
+  background-color: #f5f5f5;   /* placeholder while image loads */
+}
+
+.booklist-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* crop/scale to fill the box */
+  object-position: center;
+  display: block;
+}
+
+/* Fallback for browsers without aspect-ratio */
+@supports not (aspect-ratio: 1 / 1) {
+  .booklist-link { position: relative; }
+  .booklist-link::before {
+    content: "";
+    display: block;
+    /* padding-top = (height/width) * 100% -> 200/130*100 ≈ 153.846% */
+    padding-top: 153.846%;
+  }
+  .booklist-link img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Responsive adjustments (optional) */
+@media (max-width: 800px) {
+  .booklist-link { max-width: 160px; }
+}
+@media (max-width: 650px) {
+  .booklist-link { max-width: none; aspect-ratio: 13 / 20; }
 }
