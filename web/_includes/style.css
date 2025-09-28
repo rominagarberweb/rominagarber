@@ -2675,16 +2675,17 @@ section.series h2 {
   grid-column: 3 / 7;
 }
 
-/* .series-content {
+.series-content {
   grid-column: 7 / 11;
-  margin-top: 2rem;
-} */
+  margin-top: 0px;
+}
 
 .series-content h1 {
   margin-top: 0px;
 }
 
-.series-content .series-reviews {
+.series-content .series-reviews,
+.series-content .series-reviews h2 {
   margin-top: 0px;
 }
 
@@ -2696,6 +2697,7 @@ section.series h2 {
   .series-data-details,
   .series-content {
     grid-column: 3 / 11;
+    margin-top: 2rem;
   }
 
 

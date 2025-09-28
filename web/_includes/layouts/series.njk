@@ -62,11 +62,33 @@ templateClass: tmpl-series
     <h2>Reviews</h2>
 
     {% for review in series.reviews %}
+    {% if loop.index < 4 %}
+    <div class="">
       {{ review.content | markdownify | safe }}
       {% if review.author %}
         <em>&mdash; {{ review.author }}</em>
       {% endif %}
+    </div>
+    {% else %}
+          <div class="more-review">
+            {{ review.content | markdownify | safe }}
+
+            {% if review.author %}
+              <em>&mdash; {{ review.author }}</em>
+            {% endif %}
+          </div>
+    {% endif %}
     {% endfor %}
+    {% if book.reviews.length > 4 %}
+      <div class="showmore-actions">
+        <button class="btn btn--primary" onClick="window.document.getElementById('review-show').value = true">
+          Show more reviews &darr;
+        </button>
+        <button class="btn btn--primary" onClick="window.document.getElementById('review-show').value = false">
+          Show less reviews &uarr;
+        </button>
+      </div>
+      {% endif %}
 
   {% endif %}
 
