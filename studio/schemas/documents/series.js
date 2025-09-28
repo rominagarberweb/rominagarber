@@ -52,14 +52,14 @@ export default {
         }
       ]
     },
-    {
-      title: 'Agent',
-      name: 'agent',
-      description: 'Agent is editable under settings content',
-      type: 'reference',
-      to: {type: 'agent'},
-      readOnly: true
-    },
+    // {
+    //   title: 'Agent',
+    //   name: 'agent',
+    //   description: 'Agent is editable under settings content',
+    //   type: 'reference',
+    //   to: [{type: 'agent'}],
+    //   readOnly: true
+    // },
     {
       name: 'reviews',
       type: 'array',

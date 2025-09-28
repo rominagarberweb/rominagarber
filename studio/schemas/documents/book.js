@@ -133,7 +133,7 @@ export default {
       name: 'agent',
       description: 'Agent is editable under settings content',
       type: 'reference',
-      to: {type: 'agent'},
+      to: [{type: 'agent'}],
       group: 'details',
       readOnly: true
     },

@@ -38,9 +38,23 @@ templateClass: tmpl-series
     </ul>
   {% endif %}
 
-  {%- if series.publishers.length > 0 %}
+  <div class="book-data">
+      {# make this color selected in the cms to match the book theme colors 3 #}
+      <p>
+        {%- if series.publishers.length > 0 %}
+          <span class="data-label" style="color: {{ themeColorTertiary }}">Publisher:</span>
+          <a href="{{ series.publishers[0].url }}"  rel="noopener">{{ series.publishers[0].title }}</a><br>
+        {% endif -%}
+        {%- if agent %}
+          <span class="data-label" style="color: {{ themeColorTertiary }}">Representation:</span>
+          <a href="{{ agent.url }}">{{ agent.name }}, {{ agent.agency }}</a>
+        {% endif -%}
+      </p>
+    </div>
+
+  {# {%- if series.publishers.length > 0 %}
     <div class="publishers">
-      <p><span class="data-label"> Publisher(s):</span>
+      <p><span class="data-label"> Publisher:</span>
       <ul>
         {%- for publisher in series.publishers -%}
           <li>
@@ -51,15 +65,15 @@ templateClass: tmpl-series
         {%- endfor -%}
       </ul>
     </div>
-  {% endif -%}
+  {% endif -%} #}
 
-  {%- if series.agent %}
+  {# {%- if series.agent %}
     <div class="agent">
       <span class="data-label"> Representation:</span><a href="{{ series.agent.url }}" target="_blank" rel="noopener">
         {{- series.agent.title -}}
       </a>
     </div>
-  {% endif -%}
+  {% endif -%} #}
 
 </div>
 
@@ -98,11 +112,27 @@ templateClass: tmpl-series
   </div>
 
   <div class="series-books">
-    <h2>Series Books</h2>
+    <h2 class="vh">Series Books</h2>
 
-    {% set booksList = collections.myBooks %}
-    {% set seriesReference = series._id %} {# filter books by series #}
-    {% include "bookslist.njk" %}
+    {% set seriesBooks = series.seriesBooks or [] %}
+
+    <ol class="booklist" style="counter-reset: start-from {{ books.length + 1 }}">
+    {% for book in seriesBooks %}
+      <li class="booklist-item">
+      <a href="/books/{{ (book.slug.current or book.slug) | slug }}/" class="series-book-link">
+        {% if book.cover %}
+          {# cover might be a URL string or an object with a .url property #}
+          {% if book.cover.url %}
+            <img src="{{ book.cover.url }}" alt="{{ book.title }}" width="130" height="200" loading="lazy" />
+          {% else %}
+            <img src="{{ book.cover }}" alt="{{ book.title }}" width="130" height="200" loading="lazy" />
+          {% endif %}
+        {% else %}
+          <img src="/assets/images/placeholder-book.png" alt="{{ book.title }}" width="130" height="200" loading="lazy" />
+        {% endif %}
+      </a></li>
+    {% endfor %}
+    </ol>
 
   </div>
 

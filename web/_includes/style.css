@@ -2662,6 +2662,7 @@ section.series-data > * {
 
 .series-reviews,
 .series-books,
+.series-hero,
 .series-press {
   margin-top: var(--g-margin-top);
 }
