@@ -2359,7 +2359,8 @@ section.featured-book {
   background-color: var(--manu-moon-1);
   min-height: 30em;
   margin: 0;
-  padding: 3em 0;
+  padding: 6rem 0;
+  margin-bottom: 6rem;
 }
 
 .book-hero {
@@ -2623,6 +2624,9 @@ time {
   .book-hero {
     background: var(--general-night-5) !important;
   }
+  section.featured-book {
+    padding: 3rem 0;
+  }
   section.book-content {
     margin: 0 1rem;
   }
@@ -2650,16 +2654,47 @@ section.series {
   padding: 0 0 5rem;
 }
 
-section.books {
-  padding-block: 6rem;
-}
-
 ol.booklist,
 ol.serieslist,
 section.books h1,
 section.books h2,
 section.series h2 {
   grid-column: 3 / 11;
+}
+
+ol.booklist {
+  grid-column: 2 / 12;
+}
+
+section.books ol.booklist,
+.series-books {
+  /* padding-block: 6rem; */
+  grid-column: 3 / 11;
+  /* grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); */
+}
+
+/* Wider layout specifically for the home page list */
+section.books.books--wide ol.booklist {
+  grid-column: 2 / 12; /* expand one column on each side */
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.5rem 1rem;
+}
+
+/* keep full-width behavior on small screens */
+@media all and (max-width: 800px) {
+  section.books ol.booklist,
+  section.books.books--wide ol.booklist {
+    grid-column: 2 / 12;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media all and (max-width: 650px) {
+  section.books ol.booklist,
+  section.books.books--wide ol.booklist {
+    grid-column: 1 / 13;
+    grid-template-columns: 1fr;
+  }
 }
 
 ol.booklist,

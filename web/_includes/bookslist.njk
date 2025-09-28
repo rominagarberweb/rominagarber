@@ -22,7 +22,7 @@
       {% else %}
 
         <li class="booklist-item">
-          <a href="/books/{{ currentBook.slug.current | slug }}/" title="{{ currentBook.title }}" class="booklist-link">
+          <a href="/books/{{ currentBook.slug.current | slug }}/" aria-label="{{ currentBook.title }}" class="booklist-link">
 
           {%- if currentBook.cover %}
             <img src="{{ currentBook.cover.url }}" width="130" height="200" alt="{{ currentBook.cover.alt }}" loading="lazy" view-transition-name="book-cover-{{ bookSlug }}"/>
