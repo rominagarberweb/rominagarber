@@ -1,4 +1,4 @@
-  @charset "UTF-8";
+@charset "UTF-8";
 
 /* manuale-300normal - latin */
 @font-face {
@@ -1386,7 +1386,7 @@ button.btn--secondary:hover {
 /* css only partially accessible dropdown button */
 .vh { 
   position: absolute !important;
-  clip: rect(1px, 1px, 1px, 1px);
+  clip: rect(1px, 1px, 1px);
   padding:0 !important;
   border:0 !important;
   height: 1px !important;
@@ -2662,6 +2662,41 @@ section.series h2 {
   grid-column: 3 / 11;
 }
 
+.series-data-details {
+  grid-column: 3 / 7;
+}
+
+.series-content {
+  grid-column: 7 / 11;
+}
+
+.series-content .series-reviews {
+  margin-top: 0px;
+}
+
+/* .series-books {
+  grid-column: 3 / 11;
+} */
+
+@media all and (max-width: 800px) {
+  .series-data-details,
+  .series-content {
+    grid-column: 3 / 11;
+  }
+
+
+  .series-content .series-reviews {
+  margin-top: initial;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .series-data-details,
+  .series-content {
+    grid-column: 1 / 13;
+  }
+}
+
 ol.booklist {
   grid-column: 2 / 12;
 }
@@ -2693,7 +2728,7 @@ section.books.books--wide ol.booklist {
   section.books ol.booklist,
   section.books.books--wide ol.booklist {
     grid-column: 1 / 13;
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
   }
 }
 
@@ -2770,7 +2805,7 @@ section.series-data > * {
 /*
 .showmore-actions > button {
   background-color: transparent;
-  border-radius: 22px;
+  border-radius:  22px;
   font-size: 24px;
   cursor: pointer;
   border: 2px solid #202122;
@@ -2816,4 +2851,50 @@ section.series-data > * {
 }
 #press-show[value="true"] ~ .showmore-actions > :first-child {
   display: none;
+}
+
+/* uniform book cover aspect box (matches 130×200 -> 13/20) */
+.booklist-item { display: block; }
+
+.booklist-link {
+  display: block;
+  width: 100%;
+  max-width: 140px;            /* control thumbnail size */
+  aspect-ratio: 13 / 20;       /* desired width:height ratio */
+  overflow: hidden;
+  /* border-radius: 6px; */
+  background-color: #f5f5f5;   /* placeholder while image loads */
+}
+
+.booklist-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* crop/scale to fill the box */
+  object-position: center;
+  display: block;
+}
+
+/* Fallback for browsers without aspect-ratio */
+@supports not (aspect-ratio: 1 / 1) {
+  .booklist-link { position: relative; }
+  .booklist-link::before {
+    content: "";
+    display: block;
+    /* padding-top = (height/width) * 100% -> 200/130*100 ≈ 153.846% */
+    padding-top: 153.846%;
+  }
+  .booklist-link img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Responsive adjustments (optional) */
+@media (max-width: 800px) {
+  .booklist-link { max-width: 160px; }
+}
+@media (max-width: 650px) {
+  .booklist-link { max-width: none; aspect-ratio: 13 / 20; }
 }

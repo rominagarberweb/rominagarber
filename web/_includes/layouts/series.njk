@@ -14,7 +14,7 @@ templateClass: tmpl-series
 
 </section>
 
-<section class="series-data">
+<section class="book-content">
   <div class="series-data-details">
   <h1>{{ series.title }}</h1>
 
@@ -38,9 +38,8 @@ templateClass: tmpl-series
     </ul>
   {% endif %}
 
-  <div class="book-data">
-      {# make this color selected in the cms to match the book theme colors 3 #}
-      <p>
+  <div class="book-data">      
+    <p>
         {%- if series.publishers.length > 0 %}
           <span class="data-label" style="color: {{ themeColorTertiary }}">Publisher:</span>
           <a href="{{ series.publishers[0].url }}"  rel="noopener">{{ series.publishers[0].title }}</a><br>
@@ -50,30 +49,7 @@ templateClass: tmpl-series
           <a href="{{ agent.url }}">{{ agent.name }}, {{ agent.agency }}</a>
         {% endif -%}
       </p>
-    </div>
-
-  {# {%- if series.publishers.length > 0 %}
-    <div class="publishers">
-      <p><span class="data-label"> Publisher:</span>
-      <ul>
-        {%- for publisher in series.publishers -%}
-          <li>
-            <a href="{{ publisher.url }}" target="_blank" rel="noopener">
-              {{- publisher.title -}}
-            </a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    </div>
-  {% endif -%} #}
-
-  {# {%- if series.agent %}
-    <div class="agent">
-      <span class="data-label"> Representation:</span><a href="{{ series.agent.url }}" target="_blank" rel="noopener">
-        {{- series.agent.title -}}
-      </a>
-    </div>
-  {% endif -%} #}
+  </div>
 
 </div>
 
@@ -111,7 +87,9 @@ templateClass: tmpl-series
 
   </div>
 
-  <div class="series-books">
+  </section>
+
+  <section class="books series-books">
     <h2 class="vh">Series Books</h2>
 
     {% set seriesBooks = series.seriesBooks or [] %}
@@ -135,6 +113,6 @@ templateClass: tmpl-series
     {% endfor %}
     </ol>
 
-  </div>
+    <p class="more-link"><a class="btn btn--posts" href="{{ '/books/' | url }}">More books</a></p>
 
-</div>
+  </section>
