@@ -273,7 +273,7 @@
   img[view-transition-name] {
     will-change: transform, opacity;
     transform-origin: center center;
-    border-radius: 8px;
+    /* border-radius: 8px; */
   }
 
   ::view-transition-old(root) img[view-transition-name],
@@ -282,12 +282,12 @@
   }
 
   /* reduce abrupt corner changes during morph */
-  ::view-transition-old(root) img[view-transition-name] {
+  /* ::view-transition-old(root) img[view-transition-name] {
     border-radius: 8px;
   }
   ::view-transition-new(root) img[view-transition-name] {
     border-radius: 8px;
-  }
+  } */
 }
 
 html,
@@ -2648,7 +2648,10 @@ section.newsletter,
 section.series {
   display: grid;
   padding: 0 0 5rem;
+}
 
+section.books {
+  padding-block: 6rem;
 }
 
 ol.booklist,

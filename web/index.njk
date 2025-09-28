@@ -68,12 +68,13 @@ socialImage: images/lobizona-preview.jpg
 </section>
 
 {% for book in homePage.featured %}
+{% set bookSlug = (book.slug and (book.slug.current or book.slug)) | slug %}
 
 <section class="featured-book full-bleed" style="background-color: {{ themeColorPrimary }};">
 
     {%- if book.cover %}
       <figure>
-        <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.cover.alt }}" />
+        <img src="{{ book.cover }}" width="260" height="390" alt="{{ book.cover.alt }}" view-transition-name="book-cover-{{ bookSlug }}"/>
         <figcaption>{{ book.cover.caption }}</figcaption>
         {# this download link is currently broken #}
         {# <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }};">Download:</span> <a href="{{ book.content.original }}?dl=book-cover.jpg" download="{{ book.content.cover.alt }}" rel="noopener">Large&nbsp;cover&nbsp;image
