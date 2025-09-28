@@ -1,4 +1,5 @@
 import {GiBookshelf} from 'react-icons/gi'
+import {FiBook, FiZap, FiExternalLink} from 'react-icons/fi'
 
 export default {
   name: 'series',
@@ -64,10 +65,12 @@ export default {
       name: 'reviews',
       type: 'array',
       title: 'Reviews',
+      description: '3 will display by default. 4 or more will display under see more button.',
       of: [
         {
           type: 'review',
-          title: 'Review'
+          title: 'Review',
+          icon: FiZap
         }
       ]
     },
