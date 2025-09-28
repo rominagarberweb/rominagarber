@@ -265,6 +265,31 @@
   white-space: nowrap;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
+@supports selector(::view-transition-new(root)) {
+  img[view-transition-name] {
+    will-change: transform, opacity;
+    transform-origin: center center;
+    border-radius: 8px;
+  }
+
+  ::view-transition-old(root) img[view-transition-name],
+  ::view-transition-new(root) img[view-transition-name] {
+    transition: transform 420ms cubic-bezier(.2,.8,.2,1), opacity 260ms ease;
+  }
+
+  /* reduce abrupt corner changes during morph */
+  ::view-transition-old(root) img[view-transition-name] {
+    border-radius: 8px;
+  }
+  ::view-transition-new(root) img[view-transition-name] {
+    border-radius: 8px;
+  }
+}
+
 html,
 body {
   height: 100%;

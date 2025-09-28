@@ -115,6 +115,7 @@ templateClass: tmpl-series
     <h2 class="vh">Series Books</h2>
 
     {% set seriesBooks = series.seriesBooks or [] %}
+    {% set bookSlug = (book.slug and (book.slug.current or book.slug)) | slug %}
 
     <ol class="booklist" style="counter-reset: start-from {{ books.length + 1 }}">
     {% for book in seriesBooks %}
@@ -123,12 +124,12 @@ templateClass: tmpl-series
         {% if book.cover %}
           {# cover might be a URL string or an object with a .url property #}
           {% if book.cover.url %}
-            <img src="{{ book.cover.url }}" alt="{{ book.title }}" width="130" height="200" loading="lazy" />
+            <img src="{{ book.cover.url }}" alt="{{ book.title }}" width="130" height="200" loading="lazy" view-transition-name="book-cover-{{ bookSlug }}"/>
           {% else %}
-            <img src="{{ book.cover }}" alt="{{ book.title }}" width="130" height="200" loading="lazy" />
+            <img src="{{ book.cover }}" alt="{{ book.title }}" width="130" height="200" loading="lazy" view-transition-name="book-cover-{{ bookSlug }}"/>
           {% endif %}
         {% else %}
-          <img src="/assets/images/placeholder-book.png" alt="{{ book.title }}" width="130" height="200" loading="lazy" />
+          <img src="/assets/images/placeholder-book.png" alt="{{ book.title }}" width="130" height="200" loading="lazy" view-transition-name="book-cover-{{ bookSlug }}"/>
         {% endif %}
       </a></li>
     {% endfor %}

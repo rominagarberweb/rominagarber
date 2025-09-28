@@ -6,12 +6,13 @@ templateClass: tmpl-book
 {% set themeColorPrimary = book.theme.primary -%}
 {% set themeColorSecondary = book.theme.secondary -%}
 {% set themeColorTertiary = book.theme.tertiary -%}
+{% set bookSlug = (book.slug and (book.slug.current or book.slug)) | slug %}
 
 <div class="book-hero" style="background-color: {{ themeColorPrimary }};">
 
   {%- if book.cover %}
     <figure>
-      <img src="{{ book.cover.url }}" width="260" height="390" alt="{{ book.cover.alt }}" />
+      <img src="{{ book.cover.url }}" width="260" height="390" alt="{{ book.cover.alt }} view-transition-name="book-cover-{{ bookSlug }}" decoding="async"/>
       <figcaption>{{ book.cover.caption }}</figcaption>
       <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.original }}?dl=book-cover.jpg" rel="noopener nofollow">Large&nbsp;cover&nbsp;image&nbsp;
         </a></p>
