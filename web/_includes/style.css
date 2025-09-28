@@ -2877,7 +2877,7 @@ section.series-data > * {
 .booklist-link {
   display: block;
   width: 100%;
-  max-width: 140px;            /* control thumbnail size */
+  /* max-width: 140px; */
   aspect-ratio: 13 / 20;       /* desired width:height ratio */
   overflow: hidden;
   /* border-radius: 6px; */
