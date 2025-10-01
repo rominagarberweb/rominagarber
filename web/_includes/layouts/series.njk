@@ -59,11 +59,11 @@ templateClass: tmpl-series
 
   {% if series.reviews.length > 0 %}
 
-    <h2>Reviews</h2>
+    <h2 class="vh">Reviews</h2>
 
     {% for review in series.reviews %}
     {% if loop.index < 4 %}
-    <div class="">
+    <div class="series-reviews">
       {{ review.content | markdownify | safe }}
       {% if review.author %}
         <em>&mdash; {{ review.author }}</em>
@@ -98,7 +98,7 @@ templateClass: tmpl-series
 
   {% if series.pressItems.length > 0 %}
 
-    <h2>Press</h2>
+    <h2 style="vh">Press</h2>
 
     {% for pressItem in series.pressItems %}
       <a href="#" target="_blank" rel="noopener">{{ pressItem.title }}</a>

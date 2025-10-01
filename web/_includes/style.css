@@ -2347,11 +2347,11 @@ section.genre p {
 /* Featured book(s)
    ========================================================================== */
 
-section.featured-book,
+/* section.featured-book,
 section.book-content,
 section.series-content {
   grid-gap: 6rem 2rem;
-}
+} */
 
 section.book-content {
   margin-top: 3.8rem;
@@ -2487,12 +2487,18 @@ time {
   margin-bottom: .8em;
 }
 
-.book-reviews em {
+.series-reviews p {
+  margin-bottom: .8em;
+}
+
+.book-reviews em,
+.series-reviews em {
   margin-left: -.1em;
   color: var(--general-night-3);
 }
 
-.book-reviews p em {
+.book-reviews p em,
+.series-reviews p em {
   color: inherit;
 }
 
@@ -2513,6 +2519,10 @@ time {
   section.featured-book,
   .book-hero {
     grid-gap: 1em 2em;
+  }
+
+  section.series-content {
+    margin: 2rem 1rem;
   }
 
   section.featured-book figure,
@@ -2759,7 +2769,7 @@ div.books-international ol {
 
 ol.serieslist {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   list-style: none;
   grid-gap: 1.5em 1em;
   padding: 0;
@@ -2774,6 +2784,15 @@ section.series-data > * {
   grid-column: 3 / 11;
 }
 
+section.series h2,
+section.books h2 {
+  margin-block: 0px;
+}
+
+section.books {
+  margin-top: var(--sm-margin-top);
+}
+
 .series-reviews,
 .series-books,
 .series-hero,
@@ -2782,7 +2801,7 @@ section.series-data > * {
 }
 
 .series-hero {
-  margin-top: var(--sm-margin-top);
+  margin-block: var(--sm-margin-top);
 }
 
 @media all and (max-width: 800px) {

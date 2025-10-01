@@ -154,7 +154,7 @@ templateClass: tmpl-book
 
       {% for review in book.reviews %}
         {% if loop.index < 4 %}
-          <div class="">
+          <div class="book-reviews">
             {{ review.content | markdownify | safe }}
 
             {% if review.author %}
