@@ -1,9 +1,9 @@
 const axios = require('axios')
 
 const params = {
-  access_token: process.env.INSTAGRAM_ACCESS_TOKEN,
-  business_id: process.env.INSTAGRAM_BUSINESS_ID,
-  username: process.env.INSTAGRAM_USERNAME,
+  access_token: process.env.INSTAGRAM_ACCESS_TOKEN || 'REPLACE_WITH_TOKEN',
+  business_id: process.env.INSTAGRAM_BUSINESS_ID || 'REPLACE_WITH_ID',
+  username: process.env.INSTAGRAM_USERNAME || 'rominagarber',
   max_posts: 8
 }
 
