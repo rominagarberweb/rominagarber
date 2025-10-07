@@ -1776,6 +1776,10 @@ section.series-data span.data-label {
   color: var(--general-night-3);
 }
 
+section.bio .bio-text .publishers {
+  margin-block-start: 1rem;
+}
+
 /* Styles for users who prefer dark mode at the OS level */
 @media (prefers-color-scheme: dark) {
   p.download-link a,

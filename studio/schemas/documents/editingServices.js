@@ -1,7 +1,7 @@
 export default {
   name: 'editingServices',
   type: 'document',
-  title: 'Editing Services',
+  title: 'Editing Services', 
   fields: [
     {
       name: 'mainImage',

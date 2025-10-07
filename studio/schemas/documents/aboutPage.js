@@ -26,6 +26,14 @@ export default {
       title: 'Biografía Español'
     },
     {
+      name: 'contactEmail',
+      title: 'Contact email',
+      type: 'string',
+      description: 'Email shown on the About page (will be linked mailto:)',
+      // optional: use validation if your Sanity version supports Rule.email()
+      validation: Rule => Rule.email()
+    },
+    {
       title: 'Publisher links',
       name: 'publishers',
       type: 'array',

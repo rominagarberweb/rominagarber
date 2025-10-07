@@ -35,13 +35,12 @@ templateClass: tmpl-about
       </article>
     </div>
 
-{# {%- if aboutPage.contact%} #}
+{# Contact block - show email from aboutPage.contactEmail #}
+{% if aboutPage.contactEmail %}
   <p class="contact book-data">
-    <span class="data-label">Contact:</span>
-    {# make this editable in the studio #}
-    <a href="mailto:romigarber@gmail.com" rel="nopener">romigarber@gmail.com</a>
+    <span class="data-label">Contact:</span> <a href="mailto:{{ aboutPage.contactEmail }}" rel="noopener">{{ aboutPage.contactEmail }}</a>
   </p>
-{# {% endif -%} #}
+{% endif %}
 
 {%- if aboutPage.publishers.length > 0 %}
   <div class="publishers book-data">
