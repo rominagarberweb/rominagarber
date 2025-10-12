@@ -2296,7 +2296,7 @@ section.editing .section-grid p {
 }
 
 form.editing-services-interest label:not(:first-child) {
-  margin-top: 2rem;
+  margin-top: 1.4rem;
 }
 
 form.editing-services-interest {
@@ -2306,7 +2306,7 @@ form.editing-services-interest {
 }
 
 form.editing-services-interest button {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .editing .medium-card-wrapper {
