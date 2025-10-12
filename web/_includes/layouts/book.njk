@@ -6,12 +6,13 @@ templateClass: tmpl-book
 {% set themeColorPrimary = book.theme.primary -%}
 {% set themeColorSecondary = book.theme.secondary -%}
 {% set themeColorTertiary = book.theme.tertiary -%}
+{% set bookSlug = (book.slug and (book.slug.current or book.slug)) | slug %}
 
 <div class="book-hero" style="background-color: {{ themeColorPrimary }};">
 
   {%- if book.cover %}
     <figure>
-      <img src="{{ book.cover.url }}" width="260" height="390" alt="{{ book.cover.alt }}" />
+      <img src="{{ book.cover.url }}" width="260" height="390" alt="{{ book.cover.alt }} view-transition-name="book-cover-{{ bookSlug }}" decoding="async"/>
       <figcaption>{{ book.cover.caption }}</figcaption>
       <p class="download-link"><span class="data-label" style="color: {{ themeColorTertiary }}">Download:</span> <a href="{{ book.original }}?dl=book-cover.jpg" rel="noopener nofollow">Large&nbsp;cover&nbsp;image&nbsp;
         </a></p>
@@ -144,7 +145,7 @@ templateClass: tmpl-book
 
   {% endif %}
 
-  {% if book.reviews.length > 0 %}
+  {% if book.reviews and book.reviews.length > 0 %}
 
     <div class="book-reviews">
       <h2>Reviews</h2>
@@ -153,7 +154,7 @@ templateClass: tmpl-book
 
       {% for review in book.reviews %}
         {% if loop.index < 4 %}
-          <div class="">
+          <div class="book-reviews">
             {{ review.content | markdownify | safe }}
 
             {% if review.author %}
@@ -172,6 +173,7 @@ templateClass: tmpl-book
 
       {% endfor %}
 
+      {% if book.reviews.length > 4 %}
       <div class="showmore-actions">
         <button class="btn btn--primary" onClick="window.document.getElementById('review-show').value = true">
           Show more reviews &darr;
@@ -180,6 +182,7 @@ templateClass: tmpl-book
           Show less reviews &uarr;
         </button>
       </div>
+      {% endif %}
 
     </div>
 
@@ -226,6 +229,8 @@ templateClass: tmpl-book
 
       </ul>
 
+      {% if book.press and book.press.length > 4 %}
+
       <div class="showmore-actions">
         <button class="btn btn--primary" onClick="window.document.getElementById('press-show').value = true">
           Show more press &darr;
@@ -234,6 +239,8 @@ templateClass: tmpl-book
           Show less press &uarr;
         </button>
       </div>
+
+      {% endif %}
 
     </div>
 
@@ -247,5 +254,7 @@ templateClass: tmpl-book
 {% set booksLimit = 6 %}
 {% set booksReverseList = true %}
 {% include "bookslist.njk" %}
+
+<p class="more-link"><a class="btn btn--posts" href="{{ '/books/' | url }}">More books</a></p>
 
 </section>

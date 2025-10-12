@@ -9,6 +9,7 @@
 {% endif %}
 
 {% set booksCount = 0 %}
+{% set bookSlug = (book.slug and (book.slug.current or book.slug)) | slug %}
 
 <ol class="booklist" style="counter-reset: start-from {{ books.length + 1 }}">
 
@@ -21,10 +22,10 @@
       {% else %}
 
         <li class="booklist-item">
-          <a href="/books/{{ currentBook.slug.current | slug }}/" title="{{ currentBook.title }}" class="booklist-link">
+          <a href="/books/{{ currentBook.slug.current | slug }}/" aria-label="{{ currentBook.title }}" class="booklist-link">
 
           {%- if currentBook.cover %}
-            <img src="{{ currentBook.cover.url }}" width="130" height="200" alt="{{ currentBook.cover.alt }}" loading="lazy"/>
+            <img src="{{ currentBook.cover.url }}" width="130" height="200" alt="{{ currentBook.cover.alt }}" loading="lazy" view-transition-name="book-cover-{{ bookSlug }}"/>
           {% endif -%}
 
           </a>
