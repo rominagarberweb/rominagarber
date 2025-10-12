@@ -7,25 +7,29 @@ templateClass: tmpl-about
 <section class="editing">
   <h1>Editing & Consulting Services</h1>
   <div class="editing-intro">    
-    {# {% youtube "{{editingServices.youtube.url}}", "{{editingServices.youtube.description}}" %} #}
+    {% youtube "https://www.youtube.com/watch?v=yf3L0jnIMno", "Romina Garber Editing & Consulting Services" %}
 
     {{ editingServices.introduction | markdownify | safe }}
   </div>
   <div class="section-grid">
+
     <div>
     <h2 class="vh">Services</h2>
     <div class="medium-card-wrapper">
+
+      {% for serviceCard in editingServices.serviceCards %}
         <div class="card">
           <div class="card-header">
-            <h3>One-time consultation</h3>
-            <span class="price">$175</span>
+            <h3>{{ serviceCard.title }}</h3>
+            <span class="price">${{ serviceCard.price }}</span>
           </div>
-          <p>A virtual or in-person meeting (geography permitting) to review a 2-page overview of your story idea and its general structure. I will provide you with feedback, and together we will create a game plan tailored to your schedule — with weekly word count goals and a list of steps toward publication for when the book is ready to go.</p>
+          <p>{{ serviceCard.description | markdownify | safe }}</p>
         </div>
-        
+      {% endfor %}
       </div>
     </div>
-    <div class="section-grid">
+
+  <div class="section-grid">
     <div class="editing-form">
     <h2 class="vh">Interest form</h2>
     <form 

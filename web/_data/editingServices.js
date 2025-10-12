@@ -39,7 +39,6 @@ function prepareServiceCard (card = {}) {
 }
 
 function generateEditingServices (doc = {}) {
-  const youtubeId = doc.youtube && doc.youtube.url ? extractYouTubeId(doc.youtube.url) : null
   return {
     ...doc,
     title: doc.title || null,
@@ -48,10 +47,7 @@ function generateEditingServices (doc = {}) {
     youtube: doc.youtube
       ? {
           url: doc.youtube.url || null,
-          description: doc.youtube.description || null,
-          preferVideo: !!doc.youtube.preferVideo,
-          id: youtubeId,
-          thumbnail: youtubeId ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg` : null
+          description: doc.youtube.description || null
         }
       : null,
     introduction: doc.introduction ? BlocksToMarkdown(doc.introduction, { serializers, ...client.config() }) : null,
@@ -66,7 +62,7 @@ async function getEditingServices () {
     title,
     description,
     mainImage,
-    youtube{ url, description, preferVideo },
+    youtube{ url, description },
     introduction[]{
       ...,
       children[]{ ... }
