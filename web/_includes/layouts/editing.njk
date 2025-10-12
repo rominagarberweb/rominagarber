@@ -23,7 +23,7 @@ templateClass: tmpl-about
             <h3>{{ serviceCard.title }}</h3>
             <span class="price">${{ serviceCard.price }}</span>
           </div>
-          <p>{{ serviceCard.description | markdownify | safe }}</p>
+          <p>{{ serviceCard.description | markdownify | safe }}</p> 
         </div>
       {% endfor %}
       </div>
