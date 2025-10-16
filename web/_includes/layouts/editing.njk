@@ -9,47 +9,27 @@ templateClass: tmpl-about
   <div class="editing-intro">    
     {% youtube "https://www.youtube.com/watch?v=yf3L0jnIMno", "Romina Garber Editing & Consulting Services" %}
 
-      <p>“A rising tide lifts all boats.” This famous quote embodies what I love most about publishing: When a person falls in love with a book, they become a reader for life.</p> 
-      <p>After devouring one story, they are hunting for their next read.</p>
-      <p>My road to publication was not an easy one. I spent about a decade writing five unique novels, all of them in the 400-page range, and every single one of them was rejected. I thought of giving up so many times—yet if I hadn’t picked myself up to work on novel number six, I wouldn’t be writing this right now.</p>
-      <p>So, for those of you feeling broken by rejection, I’m here to tell you to keep going. Do not give up on yourself. All it takes is ONE yes.</p>
-      <p>Over the years, I’ve often thought about ways to pay it forward and make it easier for the next writer to make it past the gatekeepers. I spent a few years mentoring aspiring authors through Las Musas, and now I’ve decided to start offering consulting, coaching, and editing services.</p>
-      <p>My bio says I’m a Virgo to the core, which is code for I’m big on organization. I like to make a plan I can stick to, and I build a solid structure for my books before I begin drafting, so that I always know where I’m headed. As you can probably tell from my bibliography, I particularly enjoy world building because I’m very detail oriented. These skill sets are transferable across genres, so even if you’re not writing fantasy or YA, I can still help you lay the foundation for your project so that you can see it through to completion.</p>
-      <p>My goal is to help you produce a manuscript that is ready for querying agents, putting you on the path to landing a book deal. Please don’t hesitate to reach out if you have questions, and I look forward to speaking with you.</p>
-      <p>Happy writing!</p>
+    {{ editingServices.introduction | markdownify | safe }}
   </div>
   <div class="section-grid">
+
     <div>
     <h2 class="vh">Services</h2>
     <div class="medium-card-wrapper">
+
+      {% for serviceCard in editingServices.serviceCards %}
         <div class="card">
           <div class="card-header">
-            <h3>One-time consultation</h3>
-            <span class="price">$175</span>
+            <h3>{{ serviceCard.title }}</h3>
+            <span class="price">${{ serviceCard.price }}</span>
           </div>
-          <p>A virtual or in-person meeting (geography permitting) to review a 2-page overview of your story idea and its general structure. I will provide you with feedback, and together we will create a game plan tailored to your schedule — with weekly word count goals and a list of steps toward publication for when the book is ready to go.</p>
+          <p>{{ serviceCard.description | markdownify | safe }}</p> 
         </div>
-        <div class="card">
-          <div class="card-header">
-            <h3>Book coaching</h3>
-            <span class="price">$300/month</span>
-          </div>
-        <p>If you would like more consistent feedback, we can meet once a month for an hourlong session where I will help you develop your story as you are drafting it. I will also provide line edits on up to 5k words/month.</p>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <h3>Editing</h3>
-            <span class="price">$0.05/word</span>
-          </div>
-          <p>If you would like my feedback on your manuscript, my rate is five cents a word. This edit includes:</p>
-          <ul>
-            <li>A developmental edit letter</li>
-            <li>Manuscript critique</li>
-            <li>A meeting to go over feedback</li></ul>
-        </div>
+      {% endfor %}
       </div>
     </div>
-    <div class="section-grid">
+
+  <div class="section-grid">
     <div class="editing-form">
     <h2 class="vh">Interest form</h2>
     <form 

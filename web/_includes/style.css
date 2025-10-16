@@ -1810,6 +1810,10 @@ section.series-data span.data-label {
   color: var(--general-night-3);
 }
 
+section.bio .bio-text .publishers {
+  margin-block-start: 1rem;
+}
+
 /* Styles for users who prefer dark mode at the OS level */
 @media (prefers-color-scheme: dark) {
   p.download-link a,
@@ -2292,7 +2296,7 @@ section.editing .section-grid p {
 }
 
 form.editing-services-interest label:not(:first-child) {
-  margin-top: 2rem;
+  margin-top: 1.4rem;
 }
 
 form.editing-services-interest {
@@ -2302,7 +2306,7 @@ form.editing-services-interest {
 }
 
 form.editing-services-interest button {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .editing .medium-card-wrapper {

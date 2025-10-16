@@ -7,12 +7,14 @@ export default {
       type: 'block',
       title: 'Block',
       styles: [{title: 'Normal', value: 'normal'}],
-      lists: [],
+      lists: [
+        {title: 'Bullet', value: 'bullet'},
+        {title: 'Numbered', value: 'number'}
+      ],
       marks: {
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
-          {title: 'Code', value: 'code'}
         ]
       }
     }

@@ -17,10 +17,10 @@ function generateAboutPage (aboutPage) {
       aboutPage.bioSpanish,
       {serializers, ...client.config()}
     ),
-    image: imageUrl(aboutPage.mainImage)
-      .height(580)
-      .width(460)
-      .url(),
+    image: aboutPage.mainImage
+      ? imageUrl(aboutPage.mainImage).height(580).width(460).url()
+      : null,
+    contactEmail: aboutPage.contactEmail || null
   }
 }
 
@@ -28,6 +28,7 @@ async function getAboutPage () {
   const filter = groq`*[_type == "aboutPage"]`
   const projection = groq`{
     _id,
+    contactEmail,
     bio[]{
       ...,
       children[]{
