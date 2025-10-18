@@ -7,7 +7,12 @@ templateClass: tmpl-about
 <section class="editing">
   <h1>Editing & Consulting Services</h1>
   <div class="editing-intro">    
-    {% youtube "https://www.youtube.com/watch?v=yf3L0jnIMno", "Romina Garber Editing & Consulting Services" %}
+    {# {% youtube "https://www.youtube.com/watch?v=yf3L0jnIMno", "Romina Garber Editing & Consulting Services" %} #}
+    {% if editingServices and editingServices.youtube and editingServices.youtube.url %}
+      {% set ytUrl = editingServices.youtube.url %}
+      {% set ytDesc = editingServices.youtube.description or editingServices.title %}
+      {% youtube ytUrl, ytDesc %}
+    {% endif %}
 
     {{ editingServices.introduction | markdownify | safe }}
   </div>
