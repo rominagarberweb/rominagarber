@@ -18,14 +18,14 @@
     {% if booksCount < booksLimit %}
       {% set currentBook = book %}
 
-+      {# compute a stable slug for this book (prefer slug.current, then slug string, fallback to _id or title) #}
-+      {% set _rawSlug = (currentBook.slug and (currentBook.slug.current or currentBook.slug)) or currentBook._id or currentBook.title %}
-+      {% if _rawSlug %}
-+        {% set bookSlug = _rawSlug | slug %}
-+      {% else %}
-+        {% set bookSlug = '' %}
-+      {% endif %}
-+
+      {# compute a stable slug for this book (prefer slug.current, then slug string, fallback to _id or title) #}
+      {% set _rawSlug = (currentBook.slug and (currentBook.slug.current or currentBook.slug)) or currentBook._id or currentBook.title %}
+      {% if _rawSlug %}
+        {% set bookSlug = _rawSlug | slug %}
+      {% else %}
+        {% set bookSlug = '' %}
+      {% endif %}
+
       {% if currentBook.slug.current in page.url %}
         {% set booksLimit = booksLimit + 1 %}
       {% else %}
@@ -34,7 +34,7 @@
           <a href="/books/{{ currentBook.slug.current | slug }}/" aria-label="{{ currentBook.title }}" class="booklist-link">
 
           {%- if currentBook.cover %}
-            <img src="{{ currentBook.cover.url }}" width="130" height="200" alt="{{ currentBook.cover.alt or currentBook.title }}" loading="lazy" view-transition-name="book-cover-{{ currentBook.slug.current }}"/>
+            <img src="{{ currentBook.cover.url }}" width="130" height="200" alt="{{ currentBook.cover.alt or currentBook.title }}" loading="lazy" view-transition-name="book-cover-{{ bookSlug }}"/>
           {% endif -%}
 
           </a>

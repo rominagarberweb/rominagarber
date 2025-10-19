@@ -266,29 +266,26 @@
   white-space: nowrap;
 }
 
-@view-transition {
-  navigation: auto;
+img[view-transition-name]{
+  object-fit: cover;
+  transform-origin: center center;
+  /* border-radius: 8px;  */
 }
 
 @supports selector(::view-transition-new(root)) {
-  img[view-transition-name] {
-    will-change: transform, opacity;
-    transform-origin: center center;
-    /* border-radius: 8px; */
+  /* no root fade */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+    opacity: 1 !important;
   }
 
+  /* longer, visible morph */
   ::view-transition-old(root) img[view-transition-name],
   ::view-transition-new(root) img[view-transition-name] {
-    transition: transform 420ms cubic-bezier(.2,.8,.2,1), opacity 260ms ease;
+    transition: transform 900ms cubic-bezier(.2,.8,.2,1),
+                border-radius 900ms cubic-bezier(.2,.8,.2,1);
   }
-
-  /* reduce abrupt corner changes during morph */
-  /* ::view-transition-old(root) img[view-transition-name] {
-    border-radius: 8px;
-  }
-  ::view-transition-new(root) img[view-transition-name] {
-    border-radius: 8px;
-  } */
 }
 
 html,
