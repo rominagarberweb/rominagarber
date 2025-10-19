@@ -13,6 +13,7 @@ templateClass: tmpl-about
       {% set ytDesc = editingServices.youtube.description or editingServices.title %}
       {% youtube ytUrl, ytDesc %}
     {% endif %}
+    
 
     {{ editingServices.introduction | markdownify | safe }}
   </div>
