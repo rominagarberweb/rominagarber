@@ -58,12 +58,17 @@ templateClass: tmpl-about
 {% endif -%}
 
 {%- if agent %}
+<p class="agent book-data">
+  <span class="data-label">Representation:</span> <a href="{{ agent.url }}" rel="noopener">{{- agent.name }}, {{ agent.agency -}}</a>
+  </p><br>
+{% endif -%}
+
+{%- if agent %}
+<div class="agent">
   <p class="agent book-data">
-    <span class="data-label">Representation:</span>
-    <a href="{{ agent.url }}" rel="noopener">
-      {{- agent.name }}, {{ agent.agency -}}
-    </a>
+  <span class="data-label">Publicist:</span> <a href="{{ publicist.url }}" rel="noopener">{{- publicist.name }}, {{ publicist.agency -}}</a>
   </p>
+</div>
 {% endif -%}
 
 </div>
