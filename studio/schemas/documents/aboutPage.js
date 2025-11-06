@@ -48,7 +48,14 @@ export default {
       title: 'Agent',
       name: 'agent',
       type: 'reference',
-      to: {type: 'agent'},
+      to: [{ type: 'agent' }],
+      readOnly: true
+    },
+    {
+      title: 'Publicist',
+      name: 'publicist',
+      type: 'reference',
+      to: [{ type: 'publicist' }],
       readOnly: true
     }
   ]

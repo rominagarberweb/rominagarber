@@ -190,6 +190,15 @@ export default S =>
                     .documentId('agent')
                 ),
               S.listItem()
+                .title('Publicist')
+                .icon(MdHeadsetMic)
+                .child(
+                  S.editor()
+                    .title('Publicist')
+                    .schemaType('publicist')
+                    .documentId('publicist')
+                ),
+              S.listItem()
                 .title('Authors')
                 .icon(FiUser)
                 .schemaType('author')

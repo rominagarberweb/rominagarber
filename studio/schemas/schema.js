@@ -1,6 +1,7 @@
 // document schemas
 import aboutPage from './documents/aboutPage'
 import agent from './documents/agent'
+import publicist from './documents/publicist'
 import author from './documents/author'
 import blogPage from './documents/blogPage'
 import book from './documents/book'
@@ -44,6 +45,7 @@ export default [
   // Document types
   aboutPage,
   agent,
+  publicist,
   author,
   blogPage,
   book,
