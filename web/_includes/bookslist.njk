@@ -9,8 +9,8 @@
 {% endif %}
 
 {% set booksCount = 0 %}
--{% set bookSlug = (book.slug and (book.slug.current or book.slug)) | slug %}
-+{# slug must be computed per-item - do not compute here #}
+{% set bookSlug = (book.slug and (book.slug.current or book.slug)) | slug %}
+{# slug must be computed per-item - do not compute here #}
 
 <ol class="booklist" style="counter-reset: start-from {{ books.length + 1 }}">
 
