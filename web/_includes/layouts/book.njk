@@ -183,7 +183,7 @@ templateClass: tmpl-book
 
       {% endfor %}
 
-      {% if book.reviews.length > 4 %}
+      {% if book.reviews.length > 3 %}
       <div class="showmore-actions">
         <button class="btn btn--primary" onClick="window.document.getElementById('review-show').value = true">
           Show more reviews &darr;
@@ -217,7 +217,7 @@ templateClass: tmpl-book
 
         {% for press in book.press %}
 
-          {% if loop.index < 5 %}
+          {% if loop.index < 4 %}
             <li>
               {% if press.source %}
                 <strong>{{ press.source }}</strong> - 
@@ -239,7 +239,7 @@ templateClass: tmpl-book
 
       </ul>
 
-      {% if book.press and book.press.length > 4 %}
+      {% if book.press and book.press.length > 3 %}
 
       <div class="showmore-actions">
         <button class="btn btn--primary" onClick="window.document.getElementById('press-show').value = true">
