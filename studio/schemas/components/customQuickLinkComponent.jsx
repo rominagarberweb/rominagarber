@@ -6,24 +6,25 @@ import {FormField} from 'sanity'
 
 export default class QuickLink extends React.Component {
   static propTypes = {
-    type: PropTypes.shape({
+    schemaType: PropTypes.shape({
       title: PropTypes.string,
+      description: PropTypes.string,
       options: PropTypes.shape({
         slug: PropTypes.string.isRequired
       }).isRequired
-    }).isRequired,
-    description: PropTypes.string
+    }).isRequired
   }
 
   render() {
-    const {type} = this.props
-    const {description, slug} = type.options
+    const {schemaType} = this.props
+    const {options, title} = schemaType
+    const {slug} = options
     return (
-      <FormField label={type.title} description={type.description}>
+      <div style={{padding: '1rem 0'}}>
         <Link href={`/desk/${slug}`}>
-          Go to {type.title.toLowerCase()} section
+          Go to {title.toLowerCase()} section
         </Link>
-      </FormField>
+      </div>
     )
   }
 }
