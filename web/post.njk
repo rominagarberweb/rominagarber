@@ -10,8 +10,8 @@ pagination:
 permalink: posts/{{ post.slug.current | slug }}/index.html
 eleventyComputed:
   pageTitle: "{{ post.title }}"
+  socialImage: "{{ post.thumbImage }}"
 renderData:
   title: "{{ post.title }}"
   metaDesc: "{{ post.excerpt }}"
-  socialImage: "{{ post.thumbImage }}"
 ---

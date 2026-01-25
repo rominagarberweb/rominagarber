@@ -10,8 +10,8 @@ pagination:
 permalink: events/{{ event.content.slug.current | slug }}/index.html
 eleventyComputed:
   pageTitle: "{{ event.content.name }}"
+  socialImage: "{{ event.content.previewImage }}"
 renderData:
   title: "{{ event.content.name }}"
   metaDesc: "{{ event.content.shortDescription }}"
-  socialImage: "{{ event.content.previewImage }}"
 ---
