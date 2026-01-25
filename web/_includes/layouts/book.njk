@@ -282,11 +282,39 @@ templateClass: tmpl-book
 
 <section class="books">
 
-{% set booksList = collections.myBooks %}
-{% set booksLimit = 6 %}
-{% set booksReverseList = true %}
+{# Filter books by series first #}
+{% set currentSeriesId = book.series._id if book.series else null %}
+{% set relatedBooks = [] %}
+
+{# Add all books from the same series #}
+{% for b in collections.myBooks %}
+  {% if b.data.book._id != book._id %}
+    {% if currentSeriesId and b.data.book.series and b.data.book.series._id == currentSeriesId %}
+      {% set relatedBooks = (relatedBooks.push(b.data.book), relatedBooks) %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{# Fill remaining slots with newer books (minimum 6, maximum 9) #}
+{% for b in collections.myBooks %}
+  {% if b.data.book._id != book._id and relatedBooks.length < 9 %}
+    {% set isAlreadyAdded = false %}
+    {% for rb in relatedBooks %}
+      {% if rb._id == b.data.book._id %}
+        {% set isAlreadyAdded = true %}
+      {% endif %}
+    {% endfor %}
+    {% if not isAlreadyAdded %}
+      {% set relatedBooks = (relatedBooks.push(b.data.book), relatedBooks) %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% set booksList = relatedBooks %}
+{% set booksLimit = relatedBooks.length %}
+{% set booksReverseList = false %}
 {% include "bookslist.njk" %}
 
-<p class="more-link"><a class="btn btn--posts" href="{{ '/books/' | url }}">More books</a></p>
+<p class="more-link"><a class="btn btn--posts" href="{{ '/books/' | url }}">All books</a></p>
 
 </section>
