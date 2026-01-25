@@ -223,8 +223,8 @@
   /* overall layout  */
   --large-br: 18px;
   --small-br: 8px;
-  --g-margin-top: 4em;
-  --sm-margin-top: 2rem;
+  --g-margin-top: 6rem;
+  --sm-margin-top: 4rem;
 
   color-scheme: light dark; /* both supported */
 }
@@ -2354,8 +2354,14 @@ section.series-content {
   grid-gap: 6rem 2rem;
 } */
 
-section.book-content {
-  margin-top: 3.8rem;
+section.book-content,
+section.editions {
+  margin-block: 6rem;
+  grid-gap: 4rem 2rem;
+}
+
+section.editions {
+  grid-gap: 0;
 }
 
 section.series-content {
@@ -2377,6 +2383,7 @@ section.featured-book {
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 1rem 2rem;
   padding: 3em 0;
+  margin-block-end: 4rem;
   background-color: var(--rho-cancer-1);
   background-image: url(/static/images/bkg-zodiac.jpg);
   background-repeat: no-repeat;
@@ -2530,6 +2537,10 @@ time {
     margin: 2rem 1rem;
   }
 
+  section.editions {
+    grid-gap: 0;
+  }
+
   section.featured-book figure,
   .book-hero figure {
     grid-column: 2 / 6;
@@ -2569,12 +2580,14 @@ time {
 @media all and (max-width: 500px) {
   section.featured-book,
   section.book-content,
-  section.series-content {
+  section.series-content,
+  section.editions {
     grid-gap: 0;
   }
 
   section.book-content,
-  section.series-content {
+  section.series-content,
+  section.editions {
     margin: 2rem 1rem;
   }
 
@@ -2651,7 +2664,8 @@ time {
     padding: 3rem 0;
   }
   section.book-content,
-  section.series-content {
+  section.series-content,
+  section.editions {
     margin: 0 1rem;
   }
 
@@ -2673,7 +2687,8 @@ time {
 
 section.books,
 section.newsletter,
-section.series {
+section.series,
+section.editions {
   display: grid;
   padding: 0 0 5rem;
 }
@@ -2682,7 +2697,8 @@ ol.booklist,
 ol.serieslist,
 section.books h1,
 section.books h2,
-section.series h2 {
+section.series h2,
+section.editions h2 {
   grid-column: 3 / 11;
 }
 
@@ -2715,6 +2731,9 @@ section.series h2 {
     margin-top: 2rem;
   }
 
+  section.editions h2 {
+    grid-column: 2 / 12;
+  }
 
   .series-content .series-reviews {
   margin-top: initial;
@@ -2723,7 +2742,8 @@ section.series h2 {
 
 @media all and (max-width: 650px) {
   .series-data-details,
-  .series-content {
+  .series-content,
+  section.editions h2 {
     grid-column: 1 / 13;
   }
 }
@@ -2733,6 +2753,8 @@ ol.booklist {
 }
 
 section.books ol.booklist,
+section.editions ol.booklist,
+section.editions h2,
 .series-books {
   /* padding-block: 6rem; */
   grid-column: 3 / 11;
@@ -2749,6 +2771,8 @@ section.books.books--wide ol.booklist {
 /* keep full-width behavior on small screens */
 @media all and (max-width: 800px) {
   section.books ol.booklist,
+  section.editions ol.booklist,
+  section.editions h2,
   section.books.books--wide ol.booklist {
     grid-column: 2 / 12;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -2757,6 +2781,8 @@ section.books.books--wide ol.booklist {
 
 @media all and (max-width: 650px) {
   section.books ol.booklist,
+  section.editions ol.booklist,
+  section.editions h2,
   section.books.books--wide ol.booklist {
     grid-column: 1 / 13;
     /* grid-template-columns: 1fr; */
@@ -2790,12 +2816,9 @@ section.series-data > * {
 }
 
 section.series h2,
-section.books h2 {
+section.books h2,
+section.editions h2 {
   margin-block: 0px;
-}
-
-section.books {
-  margin-top: var(--sm-margin-top);
 }
 
 .series-reviews,
@@ -2809,9 +2832,16 @@ section.books {
   margin-block: var(--sm-margin-top);
 }
 
+li.edition-item a {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
 @media all and (max-width: 800px) {
   section.books,
-  section.series {
+  section.series,
+  section.editions {
     display: block;
     margin: 0 1rem 3rem;
 

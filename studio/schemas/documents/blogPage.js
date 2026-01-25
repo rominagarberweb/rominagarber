@@ -21,7 +21,9 @@ export default {
       name: 'quickLink',
       title: 'Blog posts',
       type: 'string',
-      inputComponent: CustomQuickLinkComponent,
+      components: {
+        input: CustomQuickLinkComponent
+      },
       description: 'You can manage blog posts from its own section in the content menu.',
       options: {
         // slug field must match the target document type name

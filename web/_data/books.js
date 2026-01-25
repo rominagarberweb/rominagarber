@@ -9,8 +9,11 @@ const hasToken = !!client.config().token
 function generateBook (book) {
   const intCoversContent = book.internationalCovers ? book.internationalCovers.map(generateIntCovers) : []
   const reviewsContent = book.reviews ? book.reviews.map(generateReviews) : []
+  const editionsContent = book.editions ? book.editions.map(generateEdition) : []
+  
   return {
     ...book,
+    editions: editionsContent,
     cover: {
       url: imageUrl(book.cover.asset)
         .height(500)
@@ -48,6 +51,17 @@ function generateReviews (review) {
       review.content,
       {serializers, ...client.config()}
     )
+  }
+}
+
+function generateEdition (edition) {
+  return {
+    title: edition.title,
+    link: edition.link,
+    coverImage: imageUrl(edition.coverImage)
+      .width(260)
+      .height(390)
+      .url()
   }
 }
 
@@ -107,7 +121,14 @@ async function getBooks () {
     },
     title,
     buyBookFrom[],
-    addToGoodreads
+    addToGoodreads,
+    editions[]{
+      title,
+      coverImage{
+        asset
+      },
+      link
+    }
   }`
   const order = `| order(releaseDate desc)`
   const query = [filter, projection, order].join(' ')

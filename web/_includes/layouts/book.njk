@@ -126,6 +126,28 @@ templateClass: tmpl-book
 
 </div>
 
+{% if book.editions and book.editions.length > 0 %}
+<section class="editions">
+  <h2>Editions</h2>
+  <ol class="editions-list booklist">
+    {% for edition in book.editions %}
+    <li class="edition-item">
+      <a href="{{ edition.link }}" rel="noopener nofollow" class="edition-link">
+        <img 
+          src="{{ edition.coverImage }}" 
+          alt="{{ edition.title }}" 
+          width="260" 
+          height="390"
+          loading="lazy"
+        />
+        <span class="edition-title">{{ edition.title }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}
+
 <section class="book-content">
 
   {% if book.internationalCovers.length > 0 %}

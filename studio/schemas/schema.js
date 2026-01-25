@@ -39,6 +39,7 @@ import schedule from './objects/schedule'
 import tipReference from './objects/tipReference'
 import venue from './objects/venue'
 import serviceCard from './objects/serviceCard'
+import edition from './objects/edition'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
@@ -83,4 +84,5 @@ export default [
   tipReference,
   venue,
   serviceCard,
+  edition
 ]
