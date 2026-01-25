@@ -10,8 +10,8 @@ pagination:
 permalink: books/{{ book.slug.current | slug }}/index.html
 eleventyComputed:
   pageTitle: "{{ book.title }}"
+  socialImage: "{{ book.cover.url }}"
 renderData:
   title: "{{ book.title }}"
   metaDesc: "{{ book.hook }}"
-  socialImage: "{{ book.cover.url }}"
 ---
