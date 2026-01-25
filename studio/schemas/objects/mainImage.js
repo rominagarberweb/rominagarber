@@ -9,10 +9,7 @@ export default {
     {
       name: 'caption',
       type: 'string',
-      title: 'Caption',
-      options: {
-        isHighlighted: true
-      }
+      title: 'Caption'
     },
     {
       name: 'alt',
@@ -27,10 +24,7 @@ export default {
           return badChars.test(value)
             ? 'Alt text must not contain quotation marks or angle brackets (" \' “ ” ‘ ’ < >). Please remove them.'
             : true;
-        }),
-      options: {
-        isHighlighted: true
-      }
+        })
     }
   ],
   preview: {

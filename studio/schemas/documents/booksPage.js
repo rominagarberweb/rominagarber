@@ -33,7 +33,9 @@ export default {
       name: 'quickLink',
       title: 'Manage books',
       type: 'string',
-      inputComponent: CustomQuickLinkComponent,
+      components: {
+        input: CustomQuickLinkComponent
+      },
       description: 'You can manage books from its own section in the content menu.',
       options: {
         // slug field must match the target document type name

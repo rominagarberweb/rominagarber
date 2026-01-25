@@ -21,7 +21,9 @@ export default {
       name: 'quickLink',
       title: 'Events',
       type: 'string',
-      inputComponent: CustomQuickLinkComponent,
+      components: {
+        input: CustomQuickLinkComponent
+      },
       options: {
         slug: 'events'
       }

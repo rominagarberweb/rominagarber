@@ -106,12 +106,24 @@ export default {
       title: 'Links',
       name: 'links',
       type: 'array',
-      group: 'details',
+      group: 'general',
       of: [
         {
           type: 'link',
           title: 'Link',
           icon: FiExternalLink
+        }
+      ]
+    },
+    {
+      title: 'Editions (optional)',
+      name: 'editions',
+      type: 'array',
+      description: 'Add different editions of this book',
+      group: 'general',
+      of: [
+        {
+          type: 'edition'
         }
       ]
     },
@@ -179,19 +191,6 @@ export default {
         }
       ]
     }
-    // {
-    //   title: 'Press items',
-    //   name: 'pressItems',
-    //   description: 'This field is depriciated and will be replaced with the press field',
-    //   type: 'array',
-    //   of: [
-    //     {
-    //       type: 'reference',
-    //       to: {type: 'press'},
-    //       icon: FaRegNewspaper
-    //     }
-    //   ]
-    // },
   ],
   initialValue: {
     content: {
