@@ -1298,13 +1298,13 @@ button.btn{
   font-weight: bold;
   text-decoration: none;
   /* margin: 1.6rem .4rem 1.6rem 0; */
-  padding: .6em 1.2em;
+  padding: .6em 1.2em .5em;
   font-size: calc(14px + 0.25vw);
   font-family: sans-serif;
   font-weight: 500;
   font-stretch: 85;
   white-space: nowrap;
-  display: inline-flex;
+  /* display: inline-flex; */
   align-items: center;
   justify-content: space-between;
 }
@@ -2248,7 +2248,7 @@ section.editing .section-grid {
   grid-column: 3 / 11;
   margin-bottom: 6rem;
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 section.editing .section-grid p {
@@ -2315,8 +2315,8 @@ form.editing-services-interest button {
   align-items: baseline;
 }
 
-.editing .medium-card-wrapper .card-header h3,
-.editing .medium-card-wrapper .card-header .price {
+.medium-card-wrapper .card-header h3,
+.medium-card-wrapper .card-header .price {
   margin: 0px;
   font-size: calc(1.1rem + .4vw);
   font-family: var(--utility-font);
@@ -2405,7 +2405,7 @@ section:hover.featured-book figure {
 }
 
 svg.download-icon {
-  height: 1em;
+  /* height: 1em; */
   margin-left: .8rem;
 }
 
@@ -2687,8 +2687,7 @@ time {
 
 section.books,
 section.newsletter,
-section.series,
-section.editions {
+section.series {
   display: grid;
   padding: 0 0 5rem;
 }

@@ -38,9 +38,19 @@ templateClass: tmpl-about
 {# Contact block - show email from aboutPage.contactEmail #}
 {% if aboutPage.contactEmail %}
   <p class="contact book-data">
-    <span class="data-label">Contact:</span> <a href="mailto:{{ aboutPage.contactEmail }}" rel="noopener">{{ aboutPage.contactEmail }}</a>
+    <span class="data-label">Contact:</span> <a href="mailto:{{ aboutPage.contactEmail }}?subject=General%20Website%20Contact" rel="noopener">{{ aboutPage.contactEmail }}</a>
   </p>
 {% endif %}
+
+<div class="medium-card-wrapper">
+  <div class="card" style="margin-block-start: 1rem;">
+    <div class="card-header">
+      <h3 class="data-label" style="color: var(--general-night-3);">Interested in press materials?</h3>
+    </div>
+    <p><a href="mailto:{{ aboutPage.contactEmail }}?subject=Press%20Kit%20Request">
+      <button class="btn btn--primary" style="margin-block: 1rem;">Request Press Kit</button></a></p>
+  </div>
+</div>
 
 {%- if aboutPage.publishers.length > 0 %}
   <div class="publishers book-data">
