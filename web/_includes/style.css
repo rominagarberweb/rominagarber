@@ -2471,6 +2471,10 @@ figure.book-press-items-figure {
   grid-row: 3;
 }
 
+.book-press-items ul {
+  padding-inline-start: 1.4em;
+}
+
 .book-press-items ul li {
   margin-bottom: .8rem;
 }
@@ -2910,17 +2914,17 @@ li.edition-item a {
   display: none;
 }
 #press-show[value="false"] ~ .showmore-actions > :first-child {
-  display: block;
+  display: list-item;
 }
 #press-show[value="false"] ~ .showmore-actions > :last-child {
   display: none;
 }
 
 #press-show[value="true"] + ul > .more-press {
-  display: block;
+  display: list-item;
 }
 #press-show[value="true"] ~ .showmore-actions > :last-child {
-  display: block;
+  display: list-item;
 }
 #press-show[value="true"] ~ .showmore-actions > :first-child {
   display: none;
