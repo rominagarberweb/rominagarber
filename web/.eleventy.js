@@ -127,6 +127,33 @@ module.exports = function(eleventyConfig) {
     return md.render(value)
   })
 
+  eleventyConfig.addFilter("contrastColor", function(hexColor) {
+    if (!hexColor || typeof hexColor !== "string") {
+      return "#000000"
+    }
+
+    let hex = hexColor.trim().replace("#", "")
+    if (hex.length === 3) {
+      hex = hex.split("").map(ch => ch + ch).join("")
+    }
+    if (hex.length !== 6) {
+      return "#000000"
+    }
+
+    const r = parseInt(hex.slice(0, 2), 16) / 255
+    const g = parseInt(hex.slice(2, 4), 16) / 255
+    const b = parseInt(hex.slice(4, 6), 16) / 255
+
+    const toLinear = (c) => (c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4))
+    const rl = toLinear(r)
+    const gl = toLinear(g)
+    const bl = toLinear(b)
+
+    const luminance = 0.2126 * rl + 0.7152 * gl + 0.0722 * bl
+
+    return luminance > 0.25 ? "#000000" : "#ffffff"
+  })
+
   // Passthrough copy
   eleventyConfig.addPassthroughCopy('images')
   eleventyConfig.addPassthroughCopy('fonts')

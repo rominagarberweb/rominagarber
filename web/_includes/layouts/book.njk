@@ -91,13 +91,13 @@ templateClass: tmpl-book
     </div>
 
   {% if book.links %}
-    <ul>
+    <ul class="book-links">
       {% set linkCount = 0 %}
       {% for link in book.links %}
         {% if linkCount < 6 %} {# limit number of links shown #}
 
           <li>
-            <a href="{{ link.url | url }}"  rel="noopener nofollow">{{ link.title }}</a>
+            <a class="book-link" href="{{ link.url | url }}"  rel="noopener nofollow">{{ link.title }}</a>
           </li>
 
           {% set linkCount = linkCount + 1 %}

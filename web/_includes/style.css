@@ -2426,6 +2426,34 @@ div.featured-book-info h1,
   flex-flow: row wrap;
 }
 
+.book-links {
+  list-style: disc;
+  margin: 1.2rem 0 0;
+  padding: 0 0 0 1.2rem;
+  color: var(--general-night-4);
+}
+
+.book-links li {
+  margin: 0 0 .4rem;
+}
+
+.book-links a,
+.book-links a:visited {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.book-links a:hover {
+  opacity: 0.85;
+}
+
+.book-links a:focus-visible {
+  outline: 3px solid #0049ca;
+  outline-offset: 2px;
+}
+
 .book-data {
   grid-column: 3 / 11;
   grid-row: 3;
@@ -2683,6 +2711,7 @@ time {
   .book-data a:visited {
     color: var(--general-night-2);
   }
+
 }
 
 
@@ -2925,7 +2954,7 @@ li.edition-item a {
 }
 #press-show[value="true"] ~ .showmore-actions > :last-child {
   display: list-item;
-}
+1}
 #press-show[value="true"] ~ .showmore-actions > :first-child {
   display: none;
 }
