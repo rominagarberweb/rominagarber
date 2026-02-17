@@ -2722,7 +2722,7 @@ section.books,
 section.newsletter,
 section.series {
   display: grid;
-  padding: 0 0 5rem;
+  padding: 2rem 0 5rem;
 }
 
 ol.booklist,
