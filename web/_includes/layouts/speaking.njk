@@ -1,0 +1,144 @@
+---
+title: Speaking
+layout: layouts/base.njk
+templateClass: tmpl-speaking
+---
+
+<section class="speaking">
+  {% if speakingPage %}
+    {% set contactSubject = speakingPage.checkAvailabilitySubject | urlencode %}
+  {% endif %}
+
+  {% if not speakingPage %}
+    <div class="speaking-header">
+      <h1>Speaking Events and Workshops</h1>
+      <p class="speaking-note">Speaking information will be published soon.</p>
+    </div>
+  {% else %}
+    <div class="speaking-header">
+      <h1>{{ speakingPage.headline or 'Speaking Events and Workshops' }}</h1>
+      {% if speakingPage.contactNote %}
+        <p class="speaking-note">{{ speakingPage.contactNote }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if speakingPage %}
+  {% if speakingPage.heroImageUrl %}
+    <figure class="speaking-hero">
+      <img
+        src="{{ speakingPage.heroImageUrl }}"
+        width="460"
+        height="580"
+        alt="{{ speakingPage.heroImage.alt }}"
+      />
+      {% if speakingPage.heroImage.caption or speakingPage.heroPhotoCredit %}
+        <figcaption>
+          {% if speakingPage.heroImage.caption %}
+            <span>{{ speakingPage.heroImage.caption }}</span>
+          {% endif %}
+          {% if speakingPage.heroPhotoCredit %}
+            <span class="speaking-photo-credit">{{ speakingPage.heroPhotoCredit }}</span>
+          {% endif %}
+        </figcaption>
+      {% endif %}
+    </figure>
+  {% endif %}
+
+  <div class="section-grid">
+    <article class="speaking-section">
+      <h2>Speaking Topics</h2>
+      {% if speakingPage.speakingTopics.length > 0 %}
+        <ul>
+          {% for topic in speakingPage.speakingTopics %}
+            <li>{{ topic }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </article>
+
+    <article class="speaking-section">
+      {% if speakingPage.presentationLength %}
+        <h2>Length of Presentation</h2>
+        <p>{{ speakingPage.presentationLength }}</p>
+      {% endif %}
+
+      {% if speakingPage.availabilityLocations.length > 0 %}
+        <h2>Locations of Availability</h2>
+        <ul>
+          {% for location in speakingPage.availabilityLocations %}
+            <li>{{ location }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </article>
+  </div>
+
+  {% if speakingPage.checkAvailabilityEmail %}
+    <section class="speaking-cta card">
+      <div class="card-header">
+        <h2>Check Availability</h2>
+      </div>
+      <p>For interviews, media requests, or speaking events, please get in touch.</p>
+      <p>
+        <a
+          class="btn btn--primary"
+          href="mailto:{{ speakingPage.checkAvailabilityEmail }}?subject={{ contactSubject }}"
+          rel="noopener"
+        >Email for speaking inquiries</a>
+      </p>
+    </section>
+  {% endif %}
+
+  {% if speakingPage.additionalImages.length > 0 %}
+    <section class="speaking-photos">
+      <h2>Speaking Highlights</h2>
+      <div class="medium-card-wrapper">
+        {% for photo in speakingPage.additionalImages %}
+          <figure class="card speaking-photo-card">
+            <img src="{{ photo.imageUrl }}" width="460" height="580" alt="{{ photo.image.alt }}" />
+            {% if photo.image.caption or photo.photoCredit %}
+              <figcaption>
+                {% if photo.image.caption %}
+                  <span>{{ photo.image.caption }}</span>
+                {% endif %}
+                {% if photo.photoCredit %}
+                  <span class="speaking-photo-credit">{{ photo.photoCredit }}</span>
+                {% endif %}
+              </figcaption>
+            {% endif %}
+          </figure>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if speakingPage.testimonials.length > 0 %}
+    <section class="speaking-testimonials">
+      <h2>Testimonials</h2>
+      <div class="medium-card-wrapper">
+        {% for testimonial in speakingPage.testimonials %}
+          <blockquote class="card speaking-testimonial">
+            <p>{{ testimonial.content | markdownify | safe }}</p>
+            {% if testimonial.author %}
+              <cite>{{ testimonial.author }}</cite>
+            {% endif %}
+          </blockquote>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if speakingPage.checkAvailabilityEmail %}
+    <section class="speaking-contact-repeat">
+      <p class="contact book-data">
+        <span class="data-label">Contact:</span>
+        <a
+          href="mailto:{{ speakingPage.checkAvailabilityEmail }}?subject={{ contactSubject }}"
+          rel="noopener"
+        >{{ speakingPage.checkAvailabilityEmail }}</a>
+      </p>
+    </section>
+  {% endif %}
+  {% endif %}
+</section>

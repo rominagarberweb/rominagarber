@@ -2335,6 +2335,117 @@ form.editing-services-interest button {
 }
 
 
+/* ==========================================================================
+   #Speaking
+   ========================================================================== */
+
+section.speaking {
+  margin-block-end: 6rem;
+}
+
+.speaking-header,
+.speaking-hero,
+.speaking .section-grid,
+.speaking-cta,
+.speaking-photos,
+.speaking-testimonials,
+.speaking-contact-repeat {
+  grid-column: 3 / 11;
+}
+
+.speaking-header {
+  border-bottom: 1px solid var(--general-night-2);
+  padding-bottom: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.speaking-note {
+  margin-bottom: 0;
+  max-width: 56ch;
+}
+
+.speaking-hero {
+  margin: 0 0 2rem;
+}
+
+.speaking-hero img,
+.speaking-photo-card img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--small-br);
+}
+
+.speaking-photo-credit {
+  display: block;
+  color: var(--general-night-3);
+  font-family: var(--utility-font);
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+.speaking .section-grid {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.speaking-section {
+  flex: 1;
+}
+
+.speaking-section h2 {
+  margin-top: 0;
+}
+
+.speaking-cta,
+.speaking-contact-repeat {
+  margin-block: 2rem;
+}
+
+.speaking-testimonial {
+  margin: 0;
+}
+
+.speaking-testimonial p {
+  margin-top: 0;
+}
+
+.speaking-testimonial cite {
+  display: block;
+  margin-top: 1rem;
+  color: var(--general-night-3);
+  font-style: normal;
+}
+
+@media (max-width: 800px) {
+  .speaking-header,
+  .speaking-hero,
+  .speaking .section-grid,
+  .speaking-cta,
+  .speaking-photos,
+  .speaking-testimonials,
+  .speaking-contact-repeat {
+    grid-column: 2 / 12;
+  }
+
+  .speaking .section-grid {
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .speaking-header,
+  .speaking-hero,
+  .speaking .section-grid,
+  .speaking-cta,
+  .speaking-photos,
+  .speaking-testimonials,
+  .speaking-contact-repeat {
+    grid-column: 1 / 13;
+  }
+}
+
+
 
 /* ==========================================================================
    #Books

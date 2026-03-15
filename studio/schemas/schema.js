@@ -19,6 +19,7 @@ import tip from './documents/tip'
 import bioLinks from './documents/bioLinks'
 import saysaSays from './documents/saysaSays'
 import editingServices from './documents/editingServices'
+import speakingPage from './documents/speakingPage'
 
 // Object types
 import authorReference from './objects/authorReference'
@@ -64,6 +65,7 @@ export default [
   bioLinks,
   saysaSays,
   editingServices,
+  speakingPage,
   // Object types - can be used as { type: 'typename' }
   // in document schemas
   authorReference,
