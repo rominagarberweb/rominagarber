@@ -19,6 +19,7 @@ import tip from './documents/tip'
 import bioLinks from './documents/bioLinks'
 import saysaSays from './documents/saysaSays'
 import editingServices from './documents/editingServices'
+import speakingPage from './documents/speakingPage'
 
 // Object types
 import authorReference from './objects/authorReference'
@@ -34,6 +35,7 @@ import link from './objects/link'
 import mainImage from './objects/mainImage'
 import review from './objects/review'
 import reviewPortableText from './objects/reviewPortableText'
+import testimonial from './objects/testimonial'
 import pressEntry from './objects/pressEntry'
 import schedule from './objects/schedule'
 import tipReference from './objects/tipReference'
@@ -64,6 +66,7 @@ export default [
   bioLinks,
   saysaSays,
   editingServices,
+  speakingPage,
   // Object types - can be used as { type: 'typename' }
   // in document schemas
   authorReference,
@@ -79,6 +82,7 @@ export default [
   mainImage,
   review,
   reviewPortableText,
+  testimonial,
   pressEntry,
   schedule,
   tipReference,
