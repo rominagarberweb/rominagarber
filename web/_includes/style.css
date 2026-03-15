@@ -2397,9 +2397,14 @@ section.speaking {
   margin-top: 0;
 }
 
-.speaking-cta,
-.speaking-contact-repeat {
-  margin-block: 2rem;
+.speaking-cta {
+  /* margin-block: 2rem; */
+  display: flex;
+  flex-direction: column;
+}
+
+.speaking-cta h2 {
+  margin-block: 0px;
 }
 
 .speaking-testimonial {

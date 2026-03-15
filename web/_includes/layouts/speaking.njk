@@ -17,8 +17,8 @@ templateClass: tmpl-speaking
   {% else %}
     <div class="speaking-header">
       <h1>{{ speakingPage.headline or 'Speaking Events and Workshops' }}</h1>
-      {% if speakingPage.contactNote %}
-        <p class="speaking-note">{{ speakingPage.contactNote }}</p>
+      {% if speakingPage.description %}
+        <p class="speaking-note">{{ speakingPage.description }}</p>
       {% endif %}
     </div>
   {% endif %}
@@ -75,10 +75,8 @@ templateClass: tmpl-speaking
   </div>
 
   {% if speakingPage.checkAvailabilityEmail %}
-    <section class="speaking-cta card">
-      <div class="card-header">
-        <h2>Check Availability</h2>
-      </div>
+    <div class="speaking-cta card">
+      <h2>Check Availability</h2>
       <p>For interviews, media requests, or speaking events, please get in touch.</p>
       <p>
         <a
@@ -87,7 +85,7 @@ templateClass: tmpl-speaking
           rel="noopener"
         >Email for speaking inquiries</a>
       </p>
-    </section>
+    </div>
   {% endif %}
 
   {% if speakingPage.additionalImages.length > 0 %}
