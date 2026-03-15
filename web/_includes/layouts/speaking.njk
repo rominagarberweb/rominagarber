@@ -1,0 +1,123 @@
+---
+title: Speaking
+layout: layouts/base.njk
+templateClass: tmpl-speaking
+---
+
+<section class="speaking section-grid">
+  {% if speakingPage %}
+    {% set contactSubject = speakingPage.checkAvailabilitySubject | urlencode %}
+  {% endif %}
+  <h1>{{ speakingPage.title or 'Speaking Events and Workshops' }}</h1>
+  {% if speakingPage and speakingPage.description %}
+    <div class="speaking-intro">
+      {{ speakingPage.description | markdownify | safe }}
+    </div>
+  {% endif %}
+  {% if speakingPage %}
+  {% if speakingPage.heroImageUrl %}
+    <figure class="speaking-hero">
+      <img
+        src="{{ speakingPage.heroImageUrl }}"
+        width="920"
+        height="520"
+        alt="{{ speakingPage.heroImage.alt }}"
+      />
+      {% if speakingPage.heroImage.caption or speakingPage.heroPhotoCredit %}
+        <figcaption>
+          {% if speakingPage.heroImage.caption %}
+            <span>{{ speakingPage.heroImage.caption }}</span>
+          {% endif %}
+          {% if speakingPage.heroPhotoCredit %}
+            <span class="speaking-photo-credit">{{ speakingPage.heroPhotoCredit }}</span>
+          {% endif %}
+        </figcaption>
+      {% endif %}
+    </figure>
+  {% endif %}
+
+    <div class="speaking-section">
+      <h2>Speaking Topics</h2>
+      {% if speakingPage.speakingTopics.length > 0 %}
+        <ul class="speaking-topics-list">
+          {% for topic in speakingPage.speakingTopics %}
+            <li class="speaking-topic"><strong>{{ topic.name }}</strong> - {% if topic.description %}{{ topic.description }}{% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if speakingPage.checkAvailabilityEmail %}
+        <div class="medium-card-wrapper speaking-cta-wrapper">
+          <div class="speaking-cta card">
+            <div class="card-header">
+              <h3>Check Availability</h3>
+            </div>
+            <p>For interviews, media requests, or speaking events, please get in touch.</p>
+              <a
+                class="btn btn--primary"
+                href="mailto:{{ speakingPage.checkAvailabilityEmail }}?subject={{ contactSubject }}"
+                rel="noopener"
+              >Email for speaking inquiries</a>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+  {% if speakingPage.additionalImages.length > 0 %}
+    <div class="speaking-photos">
+      <h2>Speaking Highlights</h2>
+      <div class="medium-card-wrapper">
+        {% for photo in speakingPage.additionalImages %}
+          <figure class="card speaking-photo-card">
+            <img src="{{ photo.imageUrl }}" width="460" height="580" alt="{{ photo.image.alt }}" />
+            {% if photo.image.caption or photo.photoCredit %}
+              <figcaption>
+                {% if photo.image.caption %}
+                  <span>{{ photo.image.caption }}</span>
+                {% endif %}
+                {% if photo.photoCredit %}
+                  <span class="speaking-photo-credit">{{ photo.photoCredit }}</span>
+                {% endif %}
+              </figcaption>
+            {% endif %}
+          </figure>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if speakingPage.testimonials.length > 0 %}
+    <div class="speaking-testimonials">
+      <h2>Testimonials</h2>
+      {% for testimonial in speakingPage.testimonials %}
+        <div class="speaking-review">
+          <p>{{ testimonial.quote }}</p>
+          {% if testimonial.sourceName or testimonial.sourceDetail %}
+            <em>
+              &mdash;
+              {% if testimonial.sourceName %}
+                {{ testimonial.sourceName }}
+              {% endif %}
+              {% if testimonial.sourceDetail %}
+                {% if testimonial.sourceName %}, {% endif %}{{ testimonial.sourceDetail }}
+              {% endif %}
+            </em>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if speakingPage.checkAvailabilityEmail %}
+    <div class="speaking-contact-repeat">
+      <p class="contact book-data">
+        <span class="data-label">Check availability:</span>
+        <a
+          href="mailto:{{ speakingPage.checkAvailabilityEmail }}?subject={{ contactSubject }}"
+          rel="noopener"
+        >{{ speakingPage.checkAvailabilityEmail }}</a>
+      </p>
+    </div>
+  {% endif %}
+  {% endif %}
+</section>
