@@ -19,11 +19,25 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'description',
-      type: 'string',
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      description: 'URL segment for this page. Keep as "speaking".',
+      options: {
+        source: 'headline',
+        maxLength: 96,
+        slugify: input => (input || 'speaking').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '')
+      },
+      initialValue: {
+        current: 'speaking'
+      },
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'descriptionPortable',
+      type: 'introPortableText',
       title: 'Description',
-      description: 'Appears in social sharing previews',
-      validation: Rule => Rule.required().max(180)
+      description: 'Short description block for the speaking page',
     },
     {
       name: 'heroImage',
@@ -44,19 +58,6 @@ export default {
       description: 'Most-requested topics event planners can pick from',
       of: [{type: 'string'}],
       validation: Rule => Rule.required().min(1)
-    },
-    {
-      name: 'presentationLength',
-      type: 'string',
-      title: 'Length of presentation',
-      description: 'Optional, e.g. "45-60 min keynote + Q&A"'
-    },
-    {
-      name: 'availabilityLocations',
-      type: 'array',
-      title: 'Locations of availability',
-      description: 'Optional list such as "In-person (US)" or "Virtual worldwide"',
-      of: [{type: 'string'}]
     },
     {
       name: 'additionalImages',
@@ -101,7 +102,7 @@ export default {
       type: 'array',
       title: 'Testimonials',
       description: 'Short endorsements from hosts or attendees',
-      of: [{type: 'review'}],
+      of: [{type: 'testimonial'}],
       validation: Rule => Rule.required().min(1)
     },
     {

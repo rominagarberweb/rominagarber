@@ -119,9 +119,16 @@ templateClass: tmpl-speaking
       <div class="medium-card-wrapper">
         {% for testimonial in speakingPage.testimonials %}
           <blockquote class="card speaking-testimonial">
-            <p>{{ testimonial.content | markdownify | safe }}</p>
-            {% if testimonial.author %}
-              <cite>{{ testimonial.author }}</cite>
+            <p>{{ testimonial.quote }}</p>
+            {% if testimonial.sourceName or testimonial.sourceDetail %}
+              <cite>
+                {% if testimonial.sourceName %}
+                  {{ testimonial.sourceName }}
+                {% endif %}
+                {% if testimonial.sourceDetail %}
+                  {% if testimonial.sourceName %}, {% endif %}{{ testimonial.sourceDetail }}
+                {% endif %}
+              </cite>
             {% endif %}
           </blockquote>
         {% endfor %}

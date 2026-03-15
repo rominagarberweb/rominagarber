@@ -7,12 +7,19 @@ const imageUrl = require('../utils/imageUrl')
 const hasToken = !!client.config().token
 
 function prepareTestimonial (testimonial = {}) {
+  const legacyContent = testimonial.content
+    ? BlocksToMarkdown(testimonial.content, {serializers, ...client.config()})
+    : null
+
+  const sourceParts = [testimonial.sourceTitle, testimonial.sourceOrganization].filter(Boolean)
+
   return {
     ...testimonial,
-    content: testimonial.content
-      ? BlocksToMarkdown(testimonial.content, {serializers, ...client.config()})
-      : null,
-    author: testimonial.author || null
+    quote: testimonial.quote || legacyContent,
+    sourceName: testimonial.sourceName || testimonial.author || null,
+    sourceTitle: testimonial.sourceTitle || null,
+    sourceOrganization: testimonial.sourceOrganization || null,
+    sourceDetail: sourceParts.join(', ') || null
   }
 }
 
@@ -26,10 +33,17 @@ function prepareAdditionalImage (entry = {}) {
 }
 
 function generateSpeakingPage (doc = {}) {
+  const portableDescription = Array.isArray(doc.descriptionPortable)
+    ? BlocksToMarkdown(doc.descriptionPortable, {serializers, ...client.config()})
+    : null
+  const legacyDescription = typeof doc.description === 'string'
+    ? doc.description
+    : null
+
   return {
     ...doc,
     headline: doc.headline || 'Speaking Events and Workshops',
-    description: doc.description || null,
+    description: portableDescription || legacyDescription,
     heroImageUrl: doc.heroImage ? imageUrl(doc.heroImage).height(580).width(460).url() : null,
     heroPhotoCredit: doc.heroPhotoCredit || null,
     speakingTopics: Array.isArray(doc.speakingTopics) ? doc.speakingTopics.filter(Boolean) : [],
@@ -37,7 +51,7 @@ function generateSpeakingPage (doc = {}) {
       ? doc.availabilityLocations.filter(Boolean)
       : [],
     testimonials: Array.isArray(doc.testimonials)
-      ? doc.testimonials.map(prepareTestimonial).filter(one => one.content)
+      ? doc.testimonials.map(prepareTestimonial).filter(one => one.quote)
       : [],
     additionalImages: Array.isArray(doc.additionalImages)
       ? doc.additionalImages.map(prepareAdditionalImage).filter(one => one.imageUrl)
@@ -55,12 +69,24 @@ async function getSpeakingPage () {
     _id,
     headline,
     description,
+    descriptionPortable[]{
+      ...,
+      children[]{
+        ...
+      }
+    },
     heroImage,
     heroPhotoCredit,
     speakingTopics,
     presentationLength,
     availabilityLocations,
     testimonials[]{
+      quote,
+      sourceName,
+      sourceTitle,
+      sourceOrganization,
+
+      // Legacy fallback for existing review-shaped entries
       content[]{
         ...,
         children[]{
