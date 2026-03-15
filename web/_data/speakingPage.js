@@ -42,11 +42,21 @@ function generateSpeakingPage (doc = {}) {
 
   return {
     ...doc,
-    headline: doc.headline || 'Speaking Events and Workshops',
+    title: doc.title || 'Speaking Events and Workshops',
     description: portableDescription || legacyDescription,
-    heroImageUrl: doc.heroImage ? imageUrl(doc.heroImage).height(580).width(460).url() : null,
+    heroImageUrl: doc.heroImage ? imageUrl(doc.heroImage).height(520).width(920).url() : null,
     heroPhotoCredit: doc.heroPhotoCredit || null,
-    speakingTopics: Array.isArray(doc.speakingTopics) ? doc.speakingTopics.filter(Boolean) : [],
+    speakingTopics: Array.isArray(doc.speakingTopics)
+      ? doc.speakingTopics.filter(Boolean).map(topic => {
+          if (typeof topic === 'string') return {name: topic, description: null}
+          return {
+            name: topic.name || null,
+            description: Array.isArray(topic.description)
+              ? BlocksToMarkdown(topic.description, {serializers, ...client.config()})
+              : null
+          }
+        }).filter(t => t.name)
+      : [],
     availabilityLocations: Array.isArray(doc.availabilityLocations)
       ? doc.availabilityLocations.filter(Boolean)
       : [],
@@ -67,7 +77,7 @@ async function getSpeakingPage () {
   const filter = groq`*[_type == "speakingPage"]`
   const projection = groq`{
     _id,
-    headline,
+    title,
     description,
     descriptionPortable[]{
       ...,
@@ -77,7 +87,15 @@ async function getSpeakingPage () {
     },
     heroImage,
     heroPhotoCredit,
-    speakingTopics,
+    speakingTopics[]{
+      ...,
+      description[]{
+        ...,
+        children[]{
+          ...
+        }
+      }
+    },
     presentationLength,
     availabilityLocations,
     testimonials[]{

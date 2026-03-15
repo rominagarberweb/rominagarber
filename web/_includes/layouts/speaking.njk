@@ -4,32 +4,23 @@ layout: layouts/base.njk
 templateClass: tmpl-speaking
 ---
 
-<section class="speaking">
+<section class="speaking section-grid">
   {% if speakingPage %}
     {% set contactSubject = speakingPage.checkAvailabilitySubject | urlencode %}
   {% endif %}
-
-  {% if not speakingPage %}
-    <div class="speaking-header">
-      <h1>Speaking Events and Workshops</h1>
-      <p class="speaking-note">Speaking information will be published soon.</p>
-    </div>
-  {% else %}
-    <div class="speaking-header">
-      <h1>{{ speakingPage.headline or 'Speaking Events and Workshops' }}</h1>
-      {% if speakingPage.description %}
-        <p class="speaking-note">{{ speakingPage.description }}</p>
-      {% endif %}
+  <h1>{{ speakingPage.title or 'Speaking Events and Workshops' }}</h1>
+  {% if speakingPage and speakingPage.description %}
+    <div class="speaking-intro">
+      {{ speakingPage.description | markdownify | safe }}
     </div>
   {% endif %}
-
   {% if speakingPage %}
   {% if speakingPage.heroImageUrl %}
     <figure class="speaking-hero">
       <img
         src="{{ speakingPage.heroImageUrl }}"
-        width="460"
-        height="580"
+        width="920"
+        height="520"
         alt="{{ speakingPage.heroImage.alt }}"
       />
       {% if speakingPage.heroImage.caption or speakingPage.heroPhotoCredit %}
@@ -45,51 +36,35 @@ templateClass: tmpl-speaking
     </figure>
   {% endif %}
 
-  <div class="section-grid">
-    <article class="speaking-section">
+    <div class="speaking-section">
       <h2>Speaking Topics</h2>
       {% if speakingPage.speakingTopics.length > 0 %}
-        <ul>
+        <ul class="speaking-topics-list">
           {% for topic in speakingPage.speakingTopics %}
-            <li>{{ topic }}</li>
+            <li class="speaking-topic"><strong>{{ topic.name }}</strong> - {% if topic.description %}{{ topic.description }}{% endif %}
+            </li>
           {% endfor %}
         </ul>
       {% endif %}
-    </article>
-
-    <article class="speaking-section">
-      {% if speakingPage.presentationLength %}
-        <h2>Length of Presentation</h2>
-        <p>{{ speakingPage.presentationLength }}</p>
+      {% if speakingPage.checkAvailabilityEmail %}
+        <div class="medium-card-wrapper speaking-cta-wrapper">
+          <div class="speaking-cta card">
+            <div class="card-header">
+              <h3>Check Availability</h3>
+            </div>
+            <p>For interviews, media requests, or speaking events, please get in touch.</p>
+              <a
+                class="btn btn--primary"
+                href="mailto:{{ speakingPage.checkAvailabilityEmail }}?subject={{ contactSubject }}"
+                rel="noopener"
+              >Email for speaking inquiries</a>
+          </div>
+        </div>
       {% endif %}
-
-      {% if speakingPage.availabilityLocations.length > 0 %}
-        <h2>Locations of Availability</h2>
-        <ul>
-          {% for location in speakingPage.availabilityLocations %}
-            <li>{{ location }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </article>
-  </div>
-
-  {% if speakingPage.checkAvailabilityEmail %}
-    <div class="speaking-cta card">
-      <h2>Check Availability</h2>
-      <p>For interviews, media requests, or speaking events, please get in touch.</p>
-      <p>
-        <a
-          class="btn btn--primary"
-          href="mailto:{{ speakingPage.checkAvailabilityEmail }}?subject={{ contactSubject }}"
-          rel="noopener"
-        >Email for speaking inquiries</a>
-      </p>
     </div>
-  {% endif %}
 
   {% if speakingPage.additionalImages.length > 0 %}
-    <section class="speaking-photos">
+    <div class="speaking-photos">
       <h2>Speaking Highlights</h2>
       <div class="medium-card-wrapper">
         {% for photo in speakingPage.additionalImages %}
@@ -108,42 +83,41 @@ templateClass: tmpl-speaking
           </figure>
         {% endfor %}
       </div>
-    </section>
+    </div>
   {% endif %}
 
   {% if speakingPage.testimonials.length > 0 %}
-    <section class="speaking-testimonials">
+    <div class="speaking-testimonials">
       <h2>Testimonials</h2>
-      <div class="medium-card-wrapper">
-        {% for testimonial in speakingPage.testimonials %}
-          <blockquote class="card speaking-testimonial">
-            <p>{{ testimonial.quote }}</p>
-            {% if testimonial.sourceName or testimonial.sourceDetail %}
-              <cite>
-                {% if testimonial.sourceName %}
-                  {{ testimonial.sourceName }}
-                {% endif %}
-                {% if testimonial.sourceDetail %}
-                  {% if testimonial.sourceName %}, {% endif %}{{ testimonial.sourceDetail }}
-                {% endif %}
-              </cite>
-            {% endif %}
-          </blockquote>
-        {% endfor %}
-      </div>
-    </section>
+      {% for testimonial in speakingPage.testimonials %}
+        <div class="speaking-review">
+          <p>{{ testimonial.quote }}</p>
+          {% if testimonial.sourceName or testimonial.sourceDetail %}
+            <em>
+              &mdash;
+              {% if testimonial.sourceName %}
+                {{ testimonial.sourceName }}
+              {% endif %}
+              {% if testimonial.sourceDetail %}
+                {% if testimonial.sourceName %}, {% endif %}{{ testimonial.sourceDetail }}
+              {% endif %}
+            </em>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
   {% endif %}
 
   {% if speakingPage.checkAvailabilityEmail %}
-    <section class="speaking-contact-repeat">
+    <div class="speaking-contact-repeat">
       <p class="contact book-data">
-        <span class="data-label">Contact:</span>
+        <span class="data-label">Check availability:</span>
         <a
           href="mailto:{{ speakingPage.checkAvailabilityEmail }}?subject={{ contactSubject }}"
           rel="noopener"
         >{{ speakingPage.checkAvailabilityEmail }}</a>
       </p>
-    </section>
+    </div>
   {% endif %}
   {% endif %}
 </section>

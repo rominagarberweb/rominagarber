@@ -12,10 +12,10 @@ export default {
   ],
   fields: [
     {
-      name: 'headline',
+      name: 'title',
       type: 'string',
-      title: 'Headline',
-      description: 'Main page headline, e.g. "Speaking Events and Workshops"',
+      title: 'Title',
+      description: 'Main page title shown as the H1',
       validation: Rule => Rule.required()
     },
     {
@@ -24,7 +24,7 @@ export default {
       title: 'Slug',
       description: 'URL segment for this page. Keep as "speaking".',
       options: {
-        source: 'headline',
+        source: 'title',
         maxLength: 96,
         slugify: input => (input || 'speaking').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '')
       },
@@ -56,7 +56,39 @@ export default {
       type: 'array',
       title: 'Speaking topics',
       description: 'Most-requested topics event planners can pick from',
-      of: [{type: 'string'}],
+      of: [
+        {
+          type: 'object',
+          title: 'Speaking topic',
+          fields: [
+            {
+              name: 'name',
+              type: 'string',
+              title: 'Topic name',
+              validation: Rule => Rule.required()
+            },
+            {
+              name: 'description',
+              type: 'introPortableText',
+              title: 'Description'
+            }
+          ],
+          preview: {
+            select: {
+              title: 'name',
+              subtitle: 'description'
+            },
+            prepare ({title, subtitle}) {
+              return {
+                title: title || 'Untitled topic',
+                subtitle: subtitle && subtitle[0] && subtitle[0].children
+                  ? subtitle[0].children.map(c => c.text).join(' ')
+                  : null
+              }
+            }
+          }
+        }
+      ],
       validation: Rule => Rule.required().min(1)
     },
     {
@@ -127,16 +159,5 @@ export default {
       rows: 3,
       description: 'Optional short note shown above contact CTA'
     },
-    {
-      name: 'quickLink',
-      title: 'Speaking',
-      type: 'string',
-      components: {
-        input: CustomQuickLinkComponent
-      },
-      options: {
-        slug: 'speaking'
-      }
-    }
   ]
 }
