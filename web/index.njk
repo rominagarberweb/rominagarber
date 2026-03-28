@@ -113,22 +113,22 @@ socialImage: images/lobizona-preview.jpg
 {% endfor %}
 
 {# This instagram integration is probably not working right now because the API Keys probably need to be refreshed #}
-{# <section class="instagram-feed" style="display: none;">
+<section class="instagram-feed" style="display: none;"> 
   <ol>
   {%- for post in instagram -%}
     <li>
-      {% if post.media_type === "VIDEO" %}
+      {% if post.media_type == "VIDEO" %}
         {% responsiveImage post.thumbnail_url, '' %}
       {% else %}
         {% responsiveImage post.media_url, '' %}
       {% endif %}
     </li>
   {%- endfor -%}
-  </ol> #}
-  {# <div class="more-link clearfix">
+  </ol> 
+  <div class="more-link clearfix">
     <a class="btn btn--photos" href="http://instagram.com/rominagarber" rel="noopener nofollow">More photos</a>
-  </div>#}
-{# </section>  #}
+  </div>
+</section> 
 
 {% set eventsList = collections.myEvents %}
 {% set eventsLimit = 1 %} {# limit number of events shown #}
