@@ -1,0 +1,54 @@
+---
+description: Figma MCP workflow for rapid design-code iteration without rewrites
+alwaysApply: true
+---
+
+# Figma MCP Design-Code Sync Workflow (Eleventy + Sanity)
+
+Use this workflow for incremental feature/page updates. Prioritize rapid iteration, low risk, and consistency with existing code patterns.
+
+## Core Principle
+
+- Keep Figma and code aligned in short loops.
+- Reuse existing components, templates, and tokens before creating new ones.
+- Avoid redesign-by-rewrite; ship the smallest useful improvement.
+
+## Required Figma MCP Sequence
+
+1. Capture current UI state from code and establish a baseline frame in Figma.
+2. Create focused variants in Figma (A/B) for only the section being changed.
+3. Pull design context for the selected frame/node and implement in existing code patterns.
+4. Sync implementation updates back to the Figma file/page.
+5. Mark approved and implemented states explicitly in frame names.
+
+## Frame Lifecycle and Naming
+
+- Use frame names: `Current`, `Proposed A`, `Proposed B`, `Approved`, `Implemented`.
+- Mirror code structure in naming (example: `Home/Hero`, `Books/Card Grid`, `Editing/Service Cards`).
+- Keep one canonical page for production-ready synced screens.
+
+## Implementation Guardrails
+
+- Prefer existing `web/_includes/layouts` and `web/_includes/components` patterns.
+- Keep CSS changes scoped; avoid new one-off systems when existing styles can be extended.
+- Preserve semantic HTML and accessibility defaults while implementing design updates.
+- If design conflicts with platform constraints, choose platform-native implementation and document tradeoff.
+
+## Design System and Tokens
+
+- Search and reuse existing design system components before creating new ones.
+- Reuse existing color/type/spacing conventions from the codebase and Figma variables.
+- Keep token usage consistent between Figma and code; avoid ad hoc visual values.
+
+## Quality Checks Before Finalizing
+
+- Confirm implemented UI matches approved frame at key breakpoints.
+- Validate interaction states for changed elements (hover/focus/active where relevant).
+- Confirm content structure still maps cleanly to Sanity fields.
+- Confirm no unrelated refactors were introduced.
+
+## MCP Tool Discipline
+
+- Before any `use_figma` call, load the required Figma use skill first.
+- Prefer small, reversible updates instead of large multi-section pushes.
+- When uncertain, sync one section at a time and verify before proceeding.
