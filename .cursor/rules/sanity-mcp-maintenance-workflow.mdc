@@ -1,0 +1,58 @@
+---
+description: Sanity MCP workflow for safe, low-effort maintenance and feature additions
+alwaysApply: true
+---
+
+# Sanity MCP Maintenance Workflow (Eleventy + Sanity)
+
+Use this workflow when adding content, pages, or small features. Prioritize low-risk, high-confidence changes over refactors.
+
+## Operating Principle
+
+- Always validate content contracts before editing templates.
+- Prefer schema and query corrections over patching issues in frontend rendering logic.
+- Keep maintenance steps lightweight and repeatable.
+
+## Required Sanity MCP Sequence
+
+1. Read current schema before any query or content assumptions.
+2. Audit existing GROQ used by affected `web/_data/*.js` loaders.
+3. Validate queried fields exist, are correctly typed, and match template expectations.
+4. Identify missing validation or weak constraints in touched schema fields.
+5. Propose minimum-scope fixes with explicit risk and effort.
+
+## When Adding or Updating a Feature
+
+- Reuse existing document types, references, and object schemas first.
+- Fetch only required fields in GROQ projections; avoid over-fetching.
+- Confirm singleton documents exist and are complete where required.
+- Verify portable text, image, and slug fields expected by templates are present.
+- Prefer content-model fixes over custom fallback logic in templates.
+
+## Sanity Quality Checks (Run Before Release)
+
+- Missing slugs in routable content (posts, books, events, series).
+- Missing or weak SEO/social fields used by meta tags.
+- Missing image metadata required for rendering and accessibility where applicable.
+- Null or malformed values for date/schedule fields used in filtering/sorting.
+- References that resolve to missing or unpublished documents.
+
+## Maintenance Cadence (Low Overhead)
+
+- On each maintenance cycle, run a focused Sanity MCP audit for only touched content types.
+- Keep audits scoped to current work; do not run broad system refactors.
+- Document assumptions and unresolved content debt as follow-up items.
+
+## Decision Rules
+
+- If issue can be fixed in schema validation, do that first.
+- If issue is query shape mismatch, fix GROQ projection/filter before template logic.
+- If issue is isolated content data quality, patch documents instead of code refactors.
+- Escalate to structural changes only when repeated failures prove current model is insufficient.
+
+## Anti-Patterns to Avoid
+
+- Editing frontend templates first when data contract is uncertain.
+- Adding custom transformation layers for one-off content inconsistencies.
+- Expanding query payload "just in case."
+- Mixing migration/refactor work into a small feature release.
