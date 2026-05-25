@@ -1,0 +1,327 @@
+{
+  "color": {
+    "tokens": {
+      "$type": "color",
+      "general": {
+        "night": {
+          "1": {
+            "$value": "#E5E5E5"
+          },
+          "2": {
+            "$value": "#C0C4C8"
+          },
+          "3": {
+            "$value": "#707578"
+          },
+          "3ish": {
+            "$value": "#2a2b2d"
+          },
+          "4": {
+            "$value": "#202122"
+          },
+          "5": {
+            "$value": "#000000"
+          }
+        }
+      },
+      "alpha": {
+        "night": {
+          "$value": "rgba(32, 33, 34, 0.6)"
+        },
+        "light": {
+          "$value": "rgba(255, 255, 255, 0.8)"
+        }
+      },
+      "beta": {
+        "night": {
+          "$value": "rgba(32, 33, 34, 0.2)"
+        },
+        "light": {
+          "$value": "rgba(255, 255, 255, 0.6)"
+        }
+      },
+      "gamma": {
+        "night": {
+          "$value": "rgba(32, 33, 34, 0.1)"
+        },
+        "light": {
+          "$value": "rgba(255, 255, 255, 0.4)"
+        }
+      },
+      "manu": {
+        "moon": {
+          "1": {
+            "$value": "#FEECAF"
+          },
+          "2": {
+            "$value": "#F4D050"
+          },
+          "3": {
+            "$value": "#A69145"
+          }
+        },
+        "earth": {
+          "1": {
+            "$value": "#CEDAA4"
+          },
+          "2": {
+            "$value": "#92C589"
+          },
+          "3": {
+            "$value": "#73A475"
+          }
+        },
+        "blood": {
+          "1": {
+            "$value": "#FBC3A7"
+          },
+          "2": {
+            "$value": "#E99198"
+          },
+          "3": {
+            "$value": "#A35048"
+          }
+        }
+      },
+      "rho": {
+        "cancer": {
+          "1": {
+            "$value": "#CEE7F5"
+          },
+          "2": {
+            "$value": "#71ACD3"
+          },
+          "3": {
+            "$value": "#4781A2"
+          }
+        },
+        "ophiuchus": {
+          "1": {
+            "$value": "#FAE0C2"
+          },
+          "2": {
+            "$value": "#F3C691"
+          },
+          "3": {
+            "$value": "#EBAB60"
+          }
+        },
+        "capricorn": {
+          "1": {
+            "$value": "#F9F0D1"
+          },
+          "2": {
+            "$value": "#F6E091"
+          },
+          "3": {
+            "$value": "#335A6F"
+          }
+        },
+        "aquarius": {
+          "1": {
+            "$value": "#D9C0DE"
+          },
+          "2": {
+            "$value": "#AA83AC"
+          },
+          "3": {
+            "$value": "#734A85"
+          }
+        },
+        "libra": {
+          "1": {
+            "$value": "#F3DEDB"
+          },
+          "2": {
+            "$value": "#E4BAB4"
+          },
+          "3": {
+            "$value": "#2B4274"
+          }
+        }
+      }
+    },
+    "literals": {
+      "$type": "color",
+      "literal-001": {
+        "$value": "#FFFFFF"
+      },
+      "literal-002": {
+        "$value": "#76A9EA"
+      },
+      "literal-003": {
+        "$value": "#475993"
+      },
+      "literal-004": {
+        "$value": "#f09433"
+      },
+      "literal-005": {
+        "$value": "#e6683c"
+      },
+      "literal-006": {
+        "$value": "#dc2743"
+      },
+      "literal-007": {
+        "$value": "#cc2366"
+      },
+      "literal-008": {
+        "$value": "#bc1888"
+      },
+      "literal-009": {
+        "$value": "#060E13"
+      },
+      "literal-010": {
+        "$value": "#0049ca"
+      },
+      "literal-011": {
+        "$value": "#4f3332"
+      },
+      "literal-012": {
+        "$value": "rgba(251, 195, 167, 0.45)"
+      },
+      "literal-013": {
+        "$value": "rgba(233, 145, 152, 0.45)"
+      },
+      "literal-014": {
+        "$value": "rgba(163, 80, 72, 0.45)"
+      },
+      "literal-015": {
+        "$value": "rgb(32,33,34)"
+      },
+      "literal-016": {
+        "$value": "rgba(32,33,34,.60)"
+      },
+      "literal-017": {
+        "$value": "rgba(32,33,34,.57)"
+      },
+      "literal-018": {
+        "$value": "rgba(32,33,34,.55)"
+      },
+      "literal-019": {
+        "$value": "rgba(32,33,34,.54)"
+      },
+      "literal-020": {
+        "$value": "rgba(32,33,34,.52)"
+      },
+      "literal-021": {
+        "$value": "rgba(32,33,34,.5)"
+      },
+      "literal-022": {
+        "$value": "rgba(32,33,34,.47)"
+      },
+      "literal-023": {
+        "$value": "rgba(32,33,34,.42)"
+      },
+      "literal-024": {
+        "$value": "rgba(32,33,34,.35)"
+      },
+      "literal-025": {
+        "$value": "rgba(32,33,34,.33)"
+      },
+      "literal-026": {
+        "$value": "rgba(32,33,34,.25)"
+      },
+      "literal-027": {
+        "$value": "rgba(32,33,34,.17)"
+      },
+      "literal-028": {
+        "$value": "rgba(32,33,34,.12)"
+      },
+      "literal-029": {
+        "$value": "rgba(32,33,34,.08)"
+      },
+      "literal-030": {
+        "$value": "rgba(32,33,34,.03)"
+      },
+      "literal-031": {
+        "$value": "rgba(32,33,34,0)"
+      },
+      "literal-032": {
+        "$value": "rgba(32,33,34,.48)"
+      },
+      "literal-033": {
+        "$value": "rgba(32,33,34,.27)"
+      },
+      "literal-034": {
+        "$value": "rgba(32,33,34,.22)"
+      },
+      "literal-035": {
+        "$value": "rgba(32,33,34,.18)"
+      },
+      "literal-036": {
+        "$value": "rgba(32,33,34,.10)"
+      },
+      "literal-037": {
+        "$value": "rgba(32,33,34,.06)"
+      },
+      "literal-038": {
+        "$value": "rgba(32,33,34,.05)"
+      },
+      "literal-039": {
+        "$value": "rgba(32,33,34,.04)"
+      },
+      "literal-040": {
+        "$value": "rgba(32,33,34,.02)"
+      },
+      "literal-041": {
+        "$value": "rgba(32,33,34,.01)"
+      },
+      "literal-042": {
+        "$value": "rgba(251, 195, 167, 0.25)"
+      },
+      "literal-043": {
+        "$value": "rgba(233, 145, 152, 0.25)"
+      },
+      "literal-044": {
+        "$value": "rgba(163, 80, 72, 0.25)"
+      },
+      "literal-045": {
+        "$value": "rgba(0, 0, 0, 0.2)"
+      },
+      "literal-046": {
+        "$value": "#f5f5f5"
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "body-font": {
+        "$value": "Manuale, georgia"
+      },
+      "utility-font": {
+        "$value": "IBM Plex Sans Var Regular, sans-serif"
+      },
+      "font-face-manuale": {
+        "$value": "Manuale"
+      },
+      "font-face-ibm-plex-sans-var-regular": {
+        "$value": "IBM Plex Sans Var Regular"
+      },
+      "font-face-ibm-plex-sans-var-italic": {
+        "$value": "IBM Plex Sans Var Italic"
+      }
+    },
+    "weight": {
+      "$type": "number",
+      "body-light": {
+        "$value": 300
+      },
+      "body-regular": {
+        "$value": 400
+      },
+      "body-medium": {
+        "$value": 500
+      },
+      "body-semi-bold": {
+        "$value": 600
+      },
+      "body-bold": {
+        "$value": 700
+      },
+      "body-extra-bold": {
+        "$value": 800
+      }
+    }
+  }
+}
