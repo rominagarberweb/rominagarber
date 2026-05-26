@@ -2384,6 +2384,11 @@ section.speaking h1,
   margin: 0 0 2rem;
 }
 
+.speaking h1 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 .speaking-hero-carousel {
   margin: 0;
   padding: 0;
@@ -2517,7 +2522,7 @@ section.speaking h1,
 }
 
 .speaking-logos  {
-  margin-block: 6rem;
+  margin-block: 4rem;
 }
 
 .speaking-logo-grid {
@@ -2672,7 +2677,7 @@ section.speaking h1,
   .speaking-header,
   .speaking .section-grid,
   .speaking-logos,
-  /* .speaking-cta-wrapper, */
+  .speaking-cta-wrapper,
   .speaking-cta,
   .speaking-photos,
   .speaking-testimonials,
