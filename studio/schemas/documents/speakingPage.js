@@ -48,6 +48,21 @@ export default {
       validation: Rule => Rule.required().min(1)
     },
     {
+      name: 'logoGridHeading',
+      type: 'string',
+      title: 'Logo grid heading',
+      description: 'Heading text shown above the logos section',
+      hidden: true,
+      initialValue: 'Featured organizations'
+    },
+    {
+      name: 'logoGrid',
+      type: 'array',
+      title: 'Logo grid',
+      description: 'Organization logos shown in a responsive grid',
+      of: [{type: 'mainImage'}]
+    },
+    {
       name: 'speakingTopics',
       type: 'array',
       title: 'Speaking topics',

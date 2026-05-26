@@ -41,6 +41,14 @@ function prepareHeroImage (image = {}, index = 0) {
   }
 }
 
+function prepareLogoImage (image = {}, index = 0) {
+  return {
+    image,
+    imageUrl: image ? imageUrl(image).height(74).url() : null,
+    markerLabel: image.caption || image.alt || `Logo ${index + 1}`
+  }
+}
+
 function generateSpeakingPage (doc = {}) {
   const rawHeroImages = Array.isArray(doc.heroImage)
     ? doc.heroImage
@@ -48,6 +56,9 @@ function generateSpeakingPage (doc = {}) {
   const heroImages = rawHeroImages
     .map((image, index) => prepareHeroImage(image, index))
     .filter(one => one.imageUrl)
+  const logoGrid = Array.isArray(doc.logoGrid)
+    ? doc.logoGrid.map((image, index) => prepareLogoImage(image, index)).filter(one => one.imageUrl)
+    : []
 
   const portableDescription = Array.isArray(doc.descriptionPortable)
     ? BlocksToMarkdown(doc.descriptionPortable, {serializers, ...client.config()})
@@ -62,7 +73,9 @@ function generateSpeakingPage (doc = {}) {
     description: portableDescription || legacyDescription,
     checkAvailabilityHeading: doc.checkAvailabilityHeading || 'Check Availability',
     testimonialsHeading: doc.testimonialsHeading || 'Voices from the Community',
+    logoGridHeading: doc.logoGridHeading || 'Featured organizations',
     heroImages,
+    logoGrid,
     heroImage: heroImages[0] ? heroImages[0].image : null,
     heroImageUrl: heroImages[0] ? heroImages[0].imageUrl : null,
     heroPhotoCredit: doc.heroPhotoCredit || null,
@@ -109,6 +122,11 @@ async function getSpeakingPage () {
       ...,
       asset
     },
+    logoGrid[]{
+      ...,
+      asset
+    },
+    logoGridHeading,
     heroPhotoCredit,
     speakingTopics[]{
       ...,

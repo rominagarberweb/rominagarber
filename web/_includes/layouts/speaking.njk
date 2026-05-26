@@ -44,6 +44,23 @@ templateClass: tmpl-speaking
     </div>
   {% endif %}
 
+  {% if speakingPage.logoGrid.length > 0 %}
+    <div class="speaking-logos">
+      {# <h2>{{ speakingPage.logoGridHeading or 'Featured organizations' }}</h2> #}
+      <ul class="speaking-logo-grid" aria-label="Organizations">
+        {% for logo in speakingPage.logoGrid %}
+          <li class="speaking-logo-item">
+            <img
+              src="{{ logo.imageUrl }}"
+              alt="{{ logo.image.alt }}"
+              loading="lazy"
+            />
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
     {% if speakingPage.checkAvailabilityEmail %}
       <div class="medium-card-wrapper speaking-cta-wrapper">
         <div class="speaking-cta card">
