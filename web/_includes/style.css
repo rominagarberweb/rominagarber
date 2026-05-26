@@ -553,7 +553,7 @@ section.biolinks ol.social-icons {
 }
 
 .medium-card-wrapper .card {
-  padding: 1rem 1.4rem;
+  padding: 1rem 1.4rem 2rem;
   margin-bottom: 1.2rem;
 }
 
@@ -2314,6 +2314,12 @@ form.editing-services-interest button {
 .editing .medium-card-wrapper {
   font-size: smaller;
 }
+
+section.bio .medium-card-wrapper .card,
+section.editing .medium-card-wrapper .card {
+  padding-bottom: 1.2rem;
+}
+
 .editing .medium-card-wrapper .card-header {
   display: flex;
   justify-content: space-between;
@@ -2325,7 +2331,7 @@ form.editing-services-interest button {
   margin: 0px;
   font-size: calc(1.1rem + .4vw);
   font-family: var(--utility-font);
-  color: var(--general-night-4);
+  color: inherit;
   font-variant-caps: all-small-caps;
   font-weight: var(--body-semi-bold);
   leading-trim: both;
@@ -2377,11 +2383,136 @@ section.speaking h1,
   margin: 0 0 2rem;
 }
 
+.speaking-hero-carousel {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+}
+
+.speaking-hero-slide {
+  list-style: none;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+}
+
+.speaking-hero-slide figure {
+  margin: 0;
+}
+
 .speaking-hero img,
 .speaking-photo-card img {
   width: 100%;
   height: auto;
   border-radius: var(--small-br);
+}
+
+.speaking-hero-slide figcaption {
+  margin-top: 0.5rem;
+}
+
+.speaking-hero-carousel::scroll-button(*) {
+  border: 1px solid color-mix(in srgb, var(--general-night-1) 16%, transparent);
+  font-size: 1.5rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--general-night-4) 72%, transparent);
+  color: var(--general-night-1);
+  opacity: 0.94;
+  cursor: pointer;
+  border-radius: 999px;
+  width: 3.4rem;
+  height: 3.4rem;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--general-night-1) 10%, transparent);
+  transition: filter 0.15s ease, opacity 0.15s ease, transform 0.1s ease;
+}
+
+.speaking-hero-carousel::scroll-button(*):hover {
+  opacity: 1;
+  filter: brightness(1.08);
+}
+
+.speaking-hero-carousel::scroll-button(*):focus-visible {
+  opacity: 1;
+  outline: 2px solid -webkit-focus-ring-color;
+  outline-offset: 3px;
+}
+
+.speaking-hero-carousel::scroll-button(*):active {
+  transform: translate(1px, 1px);
+}
+
+.speaking-hero-carousel::scroll-button(*):disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.speaking-hero-carousel::scroll-button(left) {
+  content: "" / "Previous slide";
+  background: url("/images/icon-arrow-left.svg") center / 100% 100% no-repeat;
+  border: 0;
+  box-shadow: none;
+}
+
+.speaking-hero-carousel::scroll-button(right) {
+  content: "" / "Next slide";
+  background: url("/images/icon-arrow-right.svg") center / 100% 100% no-repeat;
+  border: 0;
+  box-shadow: none;
+}
+
+.speaking-hero-carousel {
+  anchor-name: --speaking-hero-carousel;
+  scroll-marker-group: after;
+}
+
+.speaking-hero-carousel::scroll-button(*) {
+  position: absolute;
+  position-anchor: --speaking-hero-carousel;
+}
+
+.speaking-hero-carousel::scroll-button(left) {
+  right: calc(anchor(left) - 3.5rem);
+  top: anchor(center);
+  margin-top: -1.7rem;
+}
+
+.speaking-hero-carousel::scroll-button(right) {
+  left: calc(anchor(right) - 3.5rem);
+  top: anchor(center);
+  margin-top: -1.7rem;
+}
+
+.speaking-hero-carousel::scroll-marker-group {
+  position: absolute;
+  position-anchor: --speaking-hero-carousel;
+  top: calc(anchor(bottom) + 0.5rem);
+  justify-self: anchor-center;
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.speaking-hero-slide::scroll-marker {
+  content: attr(data-acc-name);
+  width: 0.65rem;
+  height: 0.65rem;
+  background-color: transparent;
+  border: 1px solid var(--general-night-3);
+  border-radius: 999px;
+  overflow: hidden;
+  text-indent: 2rem;
+}
+
+.speaking-hero-slide::scroll-marker:target-current {
+  background-color: var(--general-night-1);
+  border-color: var(--general-night-1);
 }
 
 .speaking-photo-credit {
@@ -2408,6 +2539,7 @@ section.speaking h1,
 
 .speaking-cta {
   /* margin-block: 2rem; */
+  padding-block-end: 2rem;
   display: flex;
   flex-direction: column;
 }
@@ -2418,6 +2550,7 @@ section.speaking h1,
 }
 
 .speaking-cta-wrapper {
+  grid-row: auto;
   margin-top: 1.8rem;
 }
 
@@ -2425,16 +2558,12 @@ section.speaking h1,
   margin-block: 0px;
 }
 
-.speaking-topics-list {
-
-}
-
 .speaking-testimonials {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.2rem 1.8rem;
+  gap: 2.8rem 3.8rem;
   padding-block-end: 2rem;
-  border-bottom: 1px solid var(--general-night-2);
+  border-bottom: 1px solid var(--general-night-3);
 }
 
 .speaking-testimonials h2 {
@@ -2443,7 +2572,24 @@ section.speaking h1,
   padding-block-end: 0px;
 }
 
-.speaking-review p {
+.speaking-review-quote {
+  position: relative;
+  margin-top: 3.8rem;
+  margin-bottom: .8em;
+}
+
+.speaking-review-quote::before {
+  content: "\201C";
+  position: absolute;
+  left: -2.8rem;
+  top: -1.2rem;
+  font-family: var(--display-font);
+  font-size: 6.8rem;
+  line-height: 1;
+  color: color-mix(in srgb, var(--general-night-3) 35%, transparent);
+}
+
+.speaking-review p:not(.speaking-review-quote) {
   margin-top: 1.8em;
   margin-bottom: .8em;
 }
@@ -2499,9 +2645,26 @@ section.speaking h1,
   .speaking-hero {
     grid-column: 1 / 13;
   }
+  .speaking-hero-carousel {
+    gap: 0.5rem;
+  }
   .speaking-hero img {
     border-radius: 0px;
     max-width: 100%;
+  }
+
+  .speaking-testimonials {
+    gap: 4rem;
+  }
+
+  .speaking-review-quote {
+    margin-top: 4.8rem;
+  }
+
+  .speaking-review-quote::before {
+    left: 0;
+    top: -3.6rem;
+    font-size: 5.8rem;
   }
 }
 

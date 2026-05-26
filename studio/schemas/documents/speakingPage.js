@@ -41,21 +41,18 @@ export default {
     },
     {
       name: 'heroImage',
-      type: 'mainImage',
-      title: 'Hero image',
-      description: 'Primary speaking photo displayed near the top of the page'
-    },
-    {
-      name: 'heroPhotoCredit',
-      type: 'string',
-      title: 'Hero photo credit',
-      description: 'Photo credit line, e.g. "Photo by Jane Doe"'
+      type: 'array',
+      title: 'Hero images',
+      description: 'Speaking photos displayed near the top of the page carousel',
+      of: [{type: 'mainImage'}],
+      validation: Rule => Rule.required().min(1)
     },
     {
       name: 'speakingTopics',
       type: 'array',
       title: 'Speaking topics',
       description: 'Most-requested topics event planners can pick from',
+      hidden: true,
       of: [
         {
           type: 'object',
@@ -92,42 +89,11 @@ export default {
       validation: Rule => Rule.required().min(1)
     },
     {
-      name: 'additionalImages',
-      type: 'array',
-      title: 'Additional speaking photos',
-      description: 'Optional gallery images with caption and credit',
-      of: [
-        {
-          type: 'object',
-          title: 'Speaking photo',
-          fields: [
-            {
-              name: 'image',
-              type: 'mainImage',
-              title: 'Image'
-            },
-            {
-              name: 'photoCredit',
-              type: 'string',
-              title: 'Photo credit'
-            }
-          ],
-          preview: {
-            select: {
-              title: 'image.caption',
-              subtitle: 'photoCredit',
-              media: 'image'
-            },
-            prepare ({title, subtitle, media}) {
-              return {
-                title: title || 'Speaking photo',
-                subtitle,
-                media
-              }
-            }
-          }
-        }
-      ]
+      name: 'testimonialsHeading',
+      type: 'string',
+      title: 'Testimonials heading',
+      description: 'Heading text shown above testimonials',
+      initialValue: 'Voices from the Community'
     },
     {
       name: 'testimonials',
@@ -136,6 +102,13 @@ export default {
       description: 'Short endorsements from hosts or attendees',
       of: [{type: 'testimonial'}],
       validation: Rule => Rule.required().min(1)
+    },
+    {
+      name: 'checkAvailabilityHeading',
+      type: 'string',
+      title: 'Check availability heading',
+      description: 'Heading text shown on the speaking inquiry card',
+      initialValue: 'Check Availability'
     },
     {
       name: 'checkAvailabilityEmail',

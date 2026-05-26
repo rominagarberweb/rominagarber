@@ -1,0 +1,50 @@
+---
+description: Platform-first standards for mature Eleventy + Sanity development
+alwaysApply: true
+---
+
+# Platform-First Development Standards (Eleventy + Sanity)
+
+This is a mature production website. Prefer stability, incremental delivery, and simple solutions over rewrites.
+
+## Core Decision Order
+
+1. Follow web standards first (semantic HTML, accessibility, progressive enhancement).
+2. Use Eleventy and Sanity native capabilities before writing custom logic.
+3. Reuse existing project patterns/components before introducing new abstractions.
+4. Add the smallest amount of custom code only when platform-native options are insufficient.
+5. Avoid new dependencies unless the benefit is clear, repeated, and hard to achieve otherwise.
+
+## Eleventy Expectations
+
+- Prefer data cascade, collections, includes/layouts, filters, and shortcodes over bespoke systems.
+- Keep templates readable; avoid complex business logic in template files.
+- Reuse partials/includes instead of duplicating markup.
+- Preserve existing URL and output conventions unless explicitly asked to change them.
+
+## Sanity Expectations
+
+- Prefer schema-driven solutions over ad hoc frontend transformations.
+- Query only fields needed for the page/component; avoid over-fetching.
+- Reuse document types and references before adding new schema shapes.
+- Keep content structures editor-friendly and predictable.
+
+## Frontend Expectations
+
+- Default to semantic HTML and accessible interactions.
+- Keep JavaScript minimal on static-first pages.
+- Follow existing CSS architecture; avoid one-off styling patterns unless tightly scoped.
+
+## Safety and Scope
+
+- No major rewrites unless explicitly requested.
+- Keep diffs small and localized to the feature being added.
+- Do not refactor unrelated areas during feature work.
+- For non-trivial changes: state assumptions, identify impacted templates/data sources, and call out risk.
+
+## Anti-Patterns to Avoid
+
+- Creating parallel systems where Eleventy/Sanity already provide a mechanism.
+- Duplicating content logic across templates.
+- Adding libraries for problems solvable with native platform features.
+- Introducing clever abstractions for one-off needs.

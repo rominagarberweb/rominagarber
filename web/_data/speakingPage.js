@@ -32,7 +32,23 @@ function prepareAdditionalImage (entry = {}) {
   }
 }
 
+function prepareHeroImage (image = {}, index = 0) {
+  const label = image.caption || image.alt || `Slide ${index + 1}`
+  return {
+    image,
+    imageUrl: image ? imageUrl(image).height(520).width(920).url() : null,
+    markerLabel: label
+  }
+}
+
 function generateSpeakingPage (doc = {}) {
+  const rawHeroImages = Array.isArray(doc.heroImage)
+    ? doc.heroImage
+    : (doc.heroImage ? [doc.heroImage] : [])
+  const heroImages = rawHeroImages
+    .map((image, index) => prepareHeroImage(image, index))
+    .filter(one => one.imageUrl)
+
   const portableDescription = Array.isArray(doc.descriptionPortable)
     ? BlocksToMarkdown(doc.descriptionPortable, {serializers, ...client.config()})
     : null
@@ -44,7 +60,11 @@ function generateSpeakingPage (doc = {}) {
     ...doc,
     title: doc.title || 'Speaking Events and Workshops',
     description: portableDescription || legacyDescription,
-    heroImageUrl: doc.heroImage ? imageUrl(doc.heroImage).height(520).width(920).url() : null,
+    checkAvailabilityHeading: doc.checkAvailabilityHeading || 'Check Availability',
+    testimonialsHeading: doc.testimonialsHeading || 'Voices from the Community',
+    heroImages,
+    heroImage: heroImages[0] ? heroImages[0].image : null,
+    heroImageUrl: heroImages[0] ? heroImages[0].imageUrl : null,
     heroPhotoCredit: doc.heroPhotoCredit || null,
     speakingTopics: Array.isArray(doc.speakingTopics)
       ? doc.speakingTopics.filter(Boolean).map(topic => {
@@ -85,7 +105,10 @@ async function getSpeakingPage () {
         ...
       }
     },
-    heroImage,
+    heroImage[]{
+      ...,
+      asset
+    },
     heroPhotoCredit,
     speakingTopics[]{
       ...,
@@ -118,6 +141,8 @@ async function getSpeakingPage () {
       image,
       photoCredit
     },
+    checkAvailabilityHeading,
+    testimonialsHeading,
     checkAvailabilityEmail,
     checkAvailabilitySubject,
     contactNote
