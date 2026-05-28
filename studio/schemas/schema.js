@@ -19,6 +19,7 @@ import tip from './documents/tip'
 import bioLinks from './documents/bioLinks'
 import saysaSays from './documents/saysaSays'
 import editingServices from './documents/editingServices'
+import preorderPage from './documents/preorderPage'
 import speakingPage from './documents/speakingPage'
 
 // Object types
@@ -66,6 +67,7 @@ export default [
   bioLinks,
   saysaSays,
   editingServices,
+  preorderPage,
   speakingPage,
   // Object types - can be used as { type: 'typename' }
   // in document schemas

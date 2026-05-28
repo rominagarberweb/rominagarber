@@ -368,6 +368,10 @@ img {
   height: auto;
 }
 
+strong {
+  font-weight: var(--body-bold);
+}
+
 .caption,
 em {
   font-style: italic;
@@ -390,6 +394,24 @@ li {
 
 strong {
   font-weight: 600;
+}
+
+.faq {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.faq li {
+  margin: 0 0 1rem;
+}
+
+.faq li:last-child {
+  margin-bottom: 0;
+}
+
+.faq strong {
+  font-size: 1.08em;
 }
 
 article h1 {
@@ -2206,6 +2228,11 @@ section.newsleter div.newsletter-intro {
 .events-intro,
 .newsletter-intro {
   grid-column: 3 / 11;
+}
+
+.preorder-faq-section {
+  border-bottom: 1px solid var(--general-night-3);
+  padding-bottom: 1.2rem;
 }
 
 /* section.event p {
