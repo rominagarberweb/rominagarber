@@ -2984,7 +2984,7 @@ li.edition-item a {
 }
 #press-show[value="true"] ~ .showmore-actions > :last-child {
   display: list-item;
-1}
+}
 #press-show[value="true"] ~ .showmore-actions > :first-child {
   display: none;
 }

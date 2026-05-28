@@ -10,13 +10,6 @@ export default {
   ],
   fields: [
     {
-      name: 'metaDescription',
-      type: 'text',
-      title: 'Meta description',
-      rows: 3,
-      validation: Rule => Rule.required().max(160)
-    },
-    {
       name: 'heroTitle',
       type: 'string',
       title: 'Page title',
@@ -32,6 +25,13 @@ export default {
         maxLength: 96
       },
       validation: Rule => Rule.required()
+    },
+    {
+      name: 'metaDescription',
+      type: 'text',
+      title: 'Meta description',
+      rows: 3,
+      validation: Rule => Rule.required().max(160)
     },
     {
       name: 'intro',
