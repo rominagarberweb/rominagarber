@@ -41,6 +41,19 @@ templateClass: tmpl-speaking
           </li>
         {% endfor %}
       </ul>
+      {% if speakingPage.heroImages.length > 1 %}
+        <div class="speaking-hero-indicators" aria-label="Carousel slide indicators">
+          {% for hero in speakingPage.heroImages %}
+            <button
+              class="speaking-hero-indicator"
+              type="button"
+              data-slide-index="{{ loop.index0 }}"
+              aria-label="Go to slide {{ loop.index }}"
+              {% if loop.first %}aria-current="true"{% endif %}
+            ></button>
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
   {% endif %}
 

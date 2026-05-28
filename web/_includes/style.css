@@ -2548,6 +2548,40 @@ section.speaking h1,
   border-color: var(--general-night-1);
 }
 
+.speaking-hero-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+}
+
+.speaking-hero-indicator {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--general-night-3);
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.speaking-hero-indicator[aria-current="true"] {
+  background-color: var(--general-night-1);
+  border-color: var(--general-night-1);
+}
+
+.speaking-hero-indicator:focus-visible {
+  outline: 2px solid -webkit-focus-ring-color;
+  outline-offset: 2px;
+}
+
+@supports (scroll-marker-group: after) {
+  .speaking-hero-indicators {
+    display: none;
+  }
+}
+
 .speaking-logos  {
   margin-block: 4rem;
 }
@@ -2697,6 +2731,10 @@ section.speaking h1,
     grid-template-columns: 1fr;
     gap: .8rem;
     padding-inline: 1rem;
+  }
+
+  .speaking-logos  {
+    margin-block: 2rem;
   }
 }
 

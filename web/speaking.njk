@@ -5,6 +5,8 @@ tags:
   - nav
 navtitle: Speaking
 metaDesc: 'Speaking events, topics, and booking information for Romina Garber'
+pageScripts:
+  - ../../scripts/speaking-carousel.js
 eleventyComputed:
   socialImage: "{{ speakingPage.heroImages[0].imageUrl if speakingPage and speakingPage.heroImages and speakingPage.heroImages[0] else speakingPage.heroImageUrl }}"
 ---

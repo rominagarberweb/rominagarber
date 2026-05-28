@@ -42,5 +42,10 @@
     {% include "../components/footer.njk" %}
 
     <script src="../../scripts/nav.js" defer></script>
+    {% if pageScripts %}
+      {% for scriptPath in pageScripts %}
+        <script src="{{ scriptPath }}" defer></script>
+      {% endfor %}
+    {% endif %}
   </body>
 </html>
