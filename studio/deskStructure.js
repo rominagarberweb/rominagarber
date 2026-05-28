@@ -160,6 +160,8 @@ export default S =>
                     .title('Preorder page')
                     .schemaType('preorderPage')
                     .documentId('preorderPage')
+                ),
+              S.listItem()
                 .title('Speaking page')
                 .icon(FiFileText)
                 .child(
