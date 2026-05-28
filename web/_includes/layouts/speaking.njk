@@ -1,0 +1,114 @@
+---
+title: Speaking
+layout: layouts/base.njk
+templateClass: tmpl-speaking
+---
+
+<section class="speaking section-grid">
+  {% if speakingPage %}
+    {% set contactSubject = speakingPage.checkAvailabilitySubject | urlencode %}
+  {% endif %}
+  <h1>{{ speakingPage.title or 'Speaking Events and Workshops' }}</h1>
+  {% if speakingPage and speakingPage.description %}
+    <div class="speaking-intro">
+      {{ speakingPage.description | markdownify | safe }}
+    </div>
+  {% endif %}
+  {% if speakingPage %}
+  {% if speakingPage.heroImages.length > 0 %}
+    <div class="speaking-hero">
+      <ul class="speaking-hero-carousel" aria-label="Speaking hero image carousel">
+        {% for hero in speakingPage.heroImages %}
+          <li class="speaking-hero-slide" data-acc-name="{{ hero.markerLabel }}">
+            <figure>
+              <img
+                src="{{ hero.imageUrl }}"
+                width="920"
+                height="520"
+                alt="{{ hero.image.alt }}"
+              />
+              {% if hero.image.caption or speakingPage.heroPhotoCredit %}
+                <figcaption>
+                  {% if hero.image.caption %}
+                    <span>{{ hero.image.caption }}</span>
+                  {% endif %}
+                  {% if speakingPage.heroPhotoCredit %}
+                    <span class="speaking-photo-credit">{{ speakingPage.heroPhotoCredit }}</span>
+                  {% endif %}
+                </figcaption>
+              {% endif %}
+            </figure>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% if speakingPage.logoGrid.length > 0 %}
+    <div class="speaking-logos">
+      {# <h2>{{ speakingPage.logoGridHeading or 'Featured organizations' }}</h2> #}
+      <ul class="speaking-logo-grid" aria-label="Organizations">
+        {% for logo in speakingPage.logoGrid %}
+          <li class="speaking-logo-item">
+            <img
+              src="{{ logo.imageUrl }}"
+              alt="{{ logo.image.alt }}"
+              loading="lazy"
+            />
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+    {% if speakingPage.checkAvailabilityEmail %}
+      <div class="medium-card-wrapper speaking-cta-wrapper">
+        <div class="speaking-cta card">
+          <div class="card-header">
+            <h3 style="color: var(--general-night-3);">{{ speakingPage.checkAvailabilityHeading or 'Check Availability' }}</h3>
+          </div>
+          <p>{{ speakingPage.contactNote or 'For interviews, media requests, or speaking events, please get in touch.' }}</p>
+            <a
+              class="btn btn--primary"
+              href="mailto:{{ speakingPage.checkAvailabilityEmail }}?subject={{ contactSubject }}"
+              rel="noopener"
+            >Email for speaking inquiries</a>
+        </div>
+      </div>
+    {% endif %}
+
+  {% if speakingPage.testimonials.length > 0 %}
+    <div class="speaking-testimonials">
+      <h2>{{ speakingPage.testimonialsHeading or 'Voices from the Community' }}</h2>
+      {% for testimonial in speakingPage.testimonials %}
+        <div class="speaking-review">
+          <p class="speaking-review-quote">{{ testimonial.quote }}</p>
+          {% if testimonial.sourceName or testimonial.sourceDetail %}
+            <em>
+              &mdash;
+              {% if testimonial.sourceName %}
+                {{ testimonial.sourceName }}
+              {% endif %}
+              {% if testimonial.sourceDetail %}
+                {% if testimonial.sourceName %}, {% endif %}{{ testimonial.sourceDetail }}
+              {% endif %}
+            </em>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if speakingPage.checkAvailabilityEmail %}
+    <div class="speaking-contact-repeat">
+      <p class="contact book-data">
+        <span class="data-label">Check availability:</span>
+        <a
+          href="mailto:{{ speakingPage.checkAvailabilityEmail }}?subject={{ contactSubject }}"
+          rel="noopener"
+        >{{ speakingPage.checkAvailabilityEmail }}</a>
+      </p>
+    </div>
+  {% endif %}
+  {% endif %}
+</section>

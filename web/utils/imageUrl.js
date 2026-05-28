@@ -25,6 +25,11 @@ function urlFor(source) {
       this._builder = this._builder.rect(left, top, width, height)
       return this
     },
+
+    fit(mode) {
+      this._builder = this._builder.fit(mode)
+      return this
+    },
     
     url() {
       const url = this._builder.url()

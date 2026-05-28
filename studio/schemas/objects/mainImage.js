@@ -29,8 +29,16 @@ export default {
   ],
   preview: {
     select: {
-      imageUrl: 'asset.url',
-      title: 'caption'
-    }
+      media: 'asset',
+      caption: 'caption',
+      alt: 'alt'
+    },
+    prepare({media, caption, alt}) {
+      return {
+        media,
+        title: caption || alt || 'Image',
+        subtitle: caption && alt ? alt : undefined
+      }
+    },
   }
 }
