@@ -12,9 +12,6 @@ eleventyComputed:
 
     {{ preorderPage.intro | markdownify | safe }}
     
-    <p>
-      <strong>{{ preorderPage.campaignDeadlineLabel }}</strong> {{ preorderPage.campaignDeadline }}
-    </p>
     <div class="medium-card-wrapper">
       <div class="card">
         <h3 class="data-label">
@@ -28,11 +25,16 @@ eleventyComputed:
         </p>
       </div>
     </div>
-    <h2>{{ preorderPage.faqsTitle }}</h2>
-    <ul class="faq">
-      {% for faq in preorderPage.faqs %}
-        <li><strong>{{ faq.question }}</strong><br> {{ faq.answer }}</li>
-      {% endfor %}
-    </ul>
+    <p>
+      <strong>{{ preorderPage.campaignDeadlineLabel }}</strong> {{ preorderPage.campaignDeadline }}
+    </p>  
+    <div class="preorder-faq-section">
+      <h2>{{ preorderPage.faqsTitle }}</h2>
+      <ul class="faq">
+        {% for faq in preorderPage.faqs %}
+          <li><strong>{{ faq.question }}</strong><br> {{ faq.answer }}</li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 </section>

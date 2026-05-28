@@ -2225,6 +2225,11 @@ section.newsleter div.newsletter-intro {
   grid-column: 3 / 11;
 }
 
+.preorder-faq-section {
+  border-bottom: 1px solid var(--general-night-3);
+  padding-bottom: 1.2rem;
+}
+
 /* section.event p {
   max-width: 60ch;
 } */
