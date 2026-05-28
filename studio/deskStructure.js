@@ -25,6 +25,7 @@ const hiddenDocTypes = listItem =>
     'saysaSays',
     'editingServices',
     'preorderPage',
+    'speakingPage',
   ].includes(listItem.getId())
 
 export default S =>
@@ -159,6 +160,13 @@ export default S =>
                     .title('Preorder page')
                     .schemaType('preorderPage')
                     .documentId('preorderPage')
+                .title('Speaking page')
+                .icon(FiFileText)
+                .child(
+                  S.editor()
+                    .title('Speaking page')
+                    .schemaType('speakingPage')
+                    .documentId('speakingPage')
                 )
             ])
         ),
