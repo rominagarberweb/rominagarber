@@ -24,6 +24,7 @@ const hiddenDocTypes = listItem =>
     'bioLinks',
     'saysaSays',
     'editingServices',
+    'preorderPage',
   ].includes(listItem.getId())
 
 export default S =>
@@ -149,6 +150,15 @@ export default S =>
                     .title('Editing services')
                     .schemaType('editingServices')
                     .documentId('editingServices')
+                ),
+              S.listItem()
+                .title('Preorder page')
+                .icon(FiFileText)
+                .child(
+                  S.editor()
+                    .title('Preorder page')
+                    .schemaType('preorderPage')
+                    .documentId('preorderPage')
                 )
             ])
         ),
