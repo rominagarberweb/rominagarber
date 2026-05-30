@@ -1,6 +1,7 @@
 const axios = require('axios')
 
 const INSTAGRAM_WEB_APP_ID = '936619743392459'
+const INSTAGRAM_FALLBACK_RETRY_DELAYS_MS = [1000, 3000, 7000]
 
 const params = {
   access_token: process.env.INSTAGRAM_ACCESS_TOKEN,
@@ -36,6 +37,15 @@ function mapPublicInstagramPost ({ node, username }) {
   }
 }
 
+function sleep (ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+function isRetryableInstagramError (err) {
+  const status = err && err.response ? err.response.status : null
+  return status === 429 || (status >= 500 && status < 600)
+}
+
 async function getPublicInstagramPosts ({ username, max_posts }) {
   const fallbackUsername = username || 'rominagarber'
 
@@ -44,36 +54,54 @@ async function getPublicInstagramPosts ({ username, max_posts }) {
     console.warn('\nINSTAGRAM_USERNAME is missing. Falling back to default username: rominagarber.')
   }
 
-  try {
-    const response = await axios.get(
-      `https://www.instagram.com/api/v1/users/web_profile_info/?username=${encodeURIComponent(fallbackUsername)}`,
-      {
-        headers: {
-          'x-ig-app-id': INSTAGRAM_WEB_APP_ID,
-          'x-requested-with': 'XMLHttpRequest',
-          'user-agent': 'Mozilla/5.0'
+  let lastError = null
+
+  for (let attempt = 0; attempt <= INSTAGRAM_FALLBACK_RETRY_DELAYS_MS.length; attempt++) {
+    try {
+      const response = await axios.get(
+        `https://www.instagram.com/api/v1/users/web_profile_info/?username=${encodeURIComponent(fallbackUsername)}`,
+        {
+          headers: {
+            'x-ig-app-id': INSTAGRAM_WEB_APP_ID,
+            'x-requested-with': 'XMLHttpRequest',
+            'user-agent': 'Mozilla/5.0',
+            referer: `https://www.instagram.com/${encodeURIComponent(fallbackUsername)}/`
+          },
+          timeout: 15000
         }
+      )
+
+      const edges = response.data &&
+        response.data.data &&
+        response.data.data.user &&
+        response.data.data.user.edge_owner_to_timeline_media &&
+        response.data.data.user.edge_owner_to_timeline_media.edges
+        ? response.data.data.user.edge_owner_to_timeline_media.edges
+        : []
+
+      return edges
+        .slice(0, max_posts)
+        .map(({ node }) => mapPublicInstagramPost({ node, username: fallbackUsername }))
+        .filter(Boolean)
+    } catch (err) {
+      lastError = err
+      if (!isRetryableInstagramError(err) || attempt === INSTAGRAM_FALLBACK_RETRY_DELAYS_MS.length) {
+        break
       }
-    )
 
-    const edges = response.data &&
-      response.data.data &&
-      response.data.data.user &&
-      response.data.data.user.edge_owner_to_timeline_media &&
-      response.data.data.user.edge_owner_to_timeline_media.edges
-      ? response.data.data.user.edge_owner_to_timeline_media.edges
-      : []
-
-    return edges
-      .slice(0, max_posts)
-      .map(({ node }) => mapPublicInstagramPost({ node, username: fallbackUsername }))
-      .filter(Boolean)
-  } catch (err) {
-    console.warn(
-      `\nCould not get instagram posts using temporary public fallback. Error status: ${err}`
-    )
-    return []
+      const waitMs = INSTAGRAM_FALLBACK_RETRY_DELAYS_MS[attempt]
+      const status = err.response ? err.response.status : 'unknown'
+      console.warn(
+        `\nInstagram public fallback got status ${status}. Retrying in ${waitMs}ms (attempt ${attempt + 1}/${INSTAGRAM_FALLBACK_RETRY_DELAYS_MS.length + 1}).`
+      )
+      await sleep(waitMs)
+    }
   }
+
+  console.warn(
+    `\nCould not get instagram posts using temporary public fallback. Error status: ${lastError}`
+  )
+  return []
 }
 
 async function getInstagramPosts ({ access_token, business_id, username, max_posts }) {
