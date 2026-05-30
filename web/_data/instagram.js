@@ -46,6 +46,71 @@ function isRetryableInstagramError (err) {
   return status === 429 || (status >= 500 && status < 600)
 }
 
+function getInstagramErrorDetails (err) {
+  const status = err && err.response ? err.response.status : 'unknown'
+  const payload = err && err.response && err.response.data
+    ? err.response.data
+    : null
+
+  const apiError = payload && payload.error ? payload.error : null
+  const type = apiError && apiError.type ? apiError.type : null
+  const code = apiError && typeof apiError.code !== 'undefined' ? apiError.code : null
+  const message = apiError && apiError.message ? apiError.message : (err && err.message ? err.message : String(err))
+
+  return {
+    status,
+    type,
+    code,
+    message
+  }
+}
+
+function mapGraphApiPost ({ post, username }) {
+  return {
+    media_url: post.media_url,
+    thumbnail_url: post.thumbnail_url || post.media_url,
+    caption: post.caption || '',
+    media_type: post.media_type,
+    like_count: post.like_count || null,
+    shortcode: post.shortcode || null,
+    timestamp: post.timestamp || null,
+    comments_count: post.comments_count || null,
+    username: post.username || username
+  }
+}
+
+async function getBusinessGraphPosts ({ access_token, business_id, username, max_posts }) {
+  if (!access_token || !business_id) {
+    return null
+  }
+
+  const response = await axios.get(
+    `https://graph.facebook.com/v8.0/${business_id}/media?fields=media_url,thumbnail_url,caption,media_type,like_count,shortcode,timestamp,comments_count,username&limit=${max_posts}&access_token=${access_token}`
+  )
+
+  const posts = response.data && response.data.data ? response.data.data : []
+  return posts
+    .slice(0, max_posts)
+    .map((post) => mapGraphApiPost({ post, username }))
+    .filter((post) => post.media_url)
+}
+
+async function getBasicDisplayGraphPosts ({ access_token, username, max_posts }) {
+  if (!access_token) {
+    return null
+  }
+
+  const response = await axios.get(
+    `https://graph.instagram.com/me/media?fields=media_url,thumbnail_url,caption,media_type,permalink,timestamp&limit=${max_posts}&access_token=${access_token}`
+  )
+
+  const posts = response.data && response.data.data ? response.data.data : []
+  return posts
+    .slice(0, max_posts)
+    .map((post) => mapGraphApiPost({ post: { ...post, shortcode: post.permalink }, username }))
+    .filter((post) => post.media_url)
+}
+
 async function getPublicInstagramPosts ({ username, max_posts }) {
   const fallbackUsername = username || 'rominagarber'
 
@@ -99,36 +164,45 @@ async function getPublicInstagramPosts ({ username, max_posts }) {
   }
 
   console.warn(
-    `\nCould not get instagram posts using temporary public fallback. Error status: ${lastError}`
+    `\nCould not get instagram posts using temporary public fallback. Details: ${JSON.stringify(getInstagramErrorDetails(lastError))}`
   )
   return []
 }
 
 async function getInstagramPosts ({ access_token, business_id, username, max_posts }) {
-  if (!access_token || !business_id) {
+  if (!access_token) {
     console.warn(
-      '\nINSTAGRAM_ACCESS_TOKEN or INSTAGRAM_BUSINESS_ID is missing. Using temporary public fallback.'
+      '\nINSTAGRAM_ACCESS_TOKEN is missing. Using temporary public fallback.'
     )
     return getPublicInstagramPosts({ username, max_posts })
   }
 
-  return axios
-    .get(`https://graph.facebook.com/v8.0/${business_id}/media?fields=media_url,thumbnail_url,caption,media_type,like_count,shortcode,timestamp,comments_count,username&limit=${max_posts}&access_token=${access_token}`)
-    .then(async (response) => {
-      const posts = []
-      posts.push(...response.data.data)
-      return posts
-    })
-    .catch(async (err) => {
+  if (business_id) {
+    try {
+      return await getBusinessGraphPosts({ access_token, business_id, username, max_posts })
+    } catch (err) {
+      const details = getInstagramErrorDetails(err)
       console.warn(
-        `\nCould not get instagram posts using the Graph API. Error status: ${err}`
+        `\nCould not get instagram posts using the Graph API business endpoint. Details: ${JSON.stringify(details)}`
       )
+    }
+  } else {
+    console.warn('\nINSTAGRAM_BUSINESS_ID is missing. Skipping Graph API business endpoint.')
+  }
 
-      console.warn(
-        '\nFalling back to temporary public instagram profile fetch.'
-      )
-      return getPublicInstagramPosts({ username, max_posts })
-    })
+  try {
+    return await getBasicDisplayGraphPosts({ access_token, username, max_posts })
+  } catch (err) {
+    const details = getInstagramErrorDetails(err)
+    console.warn(
+      `\nCould not get instagram posts using the Graph API basic display endpoint. Details: ${JSON.stringify(details)}`
+    )
+  }
+
+  console.warn(
+    '\nFalling back to temporary public instagram profile fetch.'
+  )
+  return getPublicInstagramPosts({ username, max_posts })
 }
 
 module.exports = getInstagramPosts(params)
