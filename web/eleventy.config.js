@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
