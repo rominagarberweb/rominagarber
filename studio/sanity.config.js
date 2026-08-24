@@ -22,7 +22,6 @@ const singletonTypes = new Set([
   'speakingPage',
   'siteSettings',
   'bioLinks',
-  'saysaSays',
   'editingServices'
 ])
 

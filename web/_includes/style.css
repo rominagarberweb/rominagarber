@@ -3459,3 +3459,36 @@ li.edition-item a {
 @media (max-width: 650px) {
   .booklist-link { max-width: none; aspect-ratio: 13 / 20; }
 }
+
+.simple-page-gate {
+  max-width: 28rem;
+  margin: 2rem 0 3rem;
+}
+
+.simple-page-gate__error {
+  color: var(--rho-cancer-3);
+  margin-top: 0.8rem;
+}
+
+.simple-page-downloads {
+  margin: 2rem 0;
+}
+
+.simple-page-downloads__list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.simple-page-image {
+  margin: 2rem 0;
+}
+
+.simple-page-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

@@ -1,0 +1,16 @@
+---
+layout: layouts/simple-page.njk
+pagination:
+  data: simplePages
+  size: 1
+  alias: simplePage
+  addAllPagesToCollections: true
+permalink: "{{ simplePage.slug.current }}/index.html"
+noIndex: true
+pageScripts:
+  - ../../scripts/simple-page-gate.js
+eleventyComputed:
+  pageTitle: "{{ simplePage.title }}"
+  metaDesc: "{{ simplePage.description }}"
+  socialImage: "{{ simplePage.socialImageUrl }}"
+---

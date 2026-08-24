@@ -17,10 +17,10 @@ import series from './documents/series'
 import siteSettings from './documents/siteSettings'
 import tip from './documents/tip'
 import bioLinks from './documents/bioLinks'
-import saysaSays from './documents/saysaSays'
 import editingServices from './documents/editingServices'
 import preorderPage from './documents/preorderPage'
 import speakingPage from './documents/speakingPage'
+import simplePage from './documents/simplePage'
 
 // Object types
 import authorReference from './objects/authorReference'
@@ -43,6 +43,13 @@ import tipReference from './objects/tipReference'
 import venue from './objects/venue'
 import serviceCard from './objects/serviceCard'
 import edition from './objects/edition'
+import ctaPortableText from './objects/ctaPortableText'
+import pageBuilder from './objects/pageBuilder'
+import textBlock from './objects/blocks/textBlock'
+import downloadItem from './objects/blocks/downloadItem'
+import downloadList from './objects/blocks/downloadList'
+import callToAction from './objects/blocks/callToAction'
+import imageBlock from './objects/blocks/imageBlock'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default [
@@ -65,10 +72,10 @@ export default [
   siteSettings,
   tip,
   bioLinks,
-  saysaSays,
   editingServices,
   preorderPage,
   speakingPage,
+  simplePage,
   // Object types - can be used as { type: 'typename' }
   // in document schemas
   authorReference,
@@ -90,5 +97,12 @@ export default [
   tipReference,
   venue,
   serviceCard,
-  edition
+  edition,
+  ctaPortableText,
+  pageBuilder,
+  textBlock,
+  downloadItem,
+  downloadList,
+  callToAction,
+  imageBlock
 ]
