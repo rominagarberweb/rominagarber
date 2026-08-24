@@ -5,12 +5,6 @@ export default {
   type: 'document',
   title: 'Agent',
   icon: MdHeadsetMic,
-  __experimental_actions: [
-    /* 'create', */
-    'update',
-    /* 'delete', */
-    'publish'
-  ],
   fields: [
     {
       name: 'name',

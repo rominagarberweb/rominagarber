@@ -2,12 +2,6 @@ export default {
   name: 'homePage',
   type: 'document',
   title: 'Home page',
-  __experimental_actions: [
-    /* 'create', */
-    'update',
-    /* 'delete', */
-    'publish'
-  ],
   fields: [
     {
       name: 'heroTitle',

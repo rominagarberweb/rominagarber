@@ -1,28 +1,47 @@
 import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
+import {structureTool} from 'sanity/structure'
+import {visionTool} from '@sanity/vision'
 import schemas from './schemas/schema'
 import deskStructure from './deskStructure'
 import {colorInput} from '@sanity/color-input'
 import {
   dashboardTool,
-  projectUsersWidget,
-  projectInfoWidget,
+  projectUsersWidget
 } from '@sanity/dashboard'
-import { netlifyWidget } from "sanity-plugin-dashboard-widget-netlify";
+import {netlifyWidget} from 'sanity-plugin-dashboard-widget-netlify'
+
+const singletonTypes = new Set([
+  'aboutPage',
+  'agent',
+  'publicist',
+  'blogPage',
+  'booksPage',
+  'eventsPage',
+  'homePage',
+  'preorderPage',
+  'speakingPage',
+  'siteSettings',
+  'bioLinks',
+  'saysaSays',
+  'editingServices'
+])
+
+const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
 
 export default defineConfig({
   title: 'rominagarbar',
   projectId: 'hic407cy',
   dataset: 'production',
   plugins: [
-    deskTool({
+    structureTool({
       structure: deskStructure
     }),
     colorInput(),
+    visionTool(),
     dashboardTool({
       widgets: [
         netlifyWidget({
-          layout: 'medium',
+          layout: {width: 'medium'},
           title: 'Website Deploy',
           sites: [
             // {
@@ -37,16 +56,23 @@ export default defineConfig({
               apiId: '888eddbc-bff0-4896-a29b-409fbf35dea8',
               buildHookId: '6424e735fa67466e2403b344',
               name: 'rominagarber',
-              url: 'https://rominagarber.netlify.app',
-            },
+              url: 'https://rominagarber.netlify.app'
+            }
           ]
         }),
-        // projectInfoWidget(),
-        projectUsersWidget({layout: 'medium'}),
+        projectUsersWidget({layout: {width: 'medium'}})
       ]
     })
   ],
+  document: {
+    actions: (input, context) =>
+      singletonTypes.has(context.schemaType)
+        ? input.filter(({action}) => action && singletonActions.has(action))
+        : input
+  },
   schema: {
-    types: schemas
+    types: schemas,
+    templates: (templates) =>
+      templates.filter(({schemaType}) => !singletonTypes.has(schemaType))
   }
 })

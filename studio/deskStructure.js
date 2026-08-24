@@ -84,7 +84,7 @@ export default S =>
                 .title('About page')
                 .icon(FiFileText)
                 .child(
-                  S.editor()
+                  S.document()
                     .title('About page')
                     .schemaType('aboutPage')
                     .documentId('aboutPage')
@@ -93,7 +93,7 @@ export default S =>
                 .title('Blog page')
                 .icon(FiFileText)
                 .child(
-                  S.editor()
+                  S.document()
                     .title('Blog page')
                     .schemaType('blogPage')
                     .documentId('blogPage')
@@ -102,7 +102,7 @@ export default S =>
                 .title('Books page')
                 .icon(FiFileText)
                 .child(
-                  S.editor()
+                  S.document()
                     .title('Books page')
                     .schemaType('booksPage')
                     .documentId('booksPage')
@@ -111,7 +111,7 @@ export default S =>
                 .title('Events page')
                 .icon(FiFileText)
                 .child(
-                  S.editor()
+                  S.document()
                     .title('Events page')
                     .schemaType('eventsPage')
                     .documentId('eventsPage')
@@ -120,7 +120,7 @@ export default S =>
                 .title('Home page')
                 .icon(FiFileText)
                 .child(
-                  S.editor()
+                  S.document()
                     .title('Home page')
                     .schemaType('homePage')
                     .documentId('homePage')
@@ -129,7 +129,7 @@ export default S =>
                 .title('Bio links page')
                 .icon(FiFileText)
                 .child(
-                  S.editor()
+                  S.document()
                     .title('Bio links page')
                     .schemaType('bioLinks')
                     .documentId('bioLinks')
@@ -138,7 +138,7 @@ export default S =>
                 .title('Saysa Says')
                 .icon(FiFileText)
                 .child(
-                  S.editor()
+                  S.document()
                     .title('Saysa Says')
                     .schemaType('saysaSays')
                     .documentId('saysaSays')
@@ -147,7 +147,7 @@ export default S =>
                 .title('Editing services')
                 .icon(FiFileText)
                 .child(
-                  S.editor()
+                  S.document()
                     .title('Editing services')
                     .schemaType('editingServices')
                     .documentId('editingServices')
@@ -156,7 +156,7 @@ export default S =>
                 .title('Preorder page')
                 .icon(FiFileText)
                 .child(
-                  S.editor()
+                  S.document()
                     .title('Preorder page')
                     .schemaType('preorderPage')
                     .documentId('preorderPage')
@@ -165,7 +165,7 @@ export default S =>
                 .title('Speaking page')
                 .icon(FiFileText)
                 .child(
-                  S.editor()
+                  S.document()
                     .title('Speaking page')
                     .schemaType('speakingPage')
                     .documentId('speakingPage')
@@ -204,7 +204,7 @@ export default S =>
                 .title('Agent')
                 .icon(MdHeadsetMic)
                 .child(
-                  S.editor()
+                  S.document()
                     .title('Agent')
                     .schemaType('agent')
                     .documentId('agent')
@@ -213,7 +213,7 @@ export default S =>
                 .title('Publicist')
                 .icon(MdHeadsetMic)
                 .child(
-                  S.editor()
+                  S.document()
                     .title('Publicist')
                     .schemaType('publicist')
                     .documentId('publicist')
