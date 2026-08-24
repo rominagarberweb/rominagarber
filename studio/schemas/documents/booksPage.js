@@ -4,12 +4,6 @@ export default {
   name: 'booksPage',
   type: 'document',
   title: 'Books page',
-  __experimental_actions: [
-    /* 'create', */
-    'update',
-    /* 'delete', */
-    'publish'
-  ],
   fields: [
     {
       name: 'genre',

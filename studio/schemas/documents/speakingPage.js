@@ -1,15 +1,7 @@
-import CustomQuickLinkComponent from '../components/customQuickLinkComponent'
-
 export default {
   name: 'speakingPage',
   type: 'document',
   title: 'Speaking page',
-  __experimental_actions: [
-    /* 'create', */
-    'update',
-    /* 'delete', */
-    'publish'
-  ],
   fields: [
     {
       name: 'title',

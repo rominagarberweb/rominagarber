@@ -2,12 +2,6 @@ export default {
   name: 'aboutPage',
   type: 'document',
   title: 'About page',
-  __experimental_actions: [
-    /* 'create', */
-    'update',
-    /* 'delete', */
-    'publish'
-  ],
   fields: [
     {
       name: 'mainImage',

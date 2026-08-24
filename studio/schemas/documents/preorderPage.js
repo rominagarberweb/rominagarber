@@ -2,12 +2,6 @@ export default {
   name: 'preorderPage',
   type: 'document',
   title: 'Preorder page',
-  __experimental_actions: [
-    /* 'create', */
-    'update',
-    /* 'delete', */
-    'publish'
-  ],
   fields: [
     {
       name: 'heroTitle',
