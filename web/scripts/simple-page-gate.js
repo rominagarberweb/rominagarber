@@ -26,7 +26,7 @@ if (gate) {
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault()
-    const value = (form.password.value || '').trim()
+    const value = (form.password.value || '').trim().toLowerCase()
     const hash = await sha256Hex(value)
     if (hash === expectedHash) {
       window.localStorage.setItem(storageKey, expectedHash)

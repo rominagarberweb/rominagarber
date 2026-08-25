@@ -19,9 +19,9 @@ const DEFAULT_GATE_UNLOCKS =
 const DEFAULT_GATE_HELP = "Don't have the password? Reach out to Romina on social."
 
 function hashPassword (password) {
-  const trimmed = (password || '').trim()
-  if (!trimmed) return null
-  return crypto.createHash('sha256').update(trimmed, 'utf8').digest('hex')
+  const normalized = (password || '').trim().toLowerCase()
+  if (!normalized) return null
+  return crypto.createHash('sha256').update(normalized, 'utf8').digest('hex')
 }
 
 function downloadHref (item) {

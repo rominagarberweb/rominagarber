@@ -3,7 +3,7 @@ import {FiFileText} from 'react-icons/fi'
 const defaultGateWhy =
   'This page is exclusive. Enter the password you were given to view it.'
 const defaultGateUnlocks =
-  'Once you unlock it, you can read the full page and use any downloads on it.'
+  'Once you unlock it, you can read the full page and use any downloads within.'
 const defaultGateHelp = "Don't have the password? Reach out to Romina on social."
 
 const reservedSlugs = [
@@ -122,12 +122,16 @@ export default {
       group: 'access',
       hidden: ({document}) => !document?.passwordProtected,
       description:
-        'Visitors must enter this before seeing the page. This is a simple lock for exclusive content, not encryption. Do not use it for personal data.',
+        'Lowercase letters and numbers only, with no spaces. This is a simple lock for exclusive content, not encryption. Do not use it for personal data.',
       validation: Rule =>
         Rule.custom((password, context) => {
           if (!context.document?.passwordProtected) return true
-          if (!(password || '').trim()) {
+          const value = (password || '').trim()
+          if (!value) {
             return 'Add a password or turn off password protection'
+          }
+          if (!/^[a-z0-9]+$/.test(value)) {
+            return 'Use lowercase letters and numbers only, with no spaces or special characters'
           }
           return true
         })
