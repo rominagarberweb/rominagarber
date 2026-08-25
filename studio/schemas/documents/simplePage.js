@@ -37,16 +37,19 @@ export default {
   icon: FiFileText,
   description:
     'Unlisted pages. They are not in the site navigation — share the URL (and password, if set) directly.',
-  fieldsets: [
+  groups: [
+    {
+      name: 'content',
+      title: 'Content',
+      default: true
+    },
     {
       name: 'seo',
-      title: 'SEO and sharing',
-      options: {collapsible: true, collapsed: false}
+      title: 'SEO and sharing'
     },
     {
       name: 'access',
-      title: 'Access',
-      options: {collapsible: true, collapsed: false}
+      title: 'Access'
     }
   ],
   fields: [
@@ -54,7 +57,8 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      validation: Rule => Rule.required()
+      validation: Rule => Rule.required(),
+      group: 'content'
     },
     {
       name: 'slug',
@@ -73,14 +77,22 @@ export default {
             return `"${value}" is already used by another page. Choose a different slug.`
           }
           return true
-        })
+        }),
+      group: 'content'
+    },
+    {
+      name: 'pageBuilder',
+      type: 'pageBuilder',
+      title: 'Page content',
+      validation: Rule => Rule.required().min(1),
+      group: 'content'
     },
     {
       name: 'description',
       type: 'text',
       title: 'Description',
       rows: 3,
-      fieldset: 'seo',
+      group: 'seo',
       description: 'Used for search and social sharing. Aim for under 160 characters.',
       validation: Rule => Rule.max(160)
     },
@@ -88,14 +100,14 @@ export default {
       name: 'socialImage',
       type: 'mainImage',
       title: 'Social image',
-      fieldset: 'seo',
+      group: 'seo',
       description: 'Image used when the page is shared'
     },
     {
       name: 'passwordProtected',
       type: 'boolean',
       title: 'Password protected',
-      fieldset: 'access',
+      group: 'access',
       initialValue: false,
       options: {
         layout: 'switch'
@@ -107,7 +119,7 @@ export default {
       name: 'password',
       type: 'string',
       title: 'Page password',
-      fieldset: 'access',
+      group: 'access',
       hidden: ({document}) => !document?.passwordProtected,
       description:
         'Visitors must enter this before seeing the page. This is a simple lock for exclusive content, not encryption. Do not use it for personal data.',
@@ -124,7 +136,7 @@ export default {
       name: 'gateWhy',
       type: 'text',
       title: 'Why it is locked',
-      fieldset: 'access',
+      group: 'access',
       rows: 3,
       initialValue: defaultGateWhy,
       hidden: ({document}) => !document?.passwordProtected
@@ -133,7 +145,7 @@ export default {
       name: 'gateUnlocks',
       type: 'text',
       title: 'What the password unlocks',
-      fieldset: 'access',
+      group: 'access',
       rows: 3,
       initialValue: defaultGateUnlocks,
       hidden: ({document}) => !document?.passwordProtected
@@ -142,16 +154,10 @@ export default {
       name: 'gateHelp',
       type: 'text',
       title: 'If they do not have the password',
-      fieldset: 'access',
+      group: 'access',
       rows: 3,
       initialValue: defaultGateHelp,
       hidden: ({document}) => !document?.passwordProtected
-    },
-    {
-      name: 'pageBuilder',
-      type: 'pageBuilder',
-      title: 'Page content',
-      validation: Rule => Rule.required().min(1)
     }
   ],
   preview: {
