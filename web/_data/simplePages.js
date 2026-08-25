@@ -15,7 +15,7 @@ function toMarkdown (value) {
 const DEFAULT_GATE_WHY =
   'This page is exclusive. Enter the password you were given to view it.'
 const DEFAULT_GATE_UNLOCKS =
-  'Once you unlock it, you can read the full page and use any downloads on it.'
+  'Once you unlock it, you can read the full page and use any downloads within.'
 const DEFAULT_GATE_HELP = "Don't have the password? Reach out to Romina on social."
 
 function hashPassword (password) {
@@ -65,7 +65,15 @@ function generateBlocks (blocks) {
   })
 }
 
-function generateSimplePage (page) {
+function firstText (...values) {
+  for (const value of values) {
+    const trimmed = (value || '').trim()
+    if (trimmed) return trimmed
+  }
+  return ''
+}
+
+function generateSimplePage (page, settings) {
   const passwordHash = hashPassword(page.password)
   return {
     _id: page._id,
@@ -73,11 +81,11 @@ function generateSimplePage (page) {
     slug: page.slug,
     description: page.description || '',
     socialImageUrl: page.socialImage ? imageUrl(page.socialImage).width(1200).url() : '',
-    isProtected: Boolean(passwordHash),
+    isProtected: Boolean(page.passwordProtected) && Boolean(passwordHash),
     passwordHash,
-    gateWhy: page.gateWhy || DEFAULT_GATE_WHY,
-    gateUnlocks: page.gateUnlocks || DEFAULT_GATE_UNLOCKS,
-    gateHelp: page.gateHelp || DEFAULT_GATE_HELP,
+    gateWhy: firstText(page.gateWhy, settings.gateWhy, DEFAULT_GATE_WHY),
+    gateUnlocks: firstText(page.gateUnlocks, settings.gateUnlocks, DEFAULT_GATE_UNLOCKS),
+    gateHelp: firstText(page.gateHelp, settings.gateHelp, DEFAULT_GATE_HELP),
     pageBuilder: generateBlocks(page.pageBuilder)
   }
 }
@@ -90,6 +98,7 @@ async function getSimplePages () {
     slug,
     description,
     password,
+    passwordProtected,
     gateWhy,
     gateUnlocks,
     gateHelp,
@@ -115,13 +124,20 @@ async function getSimplePages () {
       }
     }
   }`
+  const settingsQuery = groq`*[_id == "siteSettings"][0]{gateWhy, gateUnlocks, gateHelp}`
   const query = [filter, projection].join(' ')
-  const docs = await client.fetch(query).catch(err => {
-    console.error(err)
-    return []
-  })
+  const [docs, settings] = await Promise.all([
+    client.fetch(query).catch(err => {
+      console.error(err)
+      return []
+    }),
+    client.fetch(settingsQuery).catch(err => {
+      console.error(err)
+      return null
+    })
+  ])
   const reducedDocs = overlayDrafts(hasToken, docs || [])
-  return reducedDocs.map(generateSimplePage)
+  return reducedDocs.map(page => generateSimplePage(page, settings || {}))
 }
 
 module.exports = getSimplePages

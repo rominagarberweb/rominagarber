@@ -202,6 +202,15 @@ export default S =>
             .title('Settings')
             .items([
               S.listItem()
+                .title('Site Settings')
+                .icon(FiSettings)
+                .child(
+                  S.document()
+                    .title('Site Settings')
+                    .schemaType('siteSettings')
+                    .documentId('siteSettings')
+                ),
+              S.listItem()
                 .title('Agent')
                 .icon(MdHeadsetMic)
                 .child(

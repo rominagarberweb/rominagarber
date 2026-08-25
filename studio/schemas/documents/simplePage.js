@@ -1,34 +1,30 @@
 import {FiFileText} from 'react-icons/fi'
+import {initialGateCopy} from '../lib/simplePageGateCopy'
 
-const defaultGateWhy =
-  'This page is exclusive. Enter the password you were given to view it.'
-const defaultGateUnlocks =
-  'Once you unlock it, you can read the full page and use any downloads within.'
-const defaultGateHelp = "Don't have the password? Reach out to Romina on social."
-
-const reservedSlugs = [
-  'about',
-  'blog',
-  'books',
-  'editing',
-  'events',
-  'speaking',
-  'preorder',
-  'bioLinks',
-  'bioLinks',
-  'uploads',
-  'tips',
-  'series',
-  'posts',
-  'newsletter',
-  'success',
-  'success-editing-services',
-  'feed',
-  'images',
-  'fonts',
-  'scripts',
-  'pdfs'
-]
+const reservedSlugs = new Set(
+  [
+    'about',
+    'blog',
+    'books',
+    'editing',
+    'events',
+    'speaking',
+    'preorder',
+    'bioLinks',
+    'uploads',
+    'tips',
+    'series',
+    'posts',
+    'newsletter',
+    'success',
+    'success-editing-services',
+    'feed',
+    'images',
+    'fonts',
+    'scripts',
+    'pdfs'
+  ].map(slug => slug.toLowerCase())
+)
 
 export default {
   name: 'simplePage',
@@ -73,7 +69,7 @@ export default {
         Rule.required().custom(slug => {
           const value = slug && slug.current
           if (!value) return 'A slug is required'
-          if (reservedSlugs.includes(value)) {
+          if (reservedSlugs.has(value.toLowerCase())) {
             return `"${value}" is already used by another page. Choose a different slug.`
           }
           return true
@@ -113,7 +109,7 @@ export default {
         layout: 'switch'
       },
       description:
-        'Turn on to set a password and the message visitors see. The live page is locked when a password is saved.'
+        'Turn on to lock the page. Visitors must enter the password before they can read it.'
     },
     {
       name: 'password',
@@ -142,7 +138,7 @@ export default {
       title: 'Why it is locked',
       group: 'access',
       rows: 3,
-      initialValue: defaultGateWhy,
+      initialValue: initialGateCopy('gateWhy'),
       hidden: ({document}) => !document?.passwordProtected
     },
     {
@@ -151,7 +147,7 @@ export default {
       title: 'What the password unlocks',
       group: 'access',
       rows: 3,
-      initialValue: defaultGateUnlocks,
+      initialValue: initialGateCopy('gateUnlocks'),
       hidden: ({document}) => !document?.passwordProtected
     },
     {
@@ -160,7 +156,7 @@ export default {
       title: 'If they do not have the password',
       group: 'access',
       rows: 3,
-      initialValue: defaultGateHelp,
+      initialValue: initialGateCopy('gateHelp'),
       hidden: ({document}) => !document?.passwordProtected
     }
   ],
@@ -168,13 +164,15 @@ export default {
     select: {
       title: 'title',
       slug: 'slug.current',
-      password: 'password'
+      password: 'password',
+      passwordProtected: 'passwordProtected'
     },
-    prepare({title, slug, password}) {
+    prepare({title, slug, password, passwordProtected}) {
       const path = slug ? `/${slug}/` : '/…/'
+      const locked = passwordProtected && password
       return {
         title: title || 'Untitled',
-        subtitle: password ? `${path} · Password protected` : `${path} · Unlisted`
+        subtitle: locked ? `${path} · Password protected` : `${path} · Unlisted`
       }
     }
   }

@@ -88,3 +88,7 @@ templateClass: tmpl-about
     </article>
   </div>
 </section>
+
+{% if simplePage.isProtected %}
+  <script src="../../scripts/simple-page-gate.js" defer></script>
+{% endif %}
