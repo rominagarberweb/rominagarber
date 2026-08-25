@@ -13,6 +13,12 @@ templateClass: tmpl-about
       data-simple-page-gate
       data-slug="{{ simplePage.slug.current }}"
       data-password-hash="{{ simplePage.passwordHash }}">
+      {% if simplePage.gateWhy %}
+        <p>{{ simplePage.gateWhy }}</p>
+      {% endif %}
+      {% if simplePage.gateUnlocks %}
+        <p>{{ simplePage.gateUnlocks }}</p>
+      {% endif %}
       <form class="simple-page-gate__form" method="post" action=".">
         <label class="data-label" for="simple-page-password-{{ simplePage.slug.current }}">Password</label>
         <div class="email-form">
@@ -27,6 +33,10 @@ templateClass: tmpl-about
         </div>
         <p class="simple-page-gate__error" data-gate-error hidden>That password does not match. Try again.</p>
       </form>
+      {% if simplePage.gateHelp %}
+        <p>{{ simplePage.gateHelp }}</p>
+      {% endif %}
+      {% include "../components/social.njk" %}
     </div>
     {% endif %}
 

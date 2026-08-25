@@ -1016,7 +1016,8 @@ footer .footer-content {
 }
 
 footer .footer-content div ol.social-icons,
-section.biolinks ol.social-icons {
+section.biolinks ol.social-icons,
+.simple-page-gate ol.social-icons {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1024,7 +1025,8 @@ section.biolinks ol.social-icons {
 }
 
 footer .footer-content div ol.social-icons li,
-section.biolinks ol.social-icons li {
+section.biolinks ol.social-icons li,
+.simple-page-gate ol.social-icons li {
   margin-right: .8em;
   align-self: center;
 }
@@ -3465,8 +3467,15 @@ li.edition-item a {
 }
 
 .simple-page-gate {
-  max-width: 28rem;
   margin: 2rem 0 3rem;
+}
+
+.simple-page-gate .email-form {
+  max-width: 28rem;
+}
+
+.simple-page-gate ol.social-icons {
+  margin-top: 0.8rem;
 }
 
 .simple-page-content .end-mark {

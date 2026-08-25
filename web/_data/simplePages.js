@@ -12,6 +12,12 @@ function toMarkdown (value) {
   return BlocksToMarkdown(value, {serializers, ...client.config()})
 }
 
+const DEFAULT_GATE_WHY =
+  'This page is exclusive. Enter the password you were given to view it.'
+const DEFAULT_GATE_UNLOCKS =
+  'Once you unlock it, you can read the full page and use any downloads on it.'
+const DEFAULT_GATE_HELP = "Don't have the password? Reach out to Romina on social."
+
 function hashPassword (password) {
   const trimmed = (password || '').trim()
   if (!trimmed) return null
@@ -69,6 +75,9 @@ function generateSimplePage (page) {
     socialImageUrl: page.socialImage ? imageUrl(page.socialImage).width(1200).url() : '',
     isProtected: Boolean(passwordHash),
     passwordHash,
+    gateWhy: page.gateWhy || DEFAULT_GATE_WHY,
+    gateUnlocks: page.gateUnlocks || DEFAULT_GATE_UNLOCKS,
+    gateHelp: page.gateHelp || DEFAULT_GATE_HELP,
     pageBuilder: generateBlocks(page.pageBuilder)
   }
 }
@@ -81,6 +90,9 @@ async function getSimplePages () {
     slug,
     description,
     password,
+    gateWhy,
+    gateUnlocks,
+    gateHelp,
     socialImage,
     pageBuilder[] {
       _key,

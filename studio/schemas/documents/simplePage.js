@@ -1,5 +1,11 @@
 import {FiFileText} from 'react-icons/fi'
 
+const defaultGateWhy =
+  'This page is exclusive. Enter the password you were given to view it.'
+const defaultGateUnlocks =
+  'Once you unlock it, you can read the full page and use any downloads on it.'
+const defaultGateHelp = "Don't have the password? Reach out to Romina on social."
+
 const reservedSlugs = [
   'about',
   'blog',
@@ -86,12 +92,60 @@ export default {
       description: 'Image used when the page is shared'
     },
     {
+      name: 'passwordProtected',
+      type: 'boolean',
+      title: 'Password protected',
+      fieldset: 'access',
+      initialValue: false,
+      options: {
+        layout: 'switch'
+      },
+      description:
+        'Turn on to set a password and the message visitors see. The live page is locked when a password is saved.'
+    },
+    {
       name: 'password',
       type: 'string',
       title: 'Page password',
       fieldset: 'access',
+      hidden: ({document}) => !document?.passwordProtected,
       description:
-        'Optional. If set, visitors must enter this before seeing the page. This is a simple lock for exclusive content, not encryption. Do not use it for personal data.'
+        'Visitors must enter this before seeing the page. This is a simple lock for exclusive content, not encryption. Do not use it for personal data.',
+      validation: Rule =>
+        Rule.custom((password, context) => {
+          if (!context.document?.passwordProtected) return true
+          if (!(password || '').trim()) {
+            return 'Add a password or turn off password protection'
+          }
+          return true
+        })
+    },
+    {
+      name: 'gateWhy',
+      type: 'text',
+      title: 'Why it is locked',
+      fieldset: 'access',
+      rows: 3,
+      initialValue: defaultGateWhy,
+      hidden: ({document}) => !document?.passwordProtected
+    },
+    {
+      name: 'gateUnlocks',
+      type: 'text',
+      title: 'What the password unlocks',
+      fieldset: 'access',
+      rows: 3,
+      initialValue: defaultGateUnlocks,
+      hidden: ({document}) => !document?.passwordProtected
+    },
+    {
+      name: 'gateHelp',
+      type: 'text',
+      title: 'If they do not have the password',
+      fieldset: 'access',
+      rows: 3,
+      initialValue: defaultGateHelp,
+      hidden: ({document}) => !document?.passwordProtected
     },
     {
       name: 'pageBuilder',
