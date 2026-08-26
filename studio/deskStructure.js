@@ -22,7 +22,7 @@ const hiddenDocTypes = listItem =>
     'siteSettings',
     'tip',
     'bioLinks',
-    'saysaSays',
+    'simplePage',
     'editingServices',
     'preorderPage',
     'speakingPage',
@@ -72,6 +72,16 @@ export default S =>
             .filter('_type == $type')
             .params({type: 'event'})
             .menuItems(S.documentTypeList('event').getMenuItems())
+        ),
+      S.listItem()
+        .title('Simple pages')
+        .icon(FiFileText)
+        .schemaType('simplePage')
+        .child(
+          S.documentList('simplePage')
+            .title('Simple pages')
+            .filter('_type == $type')
+            .params({type: 'simplePage'})
         ),
       S.listItem()
         .title('Pages')
@@ -135,15 +145,6 @@ export default S =>
                     .documentId('bioLinks')
                 ),
               S.listItem()
-                .title('Saysa Says')
-                .icon(FiFileText)
-                .child(
-                  S.document()
-                    .title('Saysa Says')
-                    .schemaType('saysaSays')
-                    .documentId('saysaSays')
-                ),
-                S.listItem()
                 .title('Editing services')
                 .icon(FiFileText)
                 .child(
@@ -200,6 +201,15 @@ export default S =>
           S.list()
             .title('Settings')
             .items([
+              S.listItem()
+                .title('Site Settings')
+                .icon(FiSettings)
+                .child(
+                  S.document()
+                    .title('Site Settings')
+                    .schemaType('siteSettings')
+                    .documentId('siteSettings')
+                ),
               S.listItem()
                 .title('Agent')
                 .icon(MdHeadsetMic)

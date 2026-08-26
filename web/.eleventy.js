@@ -123,8 +123,9 @@ module.exports = function(eleventyConfig) {
   )
 
   eleventyConfig.addFilter("markdownify", function(value) {
+    if (value === undefined || value === null || value === '') return ''
     const md = new markdownIt(options)
-    return md.render(value)
+    return md.render(String(value))
   })
 
   eleventyConfig.addFilter("contrastColor", function(hexColor) {

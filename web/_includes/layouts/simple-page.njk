@@ -1,0 +1,93 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-about
+---
+
+<section class="simple-page">
+  <div class="simple-page-intro">
+    <h1>{{ simplePage.title }}</h1>
+
+    {% if simplePage.isProtected %}
+    <div
+      class="simple-page-gate"
+      data-simple-page-gate
+      data-slug="{{ simplePage.slug.current }}"
+      data-password-hash="{{ simplePage.passwordHash }}">
+      {% if simplePage.gateWhy %}
+        <p>{{ simplePage.gateWhy }}</p>
+      {% endif %}
+      {% if simplePage.gateUnlocks %}
+        <p>{{ simplePage.gateUnlocks }}</p>
+      {% endif %}
+      <form class="simple-page-gate__form" method="post" action=".">
+        <label class="data-label" for="simple-page-password-{{ simplePage.slug.current }}">Password</label>
+        <div class="email-form">
+          <input
+            class="email-field"
+            type="password"
+            id="simple-page-password-{{ simplePage.slug.current }}"
+            name="password"
+            autocomplete="current-password"
+            required>
+          <button class="inquiry-btn" type="submit">View page</button>
+        </div>
+        <p class="simple-page-gate__error" data-gate-error hidden>That password does not match. Try again.</p>
+      </form>
+      {% if simplePage.gateHelp %}
+        <p>{{ simplePage.gateHelp }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <article
+      class="simple-page-content"
+      id="simple-page-content"
+      {% if simplePage.isProtected %}hidden{% endif %}>
+      {% for block in simplePage.pageBuilder %}
+        {% if block._type == "textBlock" %}
+          {% if block.body %}
+            {{ block.body | markdownify | safe }}
+          {% endif %}
+          <div class="end-mark">§</div>
+        {% elif block._type == "downloadList" %}
+          <div class="simple-page-downloads">
+            {% if block.heading %}
+              <h2>{{ block.heading }}</h2>
+            {% endif %}
+            <ul class="simple-page-downloads__list">
+              {% for item in block.items %}
+                {% if item.href %}
+                  <li>
+                    <a class="btn" href="{{ item.href }}">
+                      {{ item.label }}{% if item.format and item.format != "other" %} ({{ item.format | upper }}){% endif %}
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% elif block._type == "callToAction" %}
+          <div class="card simple-page-cta">
+            <span aria-hidden="true">ⓘ</span>
+            <div>
+              {% if block.body %}
+                {{ block.body | markdownify | safe }}
+              {% endif %}
+            </div>
+          </div>
+        {% elif block._type == "imageBlock" and block.imageUrl %}
+          <figure class="simple-page-image">
+            <img src="{{ block.imageUrl }}" alt="{{ block.image.alt }}">
+            {% if block.image.caption %}
+              <figcaption><em>{{ block.image.caption }}</em></figcaption>
+            {% endif %}
+          </figure>
+        {% endif %}
+      {% endfor %}
+    </article>
+  </div>
+</section>
+
+{% if simplePage.isProtected %}
+  <script src="../../scripts/simple-page-gate.js" defer></script>
+{% endif %}

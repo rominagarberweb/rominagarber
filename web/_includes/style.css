@@ -2226,7 +2226,8 @@ section.newsleter div.newsletter-intro {
 }
 
 .events-intro,
-.newsletter-intro {
+.newsletter-intro,
+.simple-page-intro {
   grid-column: 3 / 11;
 }
 
@@ -2250,7 +2251,8 @@ section.event p a svg {
 }
 
 @media (max-width: 800px) {
-  .newsletter-intro {
+  .newsletter-intro,
+  .simple-page-intro {
     grid-column: 2 / 12;
   }
 }
@@ -2259,7 +2261,8 @@ section.event p a svg {
   section.event div.eventbanner  {
     border-radius: 0px;
   }
-  .newsletter-intro {
+  .newsletter-intro,
+  .simple-page-intro {
     grid-column: 1 / 13;
     margin-inline: 1rem;
   }
@@ -3175,6 +3178,7 @@ time {
 
 section.books,
 section.newsletter,
+section.simple-page,
 section.series {
   display: grid;
   padding: 2rem 0 5rem;
@@ -3458,4 +3462,58 @@ li.edition-item a {
 }
 @media (max-width: 650px) {
   .booklist-link { max-width: none; aspect-ratio: 13 / 20; }
+}
+
+.simple-page-gate {
+  margin: 2rem 0 3rem;
+}
+
+.simple-page-gate .email-form {
+  max-width: 28rem;
+}
+
+.simple-page-content .end-mark {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.simple-page-cta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+@media all and (max-width: 650px) {
+  .simple-page-intro article > * {
+    padding: 0;
+  }
+}
+
+.simple-page-gate__error {
+  color: var(--rho-cancer-3);
+  margin-top: 0.8rem;
+}
+
+.simple-page-downloads {
+  margin: 2rem 0;
+}
+
+.simple-page-downloads__list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.simple-page-image {
+  margin: 2rem 0;
+}
+
+.simple-page-image img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
