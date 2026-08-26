@@ -58,7 +58,7 @@ templateClass: tmpl-about
               {% for item in block.items %}
                 {% if item.href %}
                   <li>
-                    <a class="btn" href="{{ item.href }}">
+                    <a class="btn btn--secondary" href="{{ item.href }}">
                       {{ item.label }}{% if item.format and item.format != "other" %} ({{ item.format | upper }}){% endif %}
                     </a>
                   </li>
