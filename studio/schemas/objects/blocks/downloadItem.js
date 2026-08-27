@@ -21,7 +21,6 @@ export default {
         list: [
           {title: 'PDF', value: 'pdf'},
           {title: 'EPUB', value: 'epub'},
-          {title: 'MOBI', value: 'mobi'},
           {title: 'Other', value: 'other'}
         ],
         layout: 'radio'
