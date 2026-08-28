@@ -3476,6 +3476,8 @@ li.edition-item a {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  max-width: 66ch;
+  margin-inline: auto;
 }
 
 .simple-page-text h2 {
@@ -3485,6 +3487,19 @@ li.edition-item a {
 
 .simple-page-text h2:first-child {
   margin-block-start: 0;
+}
+
+.simple-page-content .simple-page-text > p {
+  margin: 0;
+  text-indent: 2.8em;
+  hanging-punctuation: first allow-end last;
+}
+
+.simple-page-content .simple-page-text > p:first-child,
+.simple-page-content .simple-page-text > p:first-of-type,
+.simple-page-content .simple-page-text > :is(h2, h3, h4) + p,
+.simple-page-content .simple-page-text > p:has(> img:only-child) {
+  text-indent: 0;
 }
 
 .simple-page-content .end-mark {
