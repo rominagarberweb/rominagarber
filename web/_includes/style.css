@@ -388,6 +388,22 @@ p:first-of-type {
   margin-top: .8em;
 }
 
+.pt-align-left,
+.pt-align-center,
+.pt-align-right {
+  display: block;
+}
+
+.pt-align-left { text-align: left; }
+.pt-align-center { text-align: center; }
+.pt-align-right { text-align: right; }
+
+.pt-lowercase { text-transform: lowercase; }
+.pt-uppercase { text-transform: uppercase; }
+.pt-capitalize { text-transform: capitalize; }
+.pt-small-caps { font-variant-caps: small-caps; }
+.pt-all-small-caps { font-variant-caps: all-small-caps; }
+
 li {
   margin: .4em 0;
 }
@@ -3498,7 +3514,9 @@ li.edition-item a {
 .simple-page-content .simple-page-text > p:first-child,
 .simple-page-content .simple-page-text > p:first-of-type,
 .simple-page-content .simple-page-text > :is(h2, h3, h4) + p,
-.simple-page-content .simple-page-text > p:has(> img:only-child) {
+.simple-page-content .simple-page-text > p:has(> img:only-child),
+.simple-page-content .simple-page-text > p:has(.pt-align-center),
+.simple-page-content .simple-page-text > p:has(.pt-align-right) {
   text-indent: 0;
 }
 
