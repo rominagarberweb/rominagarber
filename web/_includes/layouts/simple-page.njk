@@ -45,14 +45,16 @@ templateClass: tmpl-about
       {% if simplePage.isProtected %}hidden{% endif %}>
       {% for block in simplePage.pageBuilder %}
         {% if block._type == "textBlock" %}
-          {% if block.body %}
-            {{ block.body | markdownify | safe }}
-          {% endif %}
-          <div class="end-mark">§</div>
+          <div class="simple-page-text">
+            {% if block.body %}
+              {{ block.body | markdownify | safe }}
+            {% endif %}
+            <div class="end-mark">§</div>
+          </div>
         {% elif block._type == "downloadList" %}
-          <div class="simple-page-downloads">
+          <aside class="card simple-page-downloads">
             {% if block.heading %}
-              <h2>{{ block.heading }}</h2>
+              <p>{{ block.heading }}</p>
             {% endif %}
             <ul class="simple-page-downloads__list">
               {% for item in block.items %}
@@ -65,7 +67,7 @@ templateClass: tmpl-about
                 {% endif %}
               {% endfor %}
             </ul>
-          </div>
+          </aside>
         {% elif block._type == "callToAction" %}
           <div class="card simple-page-cta">
             <span aria-hidden="true">ⓘ</span>
