@@ -81,13 +81,13 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addFilter("readableDate", dateObj => {
-    options = { month: 'long', day: 'numeric', year: 'numeric' }
-    return new Date(dateObj).toLocaleString('en-US', options)
+    const dateOptions = { month: 'long', day: 'numeric', year: 'numeric' }
+    return new Date(dateObj).toLocaleString('en-US', dateOptions)
   })
 
   eleventyConfig.addFilter("readableTime", dateObj => {
-    options = { hour12: true, hour: '2-digit', minute: '2-digit' }
-    return new Date(dateObj).toLocaleString('en-US', options)
+    const timeOptions = { hour12: true, hour: '2-digit', minute: '2-digit' }
+    return new Date(dateObj).toLocaleString('en-US', timeOptions)
   })
 
   eleventyConfig.addFilter("eventsExcludePast", obj => {
@@ -107,7 +107,7 @@ module.exports = function(eleventyConfig) {
 
   let markdownIt = require("markdown-it")
   let markdownItAnchor = require("markdown-it-anchor")
-  let options = {
+  const markdownItOptions = {
     html: true,
     breaks: true,
     linkify: true
@@ -118,13 +118,13 @@ module.exports = function(eleventyConfig) {
     permalinkSymbol: "#"
   }
 
-  eleventyConfig.setLibrary("md", markdownIt(options)
+  eleventyConfig.setLibrary("md", markdownIt(markdownItOptions)
     .use(markdownItAnchor, opts)
   )
 
   eleventyConfig.addFilter("markdownify", function(value) {
     if (value === undefined || value === null || value === '') return ''
-    const md = new markdownIt(options)
+    const md = new markdownIt(markdownItOptions)
     return md.render(String(value))
   })
 
