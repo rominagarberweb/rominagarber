@@ -3525,6 +3525,23 @@ li.edition-item a {
   margin-block-start: 0;
 }
 
+.simple-page-content .simple-page-text > p:has(> img:only-child) {
+  margin-block-start: 3em;
+  margin-block-end: 1em;
+}
+
+.simple-page-content .simple-page-text > p:has(> img:only-child):first-child {
+  margin-block-start: 0;
+}
+
+.simple-page-content .simple-page-text > p:has(> img:only-child):has(+ :is(h2, h3, h4)) {
+  margin-block-start: 12em;
+}
+
+.simple-page-content .simple-page-text > p:has(> img:only-child) + :is(h2, h3, h4) {
+  margin-block-start: 0.6em;
+}
+
 .simple-page-content .simple-page-text > p {
   margin: 0;
   text-indent: 2.8em;
