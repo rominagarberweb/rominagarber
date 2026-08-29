@@ -3512,8 +3512,12 @@ li.edition-item a {
 }
 
 .simple-page-text h3 {
-  margin-block-start: 12em;
+  margin-block-start: 1.25em;
   margin-block-end: 1.25em;
+}
+
+.simple-page-text h3:not(h2 + h3) {
+  margin-block-start: 12em;
 }
 
 .simple-page-text h4 {
