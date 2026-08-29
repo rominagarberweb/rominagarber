@@ -3546,6 +3546,10 @@ li.edition-item a {
   margin-block-start: 0.6em;
 }
 
+.simple-page-content .simple-page-text > p:has(> img:only-child) + h2 + h3 {
+  margin-block-start: 12em;
+}
+
 .simple-page-content .simple-page-text > p {
   margin: 0;
   text-indent: 2.8em;
