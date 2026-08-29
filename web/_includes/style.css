@@ -3496,6 +3496,10 @@ li.edition-item a {
   margin-inline: auto;
 }
 
+.simple-page-content[hidden] {
+  display: none;
+}
+
 .simple-page-content :is(h1, h2, h3, h4) {
   font-family: sans-serif;
 }
