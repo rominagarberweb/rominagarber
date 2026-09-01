@@ -45,6 +45,7 @@ import serviceCard from './objects/serviceCard'
 import edition from './objects/edition'
 import ctaPortableText from './objects/ctaPortableText'
 import pageBuilder from './objects/pageBuilder'
+import introBlock from './objects/blocks/introBlock'
 import textBlock from './objects/blocks/textBlock'
 import downloadItem from './objects/blocks/downloadItem'
 import downloadList from './objects/blocks/downloadList'
@@ -100,6 +101,7 @@ export default [
   edition,
   ctaPortableText,
   pageBuilder,
+  introBlock,
   textBlock,
   downloadItem,
   downloadList,

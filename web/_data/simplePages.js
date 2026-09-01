@@ -34,7 +34,7 @@ function downloadHref (item) {
 
 function generateBlocks (blocks) {
   return (blocks || []).map(block => {
-    if (block._type === 'textBlock') {
+    if (block._type === 'textBlock' || block._type === 'introBlock') {
       return {
         ...block,
         body: toMarkdown(block.body)

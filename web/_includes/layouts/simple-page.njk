@@ -44,7 +44,13 @@ templateClass: tmpl-about
       id="simple-page-content"
       {% if simplePage.isProtected %}hidden{% endif %}>
       {% for block in simplePage.pageBuilder %}
-        {% if block._type == "textBlock" %}
+        {% if block._type == "introBlock" %}
+          <div class="simple-page-intro-text">
+            {% if block.body %}
+              {{ block.body | markdownify | safe }}
+            {% endif %}
+          </div>
+        {% elif block._type == "textBlock" %}
           <div class="simple-page-text">
             {% if block.body %}
               {{ block.body | markdownify | safe }}

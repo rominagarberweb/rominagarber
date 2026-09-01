@@ -3,6 +3,7 @@ export default {
   type: 'array',
   title: 'Page content',
   of: [
+    {type: 'introBlock'},
     {type: 'textBlock'},
     {type: 'downloadList'},
     {type: 'callToAction'},
