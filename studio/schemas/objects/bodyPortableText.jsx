@@ -1,5 +1,6 @@
 import React from 'react'
 import {FiAlignCenter, FiAlignLeft, FiAlignRight} from 'react-icons/fi'
+import {exclusiveDecoratorPlugins} from '../../plugins/pte/exclusiveDecorators'
 
 function AlignLeft({children}) {
   return <span style={{display: 'block', textAlign: 'left'}}>{children}</span>
@@ -41,6 +42,11 @@ export default {
   name: 'bodyPortableText',
   type: 'array',
   title: 'Post body',
+  components: {
+    portableText: {
+      plugins: exclusiveDecoratorPlugins
+    }
+  },
   of: [
     {
       type: 'block',

@@ -17,6 +17,7 @@
     "node": ">=22.12.0"
   },
   "dependencies": {
+    "@portabletext/editor": "^7.11.0",
     "@sanity/color-input": "^6.1.4",
     "@sanity/dashboard": "^6.0.18",
     "@sanity/vision": "^6.10.1",
