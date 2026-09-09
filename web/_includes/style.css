@@ -3582,7 +3582,7 @@ li.edition-item a {
 }
 
 @media all and (max-width: 650px) {
-  .simple-page-intro article > * {
+  .simple-page-intro article > *:not(.card) {
     padding: 0;
   }
 }
